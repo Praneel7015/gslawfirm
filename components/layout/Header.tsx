@@ -8,25 +8,26 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MobileMenu } from "./MobileMenu";
 
 /**
- * Sticky header. Transparent over the dark hero, then `.solid` once the
- * user has scrolled past the hero threshold (or when the page is not
- * the home page — see `alwaysSolid` prop).
+ * Sticky header. Transparent over the dark hero (home only), and
+ * always solid on every other route. Falls into the `.solid` state
+ * automatically once the user scrolls past the hero threshold.
  */
-export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
+export function Header() {
   const t = useTranslations("nav");
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (alwaysSolid) return;
+    if (!isHome) return;
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, [alwaysSolid]);
+  }, [isHome]);
 
-  const solid = alwaysSolid || scrolled;
+  const solid = !isHome || scrolled;
 
   const isActive = (href: string) => pathname === href;
 
