@@ -1305,7 +1305,233 @@ select:focus-visible {
 }
 .pi-foot-link:hover { color: var(--color-accent); border-color: var(--color-accent); gap: 18px; }
 
-/* ── Generic page-hero (About / Contact stubs) ────────────── */
+/* ─────────────────────────────────────────────────────────────
+   M5 — ABOUT / CONTACT / PRIVACY / DISCLAIMER PAGES
+   See project/styles.css (.about-hero, .about-symbol,
+   .about-story, .cp-hero, .cp-grid, .cp-cell) for source.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── ABOUT ────────────────────────────────────────────────── */
+.about-hero {
+  padding: 160px 80px 80px;
+  background: var(--color-bg);
+}
+.about-hero .eyebrow { display: block; margin-bottom: 36px; }
+.about-hero h1 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: clamp(48px, 9vw, 104px);
+  line-height: .98;
+  letter-spacing: -.04em;
+  margin: 0;
+  max-width: 1100px;
+  text-wrap: pretty;
+}
+
+.about-symbol {
+  background: #0a0a0a; color: #fff;
+  padding: 120px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-symbol .mark-big {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #fff;
+  opacity: .92;
+  -webkit-mask: url('/logo-mark.svg') center / contain no-repeat;
+          mask: url('/logo-mark.svg') center / contain no-repeat;
+}
+.about-symbol .text .eyebrow {
+  display: block;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 24px;
+}
+.about-symbol h2 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 48px;
+  line-height: .95;
+  letter-spacing: -.03em;
+  margin: 0 0 32px;
+  max-width: 640px;
+  text-wrap: pretty;
+}
+.about-symbol p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.7);
+  max-width: 480px;
+  margin: 0 0 18px;
+}
+
+.about-story {
+  padding: 120px 80px;
+  background: var(--color-bg);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 80px;
+}
+.about-story .col-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--color-muted);
+}
+.about-story-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-fg);
+  margin: 0 0 28px;
+  max-width: 720px;
+  text-wrap: pretty;
+}
+.about-story-content p:last-child { margin-bottom: 0; }
+.about-story-content p:first-child::first-letter {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 84px;
+  float: left;
+  line-height: .85;
+  margin: 6px 14px 0 0;
+  color: var(--color-accent);
+}
+
+/* ── CONTACT page-specific ────────────────────────────────── */
+.cp-hero {
+  padding: 160px 80px 100px;
+  background: var(--color-bg);
+}
+.cp-hero .eyebrow { display: block; margin-bottom: 36px; }
+.cp-hero h1 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: .98;
+  letter-spacing: -.04em;
+  margin: 0 0 32px;
+  max-width: 900px;
+}
+.cp-hero .lede {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--color-muted);
+  max-width: 540px;
+  margin: 0;
+}
+
+.cp-grid {
+  padding: 0 80px 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--color-hair);
+  border-top: 1px solid var(--color-fg);
+  border-bottom: 1px solid var(--color-fg);
+}
+.cp-cell {
+  background: var(--color-bg);
+  padding: 40px 40px 48px;
+}
+.cp-cell h2 {
+  font-family: var(--font-mono);
+  font-weight: var(--text-weight);
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 28px;
+}
+.cp-cell .big {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 28px;
+  letter-spacing: -.03em;
+  margin-bottom: 18px;
+  line-height: .98;
+  transition: color .2s ease;
+}
+.cp-cell p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-muted);
+  margin: 0;
+}
+.cp-cell a {
+  text-decoration: none;
+  color: var(--color-fg);
+}
+.cp-cell a:hover .big { color: var(--color-accent); }
+
+/* ── LEGAL (Privacy / Disclaimer) ─────────────────────────── */
+.legal-hero {
+  padding: 160px 80px 60px;
+  background: var(--color-bg);
+}
+.legal-hero .eyebrow { display: block; margin-bottom: 36px; }
+.legal-hero h1 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: clamp(44px, 7vw, 80px);
+  line-height: .98;
+  letter-spacing: -.04em;
+  margin: 0 0 20px;
+}
+.legal-hero .legal-updated {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 28px;
+}
+.legal-hero .lede {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 640px;
+  margin: 0;
+}
+.legal-body {
+  padding: 60px 80px 140px;
+  background: var(--color-bg);
+  max-width: 920px;
+}
+.legal-section {
+  padding: 32px 0;
+  border-top: .5px solid var(--color-hair);
+}
+.legal-section:last-of-type { border-bottom: .5px solid var(--color-hair); }
+.legal-section h2 {
+  font-family: var(--font-mono);
+  font-weight: var(--text-weight);
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 18px;
+}
+.legal-section p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-fg);
+  margin: 0;
+  max-width: 720px;
+  text-wrap: pretty;
+}
+.legal-para {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-fg);
+  margin: 0 0 24px;
+  max-width: 720px;
+  text-wrap: pretty;
+}
+.legal-footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-hair);
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ── Generic page-hero (kept for any remaining stub) ──────── */
 .page-hero {
   padding: 160px 80px 100px;
   background: var(--color-bg);
@@ -1359,6 +1585,15 @@ select:focus-visible {
   .pd-body { padding: 80px 32px; gap: 60px; }
   .pi-list { padding: 0 32px; }
   .pi-foot { padding: 80px 32px 120px; }
+
+  /* M5 — about / contact / legal */
+  .about-hero { padding: 140px 32px 70px; }
+  .about-symbol { padding: 80px 32px; gap: 48px; grid-template-columns: 1fr 1.4fr; }
+  .about-story { padding: 80px 32px; gap: 48px; grid-template-columns: 160px 1fr; }
+  .cp-hero { padding: 140px 32px 80px; }
+  .cp-grid { padding: 0 32px 100px; }
+  .legal-hero { padding: 140px 32px 50px; }
+  .legal-body { padding: 50px 32px 120px; }
 }
 
 /* ── Responsive: mobile (≤768px) ──────────────────────────── */
@@ -1489,6 +1724,43 @@ select:focus-visible {
     gap: 28px;
     align-items: flex-start;
   }
+
+  /* M5 — about / contact / legal */
+  .about-hero { padding: 110px 22px 50px; }
+  .about-hero h1 { font-size: 44px; }
+  .about-symbol {
+    padding: 70px 22px;
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .about-symbol .mark-big { width: 60%; margin: 0 auto; }
+  .about-symbol h2 { font-size: 28px; }
+  .about-symbol p { font-size: 14.5px; max-width: none; }
+  .about-story {
+    padding: 70px 22px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .about-story-content p { font-size: 15.5px; }
+  .about-story-content p:first-child::first-letter { font-size: 64px; margin: 4px 10px 0 0; }
+
+  .cp-hero { padding: 110px 22px 60px; }
+  .cp-hero h1 { font-size: 40px; }
+  .cp-hero .lede { font-size: 15px; }
+  .cp-grid {
+    padding: 0;
+    grid-template-columns: 1fr;
+    background: var(--color-hair);
+    gap: 1px;
+  }
+  .cp-cell { padding: 32px 22px 36px; }
+  .cp-cell .big { font-size: 24px; }
+
+  .legal-hero { padding: 110px 22px 40px; }
+  .legal-hero h1 { font-size: 40px; }
+  .legal-hero .lede { font-size: 15px; }
+  .legal-body { padding: 40px 22px 100px; }
+  .legal-section p, .legal-para { font-size: 14.5px; line-height: 1.65; }
 
   /* footer */
   .foot { padding: 70px 22px 120px; }

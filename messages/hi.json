@@ -88,6 +88,54 @@
       "rateLimit": "[TRANSLATION PENDING] You’ve sent several enquiries recently. Please try again in an hour."
     }
   },
+  "about": {
+    "eyebrow": "हमारे बारे में · GS Law Firm",
+    "heading": "[TRANSLATION PENDING] A small practice, kept small on purpose.",
+    "symbol": {
+      "eyebrow": "[TRANSLATION PENDING] On the mark",
+      "heading": "[TRANSLATION PENDING] The razorbill returns to the same cliff colony year after year — mating for life, hewing close to family.",
+      "body1": "[TRANSLATION PENDING] It is a quiet bird, not a striking one. It does not announce itself.",
+      "body2": "[TRANSLATION PENDING] We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning."
+    },
+    "story": {
+      "label": "[TRANSLATION PENDING] Founding · 2023",
+      "p1": "[TRANSLATION PENDING] The firm opened its doors in 2023 in Kondapur, Hyderabad.",
+      "p2": "[TRANSLATION PENDING] Adv. Sunitha Sindhole spent more than a decade in criminal and civil practice before founding the firm.",
+      "p3": "[TRANSLATION PENDING] The firm takes a small number of matters at any one time.",
+      "p4": "[TRANSLATION PENDING] This site exists to make finding us straightforward."
+    }
+  },
+  "contactPage": {
+    "eyebrow": "संपर्क · GS Law Firm",
+    "heading": "[TRANSLATION PENDING] Three ways to reach us.",
+    "lede": "[TRANSLATION PENDING] We answer the phone between 10 and 18 IST, Monday through Saturday.",
+    "phone": { "label": "[TRANSLATION PENDING] By Phone · 01", "note": "[TRANSLATION PENDING] Direct to the advocate, not a desk." },
+    "email": { "label": "[TRANSLATION PENDING] By Email · 02", "note": "[TRANSLATION PENDING] For longer enquiries or sharing documents." },
+    "inPerson": { "label": "[TRANSLATION PENDING] In Person · 03", "big": "Sri Ramnagar Block C", "note": "[TRANSLATION PENDING] Kondapur, Hyderabad 500 084. Appointments preferred." }
+  },
+  "privacy": {
+    "eyebrow": "गोपनीयता · GS Law Firm",
+    "heading": "[TRANSLATION PENDING] Privacy notice.",
+    "updated": "[TRANSLATION PENDING] Last updated · 28 May 2026",
+    "lede": "[TRANSLATION PENDING] This notice describes what we collect, why, and what we do with it.",
+    "sections": {
+      "collect": { "heading": "[TRANSLATION PENDING] What we collect", "body": "[TRANSLATION PENDING] See English version pending native translation." },
+      "use": { "heading": "[TRANSLATION PENDING] How we use it", "body": "[TRANSLATION PENDING] See English version pending native translation." },
+      "retention": { "heading": "[TRANSLATION PENDING] How long we keep it", "body": "[TRANSLATION PENDING] See English version pending native translation." },
+      "rights": { "heading": "[TRANSLATION PENDING] Your rights", "body": "[TRANSLATION PENDING] See English version pending native translation." },
+      "contact": { "heading": "[TRANSLATION PENDING] Questions", "body": "[TRANSLATION PENDING] See English version pending native translation." }
+    }
+  },
+  "disclaimerPage": {
+    "eyebrow": "Bar Council of India · नोटिस",
+    "heading": "[TRANSLATION PENDING] Disclaimer.",
+    "updated": "[TRANSLATION PENDING] In effect · 28 May 2026",
+    "p1": "[TRANSLATION PENDING] See English version pending native translation.",
+    "p2": "[TRANSLATION PENDING] See English version pending native translation.",
+    "p3": "[TRANSLATION PENDING] See English version pending native translation.",
+    "p4": "[TRANSLATION PENDING] See English version pending native translation.",
+    "p5": "[TRANSLATION PENDING] See English version pending native translation."
+  },
   "practiceIndex": {
     "eyebrow": "प्रैक्टिस · GS Law Firm",
     "heading": "कार्य क्षेत्र.",

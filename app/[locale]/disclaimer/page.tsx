@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
+
 import { firm } from "@/content/firm";
 
 export const metadata: Metadata = {
   title: `Disclaimer · ${firm.name}`,
-  description: "Bar Council of India advertising disclaimer for visitors to this site.",
+  description:
+    "Bar Council of India advertising disclaimer for visitors to the GS Law Firm website.",
 };
 
-/** Full BCI disclaimer text, mirroring the first-visit modal. */
+const PARAS = ["p1", "p2", "p3", "p4", "p5"] as const;
+
 export default async function DisclaimerPage({
   params,
 }: {
@@ -15,21 +18,25 @@ export default async function DisclaimerPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("disclaimer");
+  const t = await getTranslations("disclaimerPage");
 
   return (
     <main id="main">
-      <section className="page-hero">
-        <span className="eyebrow">{t("noticeEyebrow")}</span>
-        <h1>{t("heading")}</h1>
-        <div style={{ maxWidth: 720, marginTop: 32 }}>
-          <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--color-muted)", margin: "0 0 16px" }}>
-            {t("body1")}
+      <section className="legal-hero" aria-labelledby="disc-title">
+        <span className="eyebrow">{t("eyebrow")}</span>
+        <h1 id="disc-title">{t("heading")}</h1>
+        <p className="legal-updated">{t("updated")}</p>
+      </section>
+
+      <section className="legal-body" aria-label="Disclaimer text">
+        {PARAS.map((k) => (
+          <p key={k} className="legal-para">
+            {t(k)}
           </p>
-          <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--color-muted)", margin: "0 0 16px" }}>
-            {t("body2")}
-          </p>
-        </div>
+        ))}
+        <p className="legal-footer">
+          {firm.name} · {firm.address.city}, {firm.address.region}, India
+        </p>
       </section>
     </main>
   );
