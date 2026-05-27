@@ -1,0 +1,320 @@
+/* print.css — print-only layout for the GS Law Firm design PDF.
+   Targets A3 landscape so the desktop frame fits at a near-native size.
+   Tall content auto-flows across multiple PDF sheets. */
+
+@page {
+  size: A3 landscape;
+  margin: 14mm 12mm;
+}
+
+html, body {
+  background: #fff !important;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  letter-spacing: -0.04em;
+  color: #0c0c0c;
+}
+
+/* ── Print canvas wrapper ─────────────────────────────────────────────────── */
+.print-canvas {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ── Cover sheet ──────────────────────────────────────────────────────────── */
+.print-cover {
+  min-height: 1020px;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 80px 60px;
+  position: relative;
+  page-break-after: always;
+  break-after: page;
+}
+.print-cover-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #0c0c0c;
+  margin-bottom: auto;
+}
+.print-cover-head .pip {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(0,0,0,.7);
+}
+.print-cover-head .pip-mark {
+  width: 30px; height: 30px;
+  background-color: #0c0c0c;
+  -webkit-mask: url('assets/mark.svg') center / contain no-repeat;
+  mask: url('assets/mark.svg') center / contain no-repeat;
+}
+.print-cover-head .date {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(0,0,0,.5);
+}
+.print-cover-body {
+  margin: auto 0;
+}
+.print-cover h1 {
+  font-size: 144px;
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  font-weight: 300;
+  margin: 0 0 36px;
+  max-width: 1280px;
+  text-wrap: pretty;
+}
+.print-cover h1 .em { font-weight: 700; }
+.print-cover .lede {
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: rgba(0,0,0,.65);
+  max-width: 760px;
+  margin: 0;
+}
+.print-cover-foot {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #0c0c0c;
+  margin-top: 80px;
+}
+.print-cover-foot .cell {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.print-cover-foot .cell .k {
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(0,0,0,.5);
+}
+.print-cover-foot .cell .v {
+  font-size: 15px;
+  letter-spacing: -0.03em;
+  color: #0c0c0c;
+}
+
+/* ── Section pages ────────────────────────────────────────────────────────── */
+.print-section {
+  page-break-before: always;
+  break-before: page;
+  padding: 0;
+  margin-top: 0;
+}
+.print-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 16px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #0c0c0c;
+}
+.print-section-head .num {
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(0,0,0,.55);
+}
+.print-section-head .num b {
+  color: #0c0c0c; font-weight: 700; letter-spacing: 0.18em;
+}
+.print-section-head h2 {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  margin: 0;
+}
+.print-section-head .right {
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(0,0,0,.55);
+}
+
+/* ── Desktop print frame: native 1440 wide, slight shrink to fit page ───── */
+.print-frame-desktop {
+  width: 1500px;
+  margin: 0 auto;
+  position: relative;
+}
+.print-frame-desktop-shell {
+  width: 1500px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.05),
+    0 18px 36px -10px rgba(0,0,0,.10),
+    0 0 0 0.5px rgba(0,0,0,.08);
+  overflow: hidden;
+  break-inside: auto;
+}
+.print-frame-desktop-bar {
+  height: 34px;
+  background: #f6f4f0;
+  border-bottom: 0.5px solid rgba(0,0,0,.08);
+  display: flex; align-items: center; padding: 0 14px;
+  gap: 10px;
+}
+.print-frame-desktop-bar .dot {
+  width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,.12);
+}
+.print-frame-desktop-bar .url {
+  margin-left: 20px; height: 20px; flex: 1;
+  background: rgba(0,0,0,.05);
+  display: flex; align-items: center; padding: 0 12px;
+  font-size: 11.5px; color: rgba(0,0,0,.5);
+  letter-spacing: 0;
+}
+.print-frame-desktop-inner {
+  width: 1440px;
+  margin: 0 auto;
+}
+/* Slight scale to keep within A3 usable area when needed.
+   1440px ≈ 380mm, A3 landscape inner ≈ 396mm. Fits with margin. */
+
+/* ── Mobile print frame: native 390 wide, full content height ─────────────── */
+.print-frame-mobile {
+  width: 410px;
+  margin: 0 auto;
+  position: relative;
+  background: #0a0a0a;
+  border-radius: 48px;
+  padding: 10px;
+  box-shadow: 0 18px 36px -10px rgba(0,0,0,.18);
+  break-inside: auto;
+}
+.print-frame-mobile-screen {
+  width: 390px;
+  background: #fff;
+  border-radius: 38px;
+  overflow: hidden;
+  position: relative;
+  padding-top: 0;
+}
+.print-frame-mobile-notch {
+  position: absolute;
+  top: 14px; left: 50%; transform: translateX(-50%);
+  width: 100px; height: 28px; border-radius: 14px;
+  background: #0a0a0a;
+  z-index: 80;
+}
+.print-frame-mobile-status {
+  position: absolute; top: 0; left: 0; right: 0; height: 46px;
+  z-index: 70;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 28px 0;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--mobile-status, #0c0c0c);
+  pointer-events: none;
+}
+.print-frame-mobile-status .right-icons {
+  display: flex; gap: 4px; align-items: center;
+}
+.print-frame-mobile-status .signal {
+  width: 16px; height: 9px; background: currentColor;
+  mask: linear-gradient(to right, currentColor 0 60%, transparent 60% 70%, currentColor 70%);
+}
+.print-frame-mobile-status .battery {
+  width: 24px; height: 11px; border: 1.2px solid currentColor; border-radius: 3px;
+  position: relative;
+}
+.print-frame-mobile-status .battery::after {
+  content: ''; position: absolute; left: 1.5px; top: 1.5px;
+  width: 75%; height: calc(100% - 3px);
+  background: currentColor; border-radius: 1px;
+}
+
+/* Side-by-side desktop + mobile spread (used on overview pages) */
+.print-spread {
+  display: grid;
+  grid-template-columns: 1fr 410px;
+  gap: 40px;
+  align-items: start;
+}
+.print-spread .print-frame-desktop {
+  width: 1060px;
+  zoom: 0.7;
+}
+.print-spread .print-frame-desktop-shell {
+  width: 1500px;
+}
+/* zoom is honored by Chrome's print, but ensure transform fallback isn't applied */
+
+/* Caption strip above each frame */
+.print-cap {
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(0,0,0,.55);
+  margin-bottom: 12px;
+  display: flex; justify-content: space-between;
+}
+.print-cap b { color: #0c0c0c; font-weight: 700; }
+
+/* Section divider (decorative) */
+.print-divider {
+  display: flex;
+  align-items: center; gap: 16px;
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(0,0,0,.55);
+  margin: 28px 0;
+}
+.print-divider::before, .print-divider::after {
+  content: ''; flex: 1; height: 0.5px; background: rgba(0,0,0,.18);
+}
+
+/* Hide things that don't make sense in print */
+.print-canvas .wa,
+.print-canvas .mbar,
+.print-canvas .mobile-menu {
+  display: none !important;
+}
+.print-canvas .modal-scrim {
+  position: static !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+  inset: auto !important;
+  animation: none !important;
+}
+.print-canvas .modal {
+  margin: 0;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.05),
+    0 18px 36px -10px rgba(0,0,0,.10);
+}
+
+/* Force colors to print exactly as designed */
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Page break helpers */
+.page-break { break-before: page; page-break-before: always; }
+.no-break { break-inside: avoid; page-break-inside: avoid; }
+
+/* Active animations are pointless in print; freeze them */
+@media print {
+  *, *::before, *::after {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    transition: none !important;
+  }
+  /* Sticky elements within the site frames shouldn't stick across pages */
+  .site-header { position: relative !important; }
+  .pd-side { position: static !important; }
+}
+
+/* Screen rendering of the print page — neutral background so we can preview before printing */
+@media screen {
+  body { background: #e7e3da !important; padding: 30px 0; }
+  .print-section, .print-cover {
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 24px 60px -20px rgba(0,0,0,.10);
+    margin: 0 auto 30px;
+    max-width: 1520px;
+    padding: 50px 50px 60px;
+  }
+  .print-cover { padding: 50px 80px 60px; }
+}

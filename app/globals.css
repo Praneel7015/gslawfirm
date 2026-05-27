@@ -1,0 +1,129 @@
+/* ─────────────────────────────────────────────────────────────
+   GS Law Firm — globals
+   Tailwind v4 (CSS-first config via @theme).
+   Tokens & visual system: verbatim from Claude Design
+   (see ./project/styles.css). Build-prompt §4 maps 1:1.
+   ───────────────────────────────────────────────────────────── */
+
+@import "tailwindcss";
+
+/* ── Design tokens ────────────────────────────────────────────
+   Per build-prompt §4 + Claude Design.
+   Both accent options exposed as CSS vars so a single theme switch
+   can flip the site between oxblood and gold. The active accent is
+   driven by `--color-accent` (set in :root below).
+*/
+@theme {
+  /* Surface */
+  --color-ink: #0A0A0A;            /* near-black, body */
+  --color-paper: #FAFAF7;          /* off-white, paper */
+  --color-bg: #FFFFFF;             /* card / page bg */
+  --color-fg: #0c0c0c;             /* primary text */
+  --color-surface: #f6f4f0;        /* alt section surface */
+  --color-muted: #6B6B6B;
+  --color-line: #E5E5E0;
+  --color-hair: rgba(12,12,12,.12);
+
+  /* Accent (oxblood is the design default; gold is the alt). */
+  --color-accent: #6B0F1A;         /* oxblood — PRIMARY ACCENT, sparing */
+  --color-accent-alt: #B8924A;     /* muted gold — alternate */
+
+  /* Typography — Helvetica Neue (verbatim from Claude Design). */
+  --font-display: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+
+  /* Headline weight dial (Claude Design exposes Light/Regular/Bold; default Light). */
+  --headline-weight: 300;
+
+  /* Type scale (build-prompt §4). */
+  --text-14: 14px;
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-22: 22px;
+  --text-28: 28px;
+  --text-36: 36px;
+  --text-48: 48px;
+  --text-64: 64px;
+  --text-80: 80px;
+
+  /* Spacing extensions for editorial whitespace. */
+  --spacing-18: 4.5rem;   /* 72px */
+  --spacing-22: 5.5rem;   /* 88px */
+  --spacing-26: 6.5rem;   /* 104px */
+
+  /* Radius — sharp corners only (matches minimalist logo). */
+  --radius: 0;
+
+  /* No shadows — subtle 1px line dividers do the work. */
+}
+
+/* ── Root variables (runtime) ─────────────────────────────────
+   These are CSS variables (not Tailwind tokens) used by handwritten
+   site styles where atomic utilities would be noisier than the
+   editorial design calls for.
+*/
+:root {
+  --soft: rgba(12,12,12,.42);
+  --hair-strong: rgba(12,12,12,.22);
+}
+
+/* ── Reset / base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button { font: inherit; color: inherit; }
+a { color: inherit; }
+img, svg { display: block; max-width: 100%; }
+
+/* Skip-to-content (a11y, build-prompt §9). */
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: #0a0a0a; color: #fff;
+  padding: 14px 18px; z-index: 200;
+  font-size: 13px; letter-spacing: .06em;
+}
+.skip:focus { left: 8px; top: 8px; }
+
+/* Focus rings — 2px accent outline (build-prompt §9). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Reduced motion (build-prompt §9). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ── Razorbill mark glyph ─────────────────────────────────────
+   Single SVG source — color via currentColor through mask-image.
+   This is the technique used in Claude Design and we keep it.
+*/
+.mark {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask: url('/logo-mark.svg') center / contain no-repeat;
+          mask: url('/logo-mark.svg') center / contain no-repeat;
+}
