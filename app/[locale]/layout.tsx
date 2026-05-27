@@ -30,9 +30,12 @@ export const metadata: Metadata = {
     "A solo-advocate practice in Kondapur, Hyderabad. Criminal, civil, corporate, succession and High Court matters. Founded 2023.",
   alternates: {
     canonical: "/",
-    languages: Object.fromEntries(
-      routing.locales.map((l) => [l, `/${l}`]),
-    ),
+    languages: {
+      "x-default": "/",
+      en: "/",
+      te: "/te",
+      hi: "/hi",
+    },
   },
   openGraph: {
     type: "website",

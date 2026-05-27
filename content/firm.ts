@@ -22,6 +22,26 @@ export const firm = {
   mapsUrl: "https://maps.app.goo.gl/HVwsKMdryv2yUWnn7",
   linkedin: "https://www.linkedin.com/in/sunitha-sindhole-074939212/",
   tagline: "For your peace of mind. Forever.",
+  /**
+   * Neighbourhoods we'll list under `areaServed` in LocalBusiness /
+   * LegalService JSON-LD. Listed roughly in order of proximity to
+   * Kondapur — Google parses this list for local-pack ranking and
+   * "lawyers near me" intent matching.
+   */
+  areasServed: [
+    "Kondapur",
+    "Gachibowli",
+    "Madhapur",
+    "Hi-Tech City",
+    "Kothaguda",
+    "Manikonda",
+    "Jubilee Hills",
+    "Banjara Hills",
+    "Nanakramguda",
+    "Financial District",
+    "Hyderabad",
+    "Secunderabad",
+  ],
 } as const;
 
 export type Firm = typeof firm;

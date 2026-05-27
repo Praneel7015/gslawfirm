@@ -2,12 +2,17 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { firm } from "@/content/firm";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Privacy · ${firm.name}`,
   description:
     "Privacy notice for visitors to the GS Law Firm website. What we collect, why, and how to ask for it back.",
-};
+  path: "/privacy",
+});
 
 const SECTION_KEYS = ["collect", "use", "retention", "rights", "contact"] as const;
 
@@ -20,8 +25,14 @@ export default async function PrivacyPage({
   setRequestLocale(locale);
   const t = await getTranslations("privacy");
 
+  const ld = breadcrumbSchema([
+    { name: "Home", url: SITE_URL },
+    { name: "Privacy", url: `${SITE_URL}/privacy` },
+  ]);
+
   return (
     <main id="main">
+      <JsonLd data={ld} />
       <section className="legal-hero" aria-labelledby="priv-title">
         <span className="eyebrow">{t("eyebrow")}</span>
         <h1 id="priv-title">{t("heading")}</h1>

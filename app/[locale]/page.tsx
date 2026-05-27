@@ -8,6 +8,14 @@ import { Founder } from "@/components/sections/Founder";
 import { Location } from "@/components/sections/Location";
 import { ContactForm } from "@/components/sections/ContactForm";
 
+import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  graphSchema,
+  legalServiceSchema,
+  personSchema,
+  websiteSchema,
+} from "@/lib/jsonld";
+
 export default async function HomePage({
   params,
 }: {
@@ -16,8 +24,15 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const ld = graphSchema([
+    legalServiceSchema(),
+    personSchema(),
+    websiteSchema(),
+  ]);
+
   return (
     <main id="main">
+      <JsonLd data={ld} />
       <Hero />
       <IntroStrip />
       <Practice />

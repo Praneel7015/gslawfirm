@@ -5,12 +5,17 @@ import { Link } from "@/i18n/routing";
 import { firm } from "@/content/firm";
 import { practiceAreas } from "@/content/practice-areas";
 import { PracticeIcon } from "@/components/brand/practice-icons";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Practice · ${firm.name}`,
   description:
     "Five areas, one advocate. Criminal, civil, corporate, succession and High Court matters in Hyderabad.",
-};
+  path: "/practice",
+});
 
 export default async function PracticeIndexPage({
   params,
@@ -21,8 +26,14 @@ export default async function PracticeIndexPage({
   setRequestLocale(locale);
   const t = await getTranslations("practiceIndex");
 
+  const ld = breadcrumbSchema([
+    { name: "Home", url: SITE_URL },
+    { name: "Practice", url: `${SITE_URL}/practice` },
+  ]);
+
   return (
     <main id="main">
+      <JsonLd data={ld} />
       <section className="pd-hero pd-index-hero" aria-labelledby="pi-title">
         <span className="eyebrow">{t("eyebrow")}</span>
         <h1 id="pi-title">{t("heading")}</h1>

@@ -4,12 +4,17 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { firm } from "@/content/firm";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Location } from "@/components/sections/Location";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, graphSchema, placeSchema } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Contact · ${firm.name}`,
   description:
     "Three ways to reach us. Phone, email, or in person at Sri Ramnagar Block C, Kondapur, Hyderabad.",
-};
+  path: "/contact",
+});
 
 export default async function ContactPage({
   params,
@@ -20,8 +25,17 @@ export default async function ContactPage({
   setRequestLocale(locale);
   const t = await getTranslations("contactPage");
 
+  const ld = graphSchema([
+    placeSchema(),
+    breadcrumbSchema([
+      { name: "Home", url: SITE_URL },
+      { name: "Contact", url: `${SITE_URL}/contact` },
+    ]),
+  ]);
+
   return (
     <main id="main">
+      <JsonLd data={ld} />
       <section className="cp-hero" aria-labelledby="cp-title">
         <span className="eyebrow">{t("eyebrow")}</span>
         <h1 id="cp-title">{t("heading")}</h1>

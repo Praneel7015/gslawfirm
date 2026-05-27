@@ -7,6 +7,14 @@ import { routing } from "@/i18n/routing";
 import { firm } from "@/content/firm";
 import { practiceAreas, getPracticeArea } from "@/content/practice-areas";
 import { PracticeIcon } from "@/components/brand/practice-icons";
+import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  breadcrumbSchema,
+  graphSchema,
+  serviceSchema,
+} from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -22,10 +30,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const area = getPracticeArea(slug);
   if (!area) return {};
-  return {
+  return pageMetadata({
     title: `${area.name} · ${firm.name}`,
     description: area.oneLine,
-  };
+    path: `/practice/${area.slug}`,
+  });
 }
 
 export default async function PracticeDetailPage({
@@ -42,8 +51,18 @@ export default async function PracticeDetailPage({
   const t = await getTranslations("practiceDetail");
   const adjacent = practiceAreas.filter((a) => a.slug !== area.slug);
 
+  const ld = graphSchema([
+    serviceSchema(area, locale),
+    breadcrumbSchema([
+      { name: "Home", url: SITE_URL },
+      { name: "Practice", url: `${SITE_URL}/practice` },
+      { name: area.name, url: `${SITE_URL}/practice/${area.slug}` },
+    ]),
+  ]);
+
   return (
     <main id="main">
+      <JsonLd data={ld} />
       {/* ── HERO ────────────────────────────────────────────────── */}
       <section className="pd-hero" aria-labelledby="pd-title">
         <nav className="crumb" aria-label="Breadcrumb">
