@@ -8,6 +8,12 @@ import { helveticaNeue } from "@/lib/fonts";
 import { SITE_URL } from "@/lib/site";
 import { firm } from "@/content/firm";
 
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { DisclaimerModal } from "@/components/legal/DisclaimerModal";
+import { WhatsAppFab } from "@/components/legal/WhatsAppFab";
+import { MobileStickyBar } from "@/components/legal/MobileStickyBar";
+
 function isLocale(value: string): value is Locale {
   return (routing.locales as readonly string[]).includes(value);
 }
@@ -80,7 +86,12 @@ export default async function LocaleLayout({
           Skip to content
         </a>
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header />
           {children}
+          <Footer />
+          <WhatsAppFab />
+          <MobileStickyBar />
+          <DisclaimerModal />
         </NextIntlClientProvider>
       </body>
     </html>
