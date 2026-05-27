@@ -188,31 +188,41 @@ select:focus-visible {
   display: flex; align-items: center;
   gap: 28px;
 }
-.nav a {
+/* Underline animation applies only to plain text links — NOT to the
+   Consult pill or the language switcher (which is a <button>). */
+.nav a:not(.btn-consult) {
   text-decoration: none;
   font-size: 13.5px; letter-spacing: .02em;
   position: relative; padding: 4px 0;
 }
-.nav a::after {
+.nav a:not(.btn-consult)::after {
   content: '';
   position: absolute; left: 0; right: 0; bottom: -2px; height: 1px;
   background: currentColor;
   transform: scaleX(0); transform-origin: left;
   transition: transform .25s ease;
 }
-.nav a:hover::after, .nav a.active::after { transform: scaleX(1); }
+.nav a:not(.btn-consult):hover::after,
+.nav a:not(.btn-consult).active::after {
+  transform: scaleX(1);
+}
 
 .btn-consult {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 9px 16px;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 18px;
   border: 1px solid currentColor;
   border-radius: 999px;
   font-size: 12.5px; letter-spacing: .04em;
+  line-height: 1;
   background: transparent; cursor: pointer;
   text-decoration: none;
+  white-space: nowrap;
   transition: background .2s ease, color .2s ease;
 }
-.btn-consult:hover { background: currentColor; color: var(--color-bg); }
+.btn-consult:hover {
+  background: currentColor;
+  color: var(--color-bg);
+}
 .site-header:not(.solid) .btn-consult:hover { color: #0a0a0a; }
 
 /* Hamburger (mobile only) */
@@ -264,21 +274,34 @@ select:focus-visible {
 
 /* ── Language switcher (inline trio) ─────────────────────── */
 .lang {
-  display: inline-flex; align-items: center; gap: 0;
+  display: inline-flex; align-items: center;
   font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .14em;
+  /* Small negative margin tightens the gap to the next nav item
+     (the .nav gap is 28px, which is too airy after the switcher). */
+  margin-right: -8px;
 }
-.lang-row { display: inline-flex; align-items: center; gap: 0; }
-.lang .sep { margin: 0 6px; opacity: .35; }
+.lang-row { display: inline-flex; align-items: center; }
+.lang .sep {
+  margin: 0 7px;
+  opacity: .35;
+  font-size: 10px;
+  user-select: none;
+}
 .lang-btn {
   appearance: none; background: transparent; border: 0;
   padding: 4px 2px; cursor: pointer;
   color: currentColor; opacity: .55;
   transition: opacity .2s ease;
   font: inherit;
+  line-height: 1;
 }
 .lang-btn:hover { opacity: 1; }
-.lang-btn.is-active { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+.lang-btn.is-active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 .lang-btn:disabled { cursor: progress; }
 
 /* ── Footer ─────────────────────────────────────────────── */
