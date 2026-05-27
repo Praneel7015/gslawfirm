@@ -217,13 +217,25 @@ select:focus-visible {
   background: transparent; cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
-  transition: background .2s ease, color .2s ease;
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
 }
-.btn-consult:hover {
-  background: currentColor;
+/* Hover: fill the pill, flip text to the background color.
+   We write the two header contexts explicitly because `currentColor`
+   resolves AFTER cascade (it would see the post-hover color and produce
+   text-on-same-color = invisible). */
+.site-header:not(.solid) .btn-consult:hover {
+  background: #ffffff;
+  color: #0a0a0a;
+  border-color: #ffffff;
+}
+.site-header.solid .btn-consult:hover {
+  background: var(--color-fg);
   color: var(--color-bg);
+  border-color: var(--color-fg);
 }
-.site-header:not(.solid) .btn-consult:hover { color: #0a0a0a; }
 
 /* Hamburger (mobile only) */
 .ham {
