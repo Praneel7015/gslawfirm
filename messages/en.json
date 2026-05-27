@@ -84,7 +84,8 @@
     },
     "errors": {
       "generic": "Something went wrong. Please call +91 99638 47704 or write to sunitha@sindhole.com.",
-      "rateLimit": "You’ve sent several enquiries recently. Please try again in an hour."
+      "rateLimit": "You’ve sent several enquiries recently. Please try again in an hour.",
+      "challenge": "We couldn’t verify this submission. Please refresh the page and try again, or call +91 99638 47704."
     }
   },
   "about": {

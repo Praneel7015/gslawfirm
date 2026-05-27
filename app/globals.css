@@ -1004,6 +1004,14 @@ select:focus-visible {
   letter-spacing: .04em;
 }
 
+.turnstile-row {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: .5px solid var(--color-hair);
+}
+.turnstile-widget { display: block; min-height: 0; }
+.turnstile-widget:empty { display: none; }
+
 .form-success {
   padding: 28px 0;
   border-top: 1px solid var(--color-fg);

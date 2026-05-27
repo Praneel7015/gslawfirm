@@ -1,20 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
+
 import { leadSchema, type LeadInput } from "@/lib/lead-schema";
+import {
+  TurnstileWidget,
+  isTurnstileConfigured,
+} from "@/components/legal/TurnstileWidget";
 
 /**
- * Contact form (M3 — UI + validation only). Backend wiring to
- * /api/lead → Supabase + Resend lands in M6; for now we surface a
- * UX-correct success state.
+ * Contact form (M6). Posts to /api/lead → Resend (notification email)
+ * with IP rate-limit + optional Cloudflare Turnstile challenge.
+ *
+ * Surfaces three distinct error states to the user:
+ *   - field validation (inline, per-field)
+ *   - rate-limit (429) — "you've sent several recently"
+ *   - generic failure — "call/email us instead"
  */
 export function ContactForm() {
   const t = useTranslations("contact");
   const [submitted, setSubmitted] = useState<LeadInput | null>(null);
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<
+    null | "rate-limit" | "challenge" | "generic"
+  >(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const {
     register,
@@ -26,16 +38,46 @@ export function ContactForm() {
     mode: "onTouched",
   });
 
+  const handleToken = useCallback((token: string | null) => {
+    setTurnstileToken(token);
+  }, []);
+
   const onSubmit = async (data: LeadInput) => {
     setSubmitError(null);
-    // M6 will replace this with: await fetch("/api/lead", { ... })
     try {
-      await new Promise((r) => setTimeout(r, 400));
-      setSubmitted(data);
+      const r = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, turnstileToken }),
+      });
+
+      if (r.ok) {
+        setSubmitted(data);
+        return;
+      }
+      if (r.status === 429) {
+        setSubmitError("rate-limit");
+        return;
+      }
+      if (r.status === 400) {
+        // Turnstile or honeypot-shaped — treat as challenge failure.
+        setSubmitError("challenge");
+        return;
+      }
+      setSubmitError("generic");
     } catch {
-      setSubmitError(t("errors.generic"));
+      setSubmitError("generic");
     }
   };
+
+  const errorMessage =
+    submitError === "rate-limit"
+      ? t("errors.rateLimit")
+      : submitError === "challenge"
+        ? t("errors.challenge")
+        : submitError === "generic"
+          ? t("errors.generic")
+          : null;
 
   return (
     <section className="contact" id="contact">
@@ -134,6 +176,13 @@ export function ContactForm() {
               )}
             </div>
 
+            {/* Turnstile — renders nothing if site key isn't configured. */}
+            {isTurnstileConfigured() && (
+              <div className="turnstile-row">
+                <TurnstileWidget onToken={handleToken} />
+              </div>
+            )}
+
             <div className="form-foot">
               <button className="btn-submit" type="submit" disabled={isSubmitting}>
                 {t("submit")} <span aria-hidden="true">→</span>
@@ -141,9 +190,9 @@ export function ContactForm() {
               <div className="form-disclaim">{t("disclaim")}</div>
             </div>
 
-            {submitError && (
+            {errorMessage && (
               <p className="field-err" role="alert" style={{ marginTop: 16 }}>
-                {submitError}
+                {errorMessage}
               </p>
             )}
           </form>

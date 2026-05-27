@@ -13,6 +13,8 @@ import { Footer } from "@/components/layout/Footer";
 import { DisclaimerModal } from "@/components/legal/DisclaimerModal";
 import { WhatsAppFab } from "@/components/legal/WhatsAppFab";
 import { MobileStickyBar } from "@/components/legal/MobileStickyBar";
+import { CloudflareAnalytics } from "@/components/analytics/CloudflareAnalytics";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 function isLocale(value: string): value is Locale {
   return (routing.locales as readonly string[]).includes(value);
@@ -93,6 +95,8 @@ export default async function LocaleLayout({
           <MobileStickyBar />
           <DisclaimerModal />
         </NextIntlClientProvider>
+        <CloudflareAnalytics />
+        <GoogleAnalytics />
       </body>
     </html>
   );

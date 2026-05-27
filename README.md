@@ -50,7 +50,7 @@ Operational docs live in [`docs/`](docs/):
 |---|---|
 | [`CLOUDFLARE_SETUP.md`](docs/CLOUDFLARE_SETUP.md) | First-time setup of DNS, Email Routing, Resend domain verification, and optional Turnstile / Web Analytics / Bot Fight Mode on Cloudflare. Read before first deploy. |
 | [`DOMAIN_MIGRATION.md`](docs/DOMAIN_MIGRATION.md) | The eventual cut-over from `sunitha.sindhole.com` to `gslawfirm.in`. Read when the new domain is procured. |
-| [`BACKEND_SETUP.md`](docs/BACKEND_SETUP.md) | *(added in M6)* — Resend domain verification + Upstash rate-limit setup. Read before going live with the contact form. |
+| [`BACKEND_SETUP.md`](docs/BACKEND_SETUP.md) | End-to-end contact form pipeline: Resend (email), Upstash (rate limit), Turnstile (bot challenge), analytics decision. Read before going live with the contact form. |
 
 The `build-prompt.md` at the project root is the original spec — kept
 in-repo as a reference, not a live document.
@@ -61,8 +61,10 @@ in-repo as a reference, not a live document.
 - **Styling**: Tailwind CSS v4 with `@theme` design tokens (see `app/globals.css`)
 - **i18n**: `next-intl` v3 — `en` (default, no prefix), `te`, `hi`
 - **Forms**: `react-hook-form` + `zod` (schema in `lib/lead-schema.ts`)
-- **Email**: Resend *(wired in M6)*
-- **Rate limit**: Upstash Redis *(wired in M6, falls back to in-memory)*
+- **Email**: Resend — lead notifications to the founder's inbox
+- **Rate limit**: Upstash Redis (5/h/IP); in-memory fallback if unset
+- **Bot challenge**: Cloudflare Turnstile (optional — purely additive)
+- **Analytics**: Cloudflare Web Analytics (primary, cookie-less). GA4 wired but disabled by default.
 - **Lead storage**: **none** — leads forward straight to the founder's inbox via Resend. No DB.
 
 ## Domain & email — current setup
@@ -76,15 +78,23 @@ in-repo as a reference, not a live document.
 
 Copy `.env.example` → `.env.local` for local dev, or set in Vercel's
 project settings for deployed environments. See `.env.example` for the
-authoritative list; minimum required for production are:
+authoritative list.
+
+**Required for production launch:**
 
 - `NEXT_PUBLIC_SITE_URL` — canonical URL (only changes during domain migration)
 - `RESEND_API_KEY` + `RESEND_FROM` + `LEAD_NOTIFY_TO` — contact form notifications
-- `NEXT_PUBLIC_GA_ID` — Google Analytics 4 measurement ID
+- `NEXT_PUBLIC_CF_ANALYTICS_TOKEN` — Cloudflare Web Analytics token (primary analytics)
 - `NEXT_PUBLIC_GSC_VERIFICATION` — Google Search Console verification token
 
-Upstash keys (`UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`) are
-optional — the rate limiter falls back to in-memory if they're unset.
+**Optional (improves the deployment):**
+
+- `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` — distributed rate limiter; without these, falls back to in-memory per-lambda
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY` — bot challenge on the contact form
+
+**Disabled by default:**
+
+- `NEXT_PUBLIC_GA_ID` — Google Analytics 4. Enable only after wiring a DPDP-compliant consent banner. See `docs/BACKEND_SETUP.md` §"Analytics decision".
 
 ## BCI compliance
 
