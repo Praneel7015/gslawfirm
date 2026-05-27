@@ -9,6 +9,12 @@ compliant copy, server-side rendered for SEO.
 - **Future domain**: `gslawfirm.in` — see [`docs/DOMAIN_MIGRATION.md`](docs/DOMAIN_MIGRATION.md)
 - **Repository**: <https://github.com/Praneel7015/gslawfirm>
 
+> 🚀 **Deploying for the first time?** Start with
+> [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) — a 90-minute
+> walkthrough from zero accounts to a live site with a working
+> contact form. Covers Vercel, Cloudflare DNS, Resend, optional
+> spam protection, analytics, and Google Business Profile.
+
 ---
 
 ## Quick start
