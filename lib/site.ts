@@ -1,7 +1,7 @@
 /**
  * Canonical site URL — change ONLY NEXT_PUBLIC_SITE_URL when migrating
- * from sunitha.sindhol.com to gslawfirm.in.
+ * from sunitha.sindhole.com to gslawfirm.in. See docs/DOMAIN_MIGRATION.md.
  */
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://sunitha.sindhol.com";
+  "https://sunitha.sindhole.com";

@@ -16,7 +16,7 @@ export const firm = {
   phoneE164: "+919963847704",
   whatsapp: "919963847704",
   email: "sunithags@gmail.com",
-  publicEmail: "hello@gslawfirm.in",
+  publicEmail: "sunithags@gmail.com",
   hours: "Monday–Saturday · 10:00 AM – 6:00 PM",
   hoursShort: "Mon–Sat · 10:00–18:00 IST",
   mapsUrl: "https://maps.app.goo.gl/HVwsKMdryv2yUWnn7",

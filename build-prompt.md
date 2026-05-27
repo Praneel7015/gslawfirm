@@ -20,7 +20,7 @@ Build the production website for **GS LAW FIRM** — a solo-advocate legal pract
 - **Analytics**: Google Analytics 4 + Google Search Console verification meta tag (use env vars, don't hardcode)
 - **Hosting target**: Vercel (configure `vercel.json` for ISR + edge headers). Client may move to Cloudflare Pages later — keep the build framework-agnostic enough that this is a no-op.
 - **Domain**:
-  - **Initial**: `sunitha.sindhol.com` (subdomain — confirm DNS is owned by client)
+  - **Initial**: `sunitha.sindhole.com` (subdomain — confirm DNS is owned by client)
   - **Future**: `gslawfirm.in` (client will procure later; design env vars and canonical URLs so the migration is one env var change + a 301 redirect rule)
 - **Node version**: pin in `.nvmrc` to `20`.
 
@@ -260,6 +260,6 @@ Execute in this order. **Stop and report after each milestone** — don't run al
 - Real Supabase + Resend wiring, not stubs.
 - Lighthouse ≥95 mobile.
 - All 3 languages routable even if long-form copy isn't translated yet.
-- Canonical URL driven by `NEXT_PUBLIC_SITE_URL` so the future move from `sunitha.sindhol.com` → `gslawfirm.in` is one env var change.
+- Canonical URL driven by `NEXT_PUBLIC_SITE_URL` so the future move from `sunitha.sindhole.com` → `gslawfirm.in` is one env var change.
 
 **Begin with M1. Confirm the accent color choice with me (oxblood vs gold) at the end of M1 before proceeding.**
