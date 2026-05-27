@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+
 import { Link } from "@/i18n/routing";
 import { firm } from "@/content/firm";
 import { practiceAreas } from "@/content/practice-areas";
+import { PracticeIcon } from "@/components/brand/practice-icons";
 
 export const metadata: Metadata = {
   title: `Practice · ${firm.name}`,
-  description: "Five areas, one advocate. Criminal, civil, corporate, succession and High Court matters.",
+  description:
+    "Five areas, one advocate. Criminal, civil, corporate, succession and High Court matters in Hyderabad.",
 };
 
-/** Stub index — full detail pages live in M4. */
 export default async function PracticeIndexPage({
   params,
 }: {
@@ -17,21 +19,40 @@ export default async function PracticeIndexPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("practiceIndex");
+
   return (
     <main id="main">
-      <section className="page-hero">
-        <span className="eyebrow">Practice · {firm.name}</span>
-        <h1>Areas of work.</h1>
-        <p className="lede">Five areas, one advocate. Each matter receives the same attention from first hearing to final order.</p>
-        <ul className="coming-soon" style={{ listStyle: "none", padding: 0, marginTop: 60 }}>
-          {practiceAreas.map((a) => (
-            <li key={a.slug} style={{ padding: "18px 0", borderTop: "1px solid var(--color-hair)" }}>
-              <Link href={`/practice/${a.slug}` as never} style={{ textDecoration: "none" }}>
-                {a.num} · {a.name} →
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <section className="pd-hero pd-index-hero" aria-labelledby="pi-title">
+        <span className="eyebrow">{t("eyebrow")}</span>
+        <h1 id="pi-title">{t("heading")}</h1>
+        <p className="lede">{t("lede")}</p>
+        <span className="pd-hero-mark" aria-hidden="true" />
+      </section>
+
+      <section className="pi-list" aria-label="Practice areas">
+        {practiceAreas.map((a) => (
+          <Link key={a.slug} href={`/practice/${a.slug}` as never} className="pi-row">
+            <span className="pi-num">{a.num}</span>
+            <span className="pi-icon" aria-hidden="true">
+              <PracticeIcon slug={a.slug} size={32} />
+            </span>
+            <div className="pi-text">
+              <h2>{a.name}</h2>
+              <p>{a.oneLine}</p>
+            </div>
+            <span className="pi-arrow" aria-hidden="true">
+              →
+            </span>
+          </Link>
+        ))}
+      </section>
+
+      <section className="pi-foot">
+        <p>{t("footnote")}</p>
+        <Link href="/contact" className="pi-foot-link">
+          Send a brief note <span aria-hidden="true">→</span>
+        </Link>
       </section>
     </main>
   );

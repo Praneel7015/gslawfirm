@@ -88,6 +88,25 @@
       "rateLimit": "[TRANSLATION PENDING] You’ve sent several enquiries recently. Please try again in an hour."
     }
   },
+  "practiceIndex": {
+    "eyebrow": "प्रैक्टिस · GS Law Firm",
+    "heading": "कार्य क्षेत्र.",
+    "lede": "[TRANSLATION PENDING] Five areas, one advocate. Each matter receives the same attention from first hearing to final order.",
+    "footnote": "[TRANSLATION PENDING] Don’t see your matter listed? Many cases sit between two areas. Send a brief note and we’ll tell you whether we are the right firm for it."
+  },
+  "practiceDetail": {
+    "crumbHome": "होम",
+    "crumbPractice": "प्रैक्टिस",
+    "handleHeading": "[TRANSLATION PENDING] What we handle",
+    "cta": {
+      "headingPrefix": "[TRANSLATION PENDING] Discuss your",
+      "headingSuffix": "matter in confidence.",
+      "body": "[TRANSLATION PENDING] A first conversation, by phone or in office, with no obligation.",
+      "action": "[TRANSLATION PENDING] Request a consultation"
+    },
+    "adjacent": "[TRANSLATION PENDING] Adjacent areas",
+    "footer": "[TRANSLATION PENDING] Every matter is taken on after a frank first conversation."
+  },
   "footer": {
     "blurb": "[TRANSLATION PENDING] A solo-advocate practice in Kondapur, Hyderabad. Founded 2023.",
     "columns": {

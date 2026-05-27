@@ -1026,7 +1026,286 @@ select:focus-visible {
 }
 .form-success p { font-size: 14px; color: var(--color-muted); margin: 0; }
 
-/* ── Generic page-hero (About / Practice / Contact stubs) ─── */
+/* ─────────────────────────────────────────────────────────────
+   M4 — PRACTICE INDEX + DETAIL PAGES
+   See ./project/styles.css (.pd-hero, .pd-body, .pd-content,
+   .pd-side, .pd-cta, .pd-adj) for the design source of truth.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── PD HERO ──────────────────────────────────────────────── */
+.pd-hero {
+  background: #0a0a0a; color: #fff;
+  padding: 160px 80px 100px;
+  position: relative;
+  overflow: hidden;
+}
+.pd-hero .crumb {
+  display: flex; gap: 10px; align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+.pd-hero .crumb a {
+  color: inherit; text-decoration: none;
+  transition: color .2s ease;
+}
+.pd-hero .crumb a:hover { color: #fff; }
+.pd-hero .crumb .current { color: #fff; }
+.pd-hero h1 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: .9;
+  letter-spacing: -.04em;
+  margin: 0 0 32px;
+  max-width: 900px;
+  position: relative; z-index: 2;
+}
+.pd-hero .lede {
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.72);
+  max-width: 640px;
+  margin: 0;
+  position: relative; z-index: 2;
+}
+.pd-hero-mark {
+  position: absolute;
+  right: -60px; bottom: -60px;
+  width: 520px; height: 520px;
+  background-color: #fff;
+  opacity: .06;
+  -webkit-mask: url('/logo-mark.svg') center / contain no-repeat;
+          mask: url('/logo-mark.svg') center / contain no-repeat;
+  pointer-events: none;
+}
+.pd-index-hero .eyebrow {
+  color: rgba(255,255,255,.55);
+  display: block;
+  margin-bottom: 36px;
+}
+
+/* ── PD BODY (2-col with sticky side) ─────────────────────── */
+.pd-body {
+  padding: 120px 80px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 100px;
+  background: var(--color-bg);
+}
+.pd-content p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-fg);
+  margin: 0 0 24px;
+  max-width: 620px;
+}
+.pd-content p.pd-lede {
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--color-fg);
+  margin-bottom: 36px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.pd-lede-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 4px;
+  display: inline-flex;
+}
+.pd-handle {
+  margin-top: 60px;
+  border-top: 1px solid var(--color-fg);
+  padding-top: 32px;
+}
+.pd-handle h2 {
+  font-family: var(--font-mono);
+  font-weight: var(--text-weight);
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 28px;
+}
+.pd-handle ul {
+  list-style: none; padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 36px;
+}
+.pd-handle li {
+  padding: 14px 0;
+  border-bottom: .5px solid var(--color-hair);
+  font-size: 14.5px;
+  display: flex; gap: 16px; align-items: baseline;
+}
+.pd-handle li .li-num {
+  font-family: var(--font-mono);
+  font-size: 11px; color: var(--soft);
+  min-width: 24px;
+}
+.pd-footnote {
+  margin-top: 60px !important;
+  padding-top: 24px;
+  border-top: .5px solid var(--color-hair);
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+  color: var(--color-muted) !important;
+  max-width: 620px;
+}
+
+/* ── PD side rail ─────────────────────────────────────────── */
+.pd-side {
+  position: sticky;
+  top: 120px;
+  display: flex; flex-direction: column; gap: 32px;
+  align-self: start;
+}
+.pd-cta {
+  background: #0a0a0a; color: #fff;
+  padding: 40px 32px;
+}
+.pd-cta h3 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 24px;
+  line-height: .95;
+  letter-spacing: -.03em;
+  margin: 0 0 14px;
+}
+.pd-cta p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.65);
+  margin: 0 0 28px;
+}
+.pd-cta-link {
+  text-decoration: none; color: #fff;
+  display: inline-flex; align-items: center; gap: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,.4);
+  font-size: 13px; letter-spacing: .02em;
+  transition: border-color .25s ease, gap .25s ease;
+}
+.pd-cta-link:hover { gap: 18px; border-color: #fff; }
+
+.pd-adj h3 {
+  font-family: var(--font-mono);
+  font-weight: var(--text-weight);
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 18px;
+}
+.pd-adj ul { list-style: none; padding: 0; margin: 0; }
+.pd-adj li {
+  border-top: .5px solid var(--color-hair);
+  padding: 18px 0;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pd-adj li:last-child { border-bottom: .5px solid var(--color-hair); }
+.pd-adj li > span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--soft);
+}
+.pd-adj a {
+  text-decoration: none;
+  font-size: 15px;
+  flex: 1;
+  color: var(--color-fg);
+  transition: color .2s ease;
+}
+.pd-adj a:hover { color: var(--color-accent); }
+
+/* ── PRACTICE INDEX (list view) ───────────────────────────── */
+.pi-list {
+  padding: 0 80px;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-fg);
+}
+.pi-row {
+  display: grid;
+  grid-template-columns: 60px 56px 1fr 32px;
+  gap: 32px;
+  align-items: center;
+  padding: 36px 0;
+  border-bottom: .5px solid var(--color-hair);
+  text-decoration: none;
+  color: var(--color-fg);
+  transition: background .2s ease, padding-left .2s ease;
+}
+.pi-row:hover {
+  background: #0a0a0a;
+  color: #fff;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.pi-num {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: .18em;
+  color: var(--soft);
+}
+.pi-row:hover .pi-num { color: rgba(255,255,255,.5); }
+.pi-icon {
+  color: var(--color-accent);
+  display: inline-flex;
+  transition: color .2s ease;
+}
+.pi-row:hover .pi-icon { color: #fff; }
+.pi-text h2 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 32px;
+  line-height: .95;
+  letter-spacing: -.03em;
+  margin: 0 0 8px;
+}
+.pi-text p {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--color-muted);
+  margin: 0;
+  max-width: 580px;
+}
+.pi-row:hover .pi-text p { color: rgba(255,255,255,.7); }
+.pi-arrow {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--soft);
+  text-align: right;
+  transition: transform .25s ease, color .2s ease;
+}
+.pi-row:hover .pi-arrow {
+  color: #fff;
+  transform: translateX(6px);
+}
+.pi-foot {
+  padding: 100px 80px 140px;
+  background: var(--color-bg);
+  display: grid; grid-template-columns: 1fr auto; gap: 60px;
+  align-items: center;
+}
+.pi-foot p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-muted);
+  max-width: 520px;
+  margin: 0;
+}
+.pi-foot-link {
+  text-decoration: none;
+  color: var(--color-fg);
+  font-size: 14px; letter-spacing: .02em;
+  display: inline-flex; align-items: center; gap: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-fg);
+  transition: gap .25s ease, color .2s ease;
+}
+.pi-foot-link:hover { color: var(--color-accent); border-color: var(--color-accent); gap: 18px; }
+
+/* ── Generic page-hero (About / Contact stubs) ────────────── */
 .page-hero {
   padding: 160px 80px 100px;
   background: var(--color-bg);
@@ -1073,6 +1352,13 @@ select:focus-visible {
   .foot-top { grid-template-columns: 1fr 1fr; gap: 48px; }
   .founder { gap: 60px; }
   .contact { gap: 60px; }
+
+  /* M4 — practice */
+  .pd-hero { padding: 140px 32px 80px; }
+  .pd-hero-mark { width: 360px; height: 360px; right: -40px; bottom: -40px; }
+  .pd-body { padding: 80px 32px; gap: 60px; }
+  .pi-list { padding: 0 32px; }
+  .pi-foot { padding: 80px 32px 120px; }
 }
 
 /* ── Responsive: mobile (≤768px) ──────────────────────────── */
@@ -1163,6 +1449,46 @@ select:focus-visible {
   .page-hero { padding: 110px 22px 60px; }
   .page-hero h1 { font-size: 44px; }
   .page-hero .lede { font-size: 15px; }
+
+  /* M4 — practice detail + index */
+  .pd-hero { padding: 110px 22px 60px; }
+  .pd-hero .crumb { margin-bottom: 36px; }
+  .pd-hero h1 { font-size: 44px; margin-bottom: 24px; }
+  .pd-hero .lede { font-size: 15.5px; }
+  .pd-hero-mark { width: 280px; height: 280px; right: -50px; bottom: 30px; }
+  .pd-body {
+    padding: 60px 22px;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .pd-content p { font-size: 15px; }
+  .pd-content p.pd-lede { font-size: 17px; gap: 18px; }
+  .pd-handle ul { grid-template-columns: 1fr; }
+  .pd-side { position: static; }
+  .pd-cta { padding: 32px 24px; }
+  .pd-cta h3 { font-size: 22px; }
+
+  .pi-list { padding: 0 22px; }
+  .pi-row {
+    grid-template-columns: auto auto 1fr;
+    gap: 14px 18px;
+    padding: 24px 0;
+    align-items: flex-start;
+  }
+  .pi-row:hover { padding-left: 0; padding-right: 0; background: transparent; color: var(--color-fg); }
+  .pi-row:hover .pi-num { color: var(--soft); }
+  .pi-row:hover .pi-icon { color: var(--color-accent); }
+  .pi-row:hover .pi-text p { color: var(--color-muted); }
+  .pi-text { grid-column: 1 / -1; }
+  .pi-text h2 { font-size: 24px; }
+  .pi-arrow { display: none; }
+
+  .pi-foot {
+    padding: 70px 22px 100px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: flex-start;
+  }
 
   /* footer */
   .foot { padding: 70px 22px 120px; }

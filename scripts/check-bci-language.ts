@@ -76,19 +76,24 @@ async function scan(): Promise<Hit[]> {
   return hits;
 }
 
-const hits = await scan();
-if (hits.length === 0) {
-  console.log("[bci-lint] OK — no banned superlatives found.");
-  process.exit(0);
+async function main() {
+  const hits = await scan();
+  if (hits.length === 0) {
+    console.log("[bci-lint] OK — no banned superlatives found.");
+    process.exit(0);
+  }
+
+  console.error(`[bci-lint] FAIL — ${hits.length} banned-word occurrence(s):`);
+  for (const h of hits) {
+    console.error(`  ${h.file}:${h.line}:${h.col}  "${h.match}"  ${h.preview}`);
+  }
+  console.error(
+    "\nBar Council of India rules forbid superlatives in advocate communications. Rephrase and try again.",
+  );
+  process.exit(1);
 }
 
-console.error(
-  `[bci-lint] FAIL — ${hits.length} banned-word occurrence(s):`,
-);
-for (const h of hits) {
-  console.error(`  ${h.file}:${h.line}:${h.col}  "${h.match}"  ${h.preview}`);
-}
-console.error(
-  "\nBar Council of India rules forbid superlatives in advocate communications. Rephrase and try again.",
-);
-process.exit(1);
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

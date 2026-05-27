@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+
+import { Link } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { firm } from "@/content/firm";
 import { practiceAreas, getPracticeArea } from "@/content/practice-areas";
-import { routing } from "@/i18n/routing";
+import { PracticeIcon } from "@/components/brand/practice-icons";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -25,7 +28,6 @@ export async function generateMetadata({
   };
 }
 
-/** Stub — full detail template (paragraphs, "what we handle", side CTA) lands in M4. */
 export default async function PracticeDetailPage({
   params,
 }: {
@@ -37,13 +39,78 @@ export default async function PracticeDetailPage({
   const area = getPracticeArea(slug);
   if (!area) notFound();
 
+  const t = await getTranslations("practiceDetail");
+  const adjacent = practiceAreas.filter((a) => a.slug !== area.slug);
+
   return (
     <main id="main">
-      <section className="page-hero">
-        <span className="eyebrow">Practice · {area.num}</span>
-        <h1>{area.name}.</h1>
+      {/* ── HERO ────────────────────────────────────────────────── */}
+      <section className="pd-hero" aria-labelledby="pd-title">
+        <nav className="crumb" aria-label="Breadcrumb">
+          <Link href="/">{t("crumbHome")}</Link>
+          <span aria-hidden="true">/</span>
+          <Link href="/practice">{t("crumbPractice")}</Link>
+          <span aria-hidden="true">/</span>
+          <span className="current">{area.name}</span>
+        </nav>
+        <h1 id="pd-title">{area.name}.</h1>
         <p className="lede">{area.oneLine}</p>
-        <p className="coming-soon">Full detail (paragraphs, what we handle, side CTA, adjacent areas) lands in M4.</p>
+        <span className="pd-hero-mark" aria-hidden="true" />
+      </section>
+
+      {/* ── BODY ────────────────────────────────────────────────── */}
+      <section className="pd-body">
+        <div className="pd-content">
+          <p className="lede pd-lede">
+            <span className="pd-lede-icon" aria-hidden="true">
+              <PracticeIcon slug={area.slug} size={36} />
+            </span>
+            <span>{area.paragraphs[0]}</span>
+          </p>
+
+          {area.paragraphs.slice(1).map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+
+          <div className="pd-handle">
+            <h2>{t("handleHeading")}</h2>
+            <ul>
+              {area.handle.map((h, i) => (
+                <li key={h}>
+                  <span className="li-num">{String(i + 1).padStart(2, "0")}</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="pd-footnote">{t("footer")}</p>
+        </div>
+
+        <aside className="pd-side" aria-label="Related actions">
+          <div className="pd-cta">
+            <h3>
+              {t("cta.headingPrefix")} {area.shortName.toLowerCase()}{" "}
+              {t("cta.headingSuffix")}
+            </h3>
+            <p>{t("cta.body")}</p>
+            <Link href="/contact" className="pd-cta-link">
+              {t("cta.action")} <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+
+          <div className="pd-adj">
+            <h3>{t("adjacent")}</h3>
+            <ul>
+              {adjacent.map((a) => (
+                <li key={a.slug}>
+                  <Link href={`/practice/${a.slug}` as never}>{a.name}</Link>
+                  <span aria-hidden="true">→</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
       </section>
     </main>
   );

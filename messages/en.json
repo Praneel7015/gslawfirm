@@ -87,6 +87,25 @@
       "rateLimit": "You’ve sent several enquiries recently. Please try again in an hour."
     }
   },
+  "practiceIndex": {
+    "eyebrow": "Practice · GS Law Firm",
+    "heading": "Areas of work.",
+    "lede": "Five areas, one advocate. Each matter receives the same attention from first hearing to final order — no handing off, no rotating juniors, no surprises on counsel.",
+    "footnote": "Don’t see your matter listed? Many cases sit between two areas. Send a brief note and we’ll tell you whether we are the right firm for it."
+  },
+  "practiceDetail": {
+    "crumbHome": "Home",
+    "crumbPractice": "Practice",
+    "handleHeading": "What we handle",
+    "cta": {
+      "headingPrefix": "Discuss your",
+      "headingSuffix": "matter in confidence.",
+      "body": "A first conversation, by phone or in office, with no obligation.",
+      "action": "Request a consultation"
+    },
+    "adjacent": "Adjacent areas",
+    "footer": "Every matter is taken on after a frank first conversation. We tell you, plainly, whether we are the right firm for it — and where to look if we are not."
+  },
   "footer": {
     "blurb": "A solo-advocate practice in Kondapur, Hyderabad. Founded 2023.",
     "columns": {
