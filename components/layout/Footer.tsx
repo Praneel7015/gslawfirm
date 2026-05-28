@@ -17,7 +17,7 @@ export async function Footer() {
         </div>
 
         <div className="foot-col">
-          <h4>{t("columns.practice")}</h4>
+          <h3>{t("columns.practice")}</h3>
           <ul>
             {practiceAreas.map((a) => (
               <li key={a.slug}>
@@ -28,7 +28,7 @@ export async function Footer() {
         </div>
 
         <div className="foot-col">
-          <h4>{t("columns.firm")}</h4>
+          <h3>{t("columns.firm")}</h3>
           <ul>
             <li>
               <Link href="/about">{t("links.about")}</Link>
@@ -48,7 +48,7 @@ export async function Footer() {
         </div>
 
         <div className="foot-col">
-          <h4>{t("columns.office")}</h4>
+          <h3>{t("columns.office")}</h3>
           <ul>
             <li>{firm.address.line1}</li>
             <li>

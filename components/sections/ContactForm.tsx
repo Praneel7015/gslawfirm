@@ -102,7 +102,7 @@ export function ContactForm() {
               ✓
             </span>
             <div>
-              <h4>{t("success.title")}</h4>
+              <p className="form-success-title">{t("success.title")}</p>
               <p>{t("success.body")}</p>
             </div>
           </div>
