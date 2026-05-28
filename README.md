@@ -123,6 +123,9 @@ Best Practices 100 · SEO 100 — on `/` and `/practice/criminal`.
 `[TRANSLATION PENDING]` in `messages/te.json` and `messages/hi.json`
 await native legal review before those locales go fully live.
 
+**CI:** GitHub Actions runs typecheck, ESLint, BCI lint, and build on
+every push to `main`. Local pre-commit hook runs `pnpm lint:bci`.
+
 ---
 
 ## License

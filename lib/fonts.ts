@@ -15,29 +15,14 @@ export const helveticaNeue = localFont({
       style: "normal",
     },
     {
-      path: "../public/fonts/HelveticaNeue-LightItalic.woff2",
-      weight: "300",
-      style: "italic",
-    },
-    {
       path: "../public/fonts/HelveticaNeue-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/HelveticaNeue-Italic.woff2",
-      weight: "400",
-      style: "italic",
-    },
-    {
       path: "../public/fonts/HelveticaNeue-Bold.woff2",
       weight: "700",
       style: "normal",
-    },
-    {
-      path: "../public/fonts/HelveticaNeue-BoldItalic.woff2",
-      weight: "700",
-      style: "italic",
     },
   ],
   variable: "--font-helvetica",
