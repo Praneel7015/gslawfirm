@@ -1004,6 +1004,14 @@ select:focus-visible {
   letter-spacing: .04em;
 }
 
+.turnstile-hint {
+  margin: 8px 0 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
 .turnstile-row {
   margin-top: 28px;
   padding-top: 24px;

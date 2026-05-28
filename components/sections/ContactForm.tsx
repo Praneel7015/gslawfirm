@@ -27,6 +27,9 @@ export function ContactForm() {
     null | "rate-limit" | "challenge" | "generic"
   >(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileKey, setTurnstileKey] = useState(0);
+  const [turnstileLoadError, setTurnstileLoadError] = useState(false);
+  const turnstileRequired = isTurnstileConfigured();
 
   const {
     register,
@@ -40,10 +43,15 @@ export function ContactForm() {
 
   const handleToken = useCallback((token: string | null) => {
     setTurnstileToken(token);
+    if (token) setTurnstileLoadError(false);
   }, []);
 
   const onSubmit = async (data: LeadInput) => {
     setSubmitError(null);
+    if (turnstileRequired && !turnstileToken) {
+      setSubmitError("challenge");
+      return;
+    }
     try {
       const r = await fetch("/api/lead", {
         method: "POST",
@@ -60,8 +68,9 @@ export function ContactForm() {
         return;
       }
       if (r.status === 400) {
-        // Turnstile or honeypot-shaped — treat as challenge failure.
         setSubmitError("challenge");
+        setTurnstileToken(null);
+        setTurnstileKey((k) => k + 1);
         return;
       }
       setSubmitError("generic");
@@ -177,14 +186,40 @@ export function ContactForm() {
             </div>
 
             {/* Turnstile — renders nothing if site key isn't configured. */}
-            {isTurnstileConfigured() && (
+            {turnstileRequired && (
               <div className="turnstile-row">
-                <TurnstileWidget onToken={handleToken} />
+                <TurnstileWidget
+                  key={turnstileKey}
+                  onToken={handleToken}
+                  onError={() => {
+                    setTurnstileLoadError(true);
+                    setTurnstileToken(null);
+                  }}
+                />
+                {turnstileRequired && !turnstileToken && !turnstileLoadError && (
+                  <p className="turnstile-hint" aria-live="polite">
+                    Completing security check…
+                  </p>
+                )}
+                {turnstileLoadError && (
+                  <p className="field-err" role="alert">
+                    Security check failed to load. Refresh the page or disable
+                    ad blockers, then try again.
+                  </p>
+                )}
               </div>
             )}
 
             <div className="form-foot">
-              <button className="btn-submit" type="submit" disabled={isSubmitting}>
+              <button
+                className="btn-submit"
+                type="submit"
+                disabled={
+                  isSubmitting ||
+                  (turnstileRequired && !turnstileToken) ||
+                  turnstileLoadError
+                }
+              >
                 {t("submit")} <span aria-hidden="true">→</span>
               </button>
               <div className="form-disclaim">{t("disclaim")}</div>

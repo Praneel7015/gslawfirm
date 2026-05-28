@@ -65,12 +65,24 @@ function loadScript(): Promise<void> {
 export function TurnstileWidget({
   onToken,
   onError,
+  onReady,
 }: {
   onToken: (token: string | null) => void;
   onError?: () => void;
+  /** Fires once when the widget has mounted (token may still be pending). */
+  onReady?: () => void;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const widgetIdRef = useRef<string | null>(null);
+  const onTokenRef = useRef(onToken);
+  const onErrorRef = useRef(onError);
+  const onReadyRef = useRef(onReady);
+
+  useEffect(() => {
+    onTokenRef.current = onToken;
+    onErrorRef.current = onError;
+    onReadyRef.current = onReady;
+  });
 
   useEffect(() => {
     if (!SITE_KEY || !ref.current) return;
@@ -81,17 +93,18 @@ export function TurnstileWidget({
         if (cancelled || !ref.current || !window.turnstile) return;
         widgetIdRef.current = window.turnstile.render(ref.current, {
           sitekey: SITE_KEY,
-          appearance: "interaction-only",
+          theme: "light",
           size: "flexible",
-          callback: (token) => onToken(token),
-          "expired-callback": () => onToken(null),
+          callback: (token) => onTokenRef.current(token),
+          "expired-callback": () => onTokenRef.current(null),
           "error-callback": () => {
-            onToken(null);
-            onError?.();
+            onTokenRef.current(null);
+            onErrorRef.current?.();
           },
         });
+        onReadyRef.current?.();
       })
-      .catch(() => onError?.());
+      .catch(() => onErrorRef.current?.());
 
     return () => {
       cancelled = true;
@@ -101,12 +114,19 @@ export function TurnstileWidget({
         } catch {
           /* ignore */
         }
+        widgetIdRef.current = null;
       }
     };
-  }, [onToken, onError]);
+  }, []);
 
   if (!SITE_KEY) return null;
-  return <div ref={ref} className="turnstile-widget" aria-hidden="true" />;
+  return (
+    <div
+      ref={ref}
+      className="turnstile-widget"
+      aria-label="Security check"
+    />
+  );
 }
 
 export function isTurnstileConfigured(): boolean {
