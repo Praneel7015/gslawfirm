@@ -1037,7 +1037,7 @@ select:focus-visible {
   flex-shrink: 0;
   margin-top: 2px;
 }
-.form-success h4 {
+.form-success .form-success-title {
   font-family: var(--font-display);
   font-weight: var(--headline-weight);
   font-size: 20px;
