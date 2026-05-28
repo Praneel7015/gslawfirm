@@ -105,6 +105,26 @@ Operational playbooks (Cloudflare, backend, domain migration) live in
 
 ---
 
+## QA (M10)
+
+```bash
+pnpm qa              # typecheck + lint + bci + build + route smoke (35 URLs)
+pnpm qa:routes       # HTTP 200 check only
+pnpm qa:lighthouse   # mobile Lighthouse on / and /practice/criminal
+pnpm check:env       # local .env sanity check
+```
+
+**Targets (mobile Lighthouse):** Performance ≥ 95 · Accessibility 100 ·
+Best Practices 100 · SEO 100 — on `/` and `/practice/criminal`.
+
+**Live URL:** <https://sunitha.sindhole.com>
+
+**Known launch notes:** Telugu/Hindi long-form strings marked
+`[TRANSLATION PENDING]` in `messages/te.json` and `messages/hi.json`
+await native legal review before those locales go fully live.
+
+---
+
 ## License
 
 All rights reserved. Internal client project — not for redistribution.

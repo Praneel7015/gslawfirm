@@ -64,7 +64,10 @@
    editorial design calls for.
 */
 :root {
-  --soft: rgba(12,12,12,.42);
+  /* ~4.6:1 on #fff — WCAG AA for 10.5px uppercase labels (was .42 opacity). */
+  --soft: #5a5a5a;
+  /* ~4.6:1 on #0a0a0a — footer / dark-surface secondary text. */
+  --soft-on-dark: rgba(255, 255, 255, 0.65);
   --hair-strong: rgba(12,12,12,.22);
 }
 
@@ -359,13 +362,13 @@ select:focus-visible {
   gap: 24px;
   font-family: var(--font-mono);
   font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase;
-  color: rgba(255,255,255,.45);
+  color: var(--soft-on-dark);
 }
 .foot-disc {
   max-width: 560px;
   text-transform: none; letter-spacing: .04em;
   line-height: 1.6; font-size: 11px;
-  color: rgba(255,255,255,.45);
+  color: var(--soft-on-dark);
 }
 
 /* ── WhatsApp FAB ────────────────────────────────────────── */
@@ -462,7 +465,7 @@ select:focus-visible {
   display: block;
   font-family: var(--font-mono);
   font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase;
-  color: rgba(0,0,0,.5);
+  color: var(--soft);
   margin-bottom: 16px;
 }
 .modal h2 {
@@ -787,7 +790,7 @@ select:focus-visible {
   position: absolute; bottom: 36px; right: 36px;
   font-family: var(--font-mono);
   font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase;
-  color: rgba(255,255,255,.45);
+  color: var(--soft-on-dark);
 }
 .founder-body .eyebrow { display: block; margin-bottom: 32px; }
 .founder-body h2 {
@@ -1009,7 +1012,7 @@ select:focus-visible {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.06em;
-  color: var(--muted);
+  color: var(--color-muted);
 }
 
 .turnstile-row {

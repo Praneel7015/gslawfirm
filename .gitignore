@@ -46,6 +46,9 @@ next-env.d.ts
 # vercel
 .vercel
 
+# local QA artifacts (lighthouse JSON)
+/.qa/
+
 # IDE
 .idea/
 .vscode/

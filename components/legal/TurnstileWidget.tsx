@@ -86,28 +86,45 @@ export function TurnstileWidget({
 
   useEffect(() => {
     if (!SITE_KEY || !ref.current) return;
+    const host = ref.current;
     let cancelled = false;
+    let observer: IntersectionObserver | null = null;
 
-    loadScript()
-      .then(() => {
-        if (cancelled || !ref.current || !window.turnstile) return;
-        widgetIdRef.current = window.turnstile.render(ref.current, {
-          sitekey: SITE_KEY,
-          theme: "light",
-          size: "flexible",
-          callback: (token) => onTokenRef.current(token),
-          "expired-callback": () => onTokenRef.current(null),
-          "error-callback": () => {
-            onTokenRef.current(null);
-            onErrorRef.current?.();
-          },
-        });
-        onReadyRef.current?.();
-      })
-      .catch(() => onErrorRef.current?.());
+    const mount = () => {
+      if (cancelled || !host) return;
+      loadScript()
+        .then(() => {
+          if (cancelled || !host || !window.turnstile) return;
+          widgetIdRef.current = window.turnstile.render(host, {
+            sitekey: SITE_KEY!,
+            theme: "light",
+            size: "flexible",
+            callback: (token) => onTokenRef.current(token),
+            "expired-callback": () => onTokenRef.current(null),
+            "error-callback": () => {
+              onTokenRef.current(null);
+              onErrorRef.current?.();
+            },
+          });
+          onReadyRef.current?.();
+        })
+        .catch(() => onErrorRef.current?.());
+    };
+
+    observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          observer?.disconnect();
+          mount();
+        }
+      },
+      { rootMargin: "240px 0px" },
+    );
+    observer.observe(host);
 
     return () => {
       cancelled = true;
+      observer?.disconnect();
       if (widgetIdRef.current && window.turnstile) {
         try {
           window.turnstile.remove(widgetIdRef.current);
