@@ -15,9 +15,11 @@ export async function verifyTurnstile(
   token: string | null | undefined,
   clientIp: string,
 ): Promise<{ ok: true } | { ok: false; reason: string }> {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
-  if (!secret) {
-    // Turnstile not configured. Verification is skipped.
+  const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim();
+  // Skip unless BOTH keys are set. A secret without the public site key
+  // (common when .env is only on laptop, not Vercel) blocks every submit.
+  if (!secret || !siteKey) {
     return { ok: true };
   }
 

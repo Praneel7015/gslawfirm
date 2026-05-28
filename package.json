@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:bci": "tsx scripts/check-bci-language.ts",
+    "check:env": "tsx scripts/check-env.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
