@@ -1,19 +1,11 @@
 # GS Law Firm — website
 
 Production site for **GS Law Firm**, a solo-advocate practice in
-Kondapur, Hyderabad. Built with Next.js 15, Tailwind CSS v4, and
-`next-intl`. Three locales (`en`, `te`, `hi`), Bar Council of India
-compliant copy, server-side rendered for SEO.
+Kondapur, Hyderabad. Next.js 15, Tailwind CSS v4, `next-intl`
+(`en`, `te`, `hi`), BCI-compliant copy, SSR for SEO.
 
-- **Live**: <https://sunitha.sindhole.com> *(once deployed)*
-- **Future domain**: `gslawfirm.in` — see [`docs/DOMAIN_MIGRATION.md`](docs/DOMAIN_MIGRATION.md)
+- **Live**: <https://sunitha.sindhole.com>
 - **Repository**: <https://github.com/Praneel7015/gslawfirm>
-
-> 🚀 **Deploying for the first time?** Start with
-> [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) — a 90-minute
-> walkthrough from zero accounts to a live site with a working
-> contact form. Covers Vercel, Cloudflare DNS, Resend, optional
-> spam protection, analytics, and Google Business Profile.
 
 ---
 
@@ -23,97 +15,95 @@ Requires Node ≥ 20 and pnpm 9.
 
 ```bash
 pnpm install
-pnpm dev          # http://localhost:3000
-pnpm typecheck    # strict TypeScript
-pnpm lint         # ESLint via next-lint
-pnpm lint:bci     # scan content for BCI-banned superlatives
-pnpm build        # production build
+cp .env.example .env    # fill in values locally — .env is never committed
+pnpm dev                # http://localhost:3000
+pnpm typecheck
+pnpm lint
+pnpm lint:bci
+pnpm check:env          # sanity-check .env without printing secrets
+pnpm build
 ```
+
+---
+
+## Deploy (Vercel)
+
+1. Import repo at [vercel.com/new](https://vercel.com/new) — **Root Directory**: `gslawfirm`
+2. Set environment variables (Production + Preview), then **Deploy**
+3. Add domain `sunitha.sindhole.com` in Vercel → point Cloudflare DNS:
+   - **CNAME** `sunitha` → `cname.vercel-dns.com` — **grey cloud** (DNS only)
+4. After changing any `NEXT_PUBLIC_*` variable, **redeploy** (baked at build time)
+
+### Required env vars (production)
+
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | `https://sunitha.sindhole.com` |
+| `RESEND_API_KEY` | Contact form → email (Resend) |
+| `RESEND_FROM` | `GS Law Firm <noreply@sunitha.sindhole.com>` |
+| `LEAD_NOTIFY_TO` | `sunithags@gmail.com` |
+| `NEXT_PUBLIC_CF_ANALYTICS_TOKEN` | Cloudflare Web Analytics |
+| `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console HTML tag value |
+
+### Optional
+
+| Variable | Purpose |
+|---|---|
+| `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` | Rate limit 5/h/IP (recommended) |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY` | Bot challenge — set **both** or **neither** |
+| `NEXT_PUBLIC_GA_ID` | GA4 — off by default (needs consent banner) |
+
+Copy `.env.example` for the full list and comments.
+
+---
+
+## Email & DNS (summary)
+
+- **Inbound**: `sunitha@sindhole.com` → Cloudflare Email Routing → Gmail
+- **Outbound** (form leads): Resend, domain `sindhole.com` verified in Resend
+- **DNS**: domain registered on Cloudflare; site served by Vercel
+
+If the form returns **429**, you hit the rate limit — wait an hour or
+clear `gslawfirm:lead*` keys in the Upstash dashboard. If it returns
+**400 challenge**, fix Turnstile keys on Vercel. If **200** but no
+email, rotate `RESEND_API_KEY` and confirm the domain is Verified in
+Resend.
+
+---
 
 ## Project structure
 
 ```
-app/[locale]/        per-locale pages (home, about, practice/*, contact, privacy, disclaimer)
-components/
-  brand/             logo + practice-area icons
-  layout/            Header, Footer, LanguageSwitcher, MobileMenu
-  sections/          home-page composables (Hero, Practice, Approach, Founder, Location, ContactForm)
-  legal/             DisclaimerModal (BCI first-visit), WhatsAppFab, MobileStickyBar
-content/             typed source-of-truth for firm details + practice areas
-i18n/                next-intl routing + request config
-lib/                 utils, fonts, site URL, lead form schema
-messages/            en/te/hi message catalogues
-public/              static assets (logo SVG, fonts)
-scripts/             BCI language linter
-docs/                operational playbooks (see below)
+app/[locale]/     pages (home, about, practice/*, contact, privacy, disclaimer)
+app/api/lead/     contact form API → Resend
+components/       UI, layout, legal (BCI modal), sections
+content/          firm + practice area source of truth
+messages/         en / te / hi catalogues
+lib/              SEO, JSON-LD, rate limit, Turnstile, Resend
+public/           static assets
+scripts/          BCI linter, env checker
 ```
 
-## Documentation
+Operational playbooks (Cloudflare, backend, domain migration) live in
+`docs/` **locally only** — not in this repository.
 
-Operational docs live in [`docs/`](docs/):
-
-| Doc | When to read |
-|---|---|
-| [`CLOUDFLARE_SETUP.md`](docs/CLOUDFLARE_SETUP.md) | First-time setup of DNS, Email Routing, Resend domain verification, and optional Turnstile / Web Analytics / Bot Fight Mode on Cloudflare. Read before first deploy. |
-| [`DOMAIN_MIGRATION.md`](docs/DOMAIN_MIGRATION.md) | The eventual cut-over from `sunitha.sindhole.com` to `gslawfirm.in`. Read when the new domain is procured. |
-| [`BACKEND_SETUP.md`](docs/BACKEND_SETUP.md) | End-to-end contact form pipeline: Resend (email), Upstash (rate limit), Turnstile (bot challenge), analytics decision. Read before going live with the contact form. |
-
-The `build-prompt.md` at the project root is the original spec — kept
-in-repo as a reference, not a live document.
+---
 
 ## Tech stack
 
-- **Framework**: Next.js 15 (App Router) with TypeScript (strict)
-- **Styling**: Tailwind CSS v4 with `@theme` design tokens (see `app/globals.css`)
-- **i18n**: `next-intl` v3 — `en` (default, no prefix), `te`, `hi`
-- **Forms**: `react-hook-form` + `zod` (schema in `lib/lead-schema.ts`)
-- **Email**: Resend — lead notifications to the founder's inbox
-- **Rate limit**: Upstash Redis (5/h/IP); in-memory fallback if unset
-- **Bot challenge**: Cloudflare Turnstile (optional — purely additive)
-- **Analytics**: Cloudflare Web Analytics (primary, cookie-less). GA4 wired but disabled by default.
-- **Lead storage**: **none** — leads forward straight to the founder's inbox via Resend. No DB.
+- Next.js 15 (App Router), TypeScript strict, Tailwind CSS v4
+- `next-intl` — English at `/`, Telugu `/te`, Hindi `/hi`
+- React Hook Form + Zod · Resend · Upstash Redis · Cloudflare Turnstile
+- Cloudflare Web Analytics (primary) · JSON-LD, sitemap, dynamic OG images
 
-## Domain & email — current setup
-
-- **Site domain**: `sunitha.sindhole.com` — DNS on Cloudflare, served by Vercel
-- **Public email**: `sunitha@sindhole.com` — Cloudflare Email Routing forwards to `sunithags@gmail.com`
-- **Outbound email** (lead notifications, future system mail): Resend with `sindhole.com` verified
-- See [`docs/CLOUDFLARE_SETUP.md`](docs/CLOUDFLARE_SETUP.md) for step-by-step
-
-## Environment variables
-
-Copy `.env.example` → `.env.local` for local dev, or set in Vercel's
-project settings for deployed environments. See `.env.example` for the
-authoritative list.
-
-**Required for production launch:**
-
-- `NEXT_PUBLIC_SITE_URL` — canonical URL (only changes during domain migration)
-- `RESEND_API_KEY` + `RESEND_FROM` + `LEAD_NOTIFY_TO` — contact form notifications
-- `NEXT_PUBLIC_CF_ANALYTICS_TOKEN` — Cloudflare Web Analytics token (primary analytics)
-- `NEXT_PUBLIC_GSC_VERIFICATION` — Google Search Console verification token
-
-**Optional (improves the deployment):**
-
-- `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` — distributed rate limiter; without these, falls back to in-memory per-lambda
-- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY` — bot challenge on the contact form
-
-**Disabled by default:**
-
-- `NEXT_PUBLIC_GA_ID` — Google Analytics 4. Enable only after wiring a DPDP-compliant consent banner. See `docs/BACKEND_SETUP.md` §"Analytics decision".
+---
 
 ## BCI compliance
 
-Bar Council of India rules forbid advocate advertising and superlative
-language. Two guards are in place:
+1. First-visit disclaimer modal (`components/legal/DisclaimerModal.tsx`)
+2. Content linter: `pnpm lint:bci` — scans for banned superlatives
 
-1. **First-visit disclaimer modal** — `components/legal/DisclaimerModal.tsx`
-   blocks the site behind a "I Agree" prompt on first visit and stores
-   the consent in `localStorage`.
-2. **Content linter** — `pnpm lint:bci` runs `scripts/check-bci-language.ts`
-   over all `messages/`, `content/`, and `components/` files looking
-   for banned superlatives (*best, leading, expert, guaranteed, no. 1,
-   most experienced, etc.*). Wire this into pre-commit when CI lands.
+---
 
 ## License
 
