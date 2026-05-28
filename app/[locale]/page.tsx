@@ -6,7 +6,7 @@ import { Practice } from "@/components/sections/Practice";
 import { Approach } from "@/components/sections/Approach";
 import { Founder } from "@/components/sections/Founder";
 import { Location } from "@/components/sections/Location";
-import { HomeContactForm } from "@/components/sections/ContactForm.lazy";
+import { ContactForm } from "@/components/sections/ContactForm";
 
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -39,7 +39,7 @@ export default async function HomePage({
       <Approach />
       <Founder />
       <Location />
-      <HomeContactForm />
+      <ContactForm />
     </main>
   );
 }

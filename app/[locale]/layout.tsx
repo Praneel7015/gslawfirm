@@ -10,7 +10,7 @@ import { firm } from "@/content/firm";
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ClientChrome } from "@/components/layout/ClientChrome.lazy";
+import { ClientChrome } from "@/components/layout/ClientChrome";
 import { CloudflareAnalytics } from "@/components/analytics/CloudflareAnalytics";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
