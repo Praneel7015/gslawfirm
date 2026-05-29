@@ -10,7 +10,9 @@ import { firm } from "@/content/firm";
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ClientChrome } from "@/components/layout/ClientChrome";
+import { DisclaimerModal } from "@/components/legal/DisclaimerModal";
+import { WhatsAppFab } from "@/components/legal/WhatsAppFab";
+import { MobileStickyBar } from "@/components/legal/MobileStickyBar";
 import { CloudflareAnalytics } from "@/components/analytics/CloudflareAnalytics";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
@@ -92,7 +94,9 @@ export default async function LocaleLayout({
           <Header />
           {children}
           <Footer />
-          <ClientChrome />
+          <WhatsAppFab />
+          <MobileStickyBar />
+          <DisclaimerModal />
         </NextIntlClientProvider>
         <CloudflareAnalytics />
         <GoogleAnalytics />
