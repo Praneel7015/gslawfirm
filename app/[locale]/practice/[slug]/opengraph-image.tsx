@@ -4,7 +4,7 @@ import { firm } from "@/content/firm";
 import { getPracticeArea, practiceAreas } from "@/content/practice-areas";
 
 /**
- * Per-area OG image — overrides the root default for each of the 5
+ * Per-area OG image, overrides the root default for each of the 5
  * practice detail pages. Generates at build time for all 5 areas ×
  * 3 locales (the area number + name are the only differentiators).
  */
@@ -32,7 +32,7 @@ export async function generateStaticParams() {
 export default async function Image({ params }: { params: { slug: string } }) {
   const area = getPracticeArea(params.slug);
   const title = area?.name ?? "Practice";
-  const num = area?.num ?? "—";
+  const num = area?.num ?? "-";
   const lede = area?.oneLine ?? "";
 
   return new ImageResponse(
@@ -50,7 +50,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           fontFamily: "Helvetica, Arial, sans-serif",
         }}
       >
-        {/* top — eyebrow + crumb */}
+        {/* top, eyebrow + crumb */}
         <div
           style={{
             display: "flex",
@@ -66,7 +66,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           <span>{firm.name} · Practice · {num}</span>
         </div>
 
-        {/* middle — area name + lede */}
+        {/* middle, area name + lede */}
         <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
           <div
             style={{
@@ -93,7 +93,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* bottom — URL row */}
+        {/* bottom, URL row */}
         <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
           <div style={{ display: "flex", height: 2, width: 80, background: "#6B0F1A" }} />
           <div
@@ -107,7 +107,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             }}
           >
             <span>sunitha.sindhole.com/practice/{params.slug}</span>
-            <span>Adv. Sunitha Sindhole</span>
+            <span>Adv. Aitha Sunitha</span>
           </div>
         </div>
       </div>

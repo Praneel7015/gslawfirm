@@ -3,7 +3,7 @@
  *
  * Each builder returns a plain object that the <JsonLd /> component
  * serialises into a <script type="application/ld+json"> tag. The
- * shapes here follow schema.org's published types loosely — schema.org
+ * shapes here follow schema.org's published types loosely, schema.org
  * is open-world (extra keys are fine; missing ones degrade gracefully)
  * so we don't enforce strict typing beyond what Google's Rich Results
  * test cares about.
@@ -90,7 +90,7 @@ export function personSchema(): JsonLd {
 
 // ── LocalBusiness ⊂ LegalService (home) ─────────────────────────────
 //
-// Per build-prompt: "LocalBusiness with @type LegalService — important
+// Per build-prompt: "LocalBusiness with @type LegalService, important
 // for Google Business Profile linking." We emit a single combined
 // node typed as LegalService (LegalService inherits from LocalBusiness
 // in schema.org's tree), which Google parses identically.
@@ -137,7 +137,7 @@ export function legalServiceSchema(): JsonLd {
   };
 }
 
-// ── WebSite (home — enables Google sitelinks search box if added later) ─
+// ── WebSite (home, enables Google sitelinks search box if added later) ─
 export function websiteSchema(): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -183,7 +183,7 @@ export function serviceSchema(area: PracticeArea, locale: string): JsonLd {
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: `${area.name} — what we handle`,
+      name: `${area.name}, what we handle`,
       itemListElement: area.handle.map((h, i) => ({
         "@type": "Offer",
         position: i + 1,
@@ -212,12 +212,12 @@ export function breadcrumbSchema(
   };
 }
 
-// ── @graph wrapper — multiple schemas in one script tag ─────────────
+// ── @graph wrapper, multiple schemas in one script tag ─────────────
 export function graphSchema(nodes: JsonLd[]): JsonLd {
   return {
     "@context": "https://schema.org",
     "@graph": nodes.map((n) => {
-      // Strip per-node @context inside @graph — schema.org spec.
+      // Strip per-node @context inside @graph, schema.org spec.
       const { "@context": _unused, ...rest } = n as { "@context"?: string };
       void _unused;
       return rest;

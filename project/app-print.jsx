@@ -1,4 +1,4 @@
-// app-print.jsx — Static print layout: cover + every design page in both viewports.
+// app-print.jsx, Static print layout: cover + every design page in both viewports.
 
 const PRINT_PAGES = [
   { id: 'home',         num: '01', label: 'Home',             desc: 'Landing experience' },
@@ -121,7 +121,7 @@ function Cover() {
           matter after matter.
         </h1>
         <p className="lede">
-          Visual & interaction design for the firm's first web presence — a solo-advocate practice in Kondapur, Hyderabad. Editorial-minimal, Bar-Council-compliant, single-family typography (Helvetica Neue) throughout.
+          Visual & interaction design for the firm's first web presence, a solo-advocate practice in Kondapur, Hyderabad. Editorial-minimal, Bar-Council-compliant, single-family typography (Helvetica Neue) throughout.
         </p>
       </div>
       <footer className="print-cover-foot">
@@ -143,7 +143,7 @@ function PrintApp() {
       if (document.fonts && document.fonts.ready) {
         try { await document.fonts.ready; } catch {}
       }
-      // Layout settle delay — long-form pages with lots of content need time.
+      // Layout settle delay, long-form pages with lots of content need time.
       await new Promise(r => setTimeout(r, 900));
       window.print();
     };

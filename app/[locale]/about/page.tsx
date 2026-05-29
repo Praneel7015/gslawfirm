@@ -11,7 +11,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `About · ${firm.name}`,
   description:
-    "A small practice, kept small on purpose. Founded 2023 in Kondapur, Hyderabad, by Adv. Sunitha Sindhole.",
+    "A small practice, kept small on purpose. Founded 2023 in Kondapur, Hyderabad, by Adv. Aitha Sunitha.",
   path: "/about",
 });
 

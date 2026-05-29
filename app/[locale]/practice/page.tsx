@@ -13,7 +13,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Practice · ${firm.name}`,
   description:
-    "Five areas, one advocate. Criminal, civil, corporate, succession and High Court matters in Hyderabad.",
+    "All areas, one advocate. Criminal, civil, corporate, succession and High Court matters in Hyderabad.",
   path: "/practice",
 });
 

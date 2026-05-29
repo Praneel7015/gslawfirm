@@ -9,7 +9,7 @@ export const firm = {
     region: "Telangana",
     postalCode: "500084",
     country: "IN",
-    full: "Kondapur, Sri Ramnagar — Block C, Gachibowli, Hyderabad, Telangana 500084",
+    full: "Kondapur, Sri Ramnagar, Block C, Gachibowli, Hyderabad, Telangana 500084",
   },
   geo: { lat: 17.464, lng: 78.366 },
   phone: "+91 99638 47704",
@@ -25,7 +25,7 @@ export const firm = {
   /**
    * Neighbourhoods we'll list under `areaServed` in LocalBusiness /
    * LegalService JSON-LD. Listed roughly in order of proximity to
-   * Kondapur — Google parses this list for local-pack ranking and
+   * Kondapur, Google parses this list for local-pack ranking and
    * "lawyers near me" intent matching.
    */
   areasServed: [

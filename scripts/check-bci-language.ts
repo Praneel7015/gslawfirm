@@ -16,7 +16,7 @@ const EXTS = new Set([".ts", ".tsx", ".json", ".md", ".mdx", ".txt"]);
 
 /**
  * Whole-word, case-insensitive matches.
- * NOTE: we deliberately exclude "top" — it collides with CSS keywords
+ * NOTE: we deliberately exclude "top", it collides with CSS keywords
  * (e.g. `top: 0`) and the build-prompt's intent is user-visible copy;
  * `top` as a superlative in copy would always co-occur with another
  * banned word (e.g. "top expert", "leading firm"), so we'd catch it.
@@ -79,11 +79,11 @@ async function scan(): Promise<Hit[]> {
 async function main() {
   const hits = await scan();
   if (hits.length === 0) {
-    console.log("[bci-lint] OK — no banned superlatives found.");
+    console.log("[bci-lint] OK, no banned superlatives found.");
     process.exit(0);
   }
 
-  console.error(`[bci-lint] FAIL — ${hits.length} banned-word occurrence(s):`);
+  console.error(`[bci-lint] FAIL, ${hits.length} banned-word occurrence(s):`);
   for (const h of hits) {
     console.error(`  ${h.file}:${h.line}:${h.col}  "${h.match}"  ${h.preview}`);
   }

@@ -13,16 +13,16 @@
     "emphasis": "That’s us.",
     "cta": "Request a confidential consultation",
     "scroll": "Scroll ↓",
-    "footRole": "Adv. Sunitha Sindhole · Sole Advocate"
+    "footRole": "Adv. Aitha Sunitha · Sole Advocate"
   },
   "intro": {
     "tag": "Introduction · 01",
-    "body": "Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters as a solo-advocate practice — quietly, attentively, and with the same hand on every brief."
+    "body": "Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters as a solo-advocate practice, quietly, attentively, and with the same hand on every brief."
   },
   "practice": {
     "eyebrow": "Practice · 02",
     "heading": "Areas\nof work",
-    "lede": "Five areas, one advocate. Each matter receives the same attention from first hearing to final order — no handing off, no rotating juniors, no surprises on counsel.",
+    "lede": "All areas, one advocate. Each matter receives the same attention from first hearing to final order: no handing off, no rotating juniors, no surprises on counsel.",
     "learnMore": "Learn more"
   },
   "approach": {
@@ -32,7 +32,7 @@
     "items": {
       "personal": {
         "title": "Personal counsel",
-        "body": "Your file is mine end to end. The same advocate who reads your brief is the one who argues your matter — and the one you call afterwards."
+        "body": "Your file is mine end to end. The same advocate who reads your brief is the one who argues your matter, and the one you call afterwards."
       },
       "discreet": {
         "title": "Discreet representation",
@@ -65,7 +65,7 @@
   "contact": {
     "eyebrow": "Enquire · 06",
     "heading": "Send a brief note.",
-    "lede": "Tell us, in a few sentences, what you’re dealing with. We respond within one working day — usually the same day.",
+    "lede": "Tell us, in a few sentences, what you’re dealing with. We respond within one working day, usually the same day.",
     "fields": {
       "name": "Name",
       "namePh": "Your full name",
@@ -74,7 +74,7 @@
       "email": "Email",
       "emailPh": "you@example.com",
       "message": "Brief message",
-      "messagePh": "A few sentences about the matter — nothing confidential at this stage."
+      "messagePh": "A few sentences about the matter, nothing confidential at this stage."
     },
     "submit": "Send enquiry",
     "disclaim": "Submitting this form does not create an attorney–client relationship. Nothing herein constitutes legal advice.",
@@ -93,14 +93,14 @@
     "heading": "A small practice, kept small on purpose.",
     "symbol": {
       "eyebrow": "On the mark",
-      "heading": "The razorbill returns to the same cliff colony year after year — mating for life, hewing close to family.",
+      "heading": "The razorbill returns to the same cliff colony year after year, mating for life, hewing close to family.",
       "body1": "It is a quiet bird, not a striking one. It does not announce itself. It is, however, reliable in a way that few seabirds are.",
-      "body2": "We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning — to the same client, the same court, the same files, with the same attention as the first day."
+      "body2": "We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning, to the same client, the same court, the same files, with the same attention as the first day."
     },
     "story": {
       "label": "Founding · 2023",
-      "p1": "The firm opened its doors in 2023 in Kondapur, Hyderabad. The premise was unfashionable: one advocate, working on one file at a time, available for as long as the matter lasts — and, where the relationship calls for it, well beyond.",
-      "p2": "Adv. Sunitha Sindhole spent more than a decade in the trenches of criminal and civil practice before founding the firm. The decision to go out alone was not made lightly. It was made because, in her view, the larger the room a client's file passes through, the more often something quiet but important gets lost in the crossing.",
+      "p1": "The firm opened its doors in 2023 in Kondapur, Hyderabad. The premise was unfashionable: one advocate, working on one file at a time, available for as long as the matter lasts, and where the relationship calls for it, well beyond.",
+      "p2": "Adv. Aitha Sunitha spent more than a decade in the trenches of criminal and civil practice before founding the firm. The decision to go out alone was not made lightly. It was made because, in her view, the larger the room a client's file passes through, the more often something quiet but important gets lost in the crossing.",
       "p3": "The firm takes a small number of matters at any one time. It is not a question of preference; it is a question of mathematics. There is one set of hands on every file, and those hands have a finite week.",
       "p4": "This site exists to make finding us straightforward. It is not a billboard. We have no rankings to claim and no testimonials to print. What we have is the willingness to sit with you and decide, plainly, whether we are the right firm for what you are dealing with."
     }
@@ -111,11 +111,11 @@
     "lede": "We answer the phone between 10 and 18 IST, Monday through Saturday. Outside those hours, the form and WhatsApp are read first thing the next working day.",
     "phone": {
       "label": "By Phone · 01",
-      "note": "Direct to the advocate, not a desk. If we don’t pick up, we are in court — leave a message and we will return your call by close of business."
+      "note": "Direct to the advocate, not a desk. If we don’t pick up, we are in court. Leave a message and we will return your call by close of business."
     },
     "email": {
       "label": "By Email · 02",
-      "note": "For longer enquiries or sharing documents. Please do not send anything confidential or privileged in the first message — we will reply with a secure channel."
+      "note": "For longer enquiries or sharing documents. Please do not send anything confidential or privileged in the first message. We will reply with a secure channel."
     },
     "inPerson": {
       "label": "In Person · 03",
@@ -131,7 +131,7 @@
     "sections": {
       "collect": {
         "heading": "What we collect",
-        "body": "When you submit the contact form, we collect the name, phone number, email address and message you provide. Server logs may record your IP address, browser user agent and the time of the request. We do not use third-party advertising cookies. The site uses a privacy-respecting analytics signal to count visits — no personal profile is built."
+        "body": "When you submit the contact form, we collect the name, phone number, email address and message you provide. Server logs may record your IP address, browser user agent and the time of the request. We do not use third-party advertising cookies. The site uses a privacy-respecting analytics signal to count visits; no personal profile is built."
       },
       "use": {
         "heading": "How we use it",
@@ -139,7 +139,7 @@
       },
       "retention": {
         "heading": "How long we keep it",
-        "body": "Unresolved enquiries are retained for up to 90 days, after which they are deleted. Where an attorney–client relationship is formed, file retention follows the rules of the Bar Council of India and applicable law — typically seven years from the close of the matter."
+        "body": "Unresolved enquiries are retained for up to 90 days, after which they are deleted. Where an attorney–client relationship is formed, file retention follows the rules of the Bar Council of India and applicable law, typically seven years from the close of the matter."
       },
       "rights": {
         "heading": "Your rights",
@@ -159,12 +159,12 @@
     "p2": "The information provided on this site is for general informational purposes only and should not be construed as legal advice or a substitute for it. GS Law Firm does not assume any responsibility for the consequences of any action taken on the basis of information provided herein. No attorney–client relationship is created by accessing this site or by sending a message through it.",
     "p3": "By proceeding further, the user agrees to release, discharge and hold GS Law Firm harmless from any claim arising out of the use of any information available on this site.",
     "p4": "Any reference to a specific area of law on this site is general in nature and not exhaustive. Outcomes in legal matters depend on the facts of each case, the applicable law, and the court before which the matter is heard. No representation, warranty or undertaking is made or implied that any particular result will be obtained.",
-    "p5": "If you do not agree with any part of this notice, please leave the site. If you require legal advice on a specific matter, we encourage you to call us on +91 99638 47704 or to write to sunitha@sindhole.com — a privileged channel will then be opened with you on that matter."
+    "p5": "If you do not agree with any part of this notice, please leave the site. If you require legal advice on a specific matter, we encourage you to call us on +91 99638 47704 or to write to sunitha@sindhole.com. A privileged channel will then be opened with you on that matter."
   },
   "practiceIndex": {
     "eyebrow": "Practice · GS Law Firm",
     "heading": "Areas of work.",
-    "lede": "Five areas, one advocate. Each matter receives the same attention from first hearing to final order — no handing off, no rotating juniors, no surprises on counsel.",
+    "lede": "All areas, one advocate. Each matter receives the same attention from first hearing to final order: no handing off, no rotating juniors, no surprises on counsel.",
     "footnote": "Don’t see your matter listed? Many cases sit between two areas. Send a brief note and we’ll tell you whether we are the right firm for it."
   },
   "practiceDetail": {
@@ -178,7 +178,7 @@
       "action": "Request a consultation"
     },
     "adjacent": "Adjacent areas",
-    "footer": "Every matter is taken on after a frank first conversation. We tell you, plainly, whether we are the right firm for it — and where to look if we are not."
+    "footer": "Every matter is taken on after a frank first conversation. We tell you, plainly, whether we are the right firm for it, and where to look if we are not."
   },
   "footer": {
     "blurb": "A solo-advocate practice in Kondapur, Hyderabad. Founded 2023.",

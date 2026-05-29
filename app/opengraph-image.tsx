@@ -3,10 +3,10 @@ import { ImageResponse } from "next/og";
 import { firm } from "@/content/firm";
 
 /**
- * Default OG image — applies to every page that doesn't ship its own
+ * Default OG image, applies to every page that doesn't ship its own
  * `opengraph-image.tsx`. Generated at request time via @vercel/og
  * (built into Next 15). Black background, white type, oxblood accent
- * — matches the design language.
+ *, matches the design language.
  */
 
 export const runtime = "nodejs";
@@ -30,7 +30,7 @@ export default async function Image() {
           fontFamily: "Helvetica, Arial, sans-serif",
         }}
       >
-        {/* top — eyebrow line + firm */}
+        {/* top, eyebrow line + firm */}
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div
             style={{
@@ -51,7 +51,7 @@ export default async function Image() {
           </div>
         </div>
 
-        {/* middle — display heading */}
+        {/* middle, display heading */}
         <div
           style={{
             display: "flex",
@@ -65,7 +65,7 @@ export default async function Image() {
           Counsel that stays with you beyond the verdict.
         </div>
 
-        {/* bottom — URL row with oxblood underline */}
+        {/* bottom, URL row with oxblood underline */}
         <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
           <div style={{ display: "flex", height: 2, width: 80, background: "#6B0F1A" }} />
           <div
@@ -79,7 +79,7 @@ export default async function Image() {
             }}
           >
             <span>sunitha.sindhole.com</span>
-            <span>Adv. Sunitha Sindhole · Sole Advocate</span>
+            <span>Adv. Aitha Sunitha · Sole Advocate</span>
           </div>
         </div>
       </div>

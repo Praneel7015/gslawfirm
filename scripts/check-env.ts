@@ -1,5 +1,5 @@
 /**
- * Local env sanity check — run: pnpm exec tsx scripts/check-env.ts
+ * Local env sanity check, run: pnpm exec tsx scripts/check-env.ts
  * Does not print secret values.
  */
 import { readFileSync, existsSync } from "node:fs";
@@ -60,7 +60,7 @@ async function main() {
         };
         const domains = data.data ?? [];
         console.log("\n  Resend domains (API check):");
-        if (domains.length === 0) console.log("    (none — verify sindhole.com in Resend)");
+        if (domains.length === 0) console.log("    (none, verify sindhole.com in Resend)");
         for (const d of domains) {
           console.log(`    · ${d.name} → ${d.status}`);
         }
@@ -84,14 +84,14 @@ async function main() {
     if (sitePrefix === secretPrefix) {
       console.log("  Pairing: prefixes match (likely same widget) ✓");
     } else {
-      console.log("  Pairing: prefixes DIFFER — keys may be from different widgets ✗");
+      console.log("  Pairing: prefixes DIFFER, keys may be from different widgets ✗");
     }
   } else if (site || secret) {
     console.log(
-      "  ⚠ Only one Turnstile key set — remove BOTH or set BOTH. Half-config breaks production.",
+      "  ⚠ Only one Turnstile key set, remove BOTH or set BOTH. Half-config breaks production.",
     );
   } else {
-    console.log("  Turnstile disabled (both empty) — form skips challenge ✓");
+    console.log("  Turnstile disabled (both empty), form skips challenge ✓");
   }
 
   console.log("\nUpstash (optional)");

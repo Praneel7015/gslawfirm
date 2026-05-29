@@ -7,7 +7,7 @@ import { SITE_URL } from "./site";
  * Resend client (lazy, server-only). Sends the lead notification email
  * to LEAD_NOTIFY_TO. If RESEND_API_KEY is missing we log a warning and
  * skip the send (the API route still returns success so the user gets
- * feedback) — that mode is for dev only.
+ * feedback), that mode is for dev only.
  */
 
 const apiKey = process.env.RESEND_API_KEY;
@@ -32,7 +32,7 @@ export async function sendLeadEmail(
   const c = getClient();
   if (!c) {
     console.warn(
-      "[resend] RESEND_API_KEY missing — skipping send. Lead was:",
+      "[resend] RESEND_API_KEY missing, skipping send. Lead was:",
       JSON.stringify({ lead, meta }, null, 2),
     );
     return { ok: true, id: null };
@@ -92,7 +92,7 @@ function renderLeadHtml(
 ): string {
   const e = escapeHtml;
   return `<!doctype html>
-<html><head><meta charset="utf-8"><title>New enquiry — ${e(firm.name)}</title></head>
+<html><head><meta charset="utf-8"><title>New enquiry, ${e(firm.name)}</title></head>
 <body style="margin:0;padding:24px;background:#f6f6f6;font-family:-apple-system,Segoe UI,Roboto,sans-serif;color:#0a0a0a;">
   <div style="max-width:560px;margin:0 auto;background:#fff;padding:32px;border:1px solid #e5e5e5;">
     <p style="font-family:'SFMono-Regular',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6B0F1A;margin:0 0 24px;">

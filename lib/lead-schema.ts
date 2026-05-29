@@ -4,7 +4,7 @@ import { z } from "zod";
  * Lead form schema (build-prompt §8).
  *
  * Shared between the client form (M3) and the server `/api/lead` route
- * handler (M6). The honeypot field `website` must be empty — any value
+ * handler (M6). The honeypot field `website` must be empty, any value
  * causes the API to silently drop the submission.
  */
 export const leadSchema = z.object({
@@ -30,7 +30,7 @@ export const leadSchema = z.object({
     .trim()
     .min(10, "A few sentences please (min 10 characters).")
     .max(2000, "Message is too long (max 2000 characters)."),
-  /** Honeypot — must be empty. Real users never see this field. */
+  /** Honeypot, must be empty. Real users never see this field. */
   website: z.string().max(0).optional().default(""),
 });
 

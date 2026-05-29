@@ -5,7 +5,7 @@
  * configured (no secret key). Returns `{ ok: false, reason }` only
  * when Turnstile IS configured and the token check fails.
  *
- * This shape means Turnstile is purely additive — if the client
+ * This shape means Turnstile is purely additive, if the client
  * hasn't set up the keys yet, the form keeps working. Once the keys
  * are in env, every submission must verify.
  *

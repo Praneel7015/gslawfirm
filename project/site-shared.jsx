@@ -1,4 +1,4 @@
-// site-shared.jsx — shared site atoms: Logo lockup, razorbill mark, icons, placeholder, WhatsApp button, mobile sticky bar
+// site-shared.jsx, shared site atoms: Logo lockup, razorbill mark, icons, placeholder, WhatsApp button, mobile sticky bar
 
 const { useState, useEffect, useRef, useMemo } = React;
 
@@ -83,7 +83,7 @@ const PRACTICE_AREAS = [
   { id: 'criminal', n: '01', name: 'Criminal', icon: IconCriminal,
     desc: 'Bail, anticipatory bail, trial representation and appeals across magistrate and sessions courts.' },
   { id: 'civil', n: '02', name: 'Civil', icon: IconCivil,
-    desc: 'Property, tenancy, contractual and consumer disputes — district court through appellate stages.' },
+    desc: 'Property, tenancy, contractual and consumer disputes, district court through appellate stages.' },
   { id: 'corporate', n: '03', name: 'Corporate', icon: IconCorporate,
     desc: 'Counsel on contracts, compliance, shareholder matters and commercial documentation for small firms.' },
   { id: 'succession', n: '04', name: 'Will & Succession', icon: IconWill,

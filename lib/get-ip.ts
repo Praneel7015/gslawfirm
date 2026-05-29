@@ -4,7 +4,7 @@
  * On Vercel, `x-forwarded-for` is the canonical header (Vercel sets it
  * to a comma-separated list, leftmost = real client). On Cloudflare
  * proxied deployments, `cf-connecting-ip` is also set, but for
- * non-Cloudflare traffic (which is our default — see grey-cloud note
+ * non-Cloudflare traffic (which is our default, see grey-cloud note
  * in docs/CLOUDFLARE_SETUP.md) we rely on Vercel's header.
  *
  * Falls back to a sentinel string so the rate-limit key is always

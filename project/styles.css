@@ -1,5 +1,5 @@
 /* ───────────────────────────────────────────────────────────────────────────
-   GS LAW FIRM — design canvas + site styles
+   GS LAW FIRM, design canvas + site styles
    ─────────────────────────────────────────────────────────────────────────── */
 
 @font-face{
@@ -39,7 +39,7 @@
       url('assets/fonts/HelveticaNeue-BoldItalic.woff') format('woff');
 }
 
-/* Type system: per brief — line-height 0.9 on display, letter-spacing -0.04em globally.
+/* Type system: per brief, line-height 0.9 on display, letter-spacing -0.04em globally.
    For paragraph copy we relax line-height back to 1.5 (0.9 is unreadable on multi-line
    body text); the -4% tracking carries throughout so the Helvetica color stays consistent. */
 
@@ -283,7 +283,7 @@ a{color:inherit}
   --inv-hair:rgba(12,12,12,.12);
 }
 
-/* Mark glyph — single SVG source, color via currentColor (mask).
+/* Mark glyph, single SVG source, color via currentColor (mask).
    Set opacity per use via inline style or the parent's color alpha. */
 .mark{
   display:inline-block;
@@ -466,7 +466,7 @@ a{color:inherit}
   overflow:hidden;
 }
 .hero-mobile{ min-height:760px; }
-/* Hero background watermark — svg mask, color controlled by currentColor on the hero */
+/* Hero background watermark, svg mask, color controlled by currentColor on the hero */
 .hero-bg-mark{
   position:absolute;
   pointer-events:none;
@@ -1044,6 +1044,7 @@ a{color:inherit}
   gap:24px;
 }
 .contact-mobile .form-foot{ flex-direction:column; align-items:stretch; gap:24px }
+.contact-mobile .btn-submit{ width:100% }
 .btn-submit{
   appearance:none;
   border:1px solid var(--fg);
@@ -1052,7 +1053,10 @@ a{color:inherit}
   padding:18px 32px;
   font-size:14px; letter-spacing:.02em;
   cursor:pointer;
-  display:inline-flex; align-items:center; gap:14px;
+  display:inline-flex; align-items:center; justify-content:center; gap:14px;
+  white-space:nowrap;
+  flex-shrink:0;
+  width:fit-content;
   transition:background .2s ease, color .2s ease, gap .25s ease;
   border-radius:0;
   font-family:var(--font-body);

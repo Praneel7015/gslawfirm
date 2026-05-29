@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 
 /**
- * Helvetica Neue — verbatim from the Claude Design bundle.
+ * Helvetica Neue, verbatim from the Claude Design bundle.
  * Light 300, Regular 400, Bold 700, plus italics.
  *
  * Exposed as a CSS variable so Tailwind's @theme can resolve

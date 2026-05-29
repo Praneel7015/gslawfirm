@@ -8,7 +8,7 @@ import { useEffect, useRef } from "react";
  * caller via `onToken`.
  *
  * Renders nothing if NEXT_PUBLIC_TURNSTILE_SITE_KEY is unset. That
- * means Turnstile is purely additive — the form keeps working when
+ * means Turnstile is purely additive, the form keeps working when
  * Cloudflare isn't configured. See lib/turnstile.ts for the matching
  * server-side stance.
  */

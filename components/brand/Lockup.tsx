@@ -18,7 +18,7 @@ export function Lockup({
   showTag?: boolean;
 }) {
   return (
-    <Link href="/" className={cn("lockup", className)} aria-label={`${firm.name} — home`}>
+    <Link href="/" className={cn("lockup", className)} aria-label={`${firm.name}, home`}>
       <Mark size={size} className="lockup-mark" />
       <span className="lockup-text">
         <span className="lockup-name">{firm.name}</span>

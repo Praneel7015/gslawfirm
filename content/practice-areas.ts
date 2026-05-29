@@ -30,7 +30,7 @@ export const practiceAreas: readonly PracticeArea[] = [
     oneLine:
       "Bail, anticipatory bail, trial representation and appeals across magistrate and sessions courts.",
     paragraphs: [
-      "Most clients meet us at a particular kind of moment: a phone call, a notice, a knock at the door. The work that follows is rarely linear. We start by listening, then by reading what is already on file, and then by deciding — together — what the most measured next step looks like.",
+      "Most clients meet us at a particular kind of moment: a phone call, a notice, a knock at the door. The work that follows is rarely linear. We start by listening, then by reading what is already on file, and then by deciding, together, what the most measured next step looks like.",
       "The practice covers the routine and the unusual. Bail applications and anticipatory bail. Quashing petitions. Trial representation across magistrate and sessions courts. Cross-examination of witnesses where the file calls for it. Appeals and revisions when the verdict warrants further argument.",
       "We keep the room small. The same advocate who reads your brief is the one who appears for you, and the one you call afterwards. No rotating juniors. No surprise on counsel at the next date.",
     ],
@@ -50,7 +50,7 @@ export const practiceAreas: readonly PracticeArea[] = [
     shortName: "Civil",
     priority: "secondary",
     oneLine:
-      "Property, tenancy, contractual and consumer disputes — district court through appellate stages.",
+      "Property, tenancy, contractual and consumer disputes, district court through appellate stages.",
     paragraphs: [
       "Civil work is slower work. A property dispute can take years; a tenancy matter, months; a consumer complaint, weeks. We plan for the time the work actually takes, not the time anyone wishes it would take.",
       "The firm appears in district and city civil courts, with periodic matters before the High Court where appellate or writ relief is sought. We draft carefully, file deliberately, and avoid arguments we are not asked to make.",
@@ -73,7 +73,7 @@ export const practiceAreas: readonly PracticeArea[] = [
     oneLine:
       "Counsel on contracts, compliance, shareholder matters and commercial documentation for small firms.",
     paragraphs: [
-      "The corporate practice is deliberately modest in scope. We work with founders and small-firm owners on the documents that matter — and on the questions that surface before the documents do.",
+      "The corporate practice is deliberately modest in scope. We work with founders and small-firm owners on the documents that matter, and on the questions that surface before the documents do.",
       "Common engagements include shareholder agreements, employment contracts, vendor and service agreements, and ongoing counsel on compliance posture. We try, where we can, to write contracts that read.",
     ],
     handle: [
@@ -115,7 +115,7 @@ export const practiceAreas: readonly PracticeArea[] = [
     oneLine:
       "Writ petitions, criminal and civil revisions, and matters before the High Court of Telangana.",
     paragraphs: [
-      "High Court work is not the bulk of the practice, but it is regular. The firm appears periodically before the High Court of Telangana — primarily on writ petitions, criminal and civil revisions, and matters arising from district-court orders.",
+      "High Court work is not the bulk of the practice, but it is regular. The firm appears periodically before the High Court of Telangana, primarily on writ petitions, criminal and civil revisions, and matters arising from district-court orders.",
       "We are selective about the matters we take to the High Court. The bar is higher than it appears in print, and not every grievance reads as a question of law.",
     ],
     handle: [

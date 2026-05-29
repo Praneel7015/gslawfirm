@@ -1,4 +1,4 @@
-// site-home.jsx — full home page (used for both desktop and mobile frames)
+// site-home.jsx, full home page (used for both desktop and mobile frames)
 
 const HERO_VARIANTS = [
   { l1: "Everyone's there for your next case.", l2: "Who's there for the one after?", em: "That's us." },
@@ -36,7 +36,7 @@ function Hero({ viewport, heroVariant = 0, motifDensity = 'moderate' }) {
         </a>
       </div>
       <div className={"hero-foot" + (isMobile ? " hero-foot-mobile" : "")}>
-        <span>Adv. Sunitha Sindhole · Sole Advocate</span>
+        <span>Adv. Aitha Sunitha · Sole Advocate</span>
         <span>{isMobile ? '01 / 09' : 'Scroll ↓'}</span>
       </div>
     </section>
@@ -50,7 +50,7 @@ function IntroStrip({ viewport }) {
       <div className="intro-tag">Introduction · 01</div>
       <h2>
         Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters
-        as a solo-advocate practice — quietly, attentively, and with the same hand on every brief.
+        as a solo-advocate practice, quietly, attentively, and with the same hand on every brief.
       </h2>
     </section>
   );
@@ -92,7 +92,7 @@ function Practice({ viewport, onNav }) {
           <h2>Areas<br/>of work</h2>
         </div>
         <div style={{ maxWidth: 380, color:'var(--muted)', fontSize: 15, lineHeight: 1.55, paddingBottom: 8 }}>
-          Five areas, one advocate. Each matter receives the same attention from first hearing to final order — no handing off, no rotating juniors, no surprises on counsel.
+          All areas, one advocate. Each matter receives the same attention from first hearing to final order, no handing off, no rotating juniors, no surprises on counsel.
         </div>
       </div>
       <div className="practice-grid">
@@ -117,7 +117,7 @@ function Practice({ viewport, onNav }) {
 function Approach({ viewport }) {
   const isMobile = viewport === 'mobile';
   const items = [
-    { n: '01', t: 'Personal counsel', p: 'Your file is mine end to end. The same advocate who reads your brief is the one who argues your matter — and the one you call afterwards.' },
+    { n: '01', t: 'Personal counsel', p: 'Your file is mine end to end. The same advocate who reads your brief is the one who argues your matter, and the one you call afterwards.' },
     { n: '02', t: 'Discreet representation', p: 'Most clients arrive at a difficult chapter. We keep the room small, the calls measured, and the documentation tight.' },
     { n: '03', t: 'Continuity beyond the verdict', p: 'A judgment is rarely the last page. We stay on for execution, appeals, and the quieter matters that follow.' },
   ];
@@ -161,13 +161,13 @@ function Founder({ viewport }) {
       </div>
       <div className="founder-body">
         <span className="eyebrow">Counsel · 04</span>
-        <h2>Adv. Sunitha Sindhole</h2>
-        <div className="creds">LL.M · LL.B · M.Sc · B.Sc</div>
+        <h2>Adv. Aitha Sunitha</h2>
+        <div className="creds">B.Sc · M.Sc · LL.B · LL.M</div>
         <p>
           Ten-plus years of practice across criminal and civil matters in Hyderabad, with periodic appearances before the High Court of Telangana. Graduate of Padala Ram Reddy College of Law, enrolled with the Bar Council of Telangana.
         </p>
         <p>
-          She founded the firm in 2023 to keep one promise plainly: to be the person you can call in the second year, and the fifth, and the tenth — not only on the day of your first hearing.
+          She founded the firm in 2023 to keep one promise plainly: to be the person you can call in the second year, and the fifth, and the tenth, not only on the day of your first hearing.
         </p>
         <dl className="founder-meta">
           <dt>Bar Council</dt><dd>Telangana · Enrolment ANE/####/2014</dd>
@@ -234,7 +234,7 @@ function ContactForm({ viewport }) {
       <div className="contact-intro">
         <div className="eyebrow" style={{ marginBottom: 24 }}>Enquire · 06</div>
         <h2>{isMobile ? 'Send a brief note.' : 'Send a brief\u00A0note.'}</h2>
-        <p>Tell us, in a few sentences, what you're dealing with. We respond within one working day — usually the same day.</p>
+        <p>Tell us, in a few sentences, what you're dealing with. We respond within one working day, usually the same day.</p>
       </div>
       <div>
         {sent ? (
@@ -266,7 +266,7 @@ function ContactForm({ viewport }) {
             </div>
             <div className="field">
               <label>Brief message</label>
-              <textarea rows={3} placeholder="A few sentences about the matter — nothing confidential at this stage." value={form.message}
+              <textarea rows={3} placeholder="A few sentences about the matter, nothing confidential at this stage." value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })} />
             </div>
             <div className="form-foot">

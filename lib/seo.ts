@@ -7,7 +7,7 @@ import { SITE_URL } from "./site";
  * Build per-page `alternates` for the `Metadata` export of a page.
  *
  * - `canonical` always points at the English path (default locale,
- *   no prefix) — this consolidates ranking on a single URL while
+ *   no prefix), this consolidates ranking on a single URL while
  *   `languages` gives Google the localised alternates via hreflang.
  * - `languages` includes one entry per locale plus an `x-default`
  *   pointing back to the English path.
@@ -31,7 +31,7 @@ export function alternatesFor(path: string): Metadata["alternates"] {
 }
 
 /**
- * Convenience wrapper — build OG + Twitter metadata for a page in one
+ * Convenience wrapper, build OG + Twitter metadata for a page in one
  * shot. Returns a partial Metadata you can spread into your page-level
  * `metadata` export.
  */

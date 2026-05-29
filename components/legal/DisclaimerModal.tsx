@@ -11,7 +11,7 @@ const STORAGE_KEY = "gs-bci-ack-v1";
  * clicks "I Agree". Choice is persisted in localStorage under
  * `gs-bci-ack-v1` (build-prompt §7).
  *
- * Click-outside and Escape do NOT dismiss the modal — the user must choose.
+ * Click-outside and Escape do NOT dismiss the modal, the user must choose.
  */
 export function DisclaimerModal() {
   const t = useTranslations("disclaimer");
@@ -24,7 +24,7 @@ export function DisclaimerModal() {
     try {
       acked = localStorage.getItem(STORAGE_KEY) === "1";
     } catch {
-      // localStorage unavailable — show the modal (fail closed).
+      // localStorage unavailable, show the modal (fail closed).
       acked = false;
     }
     if (!acked) {

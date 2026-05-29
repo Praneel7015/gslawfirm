@@ -1,11 +1,11 @@
 import Script from "next/script";
 
 /**
- * Google Analytics 4 — optional. Only renders if NEXT_PUBLIC_GA_ID
+ * Google Analytics 4, optional. Only renders if NEXT_PUBLIC_GA_ID
  * is set in env. Cloudflare Web Analytics is the primary; this is
  * available for clients who want GA4's deeper reporting too.
  *
- * Note: GA4 sets cookies — under India's DPDP Act 2023 you should
+ * Note: GA4 sets cookies, under India's DPDP Act 2023 you should
  * surface a consent notice before enabling it. We do NOT show a
  * banner today; only enable GA4 once a consent UX is in place.
  */

@@ -1,7 +1,7 @@
 /**
  * Renders one or more schema.org objects as a JSON-LD <script>.
  *
- * Always pass an object (or @graph wrapper) — never a JSX child.
+ * Always pass an object (or @graph wrapper), never a JSX child.
  * Renders nothing if `data` is falsy so it's safe to spread
  * conditionally rendered nodes.
  */

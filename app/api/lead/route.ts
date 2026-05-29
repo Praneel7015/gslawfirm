@@ -9,12 +9,12 @@ import { sendLeadEmail } from "@/lib/resend";
 export const runtime = "nodejs";
 
 /**
- * POST /api/lead — handle contact form submissions.
+ * POST /api/lead, handle contact form submissions.
  *
  * Flow (build-prompt §8):
  *   1. Read JSON body, validate with zod
- *   2. Honeypot drop — if `website` field is non-empty, silently 200
- *   3. IP-based rate limit (5/hour) — 429 with retry hint on excess
+ *   2. Honeypot drop, if `website` field is non-empty, silently 200
+ *   3. IP-based rate limit (5/hour), 429 with retry hint on excess
  *   4. Optional Turnstile token verification (only if env configured)
  *   5. Send Resend email to LEAD_NOTIFY_TO
  *   6. 200 with confirmation; never leak internal errors
@@ -99,7 +99,7 @@ export async function POST(req: Request) {
   });
 
   if (!result.ok) {
-    // Never leak result.error to the client — log internally only.
+    // Never leak result.error to the client, log internally only.
     console.error("[lead] send failed:", result.error);
     return NextResponse.json(
       { ok: false, error: "send-failed" },

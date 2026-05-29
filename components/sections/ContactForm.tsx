@@ -17,8 +17,8 @@ import {
  *
  * Surfaces three distinct error states to the user:
  *   - field validation (inline, per-field)
- *   - rate-limit (429) — "you've sent several recently"
- *   - generic failure — "call/email us instead"
+ *   - rate-limit (429), "you've sent several recently"
+ *   - generic failure, "call/email us instead"
  */
 export function ContactForm() {
   const t = useTranslations("contact");
@@ -108,7 +108,7 @@ export function ContactForm() {
           </div>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
-            {/* Honeypot — invisible to humans, dropped by the API. */}
+            {/* Honeypot, invisible to humans, dropped by the API. */}
             <div className="honeypot" aria-hidden="true">
               <label>
                 Website
@@ -185,7 +185,7 @@ export function ContactForm() {
               )}
             </div>
 
-            {/* Turnstile — renders nothing if site key isn't configured. */}
+            {/* Turnstile, renders nothing if site key isn't configured. */}
             {turnstileRequired && (
               <div className="turnstile-row">
                 <TurnstileWidget

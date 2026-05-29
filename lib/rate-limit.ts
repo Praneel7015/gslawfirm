@@ -7,7 +7,7 @@ import { Redis } from "@upstash/redis";
  * Primary: Upstash Redis (production-correct, distributed).
  * Fallback: in-memory Map (per-instance only; survives a single
  *           server lambda's warm window). Used only if Upstash env
- *           vars are missing — logs a warning at module load.
+ *           vars are missing, logs a warning at module load.
  *
  * See build-prompt §8 for the policy.
  */
@@ -38,7 +38,7 @@ if (upstashUrl && upstashToken) {
   };
 } else {
   console.warn(
-    "[rate-limit] UPSTASH_REDIS_REST_URL/TOKEN missing — falling back to in-memory limiter. " +
+    "[rate-limit] UPSTASH_REDIS_REST_URL/TOKEN missing, falling back to in-memory limiter. " +
       "OK for dev; in production add Upstash creds (see docs/BACKEND_SETUP.md).",
   );
   // Per-process in-memory limiter. Map<key, timestamps[]>.

@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { firm } from "@/content/firm";
 
 /**
- * Floating WhatsApp button. Server component — renders an anchor; no client JS.
+ * Floating WhatsApp button. Server component, renders an anchor; no client JS.
  */
 export async function WhatsAppFab() {
   const t = await getTranslations("wa");

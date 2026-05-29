@@ -1,4 +1,4 @@
-# GS Law Firm — website
+# GS Law Firm, website
 
 Production site for **GS Law Firm**, a solo-advocate practice in
 Kondapur, Hyderabad. Next.js 15, Tailwind CSS v4, `next-intl`
@@ -15,7 +15,7 @@ Requires Node ≥ 20 and pnpm 9.
 
 ```bash
 pnpm install
-cp .env.example .env    # fill in values locally — .env is never committed
+cp .env.example .env    # fill in values locally, .env is never committed
 pnpm dev                # http://localhost:3000
 pnpm typecheck
 pnpm lint
@@ -28,10 +28,10 @@ pnpm build
 
 ## Deploy (Vercel)
 
-1. Import repo at [vercel.com/new](https://vercel.com/new) — **Root Directory**: `gslawfirm`
+1. Import repo at [vercel.com/new](https://vercel.com/new), **Root Directory**: `gslawfirm`
 2. Set environment variables (Production + Preview), then **Deploy**
 3. Add domain `sunitha.sindhole.com` in Vercel → point Cloudflare DNS:
-   - **CNAME** `sunitha` → `cname.vercel-dns.com` — **grey cloud** (DNS only)
+   - **CNAME** `sunitha` → `cname.vercel-dns.com`, **grey cloud** (DNS only)
 4. After changing any `NEXT_PUBLIC_*` variable, **redeploy** (baked at build time)
 
 ### Required env vars (production)
@@ -50,8 +50,8 @@ pnpm build
 | Variable | Purpose |
 |---|---|
 | `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` | Rate limit 5/h/IP (recommended) |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY` | Bot challenge — set **both** or **neither** |
-| `NEXT_PUBLIC_GA_ID` | GA4 — off by default (needs consent banner) |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY` | Bot challenge, set **both** or **neither** |
+| `NEXT_PUBLIC_GA_ID` | GA4, off by default (needs consent banner) |
 
 Copy `.env.example` for the full list and comments.
 
@@ -63,7 +63,7 @@ Copy `.env.example` for the full list and comments.
 - **Outbound** (form leads): Resend, domain `sindhole.com` verified in Resend
 - **DNS**: domain registered on Cloudflare; site served by Vercel
 
-If the form returns **429**, you hit the rate limit — wait an hour or
+If the form returns **429**, you hit the rate limit, wait an hour or
 clear `gslawfirm:lead*` keys in the Upstash dashboard. If it returns
 **400 challenge**, fix Turnstile keys on Vercel. If **200** but no
 email, rotate `RESEND_API_KEY` and confirm the domain is Verified in
@@ -85,14 +85,14 @@ scripts/          BCI linter, env checker
 ```
 
 Operational playbooks (Cloudflare, backend, domain migration) live in
-`docs/` **locally only** — not in this repository.
+`docs/` **locally only**, not in this repository.
 
 ---
 
 ## Tech stack
 
 - Next.js 15 (App Router), TypeScript strict, Tailwind CSS v4
-- `next-intl` — English at `/`, Telugu `/te`, Hindi `/hi`
+- `next-intl`, English at `/`, Telugu `/te`, Hindi `/hi`
 - React Hook Form + Zod · Resend · Upstash Redis · Cloudflare Turnstile
 - Cloudflare Web Analytics (primary) · JSON-LD, sitemap, dynamic OG images
 
@@ -101,7 +101,7 @@ Operational playbooks (Cloudflare, backend, domain migration) live in
 ## BCI compliance
 
 1. First-visit disclaimer modal (`components/legal/DisclaimerModal.tsx`)
-2. Content linter: `pnpm lint:bci` — scans for banned superlatives
+2. Content linter: `pnpm lint:bci`, scans for banned superlatives
 
 ---
 
@@ -115,7 +115,7 @@ pnpm check:env       # local .env sanity check
 ```
 
 **Targets (mobile Lighthouse):** Performance ≥ 95 · Accessibility 100 ·
-Best Practices 100 · SEO 100 — on `/` and `/practice/criminal`.
+Best Practices 100 · SEO 100, on `/` and `/practice/criminal`.
 
 **Live URL:** <https://sunitha.sindhole.com>
 
@@ -130,4 +130,4 @@ every push to `main`. Local pre-commit hook runs `pnpm lint:bci`.
 
 ## License
 
-All rights reserved. Internal client project — not for redistribution.
+All rights reserved. Internal client project, not for redistribution.

@@ -20,7 +20,7 @@ import { SITE_URL } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // Static paths — strings without a slash prefix; the home is "".
+  // Static paths, strings without a slash prefix; the home is "".
   const staticPaths: Array<{ path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }> = [
     { path: "", priority: 1.0, changeFrequency: "monthly" },
     { path: "about", priority: 0.8, changeFrequency: "yearly" },

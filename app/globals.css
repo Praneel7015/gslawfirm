@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
-   GS Law Firm — globals
+   GS Law Firm, globals
    Tailwind v4 (CSS-first config via @theme).
    Tokens & visual system: verbatim from Claude Design
    (see ./project/styles.css). Build-prompt §4 maps 1:1.
@@ -25,10 +25,10 @@
   --color-hair: rgba(12,12,12,.12);
 
   /* Accent (oxblood is the design default; gold is the alt). */
-  --color-accent: #6B0F1A;         /* oxblood — PRIMARY ACCENT, sparing */
-  --color-accent-alt: #B8924A;     /* muted gold — alternate */
+  --color-accent: #6B0F1A;         /* oxblood, PRIMARY ACCENT, sparing */
+  --color-accent-alt: #B8924A;     /* muted gold, alternate */
 
-  /* Typography — Helvetica Neue (verbatim from Claude Design). */
+  /* Typography, Helvetica Neue (verbatim from Claude Design). */
   --font-display: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
   --font-body: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
   --font-mono: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
@@ -52,10 +52,10 @@
   --spacing-22: 5.5rem;   /* 88px */
   --spacing-26: 6.5rem;   /* 104px */
 
-  /* Radius — sharp corners only (matches minimalist logo). */
+  /* Radius, sharp corners only (matches minimalist logo). */
   --radius: 0;
 
-  /* No shadows — subtle 1px line dividers do the work. */
+  /* No shadows, subtle 1px line dividers do the work. */
 }
 
 /* ── Root variables (runtime) ─────────────────────────────────
@@ -64,9 +64,9 @@
    editorial design calls for.
 */
 :root {
-  /* ~4.6:1 on #fff — WCAG AA for 10.5px uppercase labels (was .42 opacity). */
+  /* ~4.6:1 on #fff, WCAG AA for 10.5px uppercase labels (was .42 opacity). */
   --soft: #5a5a5a;
-  /* ~4.6:1 on #0a0a0a — footer / dark-surface secondary text. */
+  /* ~4.6:1 on #0a0a0a, footer / dark-surface secondary text. */
   --soft-on-dark: rgba(255, 255, 255, 0.65);
   --hair-strong: rgba(12,12,12,.22);
 }
@@ -100,7 +100,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .skip:focus { left: 8px; top: 8px; }
 
-/* Focus rings — 2px accent outline (build-prompt §9). */
+/* Focus rings, 2px accent outline (build-prompt §9). */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -121,7 +121,7 @@ select:focus-visible {
 }
 
 /* ── Razorbill mark glyph ─────────────────────────────────────
-   Single SVG source — color via currentColor through mask-image.
+   Single SVG source, color via currentColor through mask-image.
    This is the technique used in Claude Design and we keep it.
 */
 .mark {
@@ -191,7 +191,7 @@ select:focus-visible {
   display: flex; align-items: center;
   gap: 28px;
 }
-/* Underline animation applies only to plain text links — NOT to the
+/* Underline animation applies only to plain text links, NOT to the
    Consult pill or the language switcher (which is a <button>). */
 .nav a:not(.btn-consult) {
   text-decoration: none;
@@ -511,7 +511,7 @@ select:focus-visible {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   M3 — HOME PAGE SECTIONS
+   M3, HOME PAGE SECTIONS
    All visual decisions (layout, type sizes, colours, animations)
    are verbatim from the Claude Design canvas. See
    ./project/styles.css for the source of truth.
@@ -638,11 +638,14 @@ select:focus-visible {
 .practice {
   padding: 60px 80px 140px;
   background: var(--color-bg);
+  --practice-duration: 0.28s;
+  --practice-ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .practice-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   border-top: 1px solid var(--color-fg);
+  overflow: visible;
 }
 .practice-card {
   padding: 36px 28px 32px;
@@ -650,26 +653,54 @@ select:focus-visible {
   display: flex; flex-direction: column;
   min-height: 340px;
   background: var(--color-bg); color: var(--color-fg);
-  transition: background .25s ease, color .25s ease;
   text-decoration: none;
   position: relative;
+  z-index: 0;
+  isolation: isolate;
+  transition:
+    color var(--practice-duration) var(--practice-ease),
+    transform var(--practice-duration) var(--practice-ease);
+}
+.practice-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #0a0a0a;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity var(--practice-duration) var(--practice-ease);
+}
+@media (hover: hover) {
+  .practice-card:hover {
+    color: #fff;
+    transform: translateY(-8px);
+    z-index: 1;
+  }
+  .practice-card:hover::before {
+    opacity: 1;
+  }
+  .practice-card:hover .num { color: rgba(255,255,255,.5); }
+  .practice-card:hover .icon { color: #fff; }
+  .practice-card:hover p { color: rgba(255,255,255,.7); }
+  .practice-card:hover .learn span:last-child {
+    transform: translateX(6px);
+  }
 }
 .practice-card:last-child { border-right: 0; }
-.practice-card:hover { background: #0a0a0a; color: #fff; }
 .practice-card .num {
   font-family: var(--font-mono);
   font-size: 10.5px; letter-spacing: .18em;
   color: var(--soft);
+  transition: color var(--practice-duration) var(--practice-ease);
 }
-.practice-card:hover .num { color: rgba(255,255,255,.5); }
 .practice-card .icon {
   margin: 38px 0 26px;
   width: 36px; height: 36px;
   color: var(--color-accent);
-  transition: color .25s ease;
+  transition: color var(--practice-duration) var(--practice-ease);
   display: inline-block;
 }
-.practice-card:hover .icon { color: #fff; }
 .practice-card h3 {
   font-family: var(--font-display);
   font-weight: var(--headline-weight);
@@ -677,18 +708,23 @@ select:focus-visible {
   letter-spacing: -.04em;
   margin: 0 0 12px;
   line-height: .9;
+  transition: color var(--practice-duration) var(--practice-ease);
 }
 .practice-card p {
   font-size: 13.5px; line-height: 1.5;
   color: var(--color-muted);
   margin: 0; max-width: 240px;
+  transition: color var(--practice-duration) var(--practice-ease);
 }
-.practice-card:hover p { color: rgba(255,255,255,.7); }
 .practice-card .learn {
   margin-top: auto; padding-top: 32px;
   font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
   display: flex; justify-content: space-between; align-items: center;
+}
+.practice-card .learn span:last-child {
+  display: inline-block;
+  transition: transform var(--practice-duration) var(--practice-ease);
 }
 
 /* ── APPROACH ─────────────────────────────────────────────── */
@@ -992,7 +1028,10 @@ select:focus-visible {
   padding: 18px 32px;
   font-size: 14px; letter-spacing: .02em;
   cursor: pointer;
-  display: inline-flex; align-items: center; gap: 14px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  width: fit-content;
   transition: background .2s ease, color .2s ease, gap .25s ease;
   border-radius: 0;
   font-family: var(--font-body);
@@ -1046,12 +1085,19 @@ select:focus-visible {
 .form-success p { font-size: 14px; color: var(--color-muted); margin: 0; }
 
 /* ─────────────────────────────────────────────────────────────
-   M4 — PRACTICE INDEX + DETAIL PAGES
+   M4, PRACTICE INDEX + DETAIL PAGES
    See ./project/styles.css (.pd-hero, .pd-body, .pd-content,
    .pd-side, .pd-cta, .pd-adj) for the design source of truth.
    ───────────────────────────────────────────────────────────── */
 
 /* ── PD HERO ──────────────────────────────────────────────── */
+.pd-hero,
+.pd-body,
+.pi-list,
+.pi-foot {
+  --practice-duration: 0.28s;
+  --practice-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .pd-hero {
   background: #0a0a0a; color: #fff;
   padding: 160px 80px 100px;
@@ -1068,7 +1114,7 @@ select:focus-visible {
 }
 .pd-hero .crumb a {
   color: inherit; text-decoration: none;
-  transition: color .2s ease;
+  transition: color var(--practice-duration) var(--practice-ease);
 }
 .pd-hero .crumb a:hover { color: #fff; }
 .pd-hero .crumb .current { color: #fff; }
@@ -1104,6 +1150,13 @@ select:focus-visible {
   color: rgba(255,255,255,.55);
   display: block;
   margin-bottom: 36px;
+}
+.pd-index-hero {
+  z-index: 0;
+  padding-bottom: 120px;
+}
+.pd-index-hero .pd-hero-mark {
+  bottom: 0;
 }
 
 /* ── PD BODY (2-col with sticky side) ─────────────────────── */
@@ -1206,7 +1259,9 @@ select:focus-visible {
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255,255,255,.4);
   font-size: 13px; letter-spacing: .02em;
-  transition: border-color .25s ease, gap .25s ease;
+  transition:
+    border-color var(--practice-duration) var(--practice-ease),
+    gap var(--practice-duration) var(--practice-ease);
 }
 .pd-cta-link:hover { gap: 18px; border-color: #fff; }
 
@@ -1234,15 +1289,19 @@ select:focus-visible {
   font-size: 15px;
   flex: 1;
   color: var(--color-fg);
-  transition: color .2s ease;
+  transition: color var(--practice-duration) var(--practice-ease);
 }
 .pd-adj a:hover { color: var(--color-accent); }
 
 /* ── PRACTICE INDEX (list view) ───────────────────────────── */
 .pi-list {
-  padding: 0 80px;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  padding: 40px 80px 0;
   background: var(--color-bg);
   border-top: 1px solid var(--color-fg);
+  overflow: hidden;
 }
 .pi-row {
   display: grid;
@@ -1253,26 +1312,54 @@ select:focus-visible {
   border-bottom: .5px solid var(--color-hair);
   text-decoration: none;
   color: var(--color-fg);
-  transition: background .2s ease, padding-left .2s ease;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  transition:
+    color var(--practice-duration) var(--practice-ease),
+    transform var(--practice-duration) var(--practice-ease);
 }
-.pi-row:hover {
+.pi-row::before {
+  content: '';
+  position: absolute;
+  inset: 0 -24px;
   background: #0a0a0a;
-  color: #fff;
-  padding-left: 24px;
-  padding-right: 24px;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition:
+    opacity var(--practice-duration) var(--practice-ease),
+    inset var(--practice-duration) var(--practice-ease);
+}
+@media (hover: hover) {
+  .pi-row:hover {
+    color: #fff;
+    transform: translate(16px, -4px);
+    z-index: 1;
+  }
+  .pi-row:hover::before {
+    opacity: 1;
+    inset: -4px -28px;
+  }
+  .pi-row:hover .pi-num { color: rgba(255,255,255,.5); }
+  .pi-row:hover .pi-icon { color: #fff; }
+  .pi-row:hover .pi-text p { color: rgba(255,255,255,.7); }
+  .pi-row:hover .pi-arrow {
+    color: #fff;
+    transform: translateX(6px);
+  }
 }
 .pi-num {
   font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .18em;
   color: var(--soft);
+  transition: color var(--practice-duration) var(--practice-ease);
 }
-.pi-row:hover .pi-num { color: rgba(255,255,255,.5); }
 .pi-icon {
   color: var(--color-accent);
   display: inline-flex;
-  transition: color .2s ease;
+  transition: color var(--practice-duration) var(--practice-ease);
 }
-.pi-row:hover .pi-icon { color: #fff; }
 .pi-text h2 {
   font-family: var(--font-display);
   font-weight: var(--headline-weight);
@@ -1280,6 +1367,7 @@ select:focus-visible {
   line-height: .95;
   letter-spacing: -.03em;
   margin: 0 0 8px;
+  transition: color var(--practice-duration) var(--practice-ease);
 }
 .pi-text p {
   font-size: 14.5px;
@@ -1287,18 +1375,16 @@ select:focus-visible {
   color: var(--color-muted);
   margin: 0;
   max-width: 580px;
+  transition: color var(--practice-duration) var(--practice-ease);
 }
-.pi-row:hover .pi-text p { color: rgba(255,255,255,.7); }
 .pi-arrow {
   font-family: var(--font-mono);
   font-size: 16px;
   color: var(--soft);
   text-align: right;
-  transition: transform .25s ease, color .2s ease;
-}
-.pi-row:hover .pi-arrow {
-  color: #fff;
-  transform: translateX(6px);
+  transition:
+    transform var(--practice-duration) var(--practice-ease),
+    color var(--practice-duration) var(--practice-ease);
 }
 .pi-foot {
   padding: 100px 80px 140px;
@@ -1320,12 +1406,15 @@ select:focus-visible {
   display: inline-flex; align-items: center; gap: 14px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--color-fg);
-  transition: gap .25s ease, color .2s ease;
+  transition:
+    gap var(--practice-duration) var(--practice-ease),
+    color var(--practice-duration) var(--practice-ease),
+    border-color var(--practice-duration) var(--practice-ease);
 }
 .pi-foot-link:hover { color: var(--color-accent); border-color: var(--color-accent); gap: 18px; }
 
 /* ─────────────────────────────────────────────────────────────
-   M5 — ABOUT / CONTACT / PRIVACY / DISCLAIMER PAGES
+   M5, ABOUT / CONTACT / PRIVACY / DISCLAIMER PAGES
    See project/styles.css (.about-hero, .about-symbol,
    .about-story, .cp-hero, .cp-grid, .cp-cell) for source.
    ───────────────────────────────────────────────────────────── */
@@ -1598,14 +1687,16 @@ select:focus-visible {
   .founder { gap: 60px; }
   .contact { gap: 60px; }
 
-  /* M4 — practice */
+  /* M4, practice */
   .pd-hero { padding: 140px 32px 80px; }
   .pd-hero-mark { width: 360px; height: 360px; right: -40px; bottom: -40px; }
+  .pd-index-hero .pd-hero-mark { bottom: 0; }
+  .pd-index-hero { padding-bottom: 100px; }
   .pd-body { padding: 80px 32px; gap: 60px; }
-  .pi-list { padding: 0 32px; }
+  .pi-list { padding: 32px 32px 0; }
   .pi-foot { padding: 80px 32px 120px; }
 
-  /* M5 — about / contact / legal */
+  /* M5, about / contact / legal */
   .about-hero { padding: 140px 32px 70px; }
   .about-symbol { padding: 80px 32px; gap: 48px; grid-template-columns: 1fr 1.4fr; }
   .about-story { padding: 80px 32px; gap: 48px; grid-template-columns: 160px 1fr; }
@@ -1698,18 +1789,21 @@ select:focus-visible {
   .contact-intro h2 { font-size: 34px; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .form-foot { flex-direction: column; align-items: stretch; gap: 24px; }
+  .btn-submit { width: 100%; }
 
   /* page hero (about/practice/contact) */
   .page-hero { padding: 110px 22px 60px; }
   .page-hero h1 { font-size: 44px; }
   .page-hero .lede { font-size: 15px; }
 
-  /* M4 — practice detail + index */
+  /* M4, practice detail + index */
   .pd-hero { padding: 110px 22px 60px; }
   .pd-hero .crumb { margin-bottom: 36px; }
   .pd-hero h1 { font-size: 44px; margin-bottom: 24px; }
   .pd-hero .lede { font-size: 15.5px; }
   .pd-hero-mark { width: 280px; height: 280px; right: -50px; bottom: 30px; }
+  .pd-index-hero .pd-hero-mark { bottom: 0; right: -30px; }
+  .pd-index-hero { padding-bottom: 80px; }
   .pd-body {
     padding: 60px 22px;
     grid-template-columns: 1fr;
@@ -1722,17 +1816,13 @@ select:focus-visible {
   .pd-cta { padding: 32px 24px; }
   .pd-cta h3 { font-size: 22px; }
 
-  .pi-list { padding: 0 22px; }
+  .pi-list { padding: 28px 22px 0; }
   .pi-row {
     grid-template-columns: auto auto 1fr;
     gap: 14px 18px;
     padding: 24px 0;
     align-items: flex-start;
   }
-  .pi-row:hover { padding-left: 0; padding-right: 0; background: transparent; color: var(--color-fg); }
-  .pi-row:hover .pi-num { color: var(--soft); }
-  .pi-row:hover .pi-icon { color: var(--color-accent); }
-  .pi-row:hover .pi-text p { color: var(--color-muted); }
   .pi-text { grid-column: 1 / -1; }
   .pi-text h2 { font-size: 24px; }
   .pi-arrow { display: none; }
@@ -1744,7 +1834,7 @@ select:focus-visible {
     align-items: flex-start;
   }
 
-  /* M5 — about / contact / legal */
+  /* M5, about / contact / legal */
   .about-hero { padding: 110px 22px 50px; }
   .about-hero h1 { font-size: 44px; }
   .about-symbol {

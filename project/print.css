@@ -1,4 +1,4 @@
-/* print.css — print-only layout for the GS Law Firm design PDF.
+/* print.css, print-only layout for the GS Law Firm design PDF.
    Targets A3 landscape so the desktop frame fits at a near-native size.
    Tall content auto-flows across multiple PDF sheets. */
 
@@ -306,7 +306,7 @@ body {
   .pd-side { position: static !important; }
 }
 
-/* Screen rendering of the print page — neutral background so we can preview before printing */
+/* Screen rendering of the print page, neutral background so we can preview before printing */
 @media screen {
   body { background: #e7e3da !important; padding: 30px 0; }
   .print-section, .print-cover {

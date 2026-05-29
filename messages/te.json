@@ -14,16 +14,16 @@
     "emphasis": "[TRANSLATION PENDING] That’s us.",
     "cta": "గోప్యమైన సంప్రదింపును అభ్యర్థించండి",
     "scroll": "క్రిందికి ↓",
-    "footRole": "అడ్వ. సునీత సింధోలే · ఏకైక న్యాయవాది"
+    "footRole": "అడ్వ. ఐతా సునీత · ఏకైక న్యాయవాది"
   },
   "intro": {
     "tag": "పరిచయం · 01",
-    "body": "[TRANSLATION PENDING] Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters as a solo-advocate practice — quietly, attentively, and with the same hand on every brief."
+    "body": "[TRANSLATION PENDING] Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters as a solo-advocate practice, quietly, attentively, and with the same hand on every brief."
   },
   "practice": {
     "eyebrow": "ప్రాక్టీస్ · 02",
     "heading": "పని\nరంగాలు",
-    "lede": "[TRANSLATION PENDING] Five areas, one advocate. Each matter receives the same attention from first hearing to final order — no handing off, no rotating juniors, no surprises on counsel.",
+    "lede": "[TRANSLATION PENDING] All areas, one advocate. Each matter receives the same attention from first hearing to final order, no handing off, no rotating juniors, no surprises on counsel.",
     "learnMore": "మరింత తెలుసుకోండి"
   },
   "approach": {
@@ -33,7 +33,7 @@
     "items": {
       "personal": {
         "title": "వ్యక్తిగత న్యాయవాది",
-        "body": "[TRANSLATION PENDING] Your file is mine end to end. The same advocate who reads your brief is the one who argues your matter — and the one you call afterwards."
+        "body": "[TRANSLATION PENDING] Your file is mine end to end. The same advocate who reads your brief is the one who argues your matter, and the one you call afterwards."
       },
       "discreet": {
         "title": "నిష్పక్షపాతమైన ప్రాతినిధ్యం",
@@ -66,7 +66,7 @@
   "contact": {
     "eyebrow": "విచారణ · 06",
     "heading": "ఒక సంక్షిప్త నోట్ పంపండి.",
-    "lede": "మీరు ఎదుర్కొంటున్న విషయాన్ని కొన్ని వాక్యాలలో మాకు చెప్పండి. మేము ఒక పని దినంలోనే స్పందిస్తాము — సాధారణంగా అదే రోజు.",
+    "lede": "మీరు ఎదుర్కొంటున్న విషయాన్ని కొన్ని వాక్యాలలో మాకు చెప్పండి. మేము ఒక పని దినంలోనే స్పందిస్తాము, సాధారణంగా అదే రోజు.",
     "fields": {
       "name": "పేరు",
       "namePh": "మీ పూర్తి పేరు",
@@ -75,7 +75,7 @@
       "email": "ఇమెయిల్",
       "emailPh": "you@example.com",
       "message": "సంక్షిప్త సందేశం",
-      "messagePh": "విషయం గురించి కొన్ని వాక్యాలు — ఈ దశలో ఏదైనా రహస్యమైనది కాకుండా."
+      "messagePh": "విషయం గురించి కొన్ని వాక్యాలు, ఈ దశలో ఏదైనా రహస్యమైనది కాకుండా."
     },
     "submit": "సందేశం పంపండి",
     "disclaim": "[TRANSLATION PENDING] Submitting this form does not create an attorney–client relationship. Nothing herein constitutes legal advice.",
@@ -126,14 +126,14 @@
     "heading": "[TRANSLATION PENDING] A small practice, kept small on purpose.",
     "symbol": {
       "eyebrow": "[TRANSLATION PENDING] On the mark",
-      "heading": "[TRANSLATION PENDING] The razorbill returns to the same cliff colony year after year — mating for life, hewing close to family.",
+      "heading": "[TRANSLATION PENDING] The razorbill returns to the same cliff colony year after year, mating for life, hewing close to family.",
       "body1": "[TRANSLATION PENDING] It is a quiet bird, not a striking one. It does not announce itself. It is, however, reliable in a way that few seabirds are.",
-      "body2": "[TRANSLATION PENDING] We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning — to the same client, the same court, the same files, with the same attention as the first day."
+      "body2": "[TRANSLATION PENDING] We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning, to the same client, the same court, the same files, with the same attention as the first day."
     },
     "story": {
       "label": "స్థాపన · 2023",
-      "p1": "[TRANSLATION PENDING] The firm opened its doors in 2023 in Kondapur, Hyderabad. The premise was unfashionable: one advocate, working on one file at a time, available for as long as the matter lasts — and, where the relationship calls for it, well beyond.",
-      "p2": "[TRANSLATION PENDING] Adv. Sunitha Sindhole spent more than a decade in the trenches of criminal and civil practice before founding the firm. The decision to go out alone was not made lightly.",
+      "p1": "[TRANSLATION PENDING] The firm opened its doors in 2023 in Kondapur, Hyderabad. The premise was unfashionable: one advocate, working on one file at a time, available for as long as the matter lasts, and, where the relationship calls for it, well beyond.",
+      "p2": "[TRANSLATION PENDING] Adv. Aitha Sunitha spent more than a decade in the trenches of criminal and civil practice before founding the firm. The decision to go out alone was not made lightly.",
       "p3": "[TRANSLATION PENDING] The firm takes a small number of matters at any one time. It is not a question of preference; it is a question of mathematics.",
       "p4": "[TRANSLATION PENDING] This site exists to make finding us straightforward. It is not a billboard."
     }
@@ -144,11 +144,11 @@
     "lede": "మేము IST 10–18 మధ్య సోమవారం నుండి శనివారం వరకు ఫోన్‌కు సమాధానమిస్తాము. ఆ సమయాలకు బయట, ఫారం మరియు వాట్సాప్ సందేశాలు మరుసటి పని దినం ఉదయం చదువబడతాయి.",
     "phone": {
       "label": "ఫోన్ ద్వారా · 01",
-      "note": "నేరుగా న్యాయవాదికి, ఒక డెస్క్‌కి కాదు. మేము కాల్ తీసుకోకపోతే, మేము కోర్టులో ఉన్నాము — ఒక సందేశం వదిలి, పని ముగింపు లోపల మీ కాల్‌ను తిరిగి ఇస్తాము."
+      "note": "నేరుగా న్యాయవాదికి, ఒక డెస్క్‌కి కాదు. మేము కాల్ తీసుకోకపోతే, మేము కోర్టులో ఉన్నాము, ఒక సందేశం వదిలి, పని ముగింపు లోపల మీ కాల్‌ను తిరిగి ఇస్తాము."
     },
     "email": {
       "label": "ఇమెయిల్ ద్వారా · 02",
-      "note": "పెద్ద విచారణలు లేదా పత్రాలు పంచుకోవడానికి. మొదటి సందేశంలో ఏదైనా రహస్యమైనది లేదా ప్రత్యేకాధికారం పంపవద్దు — మేము ఒక సురక్షితమైన మార్గంతో ప్రతిస్పందిస్తాము."
+      "note": "పెద్ద విచారణలు లేదా పత్రాలు పంచుకోవడానికి. మొదటి సందేశంలో ఏదైనా రహస్యమైనది లేదా ప్రత్యేకాధికారం పంపవద్దు, మేము ఒక సురక్షితమైన మార్గంతో ప్రతిస్పందిస్తాము."
     },
     "inPerson": {
       "label": "ప్రత్యక్షంగా · 03",
@@ -182,7 +182,7 @@
   "practiceIndex": {
     "eyebrow": "ప్రాక్టీస్ · GS Law Firm",
     "heading": "పని రంగాలు.",
-    "lede": "[TRANSLATION PENDING] Five areas, one advocate. Each matter receives the same attention from first hearing to final order.",
+    "lede": "[TRANSLATION PENDING] All areas, one advocate. Each matter receives the same attention from first hearing to final order.",
     "footnote": "[TRANSLATION PENDING] Don’t see your matter listed? Many cases sit between two areas. Send a brief note and we’ll tell you whether we are the right firm for it."
   },
   "practiceDetail": {
@@ -196,6 +196,6 @@
       "action": "సంప్రదింపును అభ్యర్థించండి"
     },
     "adjacent": "సమీప రంగాలు",
-    "footer": "[TRANSLATION PENDING] Every matter is taken on after a frank first conversation. We tell you, plainly, whether we are the right firm for it — and where to look if we are not."
+    "footer": "[TRANSLATION PENDING] Every matter is taken on after a frank first conversation. We tell you, plainly, whether we are the right firm for it, and where to look if we are not."
   }
 }

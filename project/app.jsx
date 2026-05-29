@@ -1,4 +1,4 @@
-// app.jsx — Canvas wrapper: page tabs, side-by-side desktop+mobile frames, tweaks
+// app.jsx, Canvas wrapper: page tabs, side-by-side desktop+mobile frames, tweaks
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accent": "#6B0F1A",

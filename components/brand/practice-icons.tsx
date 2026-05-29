@@ -5,7 +5,7 @@ import type { PracticeSlug } from "@/content/practice-areas";
  * stroked in `currentColor` so the colour can be inverted on hover
  * (home page card) or set to oxblood (practice detail hero).
  *
- * Verbatim from the Claude Design canvas — see project/site-shared.jsx.
+ * Verbatim from the Claude Design canvas, see project/site-shared.jsx.
  */
 export function PracticeIcon({
   slug,

@@ -14,16 +14,16 @@
     "emphasis": "[TRANSLATION PENDING] That’s us.",
     "cta": "गोपनीय परामर्श का अनुरोध करें",
     "scroll": "नीचे ↓",
-    "footRole": "एडवो. सुनीता सिंधोले · एकल अधिवक्ता"
+    "footRole": "एडवो. ऐथा सुनीता · एकल अधिवक्ता"
   },
   "intro": {
     "tag": "परिचय · 01",
-    "body": "[TRANSLATION PENDING] Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters as a solo-advocate practice — quietly, attentively, and with the same hand on every brief."
+    "body": "[TRANSLATION PENDING] Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters as a solo-advocate practice, quietly, attentively, and with the same hand on every brief."
   },
   "practice": {
     "eyebrow": "प्रैक्टिस · 02",
     "heading": "कार्य\nक्षेत्र",
-    "lede": "[TRANSLATION PENDING] Five areas, one advocate. Each matter receives the same attention from first hearing to final order — no handing off, no rotating juniors, no surprises on counsel.",
+    "lede": "[TRANSLATION PENDING] All areas, one advocate. Each matter receives the same attention from first hearing to final order, no handing off, no rotating juniors, no surprises on counsel.",
     "learnMore": "और जानें"
   },
   "approach": {
@@ -33,7 +33,7 @@
     "items": {
       "personal": {
         "title": "व्यक्तिगत परामर्श",
-        "body": "[TRANSLATION PENDING] Your file is mine end to end. The same advocate who reads your brief is the one who argues your matter — and the one you call afterwards."
+        "body": "[TRANSLATION PENDING] Your file is mine end to end. The same advocate who reads your brief is the one who argues your matter, and the one you call afterwards."
       },
       "discreet": {
         "title": "विवेकपूर्ण प्रतिनिधित्व",
@@ -66,7 +66,7 @@
   "contact": {
     "eyebrow": "पूछताछ · 06",
     "heading": "एक संक्षिप्त नोट भेजें।",
-    "lede": "आप किस मामले से जूझ रहे हैं, हमें कुछ वाक्यों में बताएं। हम एक कार्य दिवस के भीतर जवाब देंगे — आमतौर पर उसी दिन।",
+    "lede": "आप किस मामले से जूझ रहे हैं, हमें कुछ वाक्यों में बताएं। हम एक कार्य दिवस के भीतर जवाब देंगे, आमतौर पर उसी दिन।",
     "fields": {
       "name": "नाम",
       "namePh": "आपका पूरा नाम",
@@ -75,7 +75,7 @@
       "email": "ईमेल",
       "emailPh": "you@example.com",
       "message": "संक्षिप्त संदेश",
-      "messagePh": "मामले के बारे में कुछ वाक्य — इस चरण में कुछ भी गोपनीय नहीं।"
+      "messagePh": "मामले के बारे में कुछ वाक्य, इस चरण में कुछ भी गोपनीय नहीं।"
     },
     "submit": "पूछताछ भेजें",
     "disclaim": "[TRANSLATION PENDING] Submitting this form does not create an attorney–client relationship. Nothing herein constitutes legal advice.",
@@ -126,14 +126,14 @@
     "heading": "[TRANSLATION PENDING] A small practice, kept small on purpose.",
     "symbol": {
       "eyebrow": "[TRANSLATION PENDING] On the mark",
-      "heading": "[TRANSLATION PENDING] The razorbill returns to the same cliff colony year after year — mating for life, hewing close to family.",
+      "heading": "[TRANSLATION PENDING] The razorbill returns to the same cliff colony year after year, mating for life, hewing close to family.",
       "body1": "[TRANSLATION PENDING] It is a quiet bird, not a striking one. It does not announce itself. It is, however, reliable in a way that few seabirds are.",
-      "body2": "[TRANSLATION PENDING] We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning — to the same client, the same court, the same files, with the same attention as the first day."
+      "body2": "[TRANSLATION PENDING] We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning, to the same client, the same court, the same files, with the same attention as the first day."
     },
     "story": {
       "label": "स्थापना · 2023",
       "p1": "[TRANSLATION PENDING] The firm opened its doors in 2023 in Kondapur, Hyderabad. The premise was unfashionable: one advocate, working on one file at a time, available for as long as the matter lasts.",
-      "p2": "[TRANSLATION PENDING] Adv. Sunitha Sindhole spent more than a decade in the trenches of criminal and civil practice before founding the firm.",
+      "p2": "[TRANSLATION PENDING] Adv. Aitha Sunitha spent more than a decade in the trenches of criminal and civil practice before founding the firm.",
       "p3": "[TRANSLATION PENDING] The firm takes a small number of matters at any one time. It is not a question of preference; it is a question of mathematics.",
       "p4": "[TRANSLATION PENDING] This site exists to make finding us straightforward. It is not a billboard."
     }
@@ -144,11 +144,11 @@
     "lede": "हम सोमवार से शनिवार IST 10–18 के बीच फ़ोन का जवाब देते हैं। उन घंटों के बाहर, फ़ॉर्म और व्हाट्सएप संदेश अगले कार्य दिवस की सुबह पढ़े जाते हैं।",
     "phone": {
       "label": "फ़ोन द्वारा · 01",
-      "note": "सीधे अधिवक्ता को, किसी डेस्क पर नहीं। यदि हम कॉल नहीं उठाते, तो हम अदालत में हैं — एक संदेश छोड़ दें और कार्य समाप्ति तक हम आपको वापस कॉल करेंगे।"
+      "note": "सीधे अधिवक्ता को, किसी डेस्क पर नहीं। यदि हम कॉल नहीं उठाते, तो हम अदालत में हैं, एक संदेश छोड़ दें और कार्य समाप्ति तक हम आपको वापस कॉल करेंगे।"
     },
     "email": {
       "label": "ईमेल द्वारा · 02",
-      "note": "बड़ी पूछताछ या दस्तावेज़ साझा करने के लिए। पहले संदेश में कुछ भी गोपनीय या विशेषाधिकार-प्राप्त न भेजें — हम एक सुरक्षित चैनल के साथ जवाब देंगे।"
+      "note": "बड़ी पूछताछ या दस्तावेज़ साझा करने के लिए। पहले संदेश में कुछ भी गोपनीय या विशेषाधिकार-प्राप्त न भेजें, हम एक सुरक्षित चैनल के साथ जवाब देंगे।"
     },
     "inPerson": {
       "label": "व्यक्तिगत रूप से · 03",
@@ -182,7 +182,7 @@
   "practiceIndex": {
     "eyebrow": "प्रैक्टिस · GS Law Firm",
     "heading": "कार्य क्षेत्र.",
-    "lede": "[TRANSLATION PENDING] Five areas, one advocate. Each matter receives the same attention from first hearing to final order.",
+    "lede": "[TRANSLATION PENDING] All areas, one advocate. Each matter receives the same attention from first hearing to final order.",
     "footnote": "[TRANSLATION PENDING] Don’t see your matter listed? Many cases sit between two areas. Send a brief note and we’ll tell you whether we are the right firm for it."
   },
   "practiceDetail": {
@@ -196,6 +196,6 @@
       "action": "परामर्श का अनुरोध करें"
     },
     "adjacent": "संबंधित क्षेत्र",
-    "footer": "[TRANSLATION PENDING] Every matter is taken on after a frank first conversation. We tell you, plainly, whether we are the right firm for it — and where to look if we are not."
+    "footer": "[TRANSLATION PENDING] Every matter is taken on after a frank first conversation. We tell you, plainly, whether we are the right firm for it, and where to look if we are not."
   }
 }

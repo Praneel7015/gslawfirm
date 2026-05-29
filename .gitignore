@@ -25,7 +25,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env — never commit secrets (.env.example stays tracked as a template)
+# env, never commit secrets (.env.example stays tracked as a template)
 .env
 .env.local
 .env.development.local

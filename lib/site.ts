@@ -1,5 +1,5 @@
 /**
- * Canonical site URL — change ONLY NEXT_PUBLIC_SITE_URL when migrating
+ * Canonical site URL, change ONLY NEXT_PUBLIC_SITE_URL when migrating
  * from sunitha.sindhole.com to gslawfirm.in. See docs/DOMAIN_MIGRATION.md.
  */
 export const SITE_URL =

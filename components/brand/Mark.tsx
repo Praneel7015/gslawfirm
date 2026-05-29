@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Razorbill mark — uses CSS mask-image so we recolor via currentColor.
+ * Razorbill mark, uses CSS mask-image so we recolor via currentColor.
  * Same technique as the Claude Design canvas.
  */
 export function Mark({

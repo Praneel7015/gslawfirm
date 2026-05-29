@@ -1,4 +1,4 @@
-// site-pages.jsx — Practice detail, About, Contact pages + Disclaimer modal
+// site-pages.jsx, Practice detail, About, Contact pages + Disclaimer modal
 
 function PracticeDetailPage({ viewport, onNav, areaId = 'criminal', motifDensity = 'moderate' }) {
   const isMobile = viewport === 'mobile';
@@ -7,9 +7,9 @@ function PracticeDetailPage({ viewport, onNav, areaId = 'criminal', motifDensity
 
   const COPY = {
     criminal: {
-      lede: 'Representation in criminal matters at every stage — from the first notice to appellate review.',
+      lede: 'Representation in criminal matters at every stage, from the first notice to appellate review.',
       paragraphs: [
-        'Most clients meet us at a particular kind of moment: a phone call, a notice, a knock at the door. The work that follows is rarely linear. We start by listening, then by reading what is already on file, and then by deciding — together — what the most measured next step looks like.',
+        'Most clients meet us at a particular kind of moment: a phone call, a notice, a knock at the door. The work that follows is rarely linear. We start by listening, then by reading what is already on file, and then by deciding, together, what the most measured next step looks like.',
         'The practice covers the routine and the unusual. Bail applications and anticipatory bail. Quashing petitions. Trial representation across magistrate and sessions courts. Cross-examination of witnesses where the file calls for it. Appeals and revisions when the verdict warrants further argument.',
         'We keep the room small. The same advocate who reads your brief is the one who appears for you, and the one you call afterwards. No rotating juniors. No surprise on counsel at the next date.',
       ],
@@ -25,7 +25,7 @@ function PracticeDetailPage({ viewport, onNav, areaId = 'criminal', motifDensity
       ],
     },
     civil: {
-      lede: 'Civil matters handled with patience — the kind that often outlast the criminal calendar.',
+      lede: 'Civil matters handled with patience, the kind that often outlast the criminal calendar.',
       paragraphs: [
         'Civil work is slower work. A property dispute can take years; a tenancy matter, months; a consumer complaint, weeks. We plan for the time the work actually takes, not the time anyone wishes it would take.',
         'The firm appears in district and city civil courts, with periodic matters before the High Court where appellate or writ relief is sought. We draft carefully, file deliberately, and avoid arguments we are not asked to make.',
@@ -44,7 +44,7 @@ function PracticeDetailPage({ viewport, onNav, areaId = 'criminal', motifDensity
     corporate: {
       lede: 'Counsel to small and mid-size firms on contracts, compliance, and quieter commercial matters.',
       paragraphs: [
-        'The corporate practice is deliberately modest in scope. We work with founders and small-firm owners on the documents that matter — and on the questions that surface before the documents do.',
+        'The corporate practice is deliberately modest in scope. We work with founders and small-firm owners on the documents that matter, and on the questions that surface before the documents do.',
         'Common engagements include shareholder agreements, employment contracts, vendor and service agreements, and ongoing counsel on compliance posture. We try, where we can, to write contracts that read.',
       ],
       handle: [
@@ -57,7 +57,7 @@ function PracticeDetailPage({ viewport, onNav, areaId = 'criminal', motifDensity
       ],
     },
     succession: {
-      lede: 'Wills, probate and inheritance work — handled quietly, and as fully as such matters require.',
+      lede: 'Wills, probate and inheritance work, handled quietly, and as fully as such matters require.',
       paragraphs: [
         'Succession work asks for two things from counsel: precision in the paperwork and discretion in the room. Family matters are rarely only legal matters.',
         'We draft wills, obtain probate, file letters of administration, and represent parties in inheritance disputes. Where the situation permits, we encourage settlement; where it does not, we contest carefully.',
@@ -74,7 +74,7 @@ function PracticeDetailPage({ viewport, onNav, areaId = 'criminal', motifDensity
     highcourt: {
       lede: 'Selected appearances before the High Court of Telangana on writ, criminal and civil revision matters.',
       paragraphs: [
-        'High Court work is not the bulk of the practice, but it is regular. The firm appears periodically before the High Court of Telangana — primarily on writ petitions, criminal and civil revisions, and matters arising from district-court orders.',
+        'High Court work is not the bulk of the practice, but it is regular. The firm appears periodically before the High Court of Telangana, primarily on writ petitions, criminal and civil revisions, and matters arising from district-court orders.',
         'We are selective about the matters we take to the High Court. The bar is higher than it appears in print, and not every grievance reads as a question of law.',
       ],
       handle: [
@@ -166,16 +166,16 @@ function AboutPage({ viewport, onNav }) {
         <div className="mark-big"></div>
         <div className="text">
           <span className="eyebrow">On the mark</span>
-          <h2>The razorbill returns to the same cliff colony year after year — mating for life, hewing close to family.</h2>
+          <h2>The razorbill returns to the same cliff colony year after year, mating for life, hewing close to family.</h2>
           <p>It is a quiet bird, not a striking one. It does not announce itself. It is, however, reliable in a way that few seabirds are.</p>
-          <p>We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning — to the same client, the same court, the same files, with the same attention as the first day.</p>
+          <p>We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning, to the same client, the same court, the same files, with the same attention as the first day.</p>
         </div>
       </section>
       <section className={"about-story" + (isMobile ? " about-story-mobile" : "")}>
         <div className="col-label">Founding · 2023</div>
         <div className="about-story-content">
-          <p>The firm opened its doors in 2023 in Kondapur, Hyderabad. The premise was unfashionable: one advocate, working on one file at a time, available for as long as the matter lasts — and, where the relationship calls for it, well beyond.</p>
-          <p>Adv. Sunitha Sindhole spent more than a decade in the trenches of criminal and civil practice before founding the firm. The decision to go out alone was not made lightly. It was made because, in her view, the larger the room a client's file passes through, the more often something quiet but important gets lost in the crossing.</p>
+          <p>The firm opened its doors in 2023 in Kondapur, Hyderabad. The premise was unfashionable: one advocate, working on one file at a time, available for as long as the matter lasts, and, where the relationship calls for it, well beyond.</p>
+          <p>Adv. Aitha Sunitha spent more than a decade in the trenches of criminal and civil practice before founding the firm. The decision to go out alone was not made lightly. It was made because, in her view, the larger the room a client's file passes through, the more often something quiet but important gets lost in the crossing.</p>
           <p>The firm takes a small number of matters at any one time. It is not a question of preference; it is a question of mathematics. There is one set of hands on every file, and those hands have a finite week.</p>
           <p>This site exists to make finding us straightforward. It is not a billboard. We have no rankings to claim and no testimonials to print. What we have is the willingness to sit with you and decide, plainly, whether we are the right firm for what you are dealing with.</p>
         </div>
@@ -201,14 +201,14 @@ function ContactPage({ viewport, onNav }) {
           <a href="tel:+919963847704">
             <div className="big">+91 99638 47704</div>
           </a>
-          <p>Direct to the advocate, not a desk. If we don't pick up, we are in court — leave a message and we will return your call by close of business.</p>
+          <p>Direct to the advocate, not a desk. If we don't pick up, we are in court, leave a message and we will return your call by close of business.</p>
         </div>
         <div className="cp-cell">
           <h3>By Email · 02</h3>
           <a href="mailto:hello@gslawfirm.in">
             <div className="big">hello@gslawfirm.in</div>
           </a>
-          <p>For longer enquiries or sharing documents. Please do not send anything confidential or privileged in the first message — we will reply with a secure channel.</p>
+          <p>For longer enquiries or sharing documents. Please do not send anything confidential or privileged in the first message, we will reply with a secure channel.</p>
         </div>
         <div className="cp-cell">
           <h3>In Person · 03</h3>
