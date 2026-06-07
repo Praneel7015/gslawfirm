@@ -1,5 +1,5 @@
 {
-  "_translation_status": "UI strings translated. Long-form BCI-sensitive copy (hero 3-line, approach bodies, founder bio, full privacy/disclaimer text, contact-form disclaimer) is marked [TRANSLATION PENDING] for a native Telugu legal-content reviewer to vet before launch. Do NOT ship the pending strings as-is.",
+  "_translation_status": "UI strings translated in Telugu. Legal copy has been localized; a native Telugu legal-content reviewer should still do a final pass before launch.",
   "nav": {
     "about": "మా గురించి",
     "practice": "ప్రాక్టీస్",
@@ -9,39 +9,39 @@
   },
   "hero": {
     "eyebrow": "GS Law Firm · స్థాపన 2023 · కొండాపూర్, హైదరాబాద్",
-    "line1": "[TRANSLATION PENDING] Everyone’s there for your next case.",
-    "line2": "[TRANSLATION PENDING] Who’s there for the one after?",
-    "emphasis": "[TRANSLATION PENDING] That’s us.",
+    "line1": "మీ తదుపరి కేసుకు అందరూ ఉంటారు.",
+    "line2": "తరువాతది వచ్చినప్పుడు ఎవరు ఉంటారు?",
+    "emphasis": "మేమే.",
     "cta": "గోప్యమైన సంప్రదింపును అభ్యర్థించండి",
     "scroll": "క్రిందికి ↓",
     "footRole": "అడ్వ. ఐతా సునీత (Sunitha Sindhole) · ఏకైక న్యాయవాది"
   },
   "intro": {
     "tag": "పరిచయం · 01",
-    "body": "[TRANSLATION PENDING] Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters as a solo-advocate practice, quietly, attentively, and with the same hand on every brief."
+    "body": "2023లో కొండాపూర్, హైదరాబాద్‌లో స్థాపించబడిన ఈ ఫర్మ్, క్రిమినల్ మరియు సివిల్ విషయాలను ఏకైక-న్యాయవాది ప్రాక్టీస్‌గా, నిశ్శబ్దంగా, శ్రద్ధతో, ప్రతి బ్రీఫ్‌పై అదే చేతితో నిర్వహిస్తుంది."
   },
   "practice": {
     "eyebrow": "ప్రాక్టీస్ · 02",
     "heading": "పని\nరంగాలు",
-    "lede": "[TRANSLATION PENDING] All areas, one advocate. Each matter receives the same attention from first hearing to final order, no handing off, no rotating juniors, no surprises on counsel.",
+    "lede": "అన్ని రంగాలు, ఒక న్యాయవాది. ప్రతి విషయానికి మొదటి విచారణ నుండి తుది ఆదేశం వరకు అదే శ్రద్ధ లభిస్తుంది: చేతులుమార్చడం లేదు, జూనియర్లను మార్చడం లేదు, కౌన్సెల్ విషయంలో ఆశ్చర్యాలు లేవు.",
     "learnMore": "మరింత తెలుసుకోండి"
   },
   "approach": {
     "eyebrow": "విధానం · 03",
     "heading": "మేము కట్టుబడే మూడు విషయాలు.",
-    "lede": "[TRANSLATION PENDING] The razorbill, our quiet emblem, returns to the same cliff colony year after year. We borrow the metaphor with intent: continuity is the point.",
+    "lede": "రేజర్‌బిల్, మా నిశ్శబ్ద చిహ్నం, ఏడాది తర్వాత ఏడాది అదే కొండచరియల వలయంలోకి తిరిగి వస్తుంది. మేము ఈ రూపకాన్ని ఉద్దేశపూర్వకంగా స్వీకరించాము: నిరంతరతే అసలు విషయం.",
     "items": {
       "personal": {
         "title": "వ్యక్తిగత న్యాయవాది",
-        "body": "[TRANSLATION PENDING] Your file is mine end to end. The same advocate who reads your brief is the one who argues your matter, and the one you call afterwards."
+        "body": "మీ ఫైల్ మొదటి నుండి చివరి వరకు నాదే. మీ బ్రీఫ్‌ను చదివే అదే న్యాయవాదే మీ విషయం మీద వాదిస్తుంది, తర్వాత మీరు ఫోన్ చేసే వ్యక్తి కూడా అదే."
       },
       "discreet": {
         "title": "నిష్పక్షపాతమైన ప్రాతినిధ్యం",
-        "body": "[TRANSLATION PENDING] Most clients arrive at a difficult chapter. We keep the room small, the calls measured, and the documentation tight."
+        "body": "చాలా మంది క్లయింట్లు కష్టమైన దశలో వస్తారు. మేము గదిని చిన్నగా, సంభాషణలను మితంగా, పత్రాల నిర్వహణను కచ్చితంగా ఉంచుతాము."
       },
       "continuity": {
         "title": "తీర్పు తర్వాత కూడా కొనసాగింపు",
-        "body": "[TRANSLATION PENDING] A judgment is rarely the last page. We stay on for execution, appeals, and the quieter matters that follow."
+        "body": "ఒక తీర్పు అరుదుగా చివరి పేజీ మాత్రమే అవుతుంది. అమలు, అప్పీలు, మరియు తరువాత వచ్చే నిశ్శబ్ద విషయాల వరకూ మేము కొనసాగుతాము."
       }
     }
   },
@@ -78,7 +78,7 @@
       "messagePh": "విషయం గురించి కొన్ని వాక్యాలు, ఈ దశలో ఏదైనా రహస్యమైనది కాకుండా."
     },
     "submit": "సందేశం పంపండి",
-    "disclaim": "[TRANSLATION PENDING] Submitting this form does not create an attorney–client relationship. Nothing herein constitutes legal advice.",
+    "disclaim": "ఈ ఫారమ్‌ను సమర్పించడం వలన న్యాయవాది–క్లయింట్ సంబంధం ఏర్పడదు. ఇందులోని ఏదీ కూడా చట్టపరమైన సలహా కాదు.",
     "success": {
       "title": "నోట్ స్వీకరించబడింది.",
       "body": "మేము ఒక పని దినంలోనే మిమ్మల్ని సంప్రదిస్తాము. అత్యవసర విషయాలకు +91 99638 47704కి కాల్ చేయండి."
@@ -102,13 +102,13 @@
       "contact": "సంప్రదించండి",
       "linkedin": "లింక్డ్‌ఇన్ ↗"
     },
-    "disclaim": "[TRANSLATION PENDING] As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. The contents of this site are for informational purposes only and do not constitute legal advice or create any attorney–client relationship."
+    "disclaim": "భారతీయ బార్ కౌన్సిల్ నిబంధనల ప్రకారం, న్యాయవాదులకు పని కోసం విజ్ఞప్తి చేయడం లేదా ప్రకటనలు ఇవ్వడం అనుమతి లేదు. ఈ సైట్‌లోని విషయాలు కేవలం సమాచార ప్రయోజనాల కోసమే; ఇవి చట్టపరమైన సలహా కాదు, అలాగే న్యాయవాది–క్లయింట్ సంబంధాన్ని కూడా సృష్టించవు."
   },
   "disclaimer": {
     "noticeEyebrow": "Bar Council of India · నోటీసు",
     "heading": "నిరాకరణ.",
-    "body1": "[TRANSLATION PENDING] The Bar Council of India does not permit advertisement or solicitation by Advocates in any form. By proceeding further and clicking ‘I Agree’, the user acknowledges the following: (1) there has been no advertisement, personal communication, solicitation, invitation or inducement of any sort whatsoever from GS Law Firm or any of its members to solicit any work through this website; (2) the user wishes to gain more information about GS Law Firm for his/her own information and use; (3) the information provided on this website is solely available at the user’s request for informational purposes only.",
-    "body2": "[TRANSLATION PENDING] (4) no material/information provided on this website should be construed as legal advice; (5) GS Law Firm shall not be liable for consequences of any action taken by relying on the material/information provided on this website.",
+    "body1": "భారతీయ బార్ కౌన్సిల్ న్యాయవాదుల ప్రకటనలు లేదా పని కోసం విజ్ఞప్తిని ఏ రూపంలోనూ అనుమతించదు. ముందుకు సాగి ‘నేను అంగీకరిస్తున్నాను’పై క్లిక్ చేయడం ద్వారా, వినియోగదారు ఈ కింది విషయాలను అంగీకరిస్తాడు/అంగీకరిస్తుంది: (1) ఈ వెబ్‌సైట్ ద్వారా GS Law Firm లేదా దాని సభ్యుల తరఫున ఎలాంటి ప్రకటన, వ్యక్తిగత సమాచార మార్పిడి, విజ్ఞప్తి, ఆహ్వానం లేదా ప్రేరణ ఏ విధంగానూ లేదు; (2) వినియోగదారు GS Law Firm గురించి తన/తన స్వంత సమాచారం మరియు వినియోగం కోసం మాత్రమే తెలుసుకోవాలనుకుంటున్నారు; (3) ఈ వెబ్‌సైట్‌లో అందించిన సమాచారం వినియోగదారి అభ్యర్థనపై సమాచార ప్రయోజనాల కోసమే అందుబాటులో ఉంది.",
+    "body2": "(4) ఈ వెబ్‌సైట్‌లో ఇచ్చిన ఏదైనా పదార్థం/సమాచారం చట్టపరమైన సలహాగా భావించరాదు; (5) ఈ వెబ్‌సైట్‌లో ఇచ్చిన పదార్థం/సమాచారంపై ఆధారపడి తీసుకున్న ఏ చర్య ఫలితాలకూ GS Law Firm బాధ్యత వహించదు.",
     "agree": "నేను అంగీకరిస్తున్నాను",
     "exit": "నిష్క్రమించు"
   },
@@ -123,19 +123,19 @@
   },
   "about": {
     "eyebrow": "మా గురించి · GS Law Firm",
-    "heading": "[TRANSLATION PENDING] A small practice, kept small on purpose.",
+    "heading": "చిన్న ప్రాక్టీస్‌ను ఉద్దేశపూర్వకంగా చిన్నగానే ఉంచాం.",
     "symbol": {
-      "eyebrow": "[TRANSLATION PENDING] On the mark",
-      "heading": "[TRANSLATION PENDING] The razorbill returns to the same cliff colony year after year, mating for life, hewing close to family.",
-      "body1": "[TRANSLATION PENDING] It is a quiet bird, not a striking one. It does not announce itself. It is, however, reliable in a way that few seabirds are.",
-      "body2": "[TRANSLATION PENDING] We took the metaphor on purpose. The work of a small law practice, done well, is the work of returning, to the same client, the same court, the same files, with the same attention as the first day."
+      "eyebrow": "లక్ష్యంపై",
+      "heading": "రేజర్‌బిల్ ప్రతి సంవత్సరం అదే కొండచరియల వలయంలోకి తిరిగి వస్తుంది, జీవితాంతం జత కడుతుంది, కుటుంబానికి దగ్గరగా ఉంటుంది.",
+      "body1": "అది నిశ్శబ్ద పక్షి, చూపును ఆకర్షించేది కాదు. అది తనను తాను ప్రకటించుకోదు. అయినా కూడా, చాలా సముద్రపక్షులకన్నా నమ్మదగినది.",
+      "body2": "మేము ఈ రూపకాన్ని ఉద్దేశపూర్వకంగా తీసుకున్నాము. చిన్న న్యాయ ప్రాక్టీస్‌ను బాగా నడపడం అంటే అదే క్లయింట్‌కి, అదే కోర్ట్‌కి, అదే ఫైళ్లకు, మొదటి రోజుకే ఉన్న శ్రద్ధతో తిరిగి వెళ్లడం."
     },
     "story": {
       "label": "స్థాపన · 2023",
-      "p1": "[TRANSLATION PENDING] The firm opened its doors in 2023 in Kondapur, Hyderabad. The premise was unfashionable: one advocate, working on one file at a time, available for as long as the matter lasts, and, where the relationship calls for it, well beyond.",
-      "p2": "[TRANSLATION PENDING] Adv. Aitha Sunitha spent more than a decade in the trenches of criminal and civil practice before founding the firm. The decision to go out alone was not made lightly.",
-      "p3": "[TRANSLATION PENDING] The firm takes a small number of matters at any one time. It is not a question of preference; it is a question of mathematics.",
-      "p4": "[TRANSLATION PENDING] This site exists to make finding us straightforward. It is not a billboard."
+      "p1": "ఈ ఫర్మ్ 2023లో కొండాపూర్, హైదరాబాద్‌లో తన తలుపులు తెరిచింది. ఆ భావన ఫ్యాషన్‌గా కాదు: ఒక న్యాయవాది, ఒక సమయంలో ఒక ఫైల్‌పై పని చేస్తూ, విషయం కొనసాగినంత కాలం అందుబాటులో ఉండటం.",
+      "p2": "ఫర్మ్‌ను స్థాపించే ముందు అడ్వ. ఐతా సునీత క్రిమినల్ మరియు సివిల్ ప్రాక్టీస్‌లో దశాబ్దానికి పైగా అనుభవం సంపాదించారు. ఒంటరిగా ముందుకు సాగాలనే నిర్ణయం తేలికగా తీసుకున్నది కాదు.",
+      "p3": "ఫర్మ్ ఒకేసారి తక్కువ సంఖ్యలో మాత్రమే విషయాలను తీసుకుంటుంది. ఇది అభిరుచుల ప్రశ్న కాదు; ఇది గణితపు ప్రశ్న.",
+      "p4": "మమ్మల్ని సులభంగా కనుగొనడానికి ఈ సైట్ ఉంది. ఇది బిల్‌బోర్డు కాదు."
     }
   },
   "contactPage": {
@@ -160,30 +160,30 @@
     "eyebrow": "గోప్యత · GS Law Firm",
     "heading": "గోప్యతా నోటీసు.",
     "updated": "చివరిగా నవీకరించబడింది · 28 మే 2026",
-    "lede": "[TRANSLATION PENDING] This notice describes what we collect when you visit this site or send us a message, why we collect it, and what we do with it.",
+    "lede": "మీరు ఈ సైట్‌ను సందర్శించినప్పుడు లేదా మాకు సందేశం పంపినప్పుడు మేము ఏమి సేకరిస్తాము, ఎందుకు సేకరిస్తాము, దానితో ఏమి చేస్తాము అనే విషయాలను ఈ నోటీసు వివరిస్తుంది.",
     "sections": {
-      "collect": { "heading": "[TRANSLATION PENDING] What we collect", "body": "[TRANSLATION PENDING] When you submit the contact form, we collect the name, phone number, email address and message you provide." },
-      "use": { "heading": "[TRANSLATION PENDING] How we use it", "body": "[TRANSLATION PENDING] Enquiry data is used solely to respond to your enquiry and, where you become a client, to discharge our professional obligations." },
-      "retention": { "heading": "[TRANSLATION PENDING] How long we keep it", "body": "[TRANSLATION PENDING] Unresolved enquiries are retained for up to 90 days, after which they are deleted." },
-      "rights": { "heading": "[TRANSLATION PENDING] Your rights", "body": "[TRANSLATION PENDING] You may ask us to confirm what information we hold about you, to correct it, or to delete it. Write to sunitha@sindhole.com." },
-      "contact": { "heading": "[TRANSLATION PENDING] Questions", "body": "[TRANSLATION PENDING] If anything in this notice is unclear, write to sunitha@sindhole.com." }
+      "collect": { "heading": "మేము ఏమి సేకరిస్తాము", "body": "మీరు సంప్రదింపు ఫారమ్‌ను సమర్పించినప్పుడు, మీరు ఇచ్చిన పేరు, ఫోన్ నంబర్, ఇమెయిల్ చిరునామా మరియు సందేశాన్ని మేము సేకరిస్తాము." },
+      "use": { "heading": "మేము దాన్ని ఎలా ఉపయోగిస్తాము", "body": "మీ విచారణకు స్పందించడానికి మాత్రమే, మరియు మీరు క్లయింట్‌గా మారితే మా వృత్తిపరమైన బాధ్యతలను నెరవేర్చడానికి మాత్రమే విచారణ డేటాను ఉపయోగిస్తాము." },
+      "retention": { "heading": "దాన్ని ఎంతకాలం ఉంచుతాము", "body": "పరిష్కారము కాని విచారణలను 90 రోజుల వరకు ఉంచుతాము, ఆ తర్వాత వాటిని తొలగిస్తాము." },
+      "rights": { "heading": "మీ హక్కులు", "body": "మేము మీ గురించి ఏ సమాచారాన్ని ఉంచుకున్నామో నిర్ధారించమని, దాన్ని సరిదిద్దమని, లేదా తొలగించమని మమ్మల్ని కోరవచ్చు. sunitha@sindhole.com కు వ్రాయండి." },
+      "contact": { "heading": "ప్రశ్నలు", "body": "ఈ నోటీసులో ఏదైనా స్పష్టంగా లేకపోతే, sunitha@sindhole.com కు వ్రాయండి." }
     }
   },
   "disclaimerPage": {
     "eyebrow": "Bar Council of India · నోటీసు",
     "heading": "నిరాకరణ.",
     "updated": "అమలులో · 28 మే 2026",
-    "p1": "[TRANSLATION PENDING] The Bar Council of India does not permit advocates to solicit work or advertise. By entering this site, the user acknowledges that they are seeking information about GS Law Firm of their own accord.",
-    "p2": "[TRANSLATION PENDING] The information provided on this site is for general informational purposes only and should not be construed as legal advice or a substitute for it.",
-    "p3": "[TRANSLATION PENDING] By proceeding further, the user agrees to release, discharge and hold GS Law Firm harmless from any claim arising out of the use of any information available on this site.",
-    "p4": "[TRANSLATION PENDING] Any reference to a specific area of law on this site is general in nature and not exhaustive.",
-    "p5": "[TRANSLATION PENDING] If you do not agree with any part of this notice, please leave the site. If you require legal advice on a specific matter, call us on +91 99638 47704 or write to sunitha@sindhole.com."
+    "p1": "భారతీయ బార్ కౌన్సిల్ న్యాయవాదులకు ఏ రూపంలోనూ పని కోసం విజ్ఞప్తి చేయడం లేదా ప్రకటన ఇవ్వడం అనుమతించదు. ఈ సైట్‌లోకి ప్రవేశించడం ద్వారా, వినియోగదారు తన స్వంత నిర్ణయంతో GS Law Firm గురించి సమాచారం తెలుసుకోవాలని కోరుకుంటున్నారని అంగీకరిస్తారు.",
+    "p2": "ఈ సైట్‌లో ఇచ్చిన సమాచారం కేవలం సాధారణ సమాచార ప్రయోజనాల కోసం మాత్రమే; దాన్ని చట్టపరమైన సలహాగా లేదా దానికి ప్రత్యామ్నాయంగా భావించరాదు.",
+    "p3": "మరింత ముందుకు సాగడం ద్వారా, ఈ సైట్‌లో అందుబాటులో ఉన్న ఏ సమాచారాన్ని ఉపయోగించడం వల్ల ఏర్పడే ఏ దావా నుంచైనా GS Law Firm‌ను విడిపించి, బాధ్యతల నుంచి విముక్తి చేస్తామని వినియోగదారు అంగీకరిస్తారు.",
+    "p4": "ఈ సైట్‌లో చట్టంలోని ఏదైనా ప్రత్యేక రంగాన్ని సూచించడం సాధారణ స్వభావం గలది; ఇది సంపూర్ణం కాదు.",
+    "p5": "ఈ నోటీసులోని ఏ భాగంతోనైనా మీరు అంగీకరించకపోతే, దయచేసి సైట్‌ను వదిలివేయండి. ఒక నిర్దిష్ట విషయంపై చట్టపరమైన సలహా కావాలంటే, +91 99638 47704 కు కాల్ చేయండి లేదా sunitha@sindhole.com కు వ్రాయండి."
   },
   "practiceIndex": {
     "eyebrow": "ప్రాక్టీస్ · GS Law Firm",
     "heading": "పని రంగాలు.",
-    "lede": "[TRANSLATION PENDING] All areas, one advocate. Each matter receives the same attention from first hearing to final order.",
-    "footnote": "[TRANSLATION PENDING] Don’t see your matter listed? Many cases sit between two areas. Send a brief note and we’ll tell you whether we are the right firm for it."
+    "lede": "అన్ని రంగాలు, ఒక న్యాయవాది. ప్రతి విషయానికి మొదటి విచారణ నుండి తుది ఆదేశం వరకు అదే శ్రద్ధ లభిస్తుంది.",
+    "footnote": "మీ విషయం జాబితాలో కనిపించలేదా? చాలా కేసులు రెండు రంగాల మధ్య ఉంటాయి. ఒక చిన్న సందేశం పంపండి; అది మాకు సరిపోయే ఫర్మ్‌నా కాదా మేము చెబుతాము."
   },
   "practiceDetail": {
     "crumbHome": "హోమ్",
@@ -192,10 +192,10 @@
     "cta": {
       "headingPrefix": "మీ",
       "headingSuffix": "విషయాన్ని గోప్యంగా చర్చిద్దాం.",
-      "body": "[TRANSLATION PENDING] A first conversation, by phone or in office, with no obligation.",
+      "body": "మొదటి సంభాషణ ఫోన్‌లో గానీ కార్యాలయంలో గానీ, ఎలాంటి బాధ్యత లేకుండా ఉంటుంది.",
       "action": "సంప్రదింపును అభ్యర్థించండి"
     },
     "adjacent": "సమీప రంగాలు",
-    "footer": "[TRANSLATION PENDING] Every matter is taken on after a frank first conversation. We tell you, plainly, whether we are the right firm for it, and where to look if we are not."
+    "footer": "ప్రతి విషయాన్ని స్పష్టమైన మొదటి సంభాషణ తర్వాత మాత్రమే స్వీకరిస్తాము. మేము ఆ విషయం కోసం మేము సరైన ఫర్మ్‌మా కాదా, కాదంటే ఎక్కడ చూడాలో కూడా నేరుగా చెబుతాము."
   }
 }
