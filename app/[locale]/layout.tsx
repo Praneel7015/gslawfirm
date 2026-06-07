@@ -23,11 +23,11 @@ function isLocale(value: string): value is Locale {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${firm.name} · Advocate in Kondapur, Hyderabad`,
+    default: `${firm.name} · Adv. Aitha Sunitha (Sunitha Sindhole), Kondapur, Hyderabad`,
     template: `%s · ${firm.name}`,
   },
   description:
-    "A solo-advocate practice in Kondapur, Hyderabad. Criminal, civil, corporate, succession and High Court matters. Founded 2023.",
+    "A solo-advocate practice in Kondapur, Hyderabad, led by Adv. Aitha Sunitha, also known as Sunitha Sindhole. Serving Kondapur, Gachibowli, Miyapur, Nallagandla and nearby Hyderabad localities.",
   alternates: {
     canonical: "/",
     languages: {
@@ -40,15 +40,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: firm.name,
-    title: `${firm.name} · ${firm.tagline}`,
+    title: `${firm.name} · Adv. Aitha Sunitha (Sunitha Sindhole)`,
     description:
-      "A solo-advocate practice in Kondapur, Hyderabad. Counsel that stays with you beyond the verdict.",
+      "A solo-advocate practice in Kondapur, Hyderabad, led by Adv. Aitha Sunitha (Sunitha Sindhole).",
     url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${firm.name} · ${firm.tagline}`,
-    description: "A solo-advocate practice in Kondapur, Hyderabad.",
+    title: `${firm.name} · Adv. Aitha Sunitha (Sunitha Sindhole)`,
+    description: "A solo-advocate practice in Kondapur, Hyderabad, led by Adv. Aitha Sunitha (Sunitha Sindhole).",
   },
   robots: { index: true, follow: true },
   icons: {

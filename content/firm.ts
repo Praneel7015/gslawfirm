@@ -1,6 +1,12 @@
 /** Single source of truth for firm details (per build-prompt §5). */
 export const firm = {
   name: "GS Law Firm",
+  alternateNames: [
+    "Adv. Aitha Sunitha",
+    "Aitha Sunitha",
+    "Sunitha Sindhole",
+    "GS Law Firm Hyderabad",
+  ],
   established: 2023,
   address: {
     line1: "Sri Ramnagar Block C",
@@ -34,6 +40,11 @@ export const firm = {
     "Madhapur",
     "Hi-Tech City",
     "Kothaguda",
+    "Hafeezpet",
+    "Miyapur",
+    "Nallagandla",
+    "Serilingampally",
+    "Tellapur",
     "Manikonda",
     "Jubilee Hills",
     "Banjara Hills",

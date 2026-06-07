@@ -10,9 +10,9 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: `Contact · ${firm.name}`,
+  title: `Contact ${firm.name} | Kondapur Hyderabad`,
   description:
-    "Three ways to reach us. Phone, email, or in person at Sri Ramnagar Block C, Kondapur, Hyderabad.",
+    "Three ways to reach us. Phone, email, or in person at Sri Ramnagar Block C, Kondapur, Hyderabad. Serving Gachibowli, Miyapur, Nallagandla and nearby areas.",
   path: "/contact",
 });
 

@@ -11,9 +11,9 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: `Practice · ${firm.name}`,
+  title: `Practice Areas | ${firm.name} Hyderabad`,
   description:
-    "All areas, one advocate. Criminal, civil, corporate, succession and High Court matters in Hyderabad.",
+    "All areas, one advocate. Criminal, civil, corporate, succession and High Court matters in Hyderabad, with service across Kondapur, Gachibowli, Miyapur and nearby localities.",
   path: "/practice",
 });
 

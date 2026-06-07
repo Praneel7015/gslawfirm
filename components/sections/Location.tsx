@@ -58,6 +58,17 @@ export async function Location() {
           <span className="k">{t("hours")}</span>
           <span className="v">{firm.hoursShort}</span>
         </div>
+        <div className="served-block" aria-label="Nearby areas served">
+          <p className="served-copy">
+            Serving Kondapur, Gachibowli, Madhapur, Miyapur, Nallagandla,
+            Serilingampally, Hafeezpet, Tellapur, and nearby Hyderabad localities.
+          </p>
+          <ul className="served-list">
+            {firm.areasServed.map((area) => (
+              <li key={area}>{area}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

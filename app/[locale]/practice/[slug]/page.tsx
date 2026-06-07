@@ -31,8 +31,8 @@ export async function generateMetadata({
   const area = getPracticeArea(slug);
   if (!area) return {};
   return pageMetadata({
-    title: `${area.name} · ${firm.name}`,
-    description: area.oneLine,
+    title: `${area.name} in Hyderabad | ${firm.name}`,
+    description: `${area.oneLine} Serving Kondapur, Gachibowli, Miyapur, Nallagandla and nearby Hyderabad localities.`,
     path: `/practice/${area.slug}`,
   });
 }

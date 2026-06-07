@@ -49,7 +49,7 @@ export function pageMetadata({
   const url = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
   const og = image ? [{ url: image, width: 1200, height: 630 }] : undefined;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: alternatesFor(path),
     openGraph: {

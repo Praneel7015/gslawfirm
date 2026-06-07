@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { Hero } from "@/components/sections/Hero";
@@ -15,6 +16,14 @@ import {
   personSchema,
   websiteSchema,
 } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "GS Law Firm | Adv. Aitha Sunitha (Sunitha Sindhole), Kondapur Hyderabad",
+  description:
+    "Solo-advocate practice in Kondapur, Hyderabad, led by Adv. Aitha Sunitha, also known as Sunitha Sindhole. Serving Kondapur, Gachibowli, Miyapur, Nallagandla and nearby localities.",
+  path: "/",
+});
 
 export default async function HomePage({
   params,

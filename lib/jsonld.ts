@@ -75,6 +75,7 @@ export function personSchema(): JsonLd {
     "@type": "Person",
     "@id": PERSON_ID,
     name: founder.shortName,
+    alternateName: [founder.name, "Sunitha Sindhole"],
     honorificPrefix: "Adv.",
     jobTitle: "Advocate",
     alumniOf: {
@@ -100,6 +101,7 @@ export function legalServiceSchema(): JsonLd {
     "@type": "LegalService",
     "@id": ORG_ID,
     name: firm.name,
+    alternateName: firm.alternateNames,
     legalName: firm.name,
     description:
       "A solo-advocate practice in Kondapur, Hyderabad. Criminal, civil, corporate, succession and High Court matters since 2023.",
@@ -145,6 +147,7 @@ export function websiteSchema(): JsonLd {
     "@id": SITE_ID,
     url: SITE_URL,
     name: firm.name,
+    alternateName: firm.alternateNames,
     publisher: { "@id": ORG_ID },
     inLanguage: ["en", "te", "hi"],
   };
