@@ -4,6 +4,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { firm } from "@/content/firm";
 import { Founder } from "@/components/sections/Founder";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, graphSchema, personSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
@@ -60,6 +61,17 @@ export default async function AboutPage({
           <p>{t("story.p2")}</p>
           <p>{t("story.p3")}</p>
           <p>{t("story.p4")}</p>
+          <div className="about-story-link">
+            <span>Continuity of counsel</span>
+            <p>
+              The continuity explainer describes how one advocate reading the
+              papers and staying familiar with the file helps keep the next
+              court-stage discussion clear.
+            </p>
+            <Link href="/continuity-of-counsel">
+              Read the explainer <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 

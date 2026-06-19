@@ -22,6 +22,7 @@ const ROUTES = [
   "/tenancy-eviction",
   "/specific-performance",
   "/injunction-interim-relief",
+  "/continuity-of-counsel",
   "/kondapur-legal-services",
   "/about",
   "/practice",
