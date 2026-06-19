@@ -9,9 +9,10 @@
     "lint": "next lint",
     "lint:bci": "tsx scripts/check-bci-language.ts",
     "check:env": "tsx scripts/check-env.ts",
+    "qa:lead-source": "tsx scripts/qa-lead-source.ts",
     "qa:routes": "tsx scripts/qa-routes.ts",
     "qa:lighthouse": "node scripts/qa-lighthouse.mjs",
-    "qa": "pnpm typecheck && pnpm lint && pnpm lint:bci && pnpm build && pnpm qa:routes",
+    "qa": "pnpm typecheck && pnpm lint && pnpm lint:bci && pnpm qa:lead-source && pnpm build && pnpm qa:routes",
     "prepare": "husky",
     "typecheck": "tsc --noEmit"
   },
