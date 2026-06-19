@@ -25,8 +25,9 @@ export async function Practice() {
       <div className="practice-feature">
         <span>Focused guidance</span>
         <p>
-          For FIRs, bail stages, property papers and commercial documents in
-          Hyderabad, read the focused guidance before sending an enquiry.
+          For FIRs, bail stages, property papers, commercial documents and
+          succession papers in Hyderabad, read the focused guidance before
+          sending an enquiry.
         </p>
         <div className="practice-feature-links">
           <Link href="/criminal-defense" className="practice-feature-link">
@@ -40,6 +41,9 @@ export async function Practice() {
           </Link>
           <Link href="/commercial-contracts" className="practice-feature-link">
             Read commercial-contract guidance <span aria-hidden="true">→</span>
+          </Link>
+          <Link href="/succession-probate" className="practice-feature-link">
+            Read succession and probate guidance <span aria-hidden="true">→</span>
           </Link>
         </div>
       </div>
