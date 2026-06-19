@@ -3,9 +3,10 @@ import { setRequestLocale } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
 import { firm } from "@/content/firm";
+import { bailFaqs } from "@/content/service-faqs";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
+import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
@@ -104,6 +105,7 @@ export default async function BailPage({
       { name: "Practice", url: `${SITE_URL}/practice` },
       { name: "Bail", url: localizedBailUrl },
     ]),
+    faqPageSchema(bailFaqs),
   ]);
 
   return (
@@ -169,6 +171,18 @@ export default async function BailPage({
               ))}
             </ul>
           </div>
+
+          <section className="service-faq" aria-labelledby="bail-faq-title">
+            <h2 id="bail-faq-title">Common questions</h2>
+            <div className="service-faq-list">
+              {bailFaqs.map((item) => (
+                <article className="service-faq-item" key={item.question}>
+                  <h3>{item.question}</h3>
+                  <p>{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
           <p className="pd-footnote">
             This page is general information, not legal advice. Bail depends on

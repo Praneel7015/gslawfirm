@@ -24,6 +24,7 @@ import { firm } from "@/content/firm";
 import { founder } from "@/content/founder";
 import { SITE_URL } from "@/lib/site";
 import type { PracticeArea } from "@/content/practice-areas";
+import type { ServiceFaq } from "@/content/service-faqs";
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const PERSON_ID = `${SITE_URL}/about#founder`;
@@ -211,6 +212,22 @@ export function breadcrumbSchema(
       position: i + 1,
       name: it.name,
       item: it.url,
+    })),
+  };
+}
+
+// ── FAQPage ─────────────────────────────────────────────────────────
+export function faqPageSchema(items: readonly ServiceFaq[]): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
     })),
   };
 }

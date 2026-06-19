@@ -4,8 +4,9 @@ import { setRequestLocale } from "next-intl/server";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
+import { criminalDefenseFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
-import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
+import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
@@ -108,6 +109,7 @@ export default async function CriminalDefensePage({
       { name: "Practice", url: `${SITE_URL}/practice` },
       { name: "Criminal Defense", url: localizedDefenseUrl },
     ]),
+    faqPageSchema(criminalDefenseFaqs),
   ]);
 
   return (
@@ -180,6 +182,18 @@ export default async function CriminalDefensePage({
               ))}
             </ul>
           </div>
+
+          <section className="service-faq" aria-labelledby="defense-faq-title">
+            <h2 id="defense-faq-title">Common questions</h2>
+            <div className="service-faq-list">
+              {criminalDefenseFaqs.map((item) => (
+                <article className="service-faq-item" key={item.question}>
+                  <h3>{item.question}</h3>
+                  <p>{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
           <p className="pd-footnote">
             This page is general information, not legal advice. Criminal-defense

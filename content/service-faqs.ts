@@ -1,0 +1,58 @@
+export type ServiceFaq = {
+  question: string;
+  answer: string;
+};
+
+export const bailFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What should I bring for a first bail discussion?",
+    answer:
+      "Bring any FIR, complaint, notice, remand paper, earlier order, next-date details, and any condition or surety information already available. If papers are missing, note the police station, crime number, court, and current stage.",
+  },
+  {
+    question: "Can this page tell me whether bail will be granted?",
+    answer:
+      "No. Bail depends on facts, sections invoked, case stage, prior orders, and the court hearing the application. This page explains the documents and stages usually reviewed before advice is given.",
+  },
+  {
+    question: "What can a first conversation cover?",
+    answer:
+      "It can cover the case stage, available papers, immediate deadline, and whether regular bail, anticipatory bail, condition compliance, or another court step needs to be discussed.",
+  },
+] as const;
+
+export const criminalDefenseFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What details help at the first criminal-defense discussion?",
+    answer:
+      "The complaint or FIR, notices, sections invoked, court name, next date, prior orders, and a short chronology of what has happened are useful.",
+  },
+  {
+    question: "Is this page legal advice for my case?",
+    answer:
+      "No. It is general information. Advice depends on reading the papers, hearing the facts, and checking the current court stage.",
+  },
+  {
+    question: "When might High Court steps be discussed?",
+    answer:
+      "High Court steps may be discussed when the papers raise a question around quashing, revision, appeal, bail, or an order from a lower court. Whether that is appropriate depends on the file.",
+  },
+] as const;
+
+export const propertyDisputesFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What property papers are useful for the first discussion?",
+    answer:
+      "Sale deeds, link documents, settlement or gift deeds, partition papers, encumbrance records, tax receipts, municipal or revenue records, notices, and any case papers are useful if available.",
+  },
+  {
+    question: "Does a property dispute always need a civil suit?",
+    answer:
+      "Not always. The next step can be a notice, reply, document review, settlement discussion, interim application, suit, appeal, or execution step depending on the documents and current stage.",
+  },
+  {
+    question: "What can be discussed before sharing original documents?",
+    answer:
+      "You can discuss the property location, relationship between parties, possession, documents available, notices received, court stage, and immediate deadlines. Originals can be handled later if needed.",
+  },
+] as const;

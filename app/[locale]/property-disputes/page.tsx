@@ -4,8 +4,9 @@ import { setRequestLocale } from "next-intl/server";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
+import { propertyDisputesFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
-import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
+import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
@@ -108,6 +109,7 @@ export default async function PropertyDisputesPage({
       { name: "Practice", url: `${SITE_URL}/practice` },
       { name: "Property Disputes", url: localizedPropertyUrl },
     ]),
+    faqPageSchema(propertyDisputesFaqs),
   ]);
 
   return (
@@ -173,6 +175,21 @@ export default async function PropertyDisputesPage({
               ))}
             </ul>
           </div>
+
+          <section
+            className="service-faq"
+            aria-labelledby="property-faq-title"
+          >
+            <h2 id="property-faq-title">Common questions</h2>
+            <div className="service-faq-list">
+              {propertyDisputesFaqs.map((item) => (
+                <article className="service-faq-item" key={item.question}>
+                  <h3>{item.question}</h3>
+                  <p>{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
           <p className="pd-footnote">
             This page is general information, not legal advice. Property matters
