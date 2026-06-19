@@ -92,3 +92,21 @@ export const successionProbateFaqs: readonly ServiceFaq[] = [
       "No. This page is general information. Shares, objections, family arrangements, and court steps depend on the papers, facts, family history, and applicable law.",
   },
 ] as const;
+
+export const highCourtMattersFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What papers help for a High Court discussion?",
+    answer:
+      "The order under challenge, lower-court or authority papers, pleadings, FIR or complaint if relevant, notices, certified copies, next-date details, and filing deadlines are useful if available.",
+  },
+  {
+    question: "Does every adverse order go to the High Court?",
+    answer:
+      "No. Whether a High Court step can be discussed depends on the order, forum below, limitation, facts, available remedy, and the question that can properly be raised.",
+  },
+  {
+    question: "When might quashing, revision or writ steps be discussed?",
+    answer:
+      "They may be discussed when the papers raise a question around jurisdiction, procedure, public-authority action, criminal proceedings, or an order from a lower forum. The file has to be read first.",
+  },
+] as const;

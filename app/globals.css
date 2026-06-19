@@ -1509,7 +1509,8 @@ select:focus-visible {
 .defense-steps,
 .property-steps,
 .commercial-steps,
-.succession-steps {
+.succession-steps,
+.high-court-steps {
   margin: 54px 0 10px;
   border-top: 1px solid var(--color-fg);
 }
@@ -1517,7 +1518,8 @@ select:focus-visible {
 .defense-step,
 .property-step,
 .commercial-step,
-.succession-step {
+.succession-step,
+.high-court-step {
   display: grid;
   grid-template-columns: 52px 1fr;
   gap: 0 28px;
@@ -1528,7 +1530,8 @@ select:focus-visible {
 .defense-step .li-num,
 .property-step .li-num,
 .commercial-step .li-num,
-.succession-step .li-num {
+.succession-step .li-num,
+.high-court-step .li-num {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--soft);
@@ -1539,7 +1542,8 @@ select:focus-visible {
 .defense-step h2,
 .property-step h2,
 .commercial-step h2,
-.succession-step h2 {
+.succession-step h2,
+.high-court-step h2 {
   font-family: var(--font-display);
   font-weight: var(--headline-weight);
   font-size: 26px;
@@ -1551,7 +1555,8 @@ select:focus-visible {
 .defense-step p,
 .property-step p,
 .commercial-step p,
-.succession-step p {
+.succession-step p,
+.high-court-step p {
   margin: 0;
   color: var(--color-muted);
   font-size: 15px;
@@ -2028,7 +2033,8 @@ select:focus-visible {
   .defense-step,
   .property-step,
   .commercial-step,
-  .succession-step {
+  .succession-step,
+  .high-court-step {
     grid-template-columns: 1fr;
     gap: 12px;
   }
@@ -2036,7 +2042,8 @@ select:focus-visible {
   .defense-step .li-num,
   .property-step .li-num,
   .commercial-step .li-num,
-  .succession-step .li-num {
+  .succession-step .li-num,
+  .high-court-step .li-num {
     grid-row: auto;
     padding-top: 0;
   }
@@ -2044,7 +2051,8 @@ select:focus-visible {
   .defense-step h2,
   .property-step h2,
   .commercial-step h2,
-  .succession-step h2 { font-size: 23px; }
+  .succession-step h2,
+  .high-court-step h2 { font-size: 23px; }
 
   /* M5, about / contact / legal */
   .about-hero { padding: 110px 22px 50px; }
