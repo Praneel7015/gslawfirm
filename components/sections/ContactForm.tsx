@@ -1,11 +1,12 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 
 import { leadSchema, type LeadInput } from "@/lib/lead-schema";
+import { cleanSitePath, isContactPath } from "@/lib/lead-source";
 import {
   TurnstileWidget,
   isTurnstileConfigured,
@@ -18,7 +19,17 @@ function truncateSource(value: string | undefined, max: number) {
   return trimmed.length > max ? trimmed.slice(0, max) : trimmed;
 }
 
-function getLeadSource() {
+function readOriginPath() {
+  if (typeof window === "undefined") return undefined;
+
+  const explicitOrigin = cleanSitePath(
+    new URLSearchParams(window.location.search).get("source"),
+  );
+  if (!explicitOrigin || isContactPath(explicitOrigin)) return undefined;
+  return explicitOrigin;
+}
+
+function getLeadSource(originPath: string | undefined) {
   if (typeof window === "undefined") return {};
 
   const pagePath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
@@ -26,6 +37,7 @@ function getLeadSource() {
   return {
     pagePath: truncateSource(pagePath, 240),
     pageTitle: truncateSource(document.title, 160),
+    originPath: truncateSource(originPath, 240),
     referrer: truncateSource(document.referrer, 500),
   };
 }
@@ -48,6 +60,7 @@ export function ContactForm() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [turnstileKey, setTurnstileKey] = useState(0);
   const [turnstileLoadError, setTurnstileLoadError] = useState(false);
+  const [originPath, setOriginPath] = useState<string | undefined>(undefined);
   const turnstileRequired = isTurnstileConfigured();
 
   const {
@@ -72,6 +85,10 @@ export function ContactForm() {
     if (token) setTurnstileLoadError(false);
   }, []);
 
+  useEffect(() => {
+    setOriginPath(readOriginPath());
+  }, []);
+
   const onSubmit = async (data: LeadInput) => {
     setSubmitError(null);
     if (turnstileRequired && !turnstileToken) {
@@ -84,7 +101,7 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          source: getLeadSource(),
+          source: getLeadSource(originPath),
           turnstileToken,
         }),
       });

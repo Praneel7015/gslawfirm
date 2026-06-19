@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
+import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { firm } from "@/content/firm";
 import { practiceAreas } from "@/content/practice-areas";
 import { PracticeIcon } from "@/components/brand/practice-icons";
@@ -122,9 +123,9 @@ export default async function PracticeIndexPage({
             Read continuity-of-counsel explainer{" "}
             <span aria-hidden="true">→</span>
           </Link>
-          <Link href="/contact" className="pi-foot-link">
+          <SourceAwareContactLink className="pi-foot-link">
             Send a brief note <span aria-hidden="true">→</span>
-          </Link>
+          </SourceAwareContactLink>
         </div>
       </section>
     </main>

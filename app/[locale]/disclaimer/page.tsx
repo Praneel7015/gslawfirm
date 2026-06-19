@@ -4,6 +4,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { firm } from "@/content/firm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
+import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
@@ -108,7 +109,7 @@ export default async function DisclaimerPage({
         ))}
 
         <div className="legal-actions" aria-label="Next steps">
-          <Link href="/contact">{t("actions.contact")}</Link>
+          <SourceAwareContactLink>{t("actions.contact")}</SourceAwareContactLink>
           <Link href="/privacy">{t("actions.privacy")}</Link>
         </div>
 

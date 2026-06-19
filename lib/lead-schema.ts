@@ -33,6 +33,14 @@ const leadSourceSchema = z
       160,
       "Source title is too long (max 160 characters).",
     ),
+    originPath: optionalSourceText(
+      240,
+      "Origin page is too long (max 240 characters).",
+    ).refine(
+      (value) =>
+        value === undefined || (value.startsWith("/") && !value.startsWith("//")),
+      "Origin page must be a site path.",
+    ),
     referrer: optionalSourceText(
       500,
       "Referrer is too long (max 500 characters).",

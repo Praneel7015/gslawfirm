@@ -80,6 +80,7 @@ export function renderLeadText(
     "",
     "Source:",
     `Page:        ${formatSourcePage(lead)}`,
+    `Origin:      ${formatOriginPage(lead)}`,
     `Referrer:    ${formatReferrer(lead)}`,
     "",
     "── Meta ──",
@@ -115,6 +116,8 @@ export function renderLeadHtml(
     <table style="width:100%;border-collapse:collapse;font-size:13px;">
       <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#666;width:100px;">Page</td>
           <td style="padding:8px 0;border-bottom:1px solid #eee;">${e(formatSourcePage(lead))}</td></tr>
+      <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#666;">Origin</td>
+          <td style="padding:8px 0;border-bottom:1px solid #eee;">${e(formatOriginPage(lead))}</td></tr>
       <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#666;">Referrer</td>
           <td style="padding:8px 0;border-bottom:1px solid #eee;">${e(formatReferrer(lead))}</td></tr>
     </table>
@@ -134,6 +137,10 @@ function formatSourcePage(lead: LeadInput): string {
   const { pagePath, pageTitle } = lead.source ?? {};
   if (pagePath && pageTitle) return `${pageTitle} (${pagePath})`;
   return pagePath ?? pageTitle ?? "Not captured";
+}
+
+function formatOriginPage(lead: LeadInput): string {
+  return lead.source?.originPath ?? "Direct or not captured";
 }
 
 function formatReferrer(lead: LeadInput): string {
