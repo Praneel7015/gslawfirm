@@ -64,10 +64,11 @@ export default async function PracticeIndexPage({
           <p>{t("footnote")}</p>
           <p className="pi-foot-note">
             Looking for criminal-defense, bail, property-dispute,
-            tenancy and eviction, commercial-contract, succession and probate,
-            High Court, or Kondapur location context in Hyderabad? Start with
-            the focused pages, then send a brief note if the matter needs a
-            conversation.
+            tenancy and eviction, agreement-enforcement, injunction or
+            interim-relief, commercial-contract, succession and probate, High
+            Court, continuity of counsel, or Kondapur location context in
+            Hyderabad? Start with the focused pages, then send a brief note if
+            the matter needs a conversation.
           </p>
         </div>
         <div className="pi-foot-actions">
@@ -83,6 +84,13 @@ export default async function PracticeIndexPage({
           <Link href="/tenancy-eviction" className="pi-foot-link">
             Read tenancy and eviction guidance <span aria-hidden="true">→</span>
           </Link>
+          <Link href="/specific-performance" className="pi-foot-link">
+            Read specific-performance guidance <span aria-hidden="true">→</span>
+          </Link>
+          <Link href="/injunction-interim-relief" className="pi-foot-link">
+            Read injunction and interim-relief guidance{" "}
+            <span aria-hidden="true">→</span>
+          </Link>
           <Link href="/commercial-contracts" className="pi-foot-link">
             Read commercial-contract guidance <span aria-hidden="true">→</span>
           </Link>
@@ -94,6 +102,10 @@ export default async function PracticeIndexPage({
           </Link>
           <Link href="/kondapur-legal-services" className="pi-foot-link">
             Read Kondapur legal-services page <span aria-hidden="true">→</span>
+          </Link>
+          <Link href="/continuity-of-counsel" className="pi-foot-link">
+            Read continuity-of-counsel explainer{" "}
+            <span aria-hidden="true">→</span>
           </Link>
           <Link href="/contact" className="pi-foot-link">
             Send a brief note <span aria-hidden="true">→</span>

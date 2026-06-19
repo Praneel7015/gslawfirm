@@ -32,6 +32,10 @@ const focusedGuides: Partial<
       href: "/cheque-dishonour",
       label: "Cheque-dishonour guidance",
     },
+    {
+      href: "/continuity-of-counsel",
+      label: "Continuity-of-counsel explainer",
+    },
   ],
   civil: [
     {
@@ -50,11 +54,19 @@ const focusedGuides: Partial<
       href: "/injunction-interim-relief",
       label: "Injunction and interim-relief guidance",
     },
+    {
+      href: "/continuity-of-counsel",
+      label: "Continuity-of-counsel explainer",
+    },
   ],
   corporate: [
     {
       href: "/commercial-contracts",
       label: "Commercial-contract guidance",
+    },
+    {
+      href: "/continuity-of-counsel",
+      label: "Continuity-of-counsel explainer",
     },
   ],
   "will-succession": [
@@ -62,11 +74,19 @@ const focusedGuides: Partial<
       href: "/succession-probate",
       label: "Succession and probate guidance",
     },
+    {
+      href: "/continuity-of-counsel",
+      label: "Continuity-of-counsel explainer",
+    },
   ],
   "high-court": [
     {
       href: "/high-court-matters",
       label: "High Court guidance",
+    },
+    {
+      href: "/continuity-of-counsel",
+      label: "Continuity-of-counsel explainer",
     },
   ],
 };

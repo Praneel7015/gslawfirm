@@ -9,6 +9,11 @@ const focusedGuidanceLinks = [
   { href: "/cheque-dishonour", label: "Cheque-dishonour guidance" },
   { href: "/property-disputes", label: "Property-dispute guidance" },
   { href: "/tenancy-eviction", label: "Tenancy and eviction guidance" },
+  { href: "/specific-performance", label: "Specific-performance guidance" },
+  {
+    href: "/injunction-interim-relief",
+    label: "Injunction and interim-relief guidance",
+  },
   { href: "/commercial-contracts", label: "Commercial-contract guidance" },
   { href: "/succession-probate", label: "Succession and probate guidance" },
   { href: "/high-court-matters", label: "High Court guidance" },
@@ -37,8 +42,9 @@ export async function Practice() {
         <span>Focused guidance</span>
         <p>
           For FIRs, bail stages, cheque dishonour, property and tenancy
-          disputes, commercial documents, succession papers and High Court steps
-          in Hyderabad, read the focused guidance before sending an enquiry.
+          disputes, agreement enforcement, injunctions, commercial documents,
+          succession papers and High Court steps in Hyderabad, read the focused
+          guidance before sending an enquiry.
         </p>
         <div className="practice-feature-links">
           {focusedGuidanceLinks.map((link) => (
