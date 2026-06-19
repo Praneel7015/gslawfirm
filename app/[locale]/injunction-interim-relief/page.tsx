@@ -241,6 +241,10 @@ export default async function InjunctionInterimReliefPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/legal-notices">Legal Notices</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/high-court-matters">High Court Matters</Link>
                 <span aria-hidden="true">→</span>
               </li>

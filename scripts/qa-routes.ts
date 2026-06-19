@@ -17,6 +17,7 @@ const ROUTES = [
   "/cyber-crime-complaints",
   "/property-disputes",
   "/consumer-forum-complaints",
+  "/legal-notices",
   "/commercial-contracts",
   "/succession-probate",
   "/high-court-matters",

@@ -16,6 +16,7 @@ const focusedGuidanceLinks = [
     href: "/consumer-forum-complaints",
     label: "Consumer-forum complaint guidance",
   },
+  { href: "/legal-notices", label: "Legal-notice guidance" },
   { href: "/tenancy-eviction", label: "Tenancy and eviction guidance" },
   { href: "/specific-performance", label: "Specific-performance guidance" },
   {
@@ -50,10 +51,10 @@ export async function Practice() {
         <span>Focused guidance</span>
         <p>
           For FIRs, cyber-crime complaints, bail stages, cheque dishonour,
-          consumer complaints, property and tenancy disputes, agreement
-          enforcement, injunctions, commercial documents, succession papers and
-          High Court steps in Hyderabad, read the focused guidance before
-          sending an enquiry.
+          consumer complaints, legal notices, property and tenancy disputes,
+          agreement enforcement, injunctions, commercial documents, succession
+          papers and High Court steps in Hyderabad, read the focused guidance
+          before sending an enquiry.
         </p>
         <div className="practice-feature-links">
           {focusedGuidanceLinks.map((link) => (

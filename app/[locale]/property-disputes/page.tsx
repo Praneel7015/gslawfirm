@@ -224,6 +224,10 @@ export default async function PropertyDisputesPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/legal-notices">Legal Notices</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/injunction-interim-relief">
                   Injunction and Interim Relief
                 </Link>
