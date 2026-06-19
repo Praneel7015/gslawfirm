@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { firm } from "@/content/firm";
+import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 
 /**
  * Fullscreen black overlay menu (mobile only).
@@ -38,12 +39,19 @@ export function MobileMenu({
       className={"mobile-menu" + (open ? " open" : "")}
       aria-hidden={!open}
     >
-      {items.map(([label, href, num]) => (
-        <Link key={href} href={href} onClick={onClose}>
-          {label}
-          <span className="num">{num}</span>
-        </Link>
-      ))}
+      {items.map(([label, href, num]) =>
+        href === "/contact" ? (
+          <SourceAwareContactLink key={href} onClick={onClose}>
+            {label}
+            <span className="num">{num}</span>
+          </SourceAwareContactLink>
+        ) : (
+          <Link key={href} href={href} onClick={onClose}>
+            {label}
+            <span className="num">{num}</span>
+          </Link>
+        ),
+      )}
       <div className="menu-foot">
         {firm.phone} · {firm.publicEmail}
         <br />

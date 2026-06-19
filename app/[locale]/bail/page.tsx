@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
+import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { firm } from "@/content/firm";
 import { bailFaqs } from "@/content/service-faqs";
 import { PracticeIcon } from "@/components/brand/practice-icons";
@@ -199,9 +200,9 @@ export default async function BailPage({
               happened. A first conversation helps decide whether this firm is
               the right fit for the matter.
             </p>
-            <Link href="/contact" className="pd-cta-link">
+            <SourceAwareContactLink className="pd-cta-link">
               Request a consultation <span aria-hidden="true">→</span>
-            </Link>
+            </SourceAwareContactLink>
           </div>
 
           <div className="pd-adj">
@@ -216,7 +217,7 @@ export default async function BailPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/contact">Contact the firm</Link>
+                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
                 <span aria-hidden="true">→</span>
               </li>
             </ul>

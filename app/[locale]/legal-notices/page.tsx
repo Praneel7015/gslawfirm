@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { legalNoticesFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
+import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
@@ -206,9 +207,9 @@ export default async function LegalNoticesPage({
               conversation helps decide whether this firm is the right fit for
               the matter.
             </p>
-            <Link href="/contact" className="pd-cta-link">
+            <SourceAwareContactLink className="pd-cta-link">
               Request a consultation <span aria-hidden="true">→</span>
-            </Link>
+            </SourceAwareContactLink>
           </div>
 
           <div className="pd-adj">
@@ -241,7 +242,7 @@ export default async function LegalNoticesPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/contact">Contact the firm</Link>
+                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
                 <span aria-hidden="true">→</span>
               </li>
             </ul>

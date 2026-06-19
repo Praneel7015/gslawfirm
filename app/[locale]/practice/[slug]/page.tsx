@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
+import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { routing } from "@/i18n/routing";
 import { firm } from "@/content/firm";
 import {
@@ -209,9 +210,9 @@ export default async function PracticeDetailPage({
               {t("cta.headingSuffix")}
             </h3>
             <p>{t("cta.body")}</p>
-            <Link href="/contact" className="pd-cta-link">
+            <SourceAwareContactLink className="pd-cta-link">
               {t("cta.action")} <span aria-hidden="true">→</span>
-            </Link>
+            </SourceAwareContactLink>
           </div>
 
           {guides.length > 0 ? (

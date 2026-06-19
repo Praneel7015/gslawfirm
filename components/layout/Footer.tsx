@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
+import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { Lockup } from "@/components/brand/Lockup";
 import { firm } from "@/content/firm";
 import { practiceAreas } from "@/content/practice-areas";
@@ -37,7 +38,7 @@ export async function Footer() {
               <Link href="/about#approach">{t("links.approach")}</Link>
             </li>
             <li>
-              <Link href="/contact">{t("links.contact")}</Link>
+              <SourceAwareContactLink>{t("links.contact")}</SourceAwareContactLink>
             </li>
             <li>
               <Link href="/disclaimer">{t("links.disclaimer")}</Link>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { Lockup } from "@/components/brand/Lockup";
+import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MobileMenu } from "./MobileMenu";
 
@@ -43,13 +44,13 @@ export function Header() {
             {t("practice")}
           </Link>
           <Link href="/about#approach">{t("approach")}</Link>
-          <Link href="/contact" className={isActive("/contact") ? "active" : ""}>
+          <SourceAwareContactLink className={isActive("/contact") ? "active" : ""}>
             {t("contact")}
-          </Link>
+          </SourceAwareContactLink>
           <LanguageSwitcher />
-          <Link href="/contact" className="btn-consult">
+          <SourceAwareContactLink className="btn-consult">
             {t("consult")} <span aria-hidden="true">→</span>
-          </Link>
+          </SourceAwareContactLink>
         </nav>
         <button
           className={"ham" + (menuOpen ? " open" : "")}
