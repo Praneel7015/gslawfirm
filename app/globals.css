@@ -680,6 +680,12 @@ select:focus-visible {
   border-color: var(--color-accent);
   gap: 16px;
 }
+.practice-feature-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  align-items: center;
+}
 
 .practice {
   padding: 60px 80px 140px;
@@ -1498,26 +1504,30 @@ select:focus-visible {
 }
 .pi-foot-link:hover { color: var(--color-accent); border-color: var(--color-accent); gap: 18px; }
 
-/* BAIL DETAIL PAGE */
-.bail-steps {
+/* BAIL + CRIMINAL DEFENSE DETAIL PAGES */
+.bail-steps,
+.defense-steps {
   margin: 54px 0 10px;
   border-top: 1px solid var(--color-fg);
 }
-.bail-step {
+.bail-step,
+.defense-step {
   display: grid;
   grid-template-columns: 52px 1fr;
   gap: 0 28px;
   padding: 28px 0;
   border-bottom: .5px solid var(--color-hair);
 }
-.bail-step .li-num {
+.bail-step .li-num,
+.defense-step .li-num {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--soft);
   grid-row: 1 / 3;
   padding-top: 6px;
 }
-.bail-step h2 {
+.bail-step h2,
+.defense-step h2 {
   font-family: var(--font-display);
   font-weight: var(--headline-weight);
   font-size: 26px;
@@ -1525,7 +1535,8 @@ select:focus-visible {
   letter-spacing: 0;
   margin: 0 0 12px;
 }
-.bail-step p {
+.bail-step p,
+.defense-step p {
   margin: 0;
   color: var(--color-muted);
   font-size: 15px;
@@ -1959,15 +1970,18 @@ select:focus-visible {
   }
   .pi-foot-actions { gap: 16px; }
 
-  .bail-step {
+  .bail-step,
+  .defense-step {
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  .bail-step .li-num {
+  .bail-step .li-num,
+  .defense-step .li-num {
     grid-row: auto;
     padding-top: 0;
   }
-  .bail-step h2 { font-size: 23px; }
+  .bail-step h2,
+  .defense-step h2 { font-size: 23px; }
 
   /* M5, about / contact / legal */
   .about-hero { padding: 110px 22px 50px; }

@@ -13,6 +13,7 @@ const LOCALES = ["", "/te", "/hi"] as const;
 const ROUTES = [
   "",
   "/bail",
+  "/criminal-defense",
   "/about",
   "/practice",
   "/practice/criminal",
