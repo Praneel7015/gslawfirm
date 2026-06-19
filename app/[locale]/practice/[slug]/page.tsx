@@ -23,6 +23,16 @@ import { SITE_URL } from "@/lib/site";
 const focusedGuides: Partial<
   Record<PracticeSlug, Array<{ href: string; label: string }>>
 > = {
+  criminal: [
+    {
+      href: "/criminal-defense",
+      label: "Criminal-defense guidance",
+    },
+    {
+      href: "/cheque-dishonour",
+      label: "Cheque-dishonour guidance",
+    },
+  ],
   civil: [
     {
       href: "/property-disputes",
