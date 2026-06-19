@@ -233,6 +233,10 @@ export default async function CommercialContractsPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/legal-notices">Legal Notices</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/practice/corporate">
                   Corporate & Commercial
                 </Link>

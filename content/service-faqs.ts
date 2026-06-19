@@ -93,6 +93,24 @@ export const consumerForumComplaintsFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const legalNoticesFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What papers help for a legal-notice discussion?",
+    answer:
+      "The notice received or proposed, envelope or delivery proof, agreement, property or lease papers, invoices, payment records, messages, photographs, earlier complaints, prior replies, deadline details and current stage are useful if available.",
+  },
+  {
+    question: "Does every civil matter need a legal notice?",
+    answer:
+      "No. Whether a notice or reply needs to be discussed depends on the facts, documents, contract, statute, limitation, forum and current stage. A notice should not be assumed from this page alone.",
+  },
+  {
+    question: "Can this page provide a reply template?",
+    answer:
+      "No. A reply depends on the papers, facts, risk, deadline and the record that needs to be created. This page gives general context, not a template or legal advice for a specific matter.",
+  },
+] as const;
+
 export const specificPerformanceFaqs: readonly ServiceFaq[] = [
   {
     question: "What papers help for a specific-performance discussion?",

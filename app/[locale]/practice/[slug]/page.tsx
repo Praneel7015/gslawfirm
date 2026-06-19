@@ -51,6 +51,10 @@ const focusedGuides: Partial<
       label: "Consumer-forum complaint guidance",
     },
     {
+      href: "/legal-notices",
+      label: "Legal-notice guidance",
+    },
+    {
       href: "/tenancy-eviction",
       label: "Tenancy and eviction guidance",
     },
@@ -75,6 +79,10 @@ const focusedGuides: Partial<
     {
       href: "/consumer-forum-complaints",
       label: "Consumer-forum complaint guidance",
+    },
+    {
+      href: "/legal-notices",
+      label: "Legal-notice guidance",
     },
     {
       href: "/continuity-of-counsel",
