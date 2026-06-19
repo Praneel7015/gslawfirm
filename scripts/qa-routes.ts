@@ -14,6 +14,7 @@ const ROUTES = [
   "",
   "/bail",
   "/criminal-defense",
+  "/cyber-crime-complaints",
   "/property-disputes",
   "/consumer-forum-complaints",
   "/commercial-contracts",

@@ -5,6 +5,10 @@ import { PracticeIcon } from "@/components/brand/practice-icons";
 
 const focusedGuidanceLinks = [
   { href: "/criminal-defense", label: "Criminal-defense guidance" },
+  {
+    href: "/cyber-crime-complaints",
+    label: "Cyber-crime complaint guidance",
+  },
   { href: "/bail", label: "Bail guidance" },
   { href: "/cheque-dishonour", label: "Cheque-dishonour guidance" },
   { href: "/property-disputes", label: "Property-dispute guidance" },
@@ -45,10 +49,11 @@ export async function Practice() {
       <div className="practice-feature">
         <span>Focused guidance</span>
         <p>
-          For FIRs, bail stages, cheque dishonour, consumer complaints, property
-          and tenancy disputes, agreement enforcement, injunctions, commercial
-          documents, succession papers and High Court steps in Hyderabad, read
-          the focused guidance before sending an enquiry.
+          For FIRs, cyber-crime complaints, bail stages, cheque dishonour,
+          consumer complaints, property and tenancy disputes, agreement
+          enforcement, injunctions, commercial documents, succession papers and
+          High Court steps in Hyderabad, read the focused guidance before
+          sending an enquiry.
         </p>
         <div className="practice-feature-links">
           {focusedGuidanceLinks.map((link) => (
