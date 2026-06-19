@@ -154,13 +154,39 @@
   },
   "disclaimerPage": {
     "eyebrow": "Bar Council of India · Notice",
-    "heading": "Disclaimer.",
+    "heading": "Disclaimer, explained.",
     "updated": "In effect · 28 May 2026",
+    "lede": "This page keeps the formal Bar Council notice and explains, in plain language, why the site shows it before you enter.",
+    "formal": {
+      "heading": "Formal notice"
+    },
     "p1": "The Bar Council of India does not permit advocates to solicit work or advertise. By entering this site, the user acknowledges that they are seeking information about GS Law Firm of their own accord and that no part of this site constitutes advertisement, personal communication, solicitation, invitation or inducement of any sort whatsoever from the firm or any of its members.",
     "p2": "The information provided on this site is for general informational purposes only and should not be construed as legal advice or a substitute for it. GS Law Firm does not assume any responsibility for the consequences of any action taken on the basis of information provided herein. No attorney–client relationship is created by accessing this site or by sending a message through it.",
     "p3": "By proceeding further, the user agrees to release, discharge and hold GS Law Firm harmless from any claim arising out of the use of any information available on this site.",
     "p4": "Any reference to a specific area of law on this site is general in nature and not exhaustive. Outcomes in legal matters depend on the facts of each case, the applicable law, and the court before which the matter is heard. No representation, warranty or undertaking is made or implied that any particular result will be obtained.",
-    "p5": "If you do not agree with any part of this notice, please leave the site. If you require legal advice on a specific matter, we encourage you to call us on +91 99638 47704 or to write to sunitha@sindhole.com. A privileged channel will then be opened with you on that matter."
+    "p5": "If you do not agree with any part of this notice, please leave the site. If you require legal advice on a specific matter, we encourage you to call us on +91 99638 47704 or to write to sunitha@sindhole.com. A privileged channel will then be opened with you on that matter.",
+    "explainer": {
+      "why": {
+        "heading": "Why this notice appears",
+        "body": "Indian advocates are not permitted to advertise or solicit work. The notice records that you came to the site on your own and that the website is only making public information available."
+      },
+      "site": {
+        "heading": "What this website can explain",
+        "body": "The site can describe the firm, the advocate, the office location, practice areas, contact options and general legal process context. It can help you decide whether to send a first enquiry."
+      },
+      "limits": {
+        "heading": "What the website cannot decide",
+        "body": "The site cannot assess your documents, choose a legal step, predict an outcome, confirm limitation, check conflicts, or say whether the firm can act for you. Those questions need a confidential discussion and the relevant papers."
+      },
+      "enquiry": {
+        "heading": "Where an enquiry fits",
+        "body": "A first enquiry is a request to discuss the matter. It is not legal advice by itself and does not create an advocate-client relationship unless the firm accepts the matter after the necessary checks."
+      }
+    },
+    "actions": {
+      "contact": "Send a confidential enquiry",
+      "privacy": "Read the privacy notice"
+    }
   },
   "practiceIndex": {
     "eyebrow": "Practice · GS Law Firm",
@@ -192,6 +218,7 @@
       "about": "About",
       "approach": "Approach",
       "contact": "Contact",
+      "disclaimer": "Disclaimer",
       "linkedin": "LinkedIn ↗"
     },
     "disclaim": "As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. The contents of this site are for informational purposes only and do not constitute legal advice or create any attorney–client relationship."
