@@ -75,6 +75,24 @@ export const specificPerformanceFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const injunctionInterimReliefFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What papers help for an injunction or interim-relief discussion?",
+    answer:
+      "Property or contract papers, notices, replies, photographs, messages, possession details, prior orders, pleadings, affidavits, and next-date details are useful if available.",
+  },
+  {
+    question: "Does every civil dispute support interim relief?",
+    answer:
+      "No. The next step depends on the facts, documents, possession, urgency, limitation, relief sought, current forum and court stage. The file has to be read first.",
+  },
+  {
+    question: "Can this be discussed before a suit is filed?",
+    answer:
+      "Yes. A first conversation can cover the papers, what has changed, immediate deadlines, and whether any notice, reply, suit, interim application, or another step needs to be discussed.",
+  },
+] as const;
+
 export const commercialContractsFaqs: readonly ServiceFaq[] = [
   {
     question: "What should I bring for a contract review discussion?",

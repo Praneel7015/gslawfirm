@@ -46,6 +46,10 @@ const focusedGuides: Partial<
       href: "/specific-performance",
       label: "Specific-performance guidance",
     },
+    {
+      href: "/injunction-interim-relief",
+      label: "Injunction and interim-relief guidance",
+    },
   ],
   corporate: [
     {
