@@ -57,6 +57,24 @@ export const propertyDisputesFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const consumerForumComplaintsFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What papers help for a consumer complaint discussion?",
+    answer:
+      "Bills, receipts, order records, warranty papers, service records, complaint numbers, emails, messages, platform responses, photographs, notices, replies, and any forum papers are useful if available.",
+  },
+  {
+    question: "Does every consumer complaint go before a consumer commission?",
+    answer:
+      "No. The next step depends on the transaction, documents, limitation, value involved, parties, forum, prior complaint record, and whether another legal route needs to be discussed.",
+  },
+  {
+    question: "Can builder-service issues be discussed on this page?",
+    answer:
+      "They can be discussed when the papers show a consumer-service relationship, payment record, promised service, delay, defect, notice, reply, or pending forum stage. The correct forum depends on the file.",
+  },
+] as const;
+
 export const specificPerformanceFaqs: readonly ServiceFaq[] = [
   {
     question: "What papers help for a specific-performance discussion?",
