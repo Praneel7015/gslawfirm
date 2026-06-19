@@ -4,57 +4,59 @@ import { setRequestLocale } from "next-intl/server";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
-import { commercialContractsFaqs } from "@/content/service-faqs";
+import { specificPerformanceFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: `Commercial Contracts in Hyderabad | ${firm.name}`,
+  title: `Specific Performance in Hyderabad | ${firm.name}`,
   description:
-    "Commercial-contract information for vendor, service, employment, contractor, founder, shareholder, NDA, IP assignment and dispute steps in Hyderabad, from GS Law Firm in Kondapur.",
-  path: "/commercial-contracts",
+    "Specific-performance information for sale agreements, property and business-contract obligations, notices, pleadings, interim relief, evidence, execution and appeal context in Hyderabad, from GS Law Firm in Kondapur.",
+  path: "/specific-performance",
 });
 
-const contractStages = [
+const performanceStages = [
   {
-    title: "Drafting and review before signing",
+    title: "Agreement and obligation review",
     body:
-      "The first reading usually starts with the purpose of the agreement, the parties, payment terms, delivery or service obligations, confidentiality, ownership of work, termination, dispute clauses, and what has already been exchanged in writing.",
+      "The first reading usually starts with the sale agreement or contract, payment records, timelines, correspondence, notices, replies, possession or delivery context, and papers showing what each side was expected to do.",
   },
   {
-    title: "Founder, shareholder and work arrangements",
+    title: "Notices, pleadings and interim relief",
     body:
-      "Founder, shareholder, employment, contractor, NDA, and IP assignment documents need careful reading because small clauses can affect control, payment, responsibility, and later disputes.",
+      "When an agreement is not being performed, the next step may involve a notice, reply, settlement discussion, suit papers, written statement, or interim application. The choice depends on the document, deadline, forum and current stage.",
   },
   {
-    title: "Notices and commercial-dispute steps",
+    title: "Evidence, execution and later court steps",
     body:
-      "When a business relationship has already broken down, the next step may be a notice, reply, settlement discussion, interim application, civil suit, arbitration-related step, revision, or appeal depending on the document and stage.",
+      "Specific-performance matters can move through evidence, cross-examination, final arguments, decree, execution, appeal or revision. Each stage needs the contract record and chronology to stay clear.",
   },
 ] as const;
 
 const handled = [
-  "Vendor and service agreements",
-  "Employment and contractor contracts",
-  "Founder and shareholder documents",
-  "NDAs and IP assignment documents",
-  "Commercial notices, replies and settlement steps",
-  "Commercial-dispute filings and court-stage questions",
+  "Sale-agreement and contract-performance disputes",
+  "Property or business-contract obligations",
+  "Notices, replies and pre-suit document review",
+  "Injunction and interim-relief context",
+  "Pleadings, evidence and witness-stage papers",
+  "Execution, appeal and revision context",
 ] as const;
 
-function commercialContractsServiceSchema(locale: string) {
+function specificPerformanceServiceSchema(locale: string) {
   const path =
-    locale === "en" ? "/commercial-contracts" : `/${locale}/commercial-contracts`;
+    locale === "en"
+      ? "/specific-performance"
+      : `/${locale}/specific-performance`;
 
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Commercial contracts",
-    name: "Commercial contracts in Hyderabad",
+    serviceType: "Specific performance",
+    name: "Specific performance in Hyderabad",
     description:
-      "Information on vendor agreements, service contracts, employment and contractor documents, founder and shareholder papers, NDAs, IP assignments, notices and commercial-dispute steps in Hyderabad.",
+      "Information on agreement-enforcement disputes, sale agreements, contract obligations, notices, pleadings, interim relief, evidence, execution and appeal context in Hyderabad.",
     url: `${SITE_URL}${path}`,
     provider: {
       "@type": "LegalService",
@@ -76,7 +78,7 @@ function commercialContractsServiceSchema(locale: string) {
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Commercial-contract matters handled",
+      name: "Specific-performance matters handled",
       itemListElement: handled.map((name, index) => ({
         "@type": "Offer",
         position: index + 1,
@@ -89,7 +91,7 @@ function commercialContractsServiceSchema(locale: string) {
   };
 }
 
-export default async function CommercialContractsPage({
+export default async function SpecificPerformancePage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -97,70 +99,70 @@ export default async function CommercialContractsPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const localizedContractsUrl =
+  const localizedSpecificPerformanceUrl =
     locale === "en"
-      ? `${SITE_URL}/commercial-contracts`
-      : `${SITE_URL}/${locale}/commercial-contracts`;
+      ? `${SITE_URL}/specific-performance`
+      : `${SITE_URL}/${locale}/specific-performance`;
 
   const ld = graphSchema([
-    commercialContractsServiceSchema(locale),
+    specificPerformanceServiceSchema(locale),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },
       { name: "Practice", url: `${SITE_URL}/practice` },
-      { name: "Commercial Contracts", url: localizedContractsUrl },
+      { name: "Specific Performance", url: localizedSpecificPerformanceUrl },
     ]),
-    faqPageSchema(commercialContractsFaqs),
+    faqPageSchema(specificPerformanceFaqs),
   ]);
 
   return (
     <main id="main">
       <JsonLd data={ld} />
       <section
-        className="pd-hero commercial-hero"
-        aria-labelledby="commercial-title"
+        className="pd-hero specific-hero"
+        aria-labelledby="specific-title"
       >
         <nav className="crumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true">/</span>
           <Link href="/practice">Practice</Link>
           <span aria-hidden="true">/</span>
-          <span className="current">Commercial Contracts</span>
+          <span className="current">Specific Performance</span>
         </nav>
-        <h1 id="commercial-title">Commercial contracts in Hyderabad.</h1>
+        <h1 id="specific-title">Specific performance matters in Hyderabad.</h1>
         <p className="lede">
-          Vendor agreements, service terms, employment and contractor documents,
-          NDAs, IP assignments and commercial-dispute steps, read before the
-          next signature, notice or filing.
+          Sale agreements, property and business-contract obligations, notices,
+          interim relief, evidence, execution and appeal context, read before
+          the next court step.
         </p>
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
 
-      <section className="pd-body commercial-body">
+      <section className="pd-body specific-body">
         <div className="pd-content">
           <p className="lede pd-lede">
             <span className="pd-lede-icon" aria-hidden="true">
-              <PracticeIcon slug="corporate" size={36} />
+              <PracticeIcon slug="civil" size={36} />
             </span>
             <span>
-              Commercial documents are easier to work through when the business
-              position is clear before the clauses are edited. The useful first
-              step is to understand the document, the relationship, the money,
-              the deadline, and the next practical risk.
+              Specific-performance questions usually start with the agreement:
+              what was promised, what was paid, what changed, and what papers
+              show each side&apos;s position. A careful first reading helps
+              separate the document issue from the court-stage question.
             </span>
           </p>
 
           <p>
             GS Law Firm is a solo-advocate practice in Kondapur, Hyderabad. The
-            same advocate who reads the document is the one who discusses the
-            next step, so the commercial context stays with one counsel.
+            same advocate who reads the agreement and chronology is the one who
+            discusses the next step, so the paper trail stays with one counsel.
           </p>
 
           <div
-            className="commercial-steps"
-            aria-label="Commercial-contract stages"
+            className="specific-steps"
+            aria-label="Specific-performance stages"
           >
-            {contractStages.map((stage, index) => (
-              <article className="commercial-step" key={stage.title}>
+            {performanceStages.map((stage, index) => (
+              <article className="specific-step" key={stage.title}>
                 <span className="li-num">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -186,11 +188,11 @@ export default async function CommercialContractsPage({
 
           <section
             className="service-faq"
-            aria-labelledby="commercial-faq-title"
+            aria-labelledby="specific-faq-title"
           >
-            <h2 id="commercial-faq-title">Common questions</h2>
+            <h2 id="specific-faq-title">Common questions</h2>
             <div className="service-faq-list">
-              {commercialContractsFaqs.map((item) => (
+              {specificPerformanceFaqs.map((item) => (
                 <article className="service-faq-item" key={item.question}>
                   <h3>{item.question}</h3>
                   <p>{item.answer}</p>
@@ -200,21 +202,20 @@ export default async function CommercialContractsPage({
           </section>
 
           <p className="pd-footnote">
-            This page is general information, not legal advice. Commercial
-            contract and dispute work depends on the document, the business
-            context, prior communications, deadlines, and the forum or court
-            before which the matter may be placed.
+            This page is general information, not legal advice. Whether a
+            specific-performance step can be discussed depends on the agreement,
+            parties, limitation, prior notices, facts, forum and court stage.
           </p>
         </div>
 
         <aside className="pd-side" aria-label="Related actions">
           <div className="pd-cta">
-            <h3>Discuss a commercial document in confidence.</h3>
+            <h3>Discuss an agreement-enforcement matter in confidence.</h3>
             <p>
-              Share the document type, business relationship, deadline, and
-              whether the matter is before signing, after breach, or already in
-              dispute. A first conversation helps decide whether this firm is
-              the right fit for the matter.
+              Share the agreement, payment record, notices or replies, messages,
+              current court stage, next date, and what has already happened. A
+              first conversation helps decide whether this firm is the right fit
+              for the matter.
             </p>
             <Link href="/contact" className="pd-cta-link">
               Request a consultation <span aria-hidden="true">→</span>
@@ -225,17 +226,11 @@ export default async function CommercialContractsPage({
             <h3>Related practice areas</h3>
             <ul>
               <li>
-                <Link href="/cheque-dishonour">Cheque Dishonour</Link>
+                <Link href="/property-disputes">Property Disputes</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/specific-performance">Specific Performance</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/corporate">
-                  Corporate & Commercial
-                </Link>
+                <Link href="/commercial-contracts">Commercial Contracts</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
@@ -243,7 +238,7 @@ export default async function CommercialContractsPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/practice/high-court">High Court Matters</Link>
+                <Link href="/high-court-matters">High Court Matters</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>

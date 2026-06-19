@@ -57,6 +57,24 @@ export const propertyDisputesFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const specificPerformanceFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What papers help for a specific-performance discussion?",
+    answer:
+      "The agreement, payment receipts, bank records, notices, replies, emails or messages, possession or delivery papers, earlier case papers, orders, and next-date details are useful if available.",
+  },
+  {
+    question: "Does every broken agreement lead to specific performance?",
+    answer:
+      "No. The next step depends on the contract, facts, limitation, conduct of the parties, available remedies, forum and court stage. The papers have to be read first.",
+  },
+  {
+    question: "Can interim relief be discussed with a specific-performance matter?",
+    answer:
+      "It can be discussed when the agreement, possession or delivery context, urgency, documents and current court stage are clear. Whether any interim step is suitable depends on the file.",
+  },
+] as const;
+
 export const commercialContractsFaqs: readonly ServiceFaq[] = [
   {
     question: "What should I bring for a contract review discussion?",

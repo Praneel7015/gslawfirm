@@ -42,6 +42,10 @@ const focusedGuides: Partial<
       href: "/tenancy-eviction",
       label: "Tenancy and eviction guidance",
     },
+    {
+      href: "/specific-performance",
+      label: "Specific-performance guidance",
+    },
   ],
   corporate: [
     {

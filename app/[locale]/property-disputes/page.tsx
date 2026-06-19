@@ -220,6 +220,10 @@ export default async function PropertyDisputesPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/specific-performance">Specific Performance</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/practice/civil">Civil & Property Disputes</Link>
                 <span aria-hidden="true">→</span>
               </li>
