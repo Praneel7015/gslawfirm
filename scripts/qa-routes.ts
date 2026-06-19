@@ -20,6 +20,7 @@ const ROUTES = [
   "/high-court-matters",
   "/cheque-dishonour",
   "/tenancy-eviction",
+  "/kondapur-legal-services",
   "/about",
   "/practice",
   "/practice/criminal",

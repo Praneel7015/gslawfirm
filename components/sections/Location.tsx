@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 import { firm } from "@/content/firm";
 
 export async function Location() {
@@ -68,6 +69,9 @@ export async function Location() {
               <li key={area}>{area}</li>
             ))}
           </ul>
+          <Link href="/kondapur-legal-services" className="served-link">
+            Read about Kondapur legal services <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
     </section>
