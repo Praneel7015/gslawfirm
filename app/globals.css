@@ -1040,6 +1040,23 @@ select:focus-visible {
   padding: 8px 10px;
   background: rgba(255,255,255,.03);
 }
+.served-link {
+  margin-top: 22px;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,.4);
+  font-size: 13px;
+  line-height: 1.35;
+  transition: border-color .2s ease, gap .2s ease;
+}
+.served-link:hover {
+  gap: 16px;
+  border-color: #fff;
+}
 
 /* ── CONTACT FORM ─────────────────────────────────────────── */
 .contact {
@@ -1514,7 +1531,8 @@ select:focus-visible {
 .succession-steps,
 .high-court-steps,
 .cheque-steps,
-.tenancy-steps {
+.tenancy-steps,
+.location-steps {
   margin: 54px 0 10px;
   border-top: 1px solid var(--color-fg);
 }
@@ -1525,7 +1543,8 @@ select:focus-visible {
 .succession-step,
 .high-court-step,
 .cheque-step,
-.tenancy-step {
+.tenancy-step,
+.location-step {
   display: grid;
   grid-template-columns: 52px 1fr;
   gap: 0 28px;
@@ -1539,7 +1558,8 @@ select:focus-visible {
 .succession-step .li-num,
 .high-court-step .li-num,
 .cheque-step .li-num,
-.tenancy-step .li-num {
+.tenancy-step .li-num,
+.location-step .li-num {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--soft);
@@ -1553,7 +1573,8 @@ select:focus-visible {
 .succession-step h2,
 .high-court-step h2,
 .cheque-step h2,
-.tenancy-step h2 {
+.tenancy-step h2,
+.location-step h2 {
   font-family: var(--font-display);
   font-weight: var(--headline-weight);
   font-size: 26px;
@@ -1568,11 +1589,50 @@ select:focus-visible {
 .succession-step p,
 .high-court-step p,
 .cheque-step p,
-.tenancy-step p {
+.tenancy-step p,
+.location-step p {
   margin: 0;
   color: var(--color-muted);
   font-size: 15px;
   line-height: 1.6;
+}
+.location-localities {
+  margin-top: 56px;
+  border-top: 1px solid var(--color-fg);
+  padding-top: 30px;
+}
+.location-localities h2 {
+  font-family: var(--font-mono);
+  font-weight: var(--text-weight);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 18px;
+}
+.location-localities p {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--color-muted);
+  max-width: 640px;
+}
+.location-localities ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.location-localities li {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  border: .5px solid var(--color-hair);
+  border-radius: 999px;
+  padding: 8px 10px;
 }
 .service-faq {
   margin-top: 56px;
@@ -2048,7 +2108,8 @@ select:focus-visible {
   .succession-step,
   .high-court-step,
   .cheque-step,
-  .tenancy-step {
+  .tenancy-step,
+  .location-step {
     grid-template-columns: 1fr;
     gap: 12px;
   }
@@ -2059,7 +2120,8 @@ select:focus-visible {
   .succession-step .li-num,
   .high-court-step .li-num,
   .cheque-step .li-num,
-  .tenancy-step .li-num {
+  .tenancy-step .li-num,
+  .location-step .li-num {
     grid-row: auto;
     padding-top: 0;
   }
@@ -2070,7 +2132,8 @@ select:focus-visible {
   .succession-step h2,
   .high-court-step h2,
   .cheque-step h2,
-  .tenancy-step h2 { font-size: 23px; }
+  .tenancy-step h2,
+  .location-step h2 { font-size: 23px; }
 
   /* M5, about / contact / legal */
   .about-hero { padding: 110px 22px 50px; }

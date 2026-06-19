@@ -65,8 +65,9 @@ export default async function PracticeIndexPage({
           <p className="pi-foot-note">
             Looking for criminal-defense, bail, property-dispute,
             tenancy and eviction, commercial-contract, succession and probate,
-            or High Court guidance in Hyderabad? Start with the focused pages,
-            then send a brief note if the matter needs a conversation.
+            High Court, or Kondapur location context in Hyderabad? Start with
+            the focused pages, then send a brief note if the matter needs a
+            conversation.
           </p>
         </div>
         <div className="pi-foot-actions">
@@ -90,6 +91,9 @@ export default async function PracticeIndexPage({
           </Link>
           <Link href="/high-court-matters" className="pi-foot-link">
             Read High Court guidance <span aria-hidden="true">→</span>
+          </Link>
+          <Link href="/kondapur-legal-services" className="pi-foot-link">
+            Read Kondapur legal-services page <span aria-hidden="true">→</span>
           </Link>
           <Link href="/contact" className="pi-foot-link">
             Send a brief note <span aria-hidden="true">→</span>
