@@ -63,9 +63,9 @@ export default async function PracticeIndexPage({
         <div>
           <p>{t("footnote")}</p>
           <p className="pi-foot-note">
-            Looking for criminal-defense, bail or property-dispute guidance in
-            Hyderabad? Start with the focused pages, then send a brief note if
-            the matter needs a conversation.
+            Looking for criminal-defense, bail, property-dispute or
+            commercial-contract guidance in Hyderabad? Start with the focused
+            pages, then send a brief note if the matter needs a conversation.
           </p>
         </div>
         <div className="pi-foot-actions">
@@ -77,6 +77,9 @@ export default async function PracticeIndexPage({
           </Link>
           <Link href="/property-disputes" className="pi-foot-link">
             Read property-dispute guidance <span aria-hidden="true">→</span>
+          </Link>
+          <Link href="/commercial-contracts" className="pi-foot-link">
+            Read commercial-contract guidance <span aria-hidden="true">→</span>
           </Link>
           <Link href="/contact" className="pi-foot-link">
             Send a brief note <span aria-hidden="true">→</span>

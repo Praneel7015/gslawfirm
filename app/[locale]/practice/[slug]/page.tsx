@@ -29,6 +29,12 @@ const focusedGuides: Partial<
       label: "Property-dispute guidance",
     },
   ],
+  corporate: [
+    {
+      href: "/commercial-contracts",
+      label: "Commercial-contract guidance",
+    },
+  ],
 };
 
 export function generateStaticParams() {

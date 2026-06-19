@@ -56,3 +56,21 @@ export const propertyDisputesFaqs: readonly ServiceFaq[] = [
       "You can discuss the property location, relationship between parties, possession, documents available, notices received, court stage, and immediate deadlines. Originals can be handled later if needed.",
   },
 ] as const;
+
+export const commercialContractsFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What should I bring for a contract review discussion?",
+    answer:
+      "Bring the draft contract, earlier versions, emails or messages about the deal, invoices or purchase orders if available, and a short note on what worries you in the document.",
+  },
+  {
+    question: "Can a first conversation happen before a draft exists?",
+    answer:
+      "Yes. You can discuss the business arrangement, payment terms, delivery obligations, confidentiality, ownership of work, termination, and dispute forum before a draft is prepared.",
+  },
+  {
+    question: "Does every commercial dispute need a court case?",
+    answer:
+      "Not always. The next step may be a notice, reply, negotiation, settlement document, interim application, suit, arbitration-related step, or appeal depending on the contract and current stage.",
+  },
+] as const;
