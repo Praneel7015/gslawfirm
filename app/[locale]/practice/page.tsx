@@ -60,10 +60,22 @@ export default async function PracticeIndexPage({
       </section>
 
       <section className="pi-foot">
-        <p>{t("footnote")}</p>
-        <Link href="/contact" className="pi-foot-link">
-          Send a brief note <span aria-hidden="true">→</span>
-        </Link>
+        <div>
+          <p>{t("footnote")}</p>
+          <p className="pi-foot-note">
+            Looking for regular or anticipatory bail in Hyderabad? Start with
+            the bail guidance page, then send a brief note if the matter needs a
+            conversation.
+          </p>
+        </div>
+        <div className="pi-foot-actions">
+          <Link href="/bail" className="pi-foot-link">
+            Read bail guidance <span aria-hidden="true">→</span>
+          </Link>
+          <Link href="/contact" className="pi-foot-link">
+            Send a brief note <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </section>
     </main>
   );

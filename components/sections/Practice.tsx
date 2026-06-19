@@ -22,6 +22,16 @@ export async function Practice() {
         </div>
         <p className="practice-lede">{t("lede")}</p>
       </div>
+      <div className="practice-feature">
+        <span>Bail matters</span>
+        <p>
+          For regular bail, anticipatory bail, remand papers and surety steps in
+          Hyderabad, read the bail guidance before sending an enquiry.
+        </p>
+        <Link href="/bail" className="practice-feature-link">
+          Read bail guidance <span aria-hidden="true">→</span>
+        </Link>
+      </div>
       <div className="practice-grid">
         {practiceAreas.map((a) => (
           <Link
