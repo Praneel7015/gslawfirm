@@ -217,6 +217,12 @@ export default async function PropertyDisputesPage({
             <h3>Related practice areas</h3>
             <ul>
               <li>
+                <Link href="/property-dispute-courts-telangana">
+                  Property Dispute Court Guide
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/tenancy-eviction">Tenancy and Eviction</Link>
                 <span aria-hidden="true">→</span>
               </li>

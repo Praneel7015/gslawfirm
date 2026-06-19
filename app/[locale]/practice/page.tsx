@@ -66,11 +66,11 @@ export default async function PracticeIndexPage({
           <p className="pi-foot-note">
             Looking for criminal-defense, cyber-crime complaint, bail,
             bail-hearing procedure, cheque-dishonour, consumer-forum complaint,
-            legal-notice, property-dispute, tenancy and eviction,
-            agreement-enforcement, injunction or interim-relief,
+            legal-notice, property-dispute, property court-stage, tenancy and
+            eviction, agreement-enforcement, injunction or interim-relief,
             commercial-contract, succession and probate, High Court, continuity
-            of counsel, or Kondapur location context in Hyderabad? Start with
-            the focused pages, then send a brief note if the matter needs a
+            of counsel, or Kondapur location context in Hyderabad? Start with the
+            focused pages, then send a brief note if the matter needs a
             conversation.
           </p>
         </div>
@@ -97,6 +97,13 @@ export default async function PracticeIndexPage({
           </Link>
           <Link href="/property-disputes" className="pi-foot-link">
             Read property-dispute guidance <span aria-hidden="true">→</span>
+          </Link>
+          <Link
+            href="/property-dispute-courts-telangana"
+            className="pi-foot-link"
+          >
+            Read property court-stage guide{" "}
+            <span aria-hidden="true">→</span>
           </Link>
           <Link href="/consumer-forum-complaints" className="pi-foot-link">
             Read consumer-forum complaint guidance{" "}

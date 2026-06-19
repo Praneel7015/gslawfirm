@@ -17,6 +17,7 @@ const ROUTES = [
   "/criminal-defense",
   "/cyber-crime-complaints",
   "/property-disputes",
+  "/property-dispute-courts-telangana",
   "/consumer-forum-complaints",
   "/legal-notices",
   "/commercial-contracts",
