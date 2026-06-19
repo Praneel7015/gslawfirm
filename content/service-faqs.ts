@@ -21,6 +21,24 @@ export const bailFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const bailHearingProcedureFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What happens at a bail hearing?",
+    answer:
+      "The court stage can involve filing, notice, objections, arguments, an order, or another date depending on the papers and forum. The exact step depends on the FIR or complaint, remand stage, sections invoked, prior orders, and what is listed that day.",
+  },
+  {
+    question: "What papers should be ready before a bail hearing?",
+    answer:
+      "FIR or complaint details, remand papers, notices, prior orders, next-date information, identity and address papers for surety if already discussed, and a short chronology are useful if available.",
+  },
+  {
+    question: "Can this guide say whether bail will be granted?",
+    answer:
+      "No. Bail depends on the facts, court stage, sections invoked, prior record, objections, conditions, and the court hearing the matter. This guide explains procedure context, not the likely result of a specific case.",
+  },
+] as const;
+
 export const criminalDefenseFaqs: readonly ServiceFaq[] = [
   {
     question: "What details help at the first criminal-defense discussion?",

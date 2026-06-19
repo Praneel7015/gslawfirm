@@ -234,6 +234,12 @@ export default async function CriminalDefensePage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/bail-hearing-procedure-hyderabad">
+                  Bail Hearing Procedure
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/practice/criminal">Criminal Litigation</Link>
                 <span aria-hidden="true">→</span>
               </li>

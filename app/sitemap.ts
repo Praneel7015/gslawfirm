@@ -15,7 +15,7 @@ import { SITE_URL } from "@/lib/site";
  * Other locales live at `/<locale>/<path>` (e.g. `/te/about`). This
  * mirrors `localePrefix: "as-needed"` in i18n/routing.ts.
  *
- * Total entries: 26 routes × 3 locales = 78.
+ * Total entries: 27 routes × 3 locales = 81.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -24,6 +24,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths: Array<{ path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }> = [
     { path: "", priority: 1.0, changeFrequency: "monthly" },
     { path: "bail", priority: 0.85, changeFrequency: "monthly" },
+    {
+      path: "bail-hearing-procedure-hyderabad",
+      priority: 0.82,
+      changeFrequency: "monthly",
+    },
     { path: "criminal-defense", priority: 0.85, changeFrequency: "monthly" },
     { path: "cyber-crime-complaints", priority: 0.85, changeFrequency: "monthly" },
     { path: "property-disputes", priority: 0.85, changeFrequency: "monthly" },
