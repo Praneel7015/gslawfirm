@@ -7,13 +7,14 @@
     "consult": "Consult"
   },
   "hero": {
-    "eyebrow": "GS Law Firm · Est. 2023 · Kondapur, Hyderabad",
-    "line1": "Everyone’s there for your next case.",
-    "line2": "Who’s there for the one after?",
-    "emphasis": "That’s us.",
-    "cta": "Request a confidential consultation",
+    "eyebrow": "GS Law Firm · Solo advocate · Kondapur, Hyderabad",
+    "line1": "Criminal and civil legal matters.",
+    "line2": "Handled by one advocate in Hyderabad.",
+    "emphasis": "Start in confidence.",
+    "body": "GS Law Firm is a solo-advocate practice in Kondapur, led by Adv. Aitha Sunitha for criminal, civil and High Court work.",
+    "cta": "Send a confidential enquiry",
     "scroll": "Scroll ↓",
-    "footRole": "Adv. Aitha Sunitha (Sunitha Sindhole) · Sole Advocate"
+    "footRole": "Adv. Aitha Sunitha (Sunitha Sindhole) · Direct consultation"
   },
   "intro": {
     "tag": "Introduction · 01",
