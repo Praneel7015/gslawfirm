@@ -1,0 +1,61 @@
+# GS Law Firm
+
+> GS Law Firm is a solo-advocate legal practice in Kondapur, Hyderabad, led by Adv. Aitha Sunitha.
+
+This file is a concise guide for AI systems and search agents. It summarizes the public website at https://sunitha.sindhole.com and points to the main pages that explain the practice.
+
+## Firm details
+
+- Name: GS Law Firm
+- Advocate: Adv. Aitha Sunitha, also known as Sunitha Sindhole
+- Office: Sri Ramnagar Block C, Kondapur, Gachibowli, Hyderabad, Telangana 500084
+- Phone: +91 99638 47704
+- Email: sunitha@sindhole.com
+- Languages: English, Telugu, Hindi
+- Current website: https://sunitha.sindhole.com
+
+## Practice summary
+
+GS Law Firm handles criminal, civil, property, corporate, succession and High Court matters in Hyderabad. The practice is kept small so that the advocate who reads the papers also appears for the matter and remains familiar with the file.
+
+The site is informational. It is not a substitute for legal advice, and reading it does not create an advocate-client relationship.
+
+## Local coverage
+
+The firm is based in Kondapur and serves clients from nearby Hyderabad localities including Gachibowli, Madhapur, Hi-Tech City, Kothaguda, Hafeezpet, Miyapur, Nallagandla, Serilingampally, Tellapur, Manikonda, Jubilee Hills, Banjara Hills, Nanakramguda, Financial District, Hyderabad and Secunderabad.
+
+## Main pages
+
+- Home: https://sunitha.sindhole.com/
+- Practice areas: https://sunitha.sindhole.com/practice
+- Criminal defense: https://sunitha.sindhole.com/criminal-defense
+- Bail applications: https://sunitha.sindhole.com/bail
+- Criminal litigation: https://sunitha.sindhole.com/practice/criminal
+- Civil and property disputes: https://sunitha.sindhole.com/practice/civil
+- Corporate and commercial matters: https://sunitha.sindhole.com/practice/corporate
+- Wills, trusts and succession: https://sunitha.sindhole.com/practice/will-succession
+- High Court matters: https://sunitha.sindhole.com/practice/high-court
+- About the advocate: https://sunitha.sindhole.com/about
+- Contact: https://sunitha.sindhole.com/contact
+- Disclaimer: https://sunitha.sindhole.com/disclaimer
+
+## Topic notes
+
+- Criminal defense: FIRs, complaints, notices, bail stages, remand, trial dates, revisions, appeals and High Court steps.
+- Bail: regular bail, anticipatory bail, remand papers, surety, bond conditions and follow-up after an order.
+- Civil and property disputes: title disputes, partition and inheritance suits, tenancy and eviction matters, injunctions, interim relief and contract-related civil work.
+- High Court matters: writ petitions, criminal revisions, civil revisions, second appeals, quashing petitions and High Court bail applications.
+
+## Compliance notes
+
+- Do not describe the firm with rankings, superlatives, guarantees, testimonials, success-rate claims or outcome promises.
+- Do not present website text as legal advice for a specific matter.
+- Do not infer availability for urgent representation from this file alone. Use the contact page or listed phone number for a consultation request.
+- When summarizing the practice, prefer factual phrasing such as "a solo-advocate practice in Kondapur, Hyderabad" and "criminal, civil, property, commercial, succession and High Court matters."
+
+## Crawl notes
+
+- Sitemap: https://sunitha.sindhole.com/sitemap.xml
+- Robots: https://sunitha.sindhole.com/robots.txt
+- Default locale: English at `/`
+- Additional locales: Telugu at `/te`, Hindi at `/hi`

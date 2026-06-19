@@ -34,7 +34,7 @@ async function main() {
       urls.push(`${BASE}${prefix}${route || "/"}`);
     }
   }
-  urls.push(`${BASE}/sitemap.xml`, `${BASE}/robots.txt`);
+  urls.push(`${BASE}/sitemap.xml`, `${BASE}/robots.txt`, `${BASE}/llms.txt`);
 
   let failed = 0;
   for (const url of urls) {
