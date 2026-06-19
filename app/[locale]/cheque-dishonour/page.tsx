@@ -154,6 +154,16 @@ export default async function ChequeDishonourPage({
             questions, so the commercial context stays with the file.
           </p>
 
+          <p>
+            If the immediate question is the sequence of notice, waiting-window
+            context, complaint filing, summons, evidence and later hearing
+            stages, start with the{" "}
+            <Link href="/cheque-bounce-case-procedure-hyderabad">
+              cheque-bounce procedure guide
+            </Link>
+            .
+          </p>
+
           <div className="cheque-steps" aria-label="Cheque-dishonour stages">
             {chequeStages.map((stage, index) => (
               <article className="cheque-step" key={stage.title}>
@@ -217,6 +227,12 @@ export default async function ChequeDishonourPage({
           <div className="pd-adj">
             <h3>Related practice areas</h3>
             <ul>
+              <li>
+                <Link href="/cheque-bounce-case-procedure-hyderabad">
+                  Cheque Bounce Procedure
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
               <li>
                 <Link href="/criminal-defense">Criminal Defense</Link>
                 <span aria-hidden="true">→</span>

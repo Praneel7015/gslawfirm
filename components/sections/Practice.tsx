@@ -11,6 +11,10 @@ const focusedGuidanceLinks = [
   },
   { href: "/bail", label: "Bail guidance" },
   { href: "/cheque-dishonour", label: "Cheque-dishonour guidance" },
+  {
+    href: "/cheque-bounce-case-procedure-hyderabad",
+    label: "Cheque-bounce procedure guide",
+  },
   { href: "/property-disputes", label: "Property-dispute guidance" },
   {
     href: "/consumer-forum-complaints",
@@ -51,10 +55,10 @@ export async function Practice() {
         <span>Focused guidance</span>
         <p>
           For FIRs, cyber-crime complaints, bail stages, cheque dishonour,
-          consumer complaints, legal notices, property and tenancy disputes,
-          agreement enforcement, injunctions, commercial documents, succession
-          papers and High Court steps in Hyderabad, read the focused guidance
-          before sending an enquiry.
+          cheque-bounce procedure, consumer complaints, legal notices, property
+          and tenancy disputes, agreement enforcement, injunctions, commercial
+          documents, succession papers and High Court steps in Hyderabad, read
+          the focused guidance before sending an enquiry.
         </p>
         <div className="practice-feature-links">
           {focusedGuidanceLinks.map((link) => (

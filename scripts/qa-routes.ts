@@ -24,6 +24,7 @@ const ROUTES = [
   "/succession-probate",
   "/high-court-matters",
   "/cheque-dishonour",
+  "/cheque-bounce-case-procedure-hyderabad",
   "/tenancy-eviction",
   "/specific-performance",
   "/injunction-interim-relief",
