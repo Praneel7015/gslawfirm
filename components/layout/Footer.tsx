@@ -40,6 +40,9 @@ export async function Footer() {
               <Link href="/contact">{t("links.contact")}</Link>
             </li>
             <li>
+              <Link href="/disclaimer">{t("links.disclaimer")}</Link>
+            </li>
+            <li>
               <a href={firm.linkedin} target="_blank" rel="noopener noreferrer">
                 {t("links.linkedin")}
               </a>
