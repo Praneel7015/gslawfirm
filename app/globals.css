@@ -634,6 +634,45 @@ select:focus-visible {
   padding-bottom: 8px;
   margin: 0;
 }
+.practice-feature {
+  margin: -34px 0 40px auto;
+  max-width: 520px;
+  border-top: .5px solid var(--color-hair);
+  padding-top: 22px;
+}
+.practice-feature > span {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.practice-feature p {
+  margin: 12px 0 18px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.practice-feature-link {
+  color: var(--color-fg);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-fg);
+  transition:
+    color var(--practice-duration) var(--practice-ease),
+    border-color var(--practice-duration) var(--practice-ease),
+    gap var(--practice-duration) var(--practice-ease);
+}
+.practice-feature-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  gap: 16px;
+}
 
 .practice {
   padding: 60px 80px 140px;
@@ -1428,6 +1467,16 @@ select:focus-visible {
   max-width: 520px;
   margin: 0;
 }
+.pi-foot-note {
+  margin-top: 18px !important;
+  font-size: 14px !important;
+}
+.pi-foot-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
 .pi-foot-link {
   text-decoration: none;
   color: var(--color-fg);
@@ -1441,6 +1490,40 @@ select:focus-visible {
     border-color var(--practice-duration) var(--practice-ease);
 }
 .pi-foot-link:hover { color: var(--color-accent); border-color: var(--color-accent); gap: 18px; }
+
+/* BAIL DETAIL PAGE */
+.bail-steps {
+  margin: 54px 0 10px;
+  border-top: 1px solid var(--color-fg);
+}
+.bail-step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0 28px;
+  padding: 28px 0;
+  border-bottom: .5px solid var(--color-hair);
+}
+.bail-step .li-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--soft);
+  grid-row: 1 / 3;
+  padding-top: 6px;
+}
+.bail-step h2 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 26px;
+  line-height: .95;
+  letter-spacing: 0;
+  margin: 0 0 12px;
+}
+.bail-step p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
 
 /* ─────────────────────────────────────────────────────────────
    M5, ABOUT / CONTACT / PRIVACY / DISCLAIMER PAGES
@@ -1766,6 +1849,10 @@ select:focus-visible {
   }
   .section-head h2 { font-size: 34px; }
   .practice-lede { max-width: none; }
+  .practice-feature {
+    margin: -10px 22px 36px;
+    max-width: none;
+  }
   .practice-grid { grid-template-columns: 1fr; border-top: 1px solid var(--color-fg); }
   .practice-card {
     border-right: 0;
@@ -1862,6 +1949,17 @@ select:focus-visible {
     gap: 28px;
     align-items: flex-start;
   }
+  .pi-foot-actions { gap: 16px; }
+
+  .bail-step {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .bail-step .li-num {
+    grid-row: auto;
+    padding-top: 0;
+  }
+  .bail-step h2 { font-size: 23px; }
 
   /* M5, about / contact / legal */
   .about-hero { padding: 110px 22px 50px; }
