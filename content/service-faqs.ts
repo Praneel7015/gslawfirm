@@ -110,3 +110,21 @@ export const highCourtMattersFaqs: readonly ServiceFaq[] = [
       "They may be discussed when the papers raise a question around jurisdiction, procedure, public-authority action, criminal proceedings, or an order from a lower forum. The file has to be read first.",
   },
 ] as const;
+
+export const chequeDishonourFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What papers help for a cheque-dishonour discussion?",
+    answer:
+      "The cheque, bank return memo, demand notice, postal or delivery proof, transaction papers, invoices, messages, replies, summons, complaint copy, and next-date details are useful if available.",
+  },
+  {
+    question: "Does this page decide whether a complaint can be filed?",
+    answer:
+      "No. Filing depends on the cheque, return reason, notice timeline, documents, limitation, and facts. The papers have to be read before a next step can be discussed.",
+  },
+  {
+    question: "Can settlement be discussed in a cheque-dishonour matter?",
+    answer:
+      "It can be discussed when the parties' positions, payment history, court stage, and documents are clear. Settlement or compounding depends on the matter and cannot be assumed from this page.",
+  },
+] as const;

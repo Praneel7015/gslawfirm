@@ -18,6 +18,7 @@ const ROUTES = [
   "/commercial-contracts",
   "/succession-probate",
   "/high-court-matters",
+  "/cheque-dishonour",
   "/about",
   "/practice",
   "/practice/criminal",

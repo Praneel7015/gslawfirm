@@ -225,6 +225,10 @@ export default async function CommercialContractsPage({
             <h3>Related practice areas</h3>
             <ul>
               <li>
+                <Link href="/cheque-dishonour">Cheque Dishonour</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/practice/corporate">
                   Corporate & Commercial
                 </Link>
