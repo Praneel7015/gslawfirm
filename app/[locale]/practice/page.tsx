@@ -65,12 +65,13 @@ export default async function PracticeIndexPage({
           <p>{t("footnote")}</p>
           <p className="pi-foot-note">
             Looking for criminal-defense, cyber-crime complaint, bail,
-            cheque-dishonour, consumer-forum complaint, legal-notice,
-            property-dispute, tenancy and eviction, agreement-enforcement,
-            injunction or interim-relief, commercial-contract, succession and
-            probate, High Court, continuity of counsel, or Kondapur location
-            context in Hyderabad? Start with the focused pages, then send a
-            brief note if the matter needs a conversation.
+            bail-hearing procedure, cheque-dishonour, consumer-forum complaint,
+            legal-notice, property-dispute, tenancy and eviction,
+            agreement-enforcement, injunction or interim-relief,
+            commercial-contract, succession and probate, High Court, continuity
+            of counsel, or Kondapur location context in Hyderabad? Start with
+            the focused pages, then send a brief note if the matter needs a
+            conversation.
           </p>
         </div>
         <div className="pi-foot-actions">
@@ -83,6 +84,13 @@ export default async function PracticeIndexPage({
           </Link>
           <Link href="/bail" className="pi-foot-link">
             Read bail guidance <span aria-hidden="true">→</span>
+          </Link>
+          <Link
+            href="/bail-hearing-procedure-hyderabad"
+            className="pi-foot-link"
+          >
+            Read bail-hearing procedure guide{" "}
+            <span aria-hidden="true">→</span>
           </Link>
           <Link href="/cheque-dishonour" className="pi-foot-link">
             Read cheque-dishonour guidance <span aria-hidden="true">→</span>

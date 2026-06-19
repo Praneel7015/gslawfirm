@@ -206,8 +206,14 @@ export default async function BailPage({
           </div>
 
           <div className="pd-adj">
-            <h3>Related practice areas</h3>
+            <h3>Related pages</h3>
             <ul>
+              <li>
+                <Link href="/bail-hearing-procedure-hyderabad">
+                  Bail Hearing Procedure
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
               <li>
                 <Link href="/practice/criminal">Criminal Litigation</Link>
                 <span aria-hidden="true">→</span>
