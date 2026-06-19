@@ -64,9 +64,9 @@ export default async function PracticeIndexPage({
           <p>{t("footnote")}</p>
           <p className="pi-foot-note">
             Looking for criminal-defense, bail, property-dispute,
-            commercial-contract, succession and probate, or High Court guidance
-            in Hyderabad? Start with the focused pages, then send a brief note
-            if the matter needs a conversation.
+            tenancy and eviction, commercial-contract, succession and probate,
+            or High Court guidance in Hyderabad? Start with the focused pages,
+            then send a brief note if the matter needs a conversation.
           </p>
         </div>
         <div className="pi-foot-actions">
@@ -78,6 +78,9 @@ export default async function PracticeIndexPage({
           </Link>
           <Link href="/property-disputes" className="pi-foot-link">
             Read property-dispute guidance <span aria-hidden="true">→</span>
+          </Link>
+          <Link href="/tenancy-eviction" className="pi-foot-link">
+            Read tenancy and eviction guidance <span aria-hidden="true">→</span>
           </Link>
           <Link href="/commercial-contracts" className="pi-foot-link">
             Read commercial-contract guidance <span aria-hidden="true">→</span>
