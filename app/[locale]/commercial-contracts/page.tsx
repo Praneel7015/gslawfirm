@@ -226,6 +226,12 @@ export default async function CommercialContractsPage({
             <h3>Related practice areas</h3>
             <ul>
               <li>
+                <Link href="/cheque-bounce-case-procedure-hyderabad">
+                  Cheque Bounce Procedure
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/cheque-dishonour">Cheque Dishonour</Link>
                 <span aria-hidden="true">→</span>
               </li>

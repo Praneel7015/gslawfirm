@@ -38,6 +38,10 @@ const focusedGuides: Partial<
       label: "Cheque-dishonour guidance",
     },
     {
+      href: "/cheque-bounce-case-procedure-hyderabad",
+      label: "Cheque-bounce procedure guide",
+    },
+    {
       href: "/continuity-of-counsel",
       label: "Continuity-of-counsel explainer",
     },
@@ -80,6 +84,10 @@ const focusedGuides: Partial<
     {
       href: "/commercial-contracts",
       label: "Commercial-contract guidance",
+    },
+    {
+      href: "/cheque-bounce-case-procedure-hyderabad",
+      label: "Cheque-bounce procedure guide",
     },
     {
       href: "/consumer-forum-complaints",

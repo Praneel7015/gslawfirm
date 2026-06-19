@@ -255,6 +255,24 @@ export const chequeDishonourFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const chequeBounceProcedureFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What is the usual sequence in a cheque-bounce case?",
+    answer:
+      "The sequence is usually read through the cheque, bank return memo, notice, payment-window context, complaint papers if filed, summons, evidence stage, and any settlement, appeal or revision context. The exact next step depends on the dates, documents and current court stage.",
+  },
+  {
+    question: "What papers help before discussing complaint filing or summons?",
+    answer:
+      "The cheque, bank return memo, demand notice, postal or delivery proof, transaction papers, invoices, messages, replies, complaint copy, summons and next-date details are useful if available.",
+  },
+  {
+    question: "Can this guide calculate notice period, limitation or court fees?",
+    answer:
+      "No. Dates, limitation and court-fee questions depend on the papers, forum, filing stage and current record. The documents have to be read before a specific next step can be discussed.",
+  },
+] as const;
+
 export const tenancyEvictionFaqs: readonly ServiceFaq[] = [
   {
     question: "What papers help for a tenancy or eviction discussion?",

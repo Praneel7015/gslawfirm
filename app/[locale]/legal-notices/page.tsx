@@ -238,6 +238,12 @@ export default async function LegalNoticesPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/cheque-bounce-case-procedure-hyderabad">
+                  Cheque Bounce Procedure
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/practice/civil">Civil & Property Disputes</Link>
                 <span aria-hidden="true">→</span>
               </li>
