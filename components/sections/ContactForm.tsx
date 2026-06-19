@@ -11,6 +11,25 @@ import {
   isTurnstileConfigured,
 } from "@/components/legal/TurnstileWidget";
 
+function truncateSource(value: string | undefined, max: number) {
+  if (!value) return undefined;
+  const trimmed = value.trim();
+  if (!trimmed) return undefined;
+  return trimmed.length > max ? trimmed.slice(0, max) : trimmed;
+}
+
+function getLeadSource() {
+  if (typeof window === "undefined") return {};
+
+  const pagePath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+  return {
+    pagePath: truncateSource(pagePath, 240),
+    pageTitle: truncateSource(document.title, 160),
+    referrer: truncateSource(document.referrer, 500),
+  };
+}
+
 /**
  * Contact form (M6). Posts to /api/lead → Resend (notification email)
  * with IP rate-limit + optional Cloudflare Turnstile challenge.
@@ -37,7 +56,14 @@ export function ContactForm() {
     formState: { errors, isSubmitting },
   } = useForm<LeadInput>({
     resolver: zodResolver(leadSchema),
-    defaultValues: { name: "", phone: "", email: "", message: "", website: "" },
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+      source: {},
+      website: "",
+    },
     mode: "onTouched",
   });
 
@@ -56,7 +82,11 @@ export function ContactForm() {
       const r = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, turnstileToken }),
+        body: JSON.stringify({
+          ...data,
+          source: getLeadSource(),
+          turnstileToken,
+        }),
       });
 
       if (r.ok) {

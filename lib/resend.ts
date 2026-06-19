@@ -64,7 +64,7 @@ export async function sendLeadEmail(
 
 // ── Templates ─────────────────────────────────────────────────────
 
-function renderLeadText(
+export function renderLeadText(
   lead: LeadInput,
   meta: { ip: string; userAgent: string; submittedAt: Date },
 ): string {
@@ -78,6 +78,10 @@ function renderLeadText(
     "Message:",
     lead.message,
     "",
+    "Source:",
+    `Page:        ${formatSourcePage(lead)}`,
+    `Referrer:    ${formatReferrer(lead)}`,
+    "",
     "── Meta ──",
     `Time:        ${meta.submittedAt.toISOString()}`,
     `IP:          ${meta.ip}`,
@@ -86,7 +90,7 @@ function renderLeadText(
   ].join("\n");
 }
 
-function renderLeadHtml(
+export function renderLeadHtml(
   lead: LeadInput,
   meta: { ip: string; userAgent: string; submittedAt: Date },
 ): string {
@@ -107,6 +111,13 @@ function renderLeadHtml(
     </table>
     <p style="font-family:'SFMono-Regular',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#666;margin:0 0 12px;">Message</p>
     <div style="white-space:pre-wrap;font-size:15px;line-height:1.6;padding:16px;background:#fafafa;border-left:2px solid #6B0F1A;">${e(lead.message)}</div>
+    <p style="font-family:'SFMono-Regular',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#666;margin:24px 0 12px;">Source</p>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#666;width:100px;">Page</td>
+          <td style="padding:8px 0;border-bottom:1px solid #eee;">${e(formatSourcePage(lead))}</td></tr>
+      <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#666;">Referrer</td>
+          <td style="padding:8px 0;border-bottom:1px solid #eee;">${e(formatReferrer(lead))}</td></tr>
+    </table>
     <div style="margin-top:32px;padding-top:16px;border-top:1px solid #eee;font-family:'SFMono-Regular',Menlo,monospace;font-size:11px;color:#999;">
       <div>Submitted ${e(meta.submittedAt.toISOString())}</div>
       <div>IP ${e(meta.ip)}</div>
@@ -117,6 +128,16 @@ function renderLeadHtml(
     </div>
   </div>
 </body></html>`;
+}
+
+function formatSourcePage(lead: LeadInput): string {
+  const { pagePath, pageTitle } = lead.source ?? {};
+  if (pagePath && pageTitle) return `${pageTitle} (${pagePath})`;
+  return pagePath ?? pageTitle ?? "Not captured";
+}
+
+function formatReferrer(lead: LeadInput): string {
+  return lead.source?.referrer ?? "Direct or not available";
 }
 
 function escapeHtml(s: string): string {
