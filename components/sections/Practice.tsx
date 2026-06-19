@@ -8,6 +8,10 @@ const focusedGuidanceLinks = [
   { href: "/bail", label: "Bail guidance" },
   { href: "/cheque-dishonour", label: "Cheque-dishonour guidance" },
   { href: "/property-disputes", label: "Property-dispute guidance" },
+  {
+    href: "/consumer-forum-complaints",
+    label: "Consumer-forum complaint guidance",
+  },
   { href: "/tenancy-eviction", label: "Tenancy and eviction guidance" },
   { href: "/specific-performance", label: "Specific-performance guidance" },
   {
@@ -41,10 +45,10 @@ export async function Practice() {
       <div className="practice-feature">
         <span>Focused guidance</span>
         <p>
-          For FIRs, bail stages, cheque dishonour, property and tenancy
-          disputes, agreement enforcement, injunctions, commercial documents,
-          succession papers and High Court steps in Hyderabad, read the focused
-          guidance before sending an enquiry.
+          For FIRs, bail stages, cheque dishonour, consumer complaints, property
+          and tenancy disputes, agreement enforcement, injunctions, commercial
+          documents, succession papers and High Court steps in Hyderabad, read
+          the focused guidance before sending an enquiry.
         </p>
         <div className="practice-feature-links">
           {focusedGuidanceLinks.map((link) => (

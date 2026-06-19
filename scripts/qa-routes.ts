@@ -15,6 +15,7 @@ const ROUTES = [
   "/bail",
   "/criminal-defense",
   "/property-disputes",
+  "/consumer-forum-complaints",
   "/commercial-contracts",
   "/succession-probate",
   "/high-court-matters",
