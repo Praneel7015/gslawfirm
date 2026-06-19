@@ -4,57 +4,59 @@ import { setRequestLocale } from "next-intl/server";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
-import { propertyDisputesFaqs } from "@/content/service-faqs";
+import { injunctionInterimReliefFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: `Property Disputes in Hyderabad | ${firm.name}`,
+  title: `Injunction and Interim Relief in Hyderabad | ${firm.name}`,
   description:
-    "Property-dispute information for title, partition, tenancy, injunction and civil-court steps in Hyderabad, from GS Law Firm in Kondapur.",
-  path: "/property-disputes",
+    "Injunction and interim-relief information for possession, title, tenancy, contract restraint, notices, photographs, documents, pleadings, urgency and court-stage context in Hyderabad, from GS Law Firm in Kondapur.",
+  path: "/injunction-interim-relief",
 });
 
-const propertyStages = [
+const injunctionStages = [
   {
-    title: "Title and document review",
+    title: "Papers, possession and urgency review",
     body:
-      "The first reading usually starts with sale deeds, link documents, gift or settlement deeds, encumbrance records, revenue papers, municipal records, notices, and any prior case papers. The aim is to understand what the papers say before a notice, reply, suit, or interim application is prepared.",
+      "The first reading usually starts with property or contract papers, possession details, notices, photographs, messages, prior orders, court papers, and the event that made the issue time-sensitive.",
   },
   {
-    title: "Partition, inheritance and possession",
+    title: "Suit, reply and interim application stage",
     body:
-      "Family property disputes often turn on shares, possession, boundaries, prior arrangements, and whether a partition, declaration, injunction, or succession-linked step is needed. The papers and family history need to be read together.",
+      "Injunction and interim-relief questions can arise before a suit, with the first filing, in a reply, or after an order. The papers need to show what restraint or direction is being discussed and what facts support that request.",
   },
   {
-    title: "Tenancy, injunction and civil-court steps",
+    title: "Order, compliance and later court steps",
     body:
-      "Tenancy, eviction, possession, specific performance, and injunction matters can move through notices, pleadings, interim relief, evidence, execution, revision, or appeal. The next step depends on the stage and the court before which the matter is listed.",
+      "After an interim order, the next question may involve compliance, modification, evidence, execution, appeal or revision. The order, pleadings, deadlines and practical position on the ground need to be read together.",
   },
 ] as const;
 
 const handled = [
-  "Property and title disputes",
-  "Partition and inheritance suits",
-  "Tenancy, eviction and possession matters",
-  "Injunctions and interim relief",
-  "Specific performance and property-related contracts",
-  "Civil revision, appeal and execution-stage questions",
+  "Temporary and permanent injunction context",
+  "Possession, title and boundary disputes",
+  "Tenancy or contract-related restraint questions",
+  "Notices, photographs and document review",
+  "Pleadings, affidavits and urgency papers",
+  "Order, execution, appeal and revision context",
 ] as const;
 
-function propertyDisputesServiceSchema(locale: string) {
+function injunctionInterimReliefServiceSchema(locale: string) {
   const path =
-    locale === "en" ? "/property-disputes" : `/${locale}/property-disputes`;
+    locale === "en"
+      ? "/injunction-interim-relief"
+      : `/${locale}/injunction-interim-relief`;
 
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Property disputes",
-    name: "Property disputes in Hyderabad",
+    serviceType: "Injunction and interim relief",
+    name: "Injunction and interim relief in Hyderabad",
     description:
-      "Information on title disputes, partition, tenancy, injunctions and civil-court steps in Hyderabad.",
+      "Information on temporary and permanent injunction context, possession, title, tenancy, contract restraint, notices, photographs, documents, pleadings, urgency and court-stage questions in Hyderabad.",
     url: `${SITE_URL}${path}`,
     provider: {
       "@type": "LegalService",
@@ -76,7 +78,7 @@ function propertyDisputesServiceSchema(locale: string) {
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Property-dispute matters handled",
+      name: "Injunction and interim-relief matters handled",
       itemListElement: handled.map((name, index) => ({
         "@type": "Offer",
         position: index + 1,
@@ -89,7 +91,7 @@ function propertyDisputesServiceSchema(locale: string) {
   };
 }
 
-export default async function PropertyDisputesPage({
+export default async function InjunctionInterimReliefPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -97,62 +99,76 @@ export default async function PropertyDisputesPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const localizedPropertyUrl =
+  const localizedInjunctionUrl =
     locale === "en"
-      ? `${SITE_URL}/property-disputes`
-      : `${SITE_URL}/${locale}/property-disputes`;
+      ? `${SITE_URL}/injunction-interim-relief`
+      : `${SITE_URL}/${locale}/injunction-interim-relief`;
 
   const ld = graphSchema([
-    propertyDisputesServiceSchema(locale),
+    injunctionInterimReliefServiceSchema(locale),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },
       { name: "Practice", url: `${SITE_URL}/practice` },
-      { name: "Property Disputes", url: localizedPropertyUrl },
+      {
+        name: "Injunction and Interim Relief",
+        url: localizedInjunctionUrl,
+      },
     ]),
-    faqPageSchema(propertyDisputesFaqs),
+    faqPageSchema(injunctionInterimReliefFaqs),
   ]);
 
   return (
     <main id="main">
       <JsonLd data={ld} />
-      <section className="pd-hero property-hero" aria-labelledby="property-title">
+      <section
+        className="pd-hero injunction-hero"
+        aria-labelledby="injunction-title"
+      >
         <nav className="crumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true">/</span>
           <Link href="/practice">Practice</Link>
           <span aria-hidden="true">/</span>
-          <span className="current">Property Disputes</span>
+          <span className="current">Injunction and Interim Relief</span>
         </nav>
-        <h1 id="property-title">Property disputes in Hyderabad.</h1>
+        <h1 id="injunction-title">
+          Injunction and interim relief matters in Hyderabad.
+        </h1>
         <p className="lede">
-          Title papers, partition, tenancy, injunctions and civil-court steps,
-          read carefully before the next notice, filing or hearing.
+          Possession, title, tenancy or contract-restraint questions, reviewed
+          with the documents, photographs, pleadings, urgency and current court
+          stage before the next filing or hearing is discussed.
         </p>
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
 
-      <section className="pd-body property-body">
+      <section className="pd-body injunction-body">
         <div className="pd-content">
           <p className="lede pd-lede">
             <span className="pd-lede-icon" aria-hidden="true">
               <PracticeIcon slug="civil" size={36} />
             </span>
             <span>
-              Property disputes often turn on papers that were signed years
-              earlier. The useful first step is to understand the documents,
-              possession, parties, court stage, and any immediate deadline.
+              Injunction and interim-relief questions usually depend on timing,
+              possession, documents and what has changed on the ground. A
+              careful first reading helps decide what needs to be clarified
+              before any court-stage step is discussed.
             </span>
           </p>
 
           <p>
             GS Law Firm is a solo-advocate practice in Kondapur, Hyderabad. The
-            same advocate who reads the papers is the one who appears for the
-            matter, so the facts and documents stay with one counsel.
+            same advocate who reads the papers and photographs is the one who
+            discusses the next civil-court step, so the facts stay with one
+            counsel.
           </p>
 
-          <div className="property-steps" aria-label="Property-dispute stages">
-            {propertyStages.map((stage, index) => (
-              <article className="property-step" key={stage.title}>
+          <div
+            className="injunction-steps"
+            aria-label="Injunction and interim-relief stages"
+          >
+            {injunctionStages.map((stage, index) => (
+              <article className="injunction-step" key={stage.title}>
                 <span className="li-num">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -178,11 +194,11 @@ export default async function PropertyDisputesPage({
 
           <section
             className="service-faq"
-            aria-labelledby="property-faq-title"
+            aria-labelledby="injunction-faq-title"
           >
-            <h2 id="property-faq-title">Common questions</h2>
+            <h2 id="injunction-faq-title">Common questions</h2>
             <div className="service-faq-list">
-              {propertyDisputesFaqs.map((item) => (
+              {injunctionInterimReliefFaqs.map((item) => (
                 <article className="service-faq-item" key={item.question}>
                   <h3>{item.question}</h3>
                   <p>{item.answer}</p>
@@ -192,20 +208,21 @@ export default async function PropertyDisputesPage({
           </section>
 
           <p className="pd-footnote">
-            This page is general information, not legal advice. Property matters
-            depend on the documents, possession, limitation, prior proceedings,
-            and the court before which the matter is listed.
+            This page is general information, not legal advice. Whether an
+            injunction or interim-relief step can be discussed depends on the
+            facts, documents, possession, urgency, limitation, pleadings and
+            court stage.
           </p>
         </div>
 
         <aside className="pd-side" aria-label="Related actions">
           <div className="pd-cta">
-            <h3>Discuss a property matter in confidence.</h3>
+            <h3>Discuss an interim civil-court step in confidence.</h3>
             <p>
-              Share the property location, papers available, notice or case
-              stage, next date, and what has already happened. A first
-              conversation helps decide whether this firm is the right fit for
-              the matter.
+              Share the property or contract papers, notices, photographs,
+              messages, present possession or status, case stage, and next date
+              if there is one. A first conversation helps decide whether this
+              firm is the right fit for the matter.
             </p>
             <Link href="/contact" className="pd-cta-link">
               Request a consultation <span aria-hidden="true">→</span>
@@ -216,31 +233,19 @@ export default async function PropertyDisputesPage({
             <h3>Related practice areas</h3>
             <ul>
               <li>
+                <Link href="/property-disputes">Property Disputes</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/tenancy-eviction">Tenancy and Eviction</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/specific-performance">Specific Performance</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/injunction-interim-relief">
-                  Injunction and Interim Relief
-                </Link>
+                <Link href="/high-court-matters">High Court Matters</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
                 <Link href="/practice/civil">Civil & Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/will-succession">
-                  Wills, Trusts & Succession
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/high-court">High Court Matters</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>

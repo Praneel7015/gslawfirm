@@ -21,6 +21,7 @@ const ROUTES = [
   "/cheque-dishonour",
   "/tenancy-eviction",
   "/specific-performance",
+  "/injunction-interim-relief",
   "/kondapur-legal-services",
   "/about",
   "/practice",
