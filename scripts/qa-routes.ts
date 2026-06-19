@@ -19,6 +19,7 @@ const ROUTES = [
   "/succession-probate",
   "/high-court-matters",
   "/cheque-dishonour",
+  "/tenancy-eviction",
   "/about",
   "/practice",
   "/practice/criminal",

@@ -128,3 +128,21 @@ export const chequeDishonourFaqs: readonly ServiceFaq[] = [
       "It can be discussed when the parties' positions, payment history, court stage, and documents are clear. Settlement or compounding depends on the matter and cannot be assumed from this page.",
   },
 ] as const;
+
+export const tenancyEvictionFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What papers help for a tenancy or eviction discussion?",
+    answer:
+      "The lease or tenancy papers, rent receipts, payment records, notices, replies, messages, property papers, photographs, case papers, orders, and next-date details are useful if available.",
+  },
+  {
+    question: "Is this page only for landlords or only for tenants?",
+    answer:
+      "No. This page is general information for either side of a tenancy or possession dispute. Advice depends on the papers, facts, notices, possession, court stage, and applicable law.",
+  },
+  {
+    question: "Does every tenancy dispute need a court filing?",
+    answer:
+      "Not always. The next step may be a notice, reply, discussion, interim application, suit, execution, revision, or appeal depending on the documents and current stage.",
+  },
+] as const;

@@ -4,57 +4,57 @@ import { setRequestLocale } from "next-intl/server";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
-import { propertyDisputesFaqs } from "@/content/service-faqs";
+import { tenancyEvictionFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: `Property Disputes in Hyderabad | ${firm.name}`,
+  title: `Tenancy and Eviction in Hyderabad | ${firm.name}`,
   description:
-    "Property-dispute information for title, partition, tenancy, injunction and civil-court steps in Hyderabad, from GS Law Firm in Kondapur.",
-  path: "/property-disputes",
+    "Tenancy and eviction information for lease papers, notices, rent or possession disputes, injunctions, interim relief, evidence, execution, revision and appeal steps in Hyderabad, from GS Law Firm in Kondapur.",
+  path: "/tenancy-eviction",
 });
 
-const propertyStages = [
+const tenancyStages = [
   {
-    title: "Title and document review",
+    title: "Lease, notice and possession review",
     body:
-      "The first reading usually starts with sale deeds, link documents, gift or settlement deeds, encumbrance records, revenue papers, municipal records, notices, and any prior case papers. The aim is to understand what the papers say before a notice, reply, suit, or interim application is prepared.",
+      "The first reading usually starts with the lease or tenancy papers, rent records, notices, messages, possession details, property papers, and what each side says has happened so far.",
   },
   {
-    title: "Partition, inheritance and possession",
+    title: "Interim relief, evidence and court stage",
     body:
-      "Family property disputes often turn on shares, possession, boundaries, prior arrangements, and whether a partition, declaration, injunction, or succession-linked step is needed. The papers and family history need to be read together.",
+      "Tenancy and possession matters can involve injunctions, interim applications, rent or arrears material, witness evidence, photographs, inspection records, and hearing-stage papers. The next step depends on the current forum and stage.",
   },
   {
-    title: "Tenancy, injunction and civil-court steps",
+    title: "Execution, revision and appeal context",
     body:
-      "Tenancy, eviction, possession, specific performance, and injunction matters can move through notices, pleadings, interim relief, evidence, execution, revision, or appeal. The next step depends on the stage and the court before which the matter is listed.",
+      "If there is already an order, decree, execution petition, revision, or appeal, the papers need to be read with deadlines, prior findings, compliance history, and the practical position on possession.",
   },
 ] as const;
 
 const handled = [
-  "Property and title disputes",
-  "Partition and inheritance suits",
-  "Tenancy, eviction and possession matters",
+  "Lease and tenancy-paper review",
+  "Notices, replies and rent-record questions",
+  "Possession, eviction and arrears disputes",
   "Injunctions and interim relief",
-  "Specific performance and property-related contracts",
-  "Civil revision, appeal and execution-stage questions",
+  "Evidence, execution and order-compliance stages",
+  "Civil revision, appeal and related court steps",
 ] as const;
 
-function propertyDisputesServiceSchema(locale: string) {
+function tenancyEvictionServiceSchema(locale: string) {
   const path =
-    locale === "en" ? "/property-disputes" : `/${locale}/property-disputes`;
+    locale === "en" ? "/tenancy-eviction" : `/${locale}/tenancy-eviction`;
 
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Property disputes",
-    name: "Property disputes in Hyderabad",
+    serviceType: "Tenancy and eviction matters",
+    name: "Tenancy and eviction matters in Hyderabad",
     description:
-      "Information on title disputes, partition, tenancy, injunctions and civil-court steps in Hyderabad.",
+      "Information on lease papers, notices, rent or possession disputes, injunctions, interim relief, evidence, execution, revision and appeal steps in Hyderabad.",
     url: `${SITE_URL}${path}`,
     provider: {
       "@type": "LegalService",
@@ -76,7 +76,7 @@ function propertyDisputesServiceSchema(locale: string) {
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Property-dispute matters handled",
+      name: "Tenancy and eviction matters handled",
       itemListElement: handled.map((name, index) => ({
         "@type": "Offer",
         position: index + 1,
@@ -89,7 +89,7 @@ function propertyDisputesServiceSchema(locale: string) {
   };
 }
 
-export default async function PropertyDisputesPage({
+export default async function TenancyEvictionPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -97,62 +97,71 @@ export default async function PropertyDisputesPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const localizedPropertyUrl =
+  const localizedTenancyUrl =
     locale === "en"
-      ? `${SITE_URL}/property-disputes`
-      : `${SITE_URL}/${locale}/property-disputes`;
+      ? `${SITE_URL}/tenancy-eviction`
+      : `${SITE_URL}/${locale}/tenancy-eviction`;
 
   const ld = graphSchema([
-    propertyDisputesServiceSchema(locale),
+    tenancyEvictionServiceSchema(locale),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },
       { name: "Practice", url: `${SITE_URL}/practice` },
-      { name: "Property Disputes", url: localizedPropertyUrl },
+      { name: "Tenancy and Eviction", url: localizedTenancyUrl },
     ]),
-    faqPageSchema(propertyDisputesFaqs),
+    faqPageSchema(tenancyEvictionFaqs),
   ]);
 
   return (
     <main id="main">
       <JsonLd data={ld} />
-      <section className="pd-hero property-hero" aria-labelledby="property-title">
+      <section
+        className="pd-hero tenancy-hero"
+        aria-labelledby="tenancy-title"
+      >
         <nav className="crumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true">/</span>
           <Link href="/practice">Practice</Link>
           <span aria-hidden="true">/</span>
-          <span className="current">Property Disputes</span>
+          <span className="current">Tenancy and Eviction</span>
         </nav>
-        <h1 id="property-title">Property disputes in Hyderabad.</h1>
+        <h1 id="tenancy-title">Tenancy and eviction matters in Hyderabad.</h1>
         <p className="lede">
-          Title papers, partition, tenancy, injunctions and civil-court steps,
-          read carefully before the next notice, filing or hearing.
+          Lease papers, notices, rent or possession disputes, injunctions,
+          evidence, execution, revision and appeal steps, reviewed before a
+          notice, reply, filing or hearing is discussed.
         </p>
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
 
-      <section className="pd-body property-body">
+      <section className="pd-body tenancy-body">
         <div className="pd-content">
           <p className="lede pd-lede">
             <span className="pd-lede-icon" aria-hidden="true">
               <PracticeIcon slug="civil" size={36} />
             </span>
             <span>
-              Property disputes often turn on papers that were signed years
-              earlier. The useful first step is to understand the documents,
-              possession, parties, court stage, and any immediate deadline.
+              Tenancy and eviction disputes need careful reading because the
+              same papers can matter to both sides of the dispute. The useful
+              first step is to understand the lease, possession, notices, rent
+              record, court stage, and any immediate deadline.
             </span>
           </p>
 
           <p>
             GS Law Firm is a solo-advocate practice in Kondapur, Hyderabad. The
-            same advocate who reads the papers is the one who appears for the
-            matter, so the facts and documents stay with one counsel.
+            same advocate who reads the lease and case papers is the one who
+            discusses notice, interim relief, evidence, execution, revision, or
+            appeal questions, so the facts stay with one counsel.
           </p>
 
-          <div className="property-steps" aria-label="Property-dispute stages">
-            {propertyStages.map((stage, index) => (
-              <article className="property-step" key={stage.title}>
+          <div
+            className="tenancy-steps"
+            aria-label="Tenancy and eviction stages"
+          >
+            {tenancyStages.map((stage, index) => (
+              <article className="tenancy-step" key={stage.title}>
                 <span className="li-num">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -176,13 +185,10 @@ export default async function PropertyDisputesPage({
             </ul>
           </div>
 
-          <section
-            className="service-faq"
-            aria-labelledby="property-faq-title"
-          >
-            <h2 id="property-faq-title">Common questions</h2>
+          <section className="service-faq" aria-labelledby="tenancy-faq-title">
+            <h2 id="tenancy-faq-title">Common questions</h2>
             <div className="service-faq-list">
-              {propertyDisputesFaqs.map((item) => (
+              {tenancyEvictionFaqs.map((item) => (
                 <article className="service-faq-item" key={item.question}>
                   <h3>{item.question}</h3>
                   <p>{item.answer}</p>
@@ -192,20 +198,21 @@ export default async function PropertyDisputesPage({
           </section>
 
           <p className="pd-footnote">
-            This page is general information, not legal advice. Property matters
-            depend on the documents, possession, limitation, prior proceedings,
-            and the court before which the matter is listed.
+            This page is general information, not legal advice. Tenancy and
+            eviction matters depend on the lease papers, possession, notices,
+            rent records, court stage, limitation, and the position taken by both
+            sides.
           </p>
         </div>
 
         <aside className="pd-side" aria-label="Related actions">
           <div className="pd-cta">
-            <h3>Discuss a property matter in confidence.</h3>
+            <h3>Discuss a tenancy matter in confidence.</h3>
             <p>
-              Share the property location, papers available, notice or case
-              stage, next date, and what has already happened. A first
-              conversation helps decide whether this firm is the right fit for
-              the matter.
+              Share the lease or tenancy papers, notices, rent records,
+              possession details, case stage, and next date if there is one. A
+              first conversation helps decide whether this firm is the right fit
+              for the matter.
             </p>
             <Link href="/contact" className="pd-cta-link">
               Request a consultation <span aria-hidden="true">→</span>
@@ -216,7 +223,7 @@ export default async function PropertyDisputesPage({
             <h3>Related practice areas</h3>
             <ul>
               <li>
-                <Link href="/tenancy-eviction">Tenancy and Eviction</Link>
+                <Link href="/property-disputes">Property Disputes</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
@@ -224,13 +231,7 @@ export default async function PropertyDisputesPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/practice/will-succession">
-                  Wills, Trusts & Succession
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/high-court">High Court Matters</Link>
+                <Link href="/high-court-matters">High Court Matters</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>

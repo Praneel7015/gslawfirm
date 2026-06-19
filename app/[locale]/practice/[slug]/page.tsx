@@ -38,6 +38,10 @@ const focusedGuides: Partial<
       href: "/property-disputes",
       label: "Property-dispute guidance",
     },
+    {
+      href: "/tenancy-eviction",
+      label: "Tenancy and eviction guidance",
+    },
   ],
   corporate: [
     {
