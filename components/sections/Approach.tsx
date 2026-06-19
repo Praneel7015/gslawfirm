@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 
 export async function Approach() {
   const t = await getTranslations("approach");
@@ -31,6 +32,16 @@ export async function Approach() {
             <p>{t(`items.${it.key}.body`)}</p>
           </div>
         ))}
+      </div>
+      <div className="approach-continuity-link">
+        <span>Continuity of counsel</span>
+        <p>
+          Read how the firm keeps paper reading, hearing preparation and client
+          communication close to one advocate.
+        </p>
+        <Link href="/continuity-of-counsel">
+          Read the explainer <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </section>
   );

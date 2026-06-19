@@ -840,6 +840,44 @@ select:focus-visible {
   color: var(--color-muted);
   margin: 0;
 }
+.approach-continuity-link {
+  margin-top: 18px;
+  border-top: .5px solid var(--color-hair);
+  padding-top: 22px;
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: center;
+}
+.approach-continuity-link > span,
+.about-story-link > span {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.approach-continuity-link p,
+.about-story-link p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.approach-continuity-link a,
+.about-story-link a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.approach-continuity-link a:hover,
+.about-story-link a:hover {
+  color: var(--color-accent);
+}
 
 /* ── FOUNDER ──────────────────────────────────────────────── */
 .founder {
@@ -1534,6 +1572,7 @@ select:focus-visible {
 .tenancy-steps,
 .specific-steps,
 .injunction-steps,
+.continuity-steps,
 .location-steps {
   margin: 54px 0 10px;
   border-top: 1px solid var(--color-fg);
@@ -1548,6 +1587,7 @@ select:focus-visible {
 .tenancy-step,
 .specific-step,
 .injunction-step,
+.continuity-step,
 .location-step {
   display: grid;
   grid-template-columns: 52px 1fr;
@@ -1565,6 +1605,7 @@ select:focus-visible {
 .tenancy-step .li-num,
 .specific-step .li-num,
 .injunction-step .li-num,
+.continuity-step .li-num,
 .location-step .li-num {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1582,6 +1623,7 @@ select:focus-visible {
 .tenancy-step h2,
 .specific-step h2,
 .injunction-step h2,
+.continuity-step h2,
 .location-step h2 {
   font-family: var(--font-display);
   font-weight: var(--headline-weight);
@@ -1600,6 +1642,7 @@ select:focus-visible {
 .tenancy-step p,
 .specific-step p,
 .injunction-step p,
+.continuity-step p,
 .location-step p {
   margin: 0;
   color: var(--color-muted);
@@ -1643,6 +1686,25 @@ select:focus-visible {
   border: .5px solid var(--color-hair);
   border-radius: 999px;
   padding: 8px 10px;
+}
+.continuity-limits {
+  border-top: .5px solid var(--color-hair);
+  padding-top: 34px;
+  margin-top: 42px;
+}
+.continuity-limits h2 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 30px;
+  line-height: .95;
+  letter-spacing: 0;
+  margin: 0 0 14px;
+}
+.continuity-limits p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.6;
 }
 .service-faq {
   margin-top: 56px;
@@ -1775,6 +1837,18 @@ select:focus-visible {
   line-height: .85;
   margin: 6px 14px 0 0;
   color: var(--color-accent);
+}
+.about-story-link {
+  margin-top: 36px;
+  border-top: .5px solid var(--color-hair);
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 14px 22px;
+  align-items: start;
+}
+.about-story-link a {
+  grid-column: 2;
 }
 
 /* ── CONTACT page-specific ────────────────────────────────── */
@@ -2044,6 +2118,12 @@ select:focus-visible {
   .approach-cell:not(:first-child) { padding-left: 0; }
   .approach-cell:last-child { border-bottom: 0; padding-bottom: 0; }
   .approach-cell h3 { font-size: 22px; }
+  .approach-continuity-link {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 26px;
+  }
+  .approach-continuity-link a { white-space: normal; }
 
   /* founder */
   .founder { padding: 80px 22px; grid-template-columns: 1fr; gap: 48px; }
@@ -2119,6 +2199,9 @@ select:focus-visible {
   .high-court-step,
   .cheque-step,
   .tenancy-step,
+  .specific-step,
+  .injunction-step,
+  .continuity-step,
   .location-step {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -2131,6 +2214,9 @@ select:focus-visible {
   .high-court-step .li-num,
   .cheque-step .li-num,
   .tenancy-step .li-num,
+  .specific-step .li-num,
+  .injunction-step .li-num,
+  .continuity-step .li-num,
   .location-step .li-num {
     grid-row: auto;
     padding-top: 0;
@@ -2143,6 +2229,9 @@ select:focus-visible {
   .high-court-step h2,
   .cheque-step h2,
   .tenancy-step h2,
+  .specific-step h2,
+  .injunction-step h2,
+  .continuity-step h2,
   .location-step h2 { font-size: 23px; }
 
   /* M5, about / contact / legal */
@@ -2163,6 +2252,11 @@ select:focus-visible {
   }
   .about-story-content p { font-size: 15.5px; }
   .about-story-content p:first-child::first-letter { font-size: 64px; margin: 4px 10px 0 0; }
+  .about-story-link {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .about-story-link a { grid-column: auto; white-space: normal; }
 
   .cp-hero { padding: 110px 22px 60px; }
   .cp-hero h1 { font-size: 40px; }

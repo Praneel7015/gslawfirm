@@ -246,6 +246,12 @@ export default async function HighCourtMattersPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/continuity-of-counsel">
+                  Continuity of Counsel
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/contact">Contact the firm</Link>
                 <span aria-hidden="true">→</span>
               </li>
