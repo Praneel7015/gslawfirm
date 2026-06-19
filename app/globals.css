@@ -1532,6 +1532,7 @@ select:focus-visible {
 .high-court-steps,
 .cheque-steps,
 .tenancy-steps,
+.specific-steps,
 .location-steps {
   margin: 54px 0 10px;
   border-top: 1px solid var(--color-fg);
@@ -1544,6 +1545,7 @@ select:focus-visible {
 .high-court-step,
 .cheque-step,
 .tenancy-step,
+.specific-step,
 .location-step {
   display: grid;
   grid-template-columns: 52px 1fr;
@@ -1559,6 +1561,7 @@ select:focus-visible {
 .high-court-step .li-num,
 .cheque-step .li-num,
 .tenancy-step .li-num,
+.specific-step .li-num,
 .location-step .li-num {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1574,6 +1577,7 @@ select:focus-visible {
 .high-court-step h2,
 .cheque-step h2,
 .tenancy-step h2,
+.specific-step h2,
 .location-step h2 {
   font-family: var(--font-display);
   font-weight: var(--headline-weight);
@@ -1590,6 +1594,7 @@ select:focus-visible {
 .high-court-step p,
 .cheque-step p,
 .tenancy-step p,
+.specific-step p,
 .location-step p {
   margin: 0;
   color: var(--color-muted);
