@@ -15,6 +15,7 @@ const ROUTES = [
   "/bail",
   "/criminal-defense",
   "/property-disputes",
+  "/commercial-contracts",
   "/about",
   "/practice",
   "/practice/criminal",
