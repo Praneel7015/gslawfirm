@@ -29,6 +29,10 @@ const focusedGuides: Partial<
       label: "Criminal-defense guidance",
     },
     {
+      href: "/cyber-crime-complaints",
+      label: "Cyber-crime complaint guidance",
+    },
+    {
       href: "/cheque-dishonour",
       label: "Cheque-dishonour guidance",
     },

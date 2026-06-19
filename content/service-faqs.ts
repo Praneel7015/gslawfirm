@@ -39,6 +39,24 @@ export const criminalDefenseFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const cyberCrimeComplaintsFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What records help for a cyber-crime complaint discussion?",
+    answer:
+      "Screenshots, links, usernames, phone numbers, email records, transaction IDs, bank messages, complaint acknowledgements, FIR or notice papers, platform responses, and a short chronology are useful if available.",
+  },
+  {
+    question: "Is this a technical cybersecurity or account-recovery service?",
+    answer:
+      "No. This page is about legal next-step context around complaint papers, FIRs, notices, evidence records and court stages. Technical account recovery or takedown work is outside this page.",
+  },
+  {
+    question: "Can this page say whether police action or recovery will happen?",
+    answer:
+      "No. Police action, recovery, platform response or court relief depends on the facts, records, complaint stage, forum and investigation. The papers have to be read before any next step can be discussed.",
+  },
+] as const;
+
 export const propertyDisputesFaqs: readonly ServiceFaq[] = [
   {
     question: "What property papers are useful for the first discussion?",

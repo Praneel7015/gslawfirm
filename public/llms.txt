@@ -29,6 +29,7 @@ The firm is based in Kondapur and serves clients from nearby Hyderabad localitie
 - Home: https://sunitha.sindhole.com/
 - Practice areas: https://sunitha.sindhole.com/practice
 - Criminal defense: https://sunitha.sindhole.com/criminal-defense
+- Cyber crime complaints: https://sunitha.sindhole.com/cyber-crime-complaints
 - Bail applications: https://sunitha.sindhole.com/bail
 - Property disputes: https://sunitha.sindhole.com/property-disputes
 - Consumer forum complaints: https://sunitha.sindhole.com/consumer-forum-complaints
@@ -53,6 +54,7 @@ The firm is based in Kondapur and serves clients from nearby Hyderabad localitie
 ## Topic notes
 
 - Criminal defense: FIRs, complaints, notices, bail stages, remand, trial dates, revisions, appeals and High Court steps.
+- Cyber crime complaints: online fraud, account misuse, harassment messages, screenshots, transaction records, police or portal complaint papers, FIR, notice and court-stage context.
 - Bail: regular bail, anticipatory bail, remand papers, surety, bond conditions and follow-up after an order.
 - Civil and property disputes: title disputes, partition and inheritance suits, tenancy and eviction matters, injunctions, interim relief and contract-related civil work.
 - Consumer forum complaints: defective goods, service deficiency, refund issues, builder-service records, notices, complaint papers, evidence, orders, execution and appeal context.
