@@ -35,6 +35,12 @@ const focusedGuides: Partial<
       label: "Commercial-contract guidance",
     },
   ],
+  "will-succession": [
+    {
+      href: "/succession-probate",
+      label: "Succession and probate guidance",
+    },
+  ],
 };
 
 export function generateStaticParams() {

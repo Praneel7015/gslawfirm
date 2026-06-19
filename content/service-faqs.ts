@@ -74,3 +74,21 @@ export const commercialContractsFaqs: readonly ServiceFaq[] = [
       "Not always. The next step may be a notice, reply, negotiation, settlement document, interim application, suit, arbitration-related step, or appeal depending on the contract and current stage.",
   },
 ] as const;
+
+export const successionProbateFaqs: readonly ServiceFaq[] = [
+  {
+    question: "What papers are useful for a succession discussion?",
+    answer:
+      "A will, death certificate, family tree or legal-heir papers, property papers, bank or investment records, notices, and earlier case papers are useful if available.",
+  },
+  {
+    question: "Does every succession matter need probate?",
+    answer:
+      "No. The next step depends on the document, assets, family members involved, objections, and the forum or authority before which the matter may need to be placed.",
+  },
+  {
+    question: "Can this page decide inheritance shares?",
+    answer:
+      "No. This page is general information. Shares, objections, family arrangements, and court steps depend on the papers, facts, family history, and applicable law.",
+  },
+] as const;
