@@ -5,7 +5,11 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
 import { firm } from "@/content/firm";
-import { practiceAreas, getPracticeArea } from "@/content/practice-areas";
+import {
+  practiceAreas,
+  getPracticeArea,
+  type PracticeSlug,
+} from "@/content/practice-areas";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -15,6 +19,17 @@ import {
 } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
+
+const focusedGuides: Partial<
+  Record<PracticeSlug, Array<{ href: string; label: string }>>
+> = {
+  civil: [
+    {
+      href: "/property-disputes",
+      label: "Property-dispute guidance",
+    },
+  ],
+};
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -50,6 +65,7 @@ export default async function PracticeDetailPage({
 
   const t = await getTranslations("practiceDetail");
   const adjacent = practiceAreas.filter((a) => a.slug !== area.slug);
+  const guides = focusedGuides[area.slug] ?? [];
 
   const ld = graphSchema([
     serviceSchema(area, locale),
@@ -117,6 +133,20 @@ export default async function PracticeDetailPage({
               {t("cta.action")} <span aria-hidden="true">→</span>
             </Link>
           </div>
+
+          {guides.length > 0 ? (
+            <div className="pd-adj">
+              <h3>Focused guidance</h3>
+              <ul>
+                {guides.map((guide) => (
+                  <li key={guide.href}>
+                    <Link href={guide.href as never}>{guide.label}</Link>
+                    <span aria-hidden="true">→</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
 
           <div className="pd-adj">
             <h3>{t("adjacent")}</h3>
