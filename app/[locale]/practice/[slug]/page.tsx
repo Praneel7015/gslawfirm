@@ -41,6 +41,12 @@ const focusedGuides: Partial<
       label: "Succession and probate guidance",
     },
   ],
+  "high-court": [
+    {
+      href: "/high-court-matters",
+      label: "High Court guidance",
+    },
+  ],
 };
 
 export function generateStaticParams() {
