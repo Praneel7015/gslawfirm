@@ -664,9 +664,11 @@ select:focus-visible {
   color: var(--color-fg);
   text-decoration: none;
   font-size: 13px;
+  line-height: 1.35;
   letter-spacing: 0;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--color-fg);
@@ -681,10 +683,10 @@ select:focus-visible {
   gap: 16px;
 }
 .practice-feature-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px 24px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+  gap: 14px 22px;
+  align-items: start;
 }
 
 .practice {

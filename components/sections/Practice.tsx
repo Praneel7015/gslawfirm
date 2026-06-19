@@ -3,6 +3,17 @@ import { Link } from "@/i18n/routing";
 import { practiceAreas } from "@/content/practice-areas";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 
+const focusedGuidanceLinks = [
+  { href: "/criminal-defense", label: "Criminal-defense guidance" },
+  { href: "/bail", label: "Bail guidance" },
+  { href: "/cheque-dishonour", label: "Cheque-dishonour guidance" },
+  { href: "/property-disputes", label: "Property-dispute guidance" },
+  { href: "/tenancy-eviction", label: "Tenancy and eviction guidance" },
+  { href: "/commercial-contracts", label: "Commercial-contract guidance" },
+  { href: "/succession-probate", label: "Succession and probate guidance" },
+  { href: "/high-court-matters", label: "High Court guidance" },
+] as const;
+
 export async function Practice() {
   const t = await getTranslations("practice");
   const lines = t("heading").split("\n");
@@ -25,29 +36,21 @@ export async function Practice() {
       <div className="practice-feature">
         <span>Focused guidance</span>
         <p>
-          For FIRs, bail stages, property papers, commercial documents,
-          succession papers and High Court steps in Hyderabad, read the focused
-          guidance before sending an enquiry.
+          For FIRs, bail stages, cheque dishonour, property and tenancy
+          disputes, commercial documents, succession papers and High Court steps
+          in Hyderabad, read the focused guidance before sending an enquiry.
         </p>
         <div className="practice-feature-links">
-          <Link href="/criminal-defense" className="practice-feature-link">
-            Read criminal-defense guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/bail" className="practice-feature-link">
-            Read bail guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/property-disputes" className="practice-feature-link">
-            Read property-dispute guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/commercial-contracts" className="practice-feature-link">
-            Read commercial-contract guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/succession-probate" className="practice-feature-link">
-            Read succession and probate guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/high-court-matters" className="practice-feature-link">
-            Read High Court guidance <span aria-hidden="true">→</span>
-          </Link>
+          {focusedGuidanceLinks.map((link) => (
+            <Link
+              href={link.href}
+              className="practice-feature-link"
+              key={link.href}
+            >
+              <span>Read {link.label}</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          ))}
         </div>
       </div>
       <div className="practice-grid">
