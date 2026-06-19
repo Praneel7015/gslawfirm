@@ -33,6 +33,7 @@ The firm is based in Kondapur and serves clients from nearby Hyderabad localitie
 - Bail applications: https://sunitha.sindhole.com/bail
 - Bail hearing procedure: https://sunitha.sindhole.com/bail-hearing-procedure-hyderabad
 - Property disputes: https://sunitha.sindhole.com/property-disputes
+- Property dispute courts: https://sunitha.sindhole.com/property-dispute-courts-telangana
 - Consumer forum complaints: https://sunitha.sindhole.com/consumer-forum-complaints
 - Legal notices and replies: https://sunitha.sindhole.com/legal-notices
 - Commercial contracts: https://sunitha.sindhole.com/commercial-contracts
@@ -60,6 +61,7 @@ The firm is based in Kondapur and serves clients from nearby Hyderabad localitie
 - Bail: regular bail, anticipatory bail, remand papers, surety, bond conditions and follow-up after an order.
 - Bail hearing procedure: first-hearing context, FIR or complaint papers, remand stage, listing stage, surety, bond conditions, next dates and court-order follow-up.
 - Civil and property disputes: title disputes, partition and inheritance suits, tenancy and eviction matters, injunctions, interim relief and contract-related civil work.
+- Property dispute courts: Hyderabad and Telangana civil-court context, title and possession papers, injunction overlap, tenancy or eviction context, specific-performance overlap, orders, execution, appeal and High Court context.
 - Consumer forum complaints: defective goods, service deficiency, refund issues, builder-service records, notices, complaint papers, evidence, orders, execution and appeal context.
 - Legal notices and replies: notice review, reply context, documents, deadlines, limitation, property, tenancy, contract, specific-performance, injunction and civil-suit context.
 - Commercial contracts: vendor and service agreements, employment and contractor contracts, founder and shareholder documents, NDAs, IP assignments, notices and commercial-dispute next steps.

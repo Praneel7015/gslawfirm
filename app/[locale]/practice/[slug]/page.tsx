@@ -48,6 +48,10 @@ const focusedGuides: Partial<
       label: "Property-dispute guidance",
     },
     {
+      href: "/property-dispute-courts-telangana",
+      label: "Property court-stage guide",
+    },
+    {
       href: "/consumer-forum-complaints",
       label: "Consumer-forum complaint guidance",
     },

@@ -228,6 +228,12 @@ export default async function TenancyEvictionPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/property-dispute-courts-telangana">
+                  Property Dispute Court Guide
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/injunction-interim-relief">
                   Injunction and Interim Relief
                 </Link>

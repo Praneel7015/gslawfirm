@@ -238,6 +238,12 @@ export default async function InjunctionInterimReliefPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/property-dispute-courts-telangana">
+                  Property Dispute Court Guide
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/tenancy-eviction">Tenancy and Eviction</Link>
                 <span aria-hidden="true">→</span>
               </li>

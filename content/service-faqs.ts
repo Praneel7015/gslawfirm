@@ -93,6 +93,24 @@ export const propertyDisputesFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const propertyDisputeCourtsFaqs: readonly ServiceFaq[] = [
+  {
+    question: "Which court handles a property dispute in Telangana?",
+    answer:
+      "The forum cannot be chosen from a web page. It depends on the property location, relief sought, valuation, parties, documents, pending orders, and current stage.",
+  },
+  {
+    question: "What papers help before discussing a property court case?",
+    answer:
+      "Sale deeds, link documents, encumbrance records, revenue or municipal papers, possession records, notices, photographs, pleadings, orders, and next-date details are useful if available.",
+  },
+  {
+    question: "Is every property dispute a civil suit?",
+    answer:
+      "No. The next step may be a notice, reply, document review, interim application, suit, execution, appeal, revision, or High Court discussion depending on the file and current stage.",
+  },
+] as const;
+
 export const consumerForumComplaintsFaqs: readonly ServiceFaq[] = [
   {
     question: "What papers help for a consumer complaint discussion?",
