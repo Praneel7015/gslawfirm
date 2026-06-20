@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Property Dispute Courts in Telangana | ${firm.name}`,
   description:
-    "General information on property dispute court stages in Hyderabad and Telangana: documents, possession, injunction overlap, tenancy, specific performance and later court steps.",
+    "Property-dispute court information for Hyderabad and Telangana: documents, possession, injunctions, tenancy, specific performance and later steps.",
   path: "/property-dispute-courts-telangana",
 });
 

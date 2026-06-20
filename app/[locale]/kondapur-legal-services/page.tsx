@@ -13,7 +13,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Kondapur Legal Services | ${firm.name} Hyderabad`,
   description:
-    "Kondapur legal-services information for GS Law Firm's office, nearby Hyderabad localities served, practice areas, and confidential enquiry path.",
+    "Kondapur legal services information for GS Law Firm's office, nearby Hyderabad localities served, practice areas, and confidential enquiry path.",
   path: "/kondapur-legal-services",
 });
 

@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Legal Notices and Replies in Hyderabad | ${firm.name}`,
   description:
-    "Legal-notice and reply information for property, contract, tenancy, injunction, specific-performance and civil-suit context in Hyderabad, from GS Law Firm in Kondapur.",
+    "Legal-notice and reply information for property, contract, tenancy, injunction, specific-performance and civil-suit context in Hyderabad.",
   path: "/legal-notices",
 });
 

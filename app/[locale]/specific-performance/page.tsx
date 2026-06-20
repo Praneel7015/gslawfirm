@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Specific Performance in Hyderabad | ${firm.name}`,
   description:
-    "Specific-performance information for sale agreements, property and business-contract obligations, notices, pleadings, interim relief, evidence, execution and appeal context in Hyderabad, from GS Law Firm in Kondapur.",
+    "Specific-performance information for sale agreements, business-contract obligations, notices, pleadings, interim relief and execution in Hyderabad.",
   path: "/specific-performance",
 });
 

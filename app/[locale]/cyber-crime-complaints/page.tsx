@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Cyber Crime Complaints in Hyderabad | ${firm.name}`,
   description:
-    "Cyber-crime complaint information for online fraud, account misuse, harassment messages, screenshots, transaction records, police or portal complaint papers, FIR and notice context in Hyderabad, from GS Law Firm in Kondapur.",
+    "Cyber-crime complaint information for online fraud, account misuse, harassment messages, transaction records, FIR and notice context in Hyderabad.",
   path: "/cyber-crime-complaints",
 });
 

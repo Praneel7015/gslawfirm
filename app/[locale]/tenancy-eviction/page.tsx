@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Tenancy and Eviction in Hyderabad | ${firm.name}`,
   description:
-    "Tenancy and eviction information for lease papers, notices, rent or possession disputes, injunctions, interim relief, evidence, execution, revision and appeal steps in Hyderabad, from GS Law Firm in Kondapur.",
+    "Tenancy and eviction information for lease papers, notices, rent or possession disputes, interim relief, evidence and appeal context in Hyderabad.",
   path: "/tenancy-eviction",
 });
 

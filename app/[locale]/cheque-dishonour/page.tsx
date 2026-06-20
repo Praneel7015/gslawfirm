@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Cheque Dishonour in Hyderabad | ${firm.name}`,
   description:
-    "Cheque-dishonour information for N.I. Act Section 138 notices, complaints, summons, evidence, settlement discussions and appeal or revision steps in Hyderabad, from GS Law Firm in Kondapur.",
+    "Cheque-dishonour information for N.I. Act Section 138 notices, complaints, summons, evidence, settlement and appeal context in Hyderabad.",
   path: "/cheque-dishonour",
 });
 
