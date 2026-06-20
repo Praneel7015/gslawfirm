@@ -89,6 +89,14 @@ export function ContactForm() {
     setOriginPath(readOriginPath());
   }, []);
 
+  useEffect(() => {
+    if (!turnstileRequired || turnstileToken || turnstileLoadError) return;
+    const timeout = window.setTimeout(() => {
+      setTurnstileLoadError(true);
+    }, 12000);
+    return () => window.clearTimeout(timeout);
+  }, [turnstileLoadError, turnstileRequired, turnstileToken]);
+
   const onSubmit = async (data: LeadInput) => {
     setSubmitError(null);
     if (turnstileRequired && !turnstileToken) {
@@ -250,8 +258,7 @@ export function ContactForm() {
                 )}
                 {turnstileLoadError && (
                   <p className="field-err" role="alert">
-                    Security check failed to load. Refresh the page or disable
-                    ad blockers, then try again.
+                    {t("errors.challenge")}
                   </p>
                 )}
               </div>
