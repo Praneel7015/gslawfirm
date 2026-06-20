@@ -5,7 +5,6 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { routing } from "@/i18n/routing";
-import { firm } from "@/content/firm";
 import {
   practiceAreas,
   getPracticeArea,
@@ -18,7 +17,7 @@ import {
   graphSchema,
   serviceSchema,
 } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPracticeMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 const focusedGuides: Partial<
@@ -133,16 +132,12 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const area = getPracticeArea(slug);
   if (!area) return {};
-  return pageMetadata({
-    title: `${area.name} in Hyderabad | ${firm.name}`,
-    description: `${area.oneLine} Serving Kondapur, Gachibowli, Miyapur, Nallagandla and nearby Hyderabad localities.`,
-    path: `/practice/${area.slug}`,
-  });
+  return localizedPracticeMetadata(area.slug, locale);
 }
 
 export default async function PracticeDetailPage({

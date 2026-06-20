@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { routing, type Locale } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/seo";
 import { firm } from "@/content/firm";
+import type { PracticeSlug } from "@/content/practice-areas";
 
 type MetadataCopy = {
   title: string;
@@ -52,6 +53,126 @@ const localizedMetadata = {
         title: `ప్రాక్టీస్ రంగాలు | ${firm.name} హైదరాబాద్`,
         description:
           "GS Law Firm, కొండాపూర్ హైదరాబాద్‌లో క్రిమినల్, సివిల్, ఆస్తి, వాణిజ్య, వారసత్వ మరియు హైకోర్టు విషయాల సమాచారం.",
+      },
+    },
+  },
+  practiceCriminal: {
+    path: "/practice/criminal",
+    copy: {
+      en: {
+        title: `Criminal Litigation in Hyderabad | ${firm.name}`,
+        description:
+          "Criminal-litigation information for bail, anticipatory bail, FIRs, trials, appeals and criminal-court stages in Hyderabad.",
+      },
+      hi: {
+        title: `हैदराबाद में आपराधिक मुकदमे | ${firm.name}`,
+        description:
+          "बेल, अग्रिम बेल, FIR, ट्रायल, अपील और आपराधिक अदालत के चरणों पर GS Law Firm, कोंडापुर हैदराबाद की जानकारी.",
+      },
+      te: {
+        title: `హైదరాబాద్‌లో క్రిమినల్ లిటిగేషన్ | ${firm.name}`,
+        description:
+          "బెయిల్, ముందస్తు బెయిల్, FIR, ట్రయల్, అప్పీలు మరియు క్రిమినల్ కోర్టు దశలపై GS Law Firm, కొండాపూర్ హైదరాబాద్ సమాచారం.",
+      },
+    },
+  },
+  practiceCivil: {
+    path: "/practice/civil",
+    copy: {
+      en: {
+        title: `Civil and Property Disputes in Hyderabad | ${firm.name}`,
+        description:
+          "Civil and property-dispute information for title, tenancy, contract, consumer, injunction and court-stage questions in Hyderabad.",
+      },
+      hi: {
+        title: `हैदराबाद में दीवानी और संपत्ति विवाद | ${firm.name}`,
+        description:
+          "टाइटल, किरायेदारी, contract, consumer, injunction और दीवानी अदालत के चरणों पर GS Law Firm, कोंडापुर हैदराबाद की जानकारी.",
+      },
+      te: {
+        title: `హైదరాబాద్‌లో సివిల్ మరియు ఆస్తి వివాదాలు | ${firm.name}`,
+        description:
+          "టైటిల్, అద్దె, contract, consumer, injunction మరియు సివిల్ కోర్టు దశలపై GS Law Firm, కొండాపూర్ హైదరాబాద్ సమాచారం.",
+      },
+    },
+  },
+  practiceCorporate: {
+    path: "/practice/corporate",
+    copy: {
+      en: {
+        title: `Corporate and Commercial in Hyderabad | ${firm.name}`,
+        description:
+          "Corporate and commercial information for contracts, compliance, shareholder matters, vendor documents and small-business disputes in Hyderabad.",
+      },
+      hi: {
+        title: `हैदराबाद में कॉर्पोरेट और वाणिज्यिक मामले | ${firm.name}`,
+        description:
+          "contracts, compliance, shareholder matters, vendor documents और छोटे व्यवसाय विवादों पर GS Law Firm, कोंडापुर हैदराबाद की जानकारी.",
+      },
+      te: {
+        title: `హైదరాబాద్‌లో కార్పొరేట్ మరియు వాణిజ్య విషయాలు | ${firm.name}`,
+        description:
+          "contracts, compliance, shareholder matters, vendor documents మరియు చిన్న వ్యాపార వివాదాలపై GS Law Firm, కొండాపూర్ హైదరాబాద్ సమాచారం.",
+      },
+    },
+  },
+  practiceWillSuccession: {
+    path: "/practice/will-succession",
+    copy: {
+      en: {
+        title: `Wills, Trusts and Succession in Hyderabad | ${firm.name}`,
+        description:
+          "Will, probate, letters of administration, succession-certificate, inheritance-dispute and family-settlement information in Hyderabad.",
+      },
+      hi: {
+        title: `हैदराबाद में वसीयत, ट्रस्ट और उत्तराधिकार | ${firm.name}`,
+        description:
+          "वसीयत, probate, letters of administration, succession certificate, विरासत विवाद और family settlement पर हैदराबाद की जानकारी.",
+      },
+      te: {
+        title: `హైదరాబాద్‌లో విల్లు, ట్రస్టులు మరియు వారసత్వం | ${firm.name}`,
+        description:
+          "విల్లు, probate, letters of administration, succession certificate, వారసత్వ వివాదం మరియు family settlementపై హైదరాబాద్ సమాచారం.",
+      },
+    },
+  },
+  practiceHighCourt: {
+    path: "/practice/high-court",
+    copy: {
+      en: {
+        title: `High Court Matters in Hyderabad | ${firm.name}`,
+        description:
+          "Telangana High Court information for writ petitions, criminal and civil revisions, quashing petitions, appeals and High Court bail.",
+      },
+      hi: {
+        title: `तेलंगाना हाई कोर्ट मामले | ${firm.name} हैदराबाद`,
+        description:
+          "writ petitions, criminal और civil revisions, quashing petitions, appeals और High Court bail पर तेलंगाना हाई कोर्ट जानकारी.",
+      },
+      te: {
+        title: `తెలంగాణ హైకోర్టు విషయాలు | ${firm.name} హైదరాబాద్`,
+        description:
+          "writ petitions, criminal మరియు civil revisions, quashing petitions, appeals మరియు High Court bailపై తెలంగాణ హైకోర్టు సమాచారం.",
+      },
+    },
+  },
+  contact: {
+    path: "/contact",
+    copy: {
+      en: {
+        title: `Contact ${firm.name} | Kondapur Hyderabad`,
+        description:
+          "Contact GS Law Firm by phone, email or confidential enquiry form from Kondapur, Hyderabad, serving Gachibowli, Miyapur, Nallagandla and nearby areas.",
+      },
+      hi: {
+        title: `${firm.name} से संपर्क करें | कोंडापुर हैदराबाद`,
+        description:
+          "कोंडापुर, हैदराबाद से GS Law Firm को फोन, ईमेल या गोपनीय पूछताछ फॉर्म के जरिए संपर्क करने की जानकारी.",
+      },
+      te: {
+        title: `${firm.name}ను సంప్రదించండి | కొండాపూర్ హైదరాబాద్`,
+        description:
+          "కొండాపూర్, హైదరాబాద్ నుండి GS Law Firmను ఫోన్, ఇమెయిల్ లేదా గోప్య విచారణ ఫారమ్ ద్వారా సంప్రదించే సమాచారం.",
       },
     },
   },
@@ -419,6 +540,14 @@ const localizedMetadata = {
 
 export type LocalizedPageKey = keyof typeof localizedMetadata;
 
+const practiceDetailMetadataKeys = {
+  criminal: "practiceCriminal",
+  civil: "practiceCivil",
+  corporate: "practiceCorporate",
+  "will-succession": "practiceWillSuccession",
+  "high-court": "practiceHighCourt",
+} satisfies Record<PracticeSlug, LocalizedPageKey>;
+
 function safeLocale(locale: string): Locale {
   return (routing.locales as readonly string[]).includes(locale)
     ? (locale as Locale)
@@ -436,6 +565,13 @@ export function localizedPageMetadata(
     description: copy.description,
     path: entry.path,
   });
+}
+
+export function localizedPracticeMetadata(
+  slug: PracticeSlug,
+  locale: string,
+): Metadata {
+  return localizedPageMetadata(practiceDetailMetadataKeys[slug], locale);
 }
 
 export function localizedMetadataAuditRows() {
