@@ -8,15 +8,17 @@ import { firm } from "@/content/firm";
 import { chequeBounceProcedureFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Cheque Bounce Case Procedure in Hyderabad | ${firm.name}`,
-  description:
-    "Cheque bounce case procedure information for Hyderabad: legal notice, payment-window context, complaint filing, summons, evidence and hearings.",
-  path: "/cheque-bounce-case-procedure-hyderabad",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("chequeBounceProcedure", locale);
+}
 
 const procedureStages = [
   {

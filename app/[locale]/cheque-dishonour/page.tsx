@@ -8,15 +8,17 @@ import { chequeDishonourFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Cheque Dishonour in Hyderabad | ${firm.name}`,
-  description:
-    "Cheque-dishonour information for N.I. Act Section 138 notices, complaints, summons, evidence, settlement and appeal context in Hyderabad.",
-  path: "/cheque-dishonour",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("chequeDishonour", locale);
+}
 
 const chequeStages = [
   {

@@ -8,15 +8,17 @@ import { firm } from "@/content/firm";
 import { propertyDisputeCourtsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Property Dispute Courts in Telangana | ${firm.name}`,
-  description:
-    "Property-dispute court information for Hyderabad and Telangana: documents, possession, injunctions, tenancy, specific performance and later steps.",
-  path: "/property-dispute-courts-telangana",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("propertyDisputeCourts", locale);
+}
 
 const courtStages = [
   {

@@ -7,15 +7,17 @@ import { firm } from "@/content/firm";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Kondapur Legal Services | ${firm.name} Hyderabad`,
-  description:
-    "Kondapur legal services information for GS Law Firm's office, nearby Hyderabad localities served, practice areas, and confidential enquiry path.",
-  path: "/kondapur-legal-services",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("kondapurLegalServices", locale);
+}
 
 const localSteps = [
   {

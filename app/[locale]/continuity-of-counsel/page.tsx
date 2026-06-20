@@ -7,15 +7,17 @@ import { firm } from "@/content/firm";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Continuity of Counsel | ${firm.name} Hyderabad`,
-  description:
-    "Continuity-of-counsel explainer for GS Law Firm in Hyderabad: paper reading, hearing preparation, client communication and court-stage memory.",
-  path: "/continuity-of-counsel",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("continuityOfCounsel", locale);
+}
 
 const continuitySteps = [
   {

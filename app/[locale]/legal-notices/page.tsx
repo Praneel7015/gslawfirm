@@ -8,15 +8,17 @@ import { legalNoticesFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Legal Notices and Replies in Hyderabad | ${firm.name}`,
-  description:
-    "Legal-notice and reply information for property, contract, tenancy, injunction, specific-performance and civil-suit context in Hyderabad.",
-  path: "/legal-notices",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("legalNotices", locale);
+}
 
 const noticeStages = [
   {

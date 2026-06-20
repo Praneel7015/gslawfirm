@@ -3,20 +3,21 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
-import { firm } from "@/content/firm";
 import { practiceAreas } from "@/content/practice-areas";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Practice Areas | ${firm.name} Hyderabad`,
-  description:
-    "Criminal, civil, property, commercial, succession and High Court practice areas at GS Law Firm in Kondapur, Hyderabad.",
-  path: "/practice",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("practice", locale);
+}
 
 export default async function PracticeIndexPage({
   params,

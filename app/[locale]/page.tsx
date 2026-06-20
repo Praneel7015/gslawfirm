@@ -16,14 +16,16 @@ import {
   personSchema,
   websiteSchema,
 } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 
-export const metadata: Metadata = pageMetadata({
-  title: "GS Law Firm | Adv. Aitha Sunitha, Kondapur Hyderabad",
-  description:
-    "Solo-advocate practice in Kondapur, Hyderabad, led by Adv. Aitha Sunitha for criminal, civil, property, commercial and High Court matters.",
-  path: "/",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("home", locale);
+}
 
 export default async function HomePage({
   params,

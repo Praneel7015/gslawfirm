@@ -8,15 +8,17 @@ import { tenancyEvictionFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Tenancy and Eviction in Hyderabad | ${firm.name}`,
-  description:
-    "Tenancy and eviction information for lease papers, notices, rent or possession disputes, interim relief, evidence and appeal context in Hyderabad.",
-  path: "/tenancy-eviction",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("tenancyEviction", locale);
+}
 
 const tenancyStages = [
   {

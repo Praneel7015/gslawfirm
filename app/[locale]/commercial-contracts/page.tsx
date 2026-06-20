@@ -8,15 +8,17 @@ import { commercialContractsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Commercial Contracts in Hyderabad | ${firm.name}`,
-  description:
-    "Commercial-contract information for vendor, service, employment, contractor, founder, shareholder, NDA and dispute steps in Hyderabad.",
-  path: "/commercial-contracts",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("commercialContracts", locale);
+}
 
 const contractStages = [
   {
