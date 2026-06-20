@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Injunction and Interim Relief in Hyderabad | ${firm.name}`,
   description:
-    "Injunction and interim-relief information for possession, title, tenancy, contract restraint, notices, photographs, documents, pleadings, urgency and court-stage context in Hyderabad, from GS Law Firm in Kondapur.",
+    "Injunction and interim-relief information for possession, title, tenancy, contract restraint, notices, pleadings and urgency in Hyderabad.",
   path: "/injunction-interim-relief",
 });
 

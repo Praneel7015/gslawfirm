@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Consumer Forum Complaints in Hyderabad | ${firm.name}`,
   description:
-    "Consumer-forum complaint information for defective goods, service deficiency, refund issues, builder-service records, notices, evidence, orders and appeal context in Hyderabad, from GS Law Firm in Kondapur.",
+    "Consumer-forum complaint information for defective goods, service deficiency, refund issues, builder records, notices, evidence and orders in Hyderabad.",
   path: "/consumer-forum-complaints",
 });
 

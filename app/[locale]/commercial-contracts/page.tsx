@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Commercial Contracts in Hyderabad | ${firm.name}`,
   description:
-    "Commercial-contract information for vendor, service, employment, contractor, founder, shareholder, NDA, IP assignment and dispute steps in Hyderabad, from GS Law Firm in Kondapur.",
+    "Commercial-contract information for vendor, service, employment, contractor, founder, shareholder, NDA and dispute steps in Hyderabad.",
   path: "/commercial-contracts",
 });
 

@@ -13,7 +13,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Continuity of Counsel | ${firm.name} Hyderabad`,
   description:
-    "A factual explainer on continuity of counsel at GS Law Firm: paper reading, hearing preparation, client communication, court-stage memory, and the limits of website information.",
+    "Continuity-of-counsel explainer for GS Law Firm in Hyderabad: paper reading, hearing preparation, client communication and court-stage memory.",
   path: "/continuity-of-counsel",
 });
 

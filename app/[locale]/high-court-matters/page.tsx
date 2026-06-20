@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `High Court Matters in Hyderabad | ${firm.name}`,
   description:
-    "High Court matter information for writ petitions, criminal and civil revisions, quashing petitions, second appeals and High Court bail applications in Telangana, from GS Law Firm in Kondapur.",
+    "High Court matter information for writ petitions, revisions, quashing petitions, second appeals and bail applications in Telangana.",
   path: "/high-court-matters",
 });
 

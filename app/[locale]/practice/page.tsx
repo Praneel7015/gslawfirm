@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Practice Areas | ${firm.name} Hyderabad`,
   description:
-    "All areas, one advocate. Criminal, civil, corporate, succession and High Court matters in Hyderabad, with service across Kondapur, Gachibowli, Miyapur and nearby localities.",
+    "Criminal, civil, property, commercial, succession and High Court practice areas at GS Law Firm in Kondapur, Hyderabad.",
   path: "/practice",
 });
 

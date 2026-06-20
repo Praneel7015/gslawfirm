@@ -14,7 +14,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: `Cheque Bounce Case Procedure in Hyderabad | ${firm.name}`,
   description:
-    "General information on cheque bounce case procedure in Hyderabad: legal notice, payment-window context, complaint filing, summons, evidence, hearings and later court stages.",
+    "Cheque bounce case procedure information for Hyderabad: legal notice, payment-window context, complaint filing, summons, evidence and hearings.",
   path: "/cheque-bounce-case-procedure-hyderabad",
 });
 
