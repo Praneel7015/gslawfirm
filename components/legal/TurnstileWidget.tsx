@@ -88,7 +88,6 @@ export function TurnstileWidget({
     if (!SITE_KEY || !ref.current) return;
     const host = ref.current;
     let cancelled = false;
-    let observer: IntersectionObserver | null = null;
 
     const mount = () => {
       if (cancelled || !host) return;
@@ -111,20 +110,10 @@ export function TurnstileWidget({
         .catch(() => onErrorRef.current?.());
     };
 
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          observer?.disconnect();
-          mount();
-        }
-      },
-      { rootMargin: "240px 0px" },
-    );
-    observer.observe(host);
+    mount();
 
     return () => {
       cancelled = true;
-      observer?.disconnect();
       if (widgetIdRef.current && window.turnstile) {
         try {
           window.turnstile.remove(widgetIdRef.current);
