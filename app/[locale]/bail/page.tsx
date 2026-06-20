@@ -8,15 +8,17 @@ import { bailFaqs } from "@/content/service-faqs";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Bail Applications in Hyderabad | ${firm.name}`,
-  description:
-    "Information on regular bail, anticipatory bail, remand, surety paperwork and criminal-court appearances in Hyderabad, from GS Law Firm in Kondapur.",
-  path: "/bail",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("bail", locale);
+}
 
 const bailSteps = [
   {

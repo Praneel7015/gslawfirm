@@ -8,15 +8,17 @@ import { consumerForumComplaintsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Consumer Forum Complaints in Hyderabad | ${firm.name}`,
-  description:
-    "Consumer-forum complaint information for defective goods, service deficiency, refund issues, builder records, notices, evidence and orders in Hyderabad.",
-  path: "/consumer-forum-complaints",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("consumerForumComplaints", locale);
+}
 
 const consumerStages = [
   {

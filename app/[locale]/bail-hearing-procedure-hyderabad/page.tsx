@@ -8,15 +8,17 @@ import { firm } from "@/content/firm";
 import { bailHearingProcedureFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Bail Hearing Procedure in Hyderabad | ${firm.name}`,
-  description:
-    "General information on bail hearing procedure in Hyderabad: FIR or complaint papers, remand stage, surety context, court dates and order conditions.",
-  path: "/bail-hearing-procedure-hyderabad",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("bailHearingProcedure", locale);
+}
 
 const hearingStages = [
   {

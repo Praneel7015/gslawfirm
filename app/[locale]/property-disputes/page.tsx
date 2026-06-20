@@ -8,15 +8,17 @@ import { propertyDisputesFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Property Disputes in Hyderabad | ${firm.name}`,
-  description:
-    "Property-dispute information for title, partition, tenancy, injunction and civil-court steps in Hyderabad, from GS Law Firm in Kondapur.",
-  path: "/property-disputes",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("propertyDisputes", locale);
+}
 
 const propertyStages = [
   {

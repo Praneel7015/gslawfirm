@@ -8,15 +8,17 @@ import { successionProbateFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Succession and Probate in Hyderabad | ${firm.name}`,
-  description:
-    "Succession and probate information for wills, letters of administration, succession papers, family settlement context and inheritance disputes in Hyderabad, from GS Law Firm in Kondapur.",
-  path: "/succession-probate",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("successionProbate", locale);
+}
 
 const successionStages = [
   {

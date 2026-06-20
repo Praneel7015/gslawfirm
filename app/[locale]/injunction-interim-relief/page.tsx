@@ -8,15 +8,17 @@ import { injunctionInterimReliefFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Injunction and Interim Relief in Hyderabad | ${firm.name}`,
-  description:
-    "Injunction and interim-relief information for possession, title, tenancy, contract restraint, notices, pleadings and urgency in Hyderabad.",
-  path: "/injunction-interim-relief",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("injunctionInterimRelief", locale);
+}
 
 const injunctionStages = [
   {

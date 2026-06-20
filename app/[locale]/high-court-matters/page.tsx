@@ -8,15 +8,17 @@ import { highCourtMattersFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `High Court Matters in Hyderabad | ${firm.name}`,
-  description:
-    "High Court matter information for writ petitions, revisions, quashing petitions, second appeals and bail applications in Telangana.",
-  path: "/high-court-matters",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("highCourtMatters", locale);
+}
 
 const highCourtStages = [
   {

@@ -8,15 +8,17 @@ import { cyberCrimeComplaintsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Cyber Crime Complaints in Hyderabad | ${firm.name}`,
-  description:
-    "Cyber-crime complaint information for online fraud, account misuse, harassment messages, transaction records, FIR and notice context in Hyderabad.",
-  path: "/cyber-crime-complaints",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("cyberCrimeComplaints", locale);
+}
 
 const cyberStages = [
   {

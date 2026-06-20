@@ -8,15 +8,17 @@ import { specificPerformanceFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Specific Performance in Hyderabad | ${firm.name}`,
-  description:
-    "Specific-performance information for sale agreements, business-contract obligations, notices, pleadings, interim relief and execution in Hyderabad.",
-  path: "/specific-performance",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("specificPerformance", locale);
+}
 
 const performanceStages = [
   {
