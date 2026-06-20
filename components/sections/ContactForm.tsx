@@ -177,6 +177,7 @@ export function ContactForm() {
                 <input
                   id="f-name"
                   type="text"
+                  autoComplete="name"
                   placeholder={t("fields.namePh")}
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? "f-name-err" : undefined}
@@ -193,6 +194,7 @@ export function ContactForm() {
                 <input
                   id="f-phone"
                   type="tel"
+                  autoComplete="tel"
                   placeholder={t("fields.phonePh")}
                   aria-invalid={!!errors.phone}
                   aria-describedby={errors.phone ? "f-phone-err" : undefined}
@@ -211,6 +213,7 @@ export function ContactForm() {
               <input
                 id="f-email"
                 type="email"
+                autoComplete="email"
                 placeholder={t("fields.emailPh")}
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? "f-email-err" : undefined}
