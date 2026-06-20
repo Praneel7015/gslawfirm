@@ -9,6 +9,7 @@
     "lint": "next lint",
     "lint:bci": "tsx scripts/check-bci-language.ts",
     "check:env": "tsx scripts/check-env.ts",
+    "qa:lead-heartbeat": "tsx scripts/qa-lead-heartbeat.ts",
     "qa:lead-source": "tsx scripts/qa-lead-source.ts",
     "qa:routes": "tsx scripts/qa-routes.ts",
     "qa:lighthouse": "node scripts/qa-lighthouse.mjs",

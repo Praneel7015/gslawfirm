@@ -110,6 +110,7 @@ Operational playbooks (Cloudflare, backend, domain migration) live in
 ```bash
 pnpm qa              # typecheck + lint + bci + build + route smoke (35 URLs)
 pnpm qa:routes       # HTTP 200 check only
+pnpm qa:lead-heartbeat # no-submit live contact path + lead API validation probe
 pnpm qa:lighthouse   # mobile Lighthouse on / and /practice/criminal
 pnpm check:env       # local .env sanity check
 ```
