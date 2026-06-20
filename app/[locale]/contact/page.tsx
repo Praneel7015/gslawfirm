@@ -6,15 +6,17 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { Location } from "@/components/sections/Location";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graphSchema, placeSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Contact ${firm.name} | Kondapur Hyderabad`,
-  description:
-    "Three ways to reach us. Phone, email, or in person at Sri Ramnagar Block C, Kondapur, Hyderabad. Serving Gachibowli, Miyapur, Nallagandla and nearby areas.",
-  path: "/contact",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("contact", locale);
+}
 
 export default async function ContactPage({
   params,
