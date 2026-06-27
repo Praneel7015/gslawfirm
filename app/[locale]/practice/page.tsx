@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
-import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { practiceAreas } from "@/content/practice-areas";
+import { practiceIndexExtraLinks, practiceIndexIntro } from "@/content/focused-guidance";
 import { PracticeIcon } from "@/components/brand/practice-icons";
+import { FocusedGuidance } from "@/components/sections/FocusedGuidance";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { localizedPageMetadata } from "@/lib/localized-metadata";
@@ -60,95 +61,11 @@ export default async function PracticeIndexPage({
         ))}
       </section>
 
-      <section className="pi-foot">
-        <div>
-          <p>{t("footnote")}</p>
-          <p className="pi-foot-note">
-            Looking for criminal-defense, cyber-crime complaint, bail,
-            bail-hearing procedure, cheque-dishonour, cheque-bounce procedure,
-            consumer-forum complaint, legal-notice, property-dispute, property
-            court-stage, tenancy and eviction, agreement-enforcement,
-            injunction or interim-relief, commercial-contract, succession and
-            probate, High Court, continuity of counsel, or Kondapur location
-            context in Hyderabad? Start with the focused pages, then send a
-            brief note if the matter needs a conversation.
-          </p>
-        </div>
-        <div className="pi-foot-actions">
-          <Link href="/criminal-defense" className="pi-foot-link">
-            Read criminal-defense guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/cyber-crime-complaints" className="pi-foot-link">
-            Read cyber-crime complaint guidance{" "}
-            <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/bail" className="pi-foot-link">
-            Read bail guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link
-            href="/bail-hearing-procedure-hyderabad"
-            className="pi-foot-link"
-          >
-            Read bail-hearing procedure guide{" "}
-            <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/cheque-dishonour" className="pi-foot-link">
-            Read cheque-dishonour guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link
-            href="/cheque-bounce-case-procedure-hyderabad"
-            className="pi-foot-link"
-          >
-            Read cheque-bounce procedure guide{" "}
-            <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/property-disputes" className="pi-foot-link">
-            Read property-dispute guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link
-            href="/property-dispute-courts-telangana"
-            className="pi-foot-link"
-          >
-            Read property court-stage guide{" "}
-            <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/consumer-forum-complaints" className="pi-foot-link">
-            Read consumer-forum complaint guidance{" "}
-            <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/legal-notices" className="pi-foot-link">
-            Read legal-notice guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/tenancy-eviction" className="pi-foot-link">
-            Read tenancy and eviction guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/specific-performance" className="pi-foot-link">
-            Read specific-performance guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/injunction-interim-relief" className="pi-foot-link">
-            Read injunction and interim-relief guidance{" "}
-            <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/commercial-contracts" className="pi-foot-link">
-            Read commercial-contract guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/succession-probate" className="pi-foot-link">
-            Read succession and probate guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/high-court-matters" className="pi-foot-link">
-            Read High Court guidance <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/kondapur-legal-services" className="pi-foot-link">
-            Read Kondapur legal-services page <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/continuity-of-counsel" className="pi-foot-link">
-            Read continuity-of-counsel explainer{" "}
-            <span aria-hidden="true">→</span>
-          </Link>
-          <SourceAwareContactLink className="pi-foot-link">
-            Send a brief note <span aria-hidden="true">→</span>
-          </SourceAwareContactLink>
-        </div>
+      <section className="pi-focused" aria-label="Focused guidance">
+        <FocusedGuidance
+          extraLinks={practiceIndexExtraLinks}
+          intro={practiceIndexIntro}
+        />
       </section>
     </main>
   );

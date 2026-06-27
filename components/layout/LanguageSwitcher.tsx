@@ -14,7 +14,13 @@ const LABELS: Record<Locale, string> = {
  * Tiny inline EN · తె · हिं switcher.
  * Preserves the current route across locales via next-intl's typed router.
  */
-export function LanguageSwitcher() {
+export function LanguageSwitcher({
+  className,
+  onLocaleChange,
+}: {
+  className?: string;
+  onLocaleChange?: () => void;
+} = {}) {
   const router = useRouter();
   const pathname = usePathname();
   const current = useLocale() as Locale;
@@ -24,11 +30,16 @@ export function LanguageSwitcher() {
     if (next === current) return;
     startTransition(() => {
       router.replace(pathname, { locale: next });
+      onLocaleChange?.();
     });
   };
 
   return (
-    <div className="lang" role="group" aria-label="Language">
+    <div
+      className={["lang", className].filter(Boolean).join(" ")}
+      role="group"
+      aria-label="Language"
+    >
       {routing.locales.map((l, i) => (
         <span key={l} className="lang-row">
           {i > 0 && <span className="sep" aria-hidden="true">·</span>}

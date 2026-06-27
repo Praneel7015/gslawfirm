@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { firm } from "@/content/firm";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 /**
  * Fullscreen black overlay menu (mobile only).
@@ -26,10 +27,9 @@ export function MobileMenu({
     };
   }, [open]);
 
-  const items: Array<[string, "/about" | "/practice" | "/#approach" | "/contact"]> = [
+  const items: Array<[string, "/about" | "/practice" | "/contact"]> = [
     [t("about"), "/about"],
     [t("practice"), "/practice"],
-    [t("approach"), "/#approach"],
     [t("contact"), "/contact"],
   ];
 
@@ -50,6 +50,9 @@ export function MobileMenu({
           </Link>
         ),
       )}
+      <div className="mobile-menu-lang">
+        <LanguageSwitcher onLocaleChange={onClose} />
+      </div>
       <div className="menu-foot">
         {firm.phone} · {firm.publicEmail}
         <br />

@@ -117,7 +117,7 @@ export default async function LegalNoticesPage({
   return (
     <main id="main">
       <JsonLd data={ld} />
-      <section className="pd-hero legal-hero" aria-labelledby="legal-title">
+      <section className="pd-hero" aria-labelledby="legal-title">
         <nav className="crumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true">/</span>
@@ -133,7 +133,7 @@ export default async function LegalNoticesPage({
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
 
-      <section className="pd-body legal-body">
+      <section className="pd-body">
         <div className="pd-content">
           <p className="lede pd-lede">
             <span className="pd-lede-icon" aria-hidden="true">

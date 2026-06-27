@@ -286,6 +286,23 @@ select:focus-visible {
   color: rgba(255,255,255,.5);
   line-height: 1.6;
 }
+.mobile-menu-lang {
+  padding: 18px 0 6px;
+  border-bottom: .5px solid rgba(255,255,255,.1);
+}
+.mobile-menu-lang .lang {
+  font-size: 13px;
+  letter-spacing: .16em;
+}
+.mobile-menu-lang .lang-btn {
+  padding: 10px 8px;
+  min-width: 44px;
+  min-height: 44px;
+  opacity: .65;
+}
+.mobile-menu-lang .lang-btn.is-active {
+  opacity: 1;
+}
 
 /* ── Language switcher (inline trio) ─────────────────────── */
 .lang {
@@ -1228,7 +1245,8 @@ select:focus-visible {
 .pd-hero,
 .pd-body,
 .pi-list,
-.pi-foot {
+.pi-foot,
+.pi-focused {
   --practice-duration: 0.28s;
   --practice-ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1296,8 +1314,8 @@ select:focus-visible {
 /* ── PD BODY (2-col with sticky side) ─────────────────────── */
 .pd-body {
   padding: 120px 80px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
   gap: 100px;
   background: var(--color-bg);
 }
@@ -1512,6 +1530,33 @@ select:focus-visible {
   transition:
     transform var(--practice-duration) var(--practice-ease),
     color var(--practice-duration) var(--practice-ease);
+}
+.pi-focused {
+  padding: 100px 80px 140px;
+  background: var(--color-bg);
+  --practice-duration: 0.28s;
+  --practice-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.pi-focused .practice-feature {
+  margin-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.pi-foot-minimal {
+  margin-top: 60px;
+  border-top: .5px solid var(--color-hair);
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+}
+.pi-foot-minimal p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-muted);
+  max-width: 640px;
+  margin: 0;
 }
 .pi-foot {
   padding: 100px 80px 140px;
@@ -1921,7 +1966,7 @@ select:focus-visible {
 }
 .cp-cell a:hover .big { color: var(--color-accent); }
 
-/* ── LEGAL (Privacy / Disclaimer) ─────────────────────────── */
+/* ── LEGAL (Privacy / Disclaimer) — not for service pages ── */
 .legal-hero {
   padding: 160px 80px 60px;
   background: var(--color-bg);
@@ -2062,8 +2107,11 @@ select:focus-visible {
     margin-bottom: 60px;
     padding-top: 40px;
   }
+  .practice-feature-intro {
+    position: static;
+  }
   .practice-feature-intro p {
-    max-width: 600px;
+    max-width: none;
   }
 
   .foot { padding: 80px 32px 40px; }
@@ -2079,6 +2127,7 @@ select:focus-visible {
   .pd-body { padding: 80px 32px; gap: 60px; }
   .pi-list { padding: 32px 32px 0; }
   .pi-foot { padding: 80px 32px 120px; }
+  .pi-focused { padding: 80px 32px 120px; }
 
   /* M5, about / contact / legal */
   .about-hero { padding: 140px 32px 70px; }
@@ -2124,8 +2173,15 @@ select:focus-visible {
   .practice-lede { max-width: none; }
   .practice-feature {
     margin: 0 0 48px 0;
-    padding-top: 32px;
-    gap: 32px;
+    padding: 32px 22px 0;
+    gap: 28px;
+  }
+  .practice-feature-intro {
+    position: static;
+  }
+  .practice-feature-intro p {
+    max-width: none;
+    font-size: 14.5px;
   }
   .practice-feature-links {
     grid-template-columns: 1fr;
@@ -2231,6 +2287,9 @@ select:focus-visible {
     grid-template-columns: 1fr;
     gap: 28px;
     align-items: flex-start;
+  }
+  .pi-focused {
+    padding: 48px 22px 88px;
   }
   .pi-foot-actions { gap: 16px; }
 
