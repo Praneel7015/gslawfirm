@@ -22,7 +22,7 @@ const localizedMetadata = {
       en: {
         title: "GS Law Firm | Adv. Aitha Sunitha, Kondapur Hyderabad",
         description:
-          "Solo-advocate practice in Kondapur, Hyderabad, led by Adv. Aitha Sunitha for criminal, civil, property, commercial and High Court matters.",
+          "Solo-advocate practice in Kondapur, Hyderabad, led by Adv. Aitha Sunitha for criminal, civil, property, contract, business and High Court matters.",
       },
       hi: {
         title: "GS Law Firm | एडवो. ऐथा सुनीता, कोंडापुर हैदराबाद",
