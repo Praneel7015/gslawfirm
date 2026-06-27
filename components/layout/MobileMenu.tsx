@@ -26,11 +26,11 @@ export function MobileMenu({
     };
   }, [open]);
 
-  const items: Array<[string, "/about" | "/practice" | "/about#approach" | "/contact", string]> = [
-    [t("about"), "/about", "01"],
-    [t("practice"), "/practice", "02"],
-    [t("approach"), "/about#approach", "03"],
-    [t("contact"), "/contact", "04"],
+  const items: Array<[string, "/about" | "/practice" | "/#approach" | "/contact"]> = [
+    [t("about"), "/about"],
+    [t("practice"), "/practice"],
+    [t("approach"), "/#approach"],
+    [t("contact"), "/contact"],
   ];
 
   return (
@@ -39,16 +39,14 @@ export function MobileMenu({
       className={"mobile-menu" + (open ? " open" : "")}
       aria-hidden={!open}
     >
-      {items.map(([label, href, num]) =>
+      {items.map(([label, href]) =>
         href === "/contact" ? (
           <SourceAwareContactLink key={href} onClick={onClose}>
             {label}
-            <span className="num">{num}</span>
           </SourceAwareContactLink>
         ) : (
           <Link key={href} href={href} onClick={onClose}>
             {label}
-            <span className="num">{num}</span>
           </Link>
         ),
       )}

@@ -46,7 +46,6 @@ export default async function PracticeIndexPage({
       <section className="pi-list" aria-label="Practice areas">
         {practiceAreas.map((a) => (
           <Link key={a.slug} href={`/practice/${a.slug}` as never} className="pi-row">
-            <span className="pi-num">{a.num}</span>
             <span className="pi-icon" aria-hidden="true">
               <PracticeIcon slug={a.slug} size={32} />
             </span>

@@ -51,28 +51,6 @@ export async function Practice() {
         </div>
         <p className="practice-lede">{t("lede")}</p>
       </div>
-      <div className="practice-feature">
-        <span>Focused guidance</span>
-        <p>
-          For FIRs, cyber-crime complaints, bail stages, cheque dishonour,
-          cheque-bounce procedure, consumer complaints, legal notices, property
-          and tenancy disputes, agreement enforcement, injunctions, commercial
-          documents, succession papers and High Court steps in Hyderabad, read
-          the focused guidance before sending an enquiry.
-        </p>
-        <div className="practice-feature-links">
-          {focusedGuidanceLinks.map((link) => (
-            <Link
-              href={link.href}
-              className="practice-feature-link"
-              key={link.href}
-            >
-              <span>Read {link.label}</span>
-              <span aria-hidden="true">→</span>
-            </Link>
-          ))}
-        </div>
-      </div>
       <div className="practice-grid">
         {practiceAreas.map((a) => (
           <Link
@@ -80,7 +58,6 @@ export async function Practice() {
             href={`/practice/${a.slug}` as never}
             className="practice-card"
           >
-            <span className="num">{a.num}</span>
             <span className="icon" aria-hidden="true">
               <PracticeIcon slug={a.slug} size={36} />
             </span>
@@ -92,6 +69,30 @@ export async function Practice() {
             </div>
           </Link>
         ))}
+      </div>
+      <div className="practice-feature">
+        <div className="practice-feature-intro">
+          <span>Focused guidance</span>
+          <p>
+            For FIRs, cyber-crime complaints, bail stages, cheque dishonour,
+            cheque-bounce procedure, consumer complaints, legal notices, property
+            and tenancy disputes, agreement enforcement, injunctions, commercial
+            documents, succession papers and High Court steps in Hyderabad, read
+            the focused guidance before sending an enquiry.
+          </p>
+        </div>
+        <div className="practice-feature-links">
+          {focusedGuidanceLinks.map((link) => (
+            <Link
+              href={link.href}
+              className="practice-feature-link"
+              key={link.href}
+            >
+              <span>{link.label}</span>
+              <span aria-hidden="true" className="practice-feature-arrow">→</span>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

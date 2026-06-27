@@ -24,10 +24,6 @@ export async function Approach() {
       <div className="approach-grid">
         {items.map((it) => (
           <div key={it.num} className="approach-cell">
-            <div className="num">
-              <span className="dot" />
-              {it.num}
-            </div>
             <h3>{t(`items.${it.key}.title`)}</h3>
             <p>{t(`items.${it.key}.body`)}</p>
           </div>

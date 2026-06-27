@@ -17,17 +17,17 @@
     "footRole": "Adv. Aitha Sunitha (Sunitha Sindhole) · Direct consultation"
   },
   "intro": {
-    "tag": "Introduction · 01",
+    "tag": "Introduction",
     "body": "Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters as a solo-advocate practice, quietly, attentively, and with the same hand on every brief."
   },
   "practice": {
-    "eyebrow": "Practice · 02",
+    "eyebrow": "Practice",
     "heading": "Areas\nof work",
     "lede": "All areas, one advocate. Each matter receives the same attention from first hearing to final order: no handing off, no rotating juniors, no surprises on counsel.",
     "learnMore": "Learn more"
   },
   "approach": {
-    "eyebrow": "Approach · 03",
+    "eyebrow": "Approach",
     "heading": "Three things we hold to.",
     "lede": "The razorbill, our quiet emblem, returns to the same cliff colony year after year. We borrow the metaphor with intent: continuity is the point.",
     "items": {
@@ -46,7 +46,7 @@
     }
   },
   "founder": {
-    "eyebrow": "Counsel · 04",
+    "eyebrow": "Counsel",
     "portraitTag": "Portrait · TBD",
     "meta": {
       "barCouncil": "Bar Council",
@@ -56,7 +56,7 @@
     }
   },
   "location": {
-    "eyebrow": "Visit · 05",
+    "eyebrow": "Visit",
     "heading": "Kondapur, Hyderabad",
     "phone": "Phone",
     "email": "Email",
@@ -64,7 +64,7 @@
     "pinLabel": "GS Law Firm · Sri Ramnagar"
   },
   "contact": {
-    "eyebrow": "Enquire · 06",
+    "eyebrow": "Enquire",
     "heading": "Send a brief note.",
     "lede": "Tell us, in a few sentences, what you’re dealing with. We respond within one working day, usually the same day.",
     "fields": {

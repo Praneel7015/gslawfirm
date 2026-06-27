@@ -601,12 +601,13 @@ select:focus-visible {
 .intro {
   padding: 140px 80px;
   background: var(--color-bg);
-  display: grid; grid-template-columns: 200px 1fr; gap: 80px;
 }
 .intro-tag {
   font-family: var(--font-mono);
   font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase;
   color: var(--color-muted);
+  display: block;
+  margin-bottom: 36px;
 }
 .intro h2 {
   font-family: var(--font-display);
@@ -642,36 +643,50 @@ select:focus-visible {
   margin: 0;
 }
 .practice-feature {
-  margin: -34px 0 40px auto;
-  max-width: 520px;
-  border-top: .5px solid var(--color-hair);
-  padding-top: 22px;
+  margin: 100px 0 0 0;
+  border-top: 1px solid var(--color-fg);
+  padding-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
 }
-.practice-feature > span {
+.practice-feature-intro {
+  position: sticky;
+  top: 120px;
+}
+.practice-feature-intro > span {
   font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0;
+  font-size: 11px;
+  letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--color-accent);
+  display: block;
+  margin-bottom: 24px;
 }
-.practice-feature p {
-  margin: 12px 0 18px;
+.practice-feature-intro p {
+  margin: 0;
   color: var(--color-muted);
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 420px;
+}
+.practice-feature-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 40px;
+  align-items: start;
 }
 .practice-feature-link {
   color: var(--color-fg);
   text-decoration: none;
-  font-size: 13px;
-  line-height: 1.35;
-  letter-spacing: 0;
+  font-size: 14px;
+  line-height: 1.4;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--color-fg);
+  padding: 16px 0;
+  border-bottom: .5px solid var(--color-hair);
   transition:
     color var(--practice-duration) var(--practice-ease),
     border-color var(--practice-duration) var(--practice-ease),
@@ -681,12 +696,6 @@ select:focus-visible {
   color: var(--color-accent);
   border-color: var(--color-accent);
   gap: 16px;
-}
-.practice-feature-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
-  gap: 14px 22px;
-  align-items: start;
 }
 
 .practice {
@@ -734,7 +743,6 @@ select:focus-visible {
   .practice-card:hover::before {
     opacity: 1;
   }
-  .practice-card:hover .num { color: rgba(255,255,255,.5); }
   .practice-card:hover .icon { color: #fff; }
   .practice-card:hover p { color: rgba(255,255,255,.7); }
   .practice-card:hover .learn span:last-child {
@@ -742,12 +750,6 @@ select:focus-visible {
   }
 }
 .practice-card:last-child { border-right: 0; }
-.practice-card .num {
-  font-family: var(--font-mono);
-  font-size: 10.5px; letter-spacing: .18em;
-  color: var(--soft);
-  transition: color var(--practice-duration) var(--practice-ease);
-}
 .practice-card .icon {
   margin: 38px 0 26px;
   width: 36px; height: 36px;
@@ -816,17 +818,6 @@ select:focus-visible {
 }
 .approach-cell:last-child { border-right: 0; padding-right: 0; }
 .approach-cell:not(:first-child) { padding-left: 36px; }
-.approach-cell .num {
-  font-family: var(--font-mono);
-  font-size: 10.5px; letter-spacing: .18em;
-  color: var(--color-accent);
-  margin-bottom: 32px;
-  display: flex; align-items: center; gap: 10px;
-}
-.approach-cell .num .dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--color-accent);
-}
 .approach-cell h3 {
   font-family: var(--font-display);
   font-weight: var(--headline-weight);
@@ -884,11 +875,15 @@ select:focus-visible {
   padding: 140px 80px;
   background: var(--color-bg);
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
+  grid-template-columns: 1fr 1.05fr;
   gap: 100px;
   align-items: start;
 }
-.founder-portrait { width: 100%; aspect-ratio: 4/5; }
+.founder-portrait {
+  order: 2;
+  width: 100%;
+  aspect-ratio: 4/5;
+}
 .founder-monogram {
   position: relative;
   width: 100%; aspect-ratio: 4/5;
@@ -962,10 +957,11 @@ select:focus-visible {
   background: #0a0a0a; color: #fff;
   padding: 0;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   min-height: 540px;
 }
 .map {
+  order: 2;
   position: relative;
   background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
   overflow: hidden;
@@ -1300,8 +1296,8 @@ select:focus-visible {
 /* ── PD BODY (2-col with sticky side) ─────────────────────── */
 .pd-body {
   padding: 120px 80px;
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 100px;
   background: var(--color-bg);
 }
@@ -1443,7 +1439,7 @@ select:focus-visible {
 }
 .pi-row {
   display: grid;
-  grid-template-columns: 60px 56px 1fr 32px;
+  grid-template-columns: 56px 1fr 32px;
   gap: 32px;
   align-items: center;
   padding: 36px 0;
@@ -1479,19 +1475,12 @@ select:focus-visible {
     opacity: 1;
     inset: -4px -28px;
   }
-  .pi-row:hover .pi-num { color: rgba(255,255,255,.5); }
   .pi-row:hover .pi-icon { color: #fff; }
   .pi-row:hover .pi-text p { color: rgba(255,255,255,.7); }
   .pi-row:hover .pi-arrow {
     color: #fff;
     transform: translateX(6px);
   }
-}
-.pi-num {
-  font-family: var(--font-mono);
-  font-size: 11px; letter-spacing: .18em;
-  color: var(--soft);
-  transition: color var(--practice-duration) var(--practice-ease);
 }
 .pi-icon {
   color: var(--color-accent);
@@ -1527,8 +1516,10 @@ select:focus-visible {
 .pi-foot {
   padding: 100px 80px 140px;
   background: var(--color-bg);
-  display: grid; grid-template-columns: 1fr auto; gap: 60px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: flex-start;
 }
 .pi-foot p {
   font-size: 16px;
@@ -1788,11 +1779,12 @@ select:focus-visible {
   background: #0a0a0a; color: #fff;
   padding: 120px 80px;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: 80px;
   align-items: center;
 }
 .about-symbol .mark-big {
+  order: 2;
   width: 100%;
   aspect-ratio: 1 / 1;
   background-color: #fff;
@@ -1826,14 +1818,13 @@ select:focus-visible {
 .about-story {
   padding: 120px 80px;
   background: var(--color-bg);
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 80px;
 }
 .about-story .col-label {
   font-family: var(--font-mono);
   font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase;
   color: var(--color-muted);
+  display: block;
+  margin-bottom: 36px;
 }
 .about-story-content p {
   font-size: 18px;
@@ -2064,6 +2055,17 @@ select:focus-visible {
   .practice-grid { grid-template-columns: repeat(3, 1fr); }
   .practice-card:nth-child(3n) { border-right: 0; }
   .practice-card:nth-child(n+4) { border-top: .5px solid var(--color-hair); }
+  
+  .practice-feature {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding-top: 40px;
+  }
+  .practice-feature-intro p {
+    max-width: 600px;
+  }
+
   .foot { padding: 80px 32px 40px; }
   .foot-top { grid-template-columns: 1fr 1fr; gap: 48px; }
   .founder { gap: 60px; }
@@ -2121,8 +2123,13 @@ select:focus-visible {
   .section-head h2 { font-size: 34px; }
   .practice-lede { max-width: none; }
   .practice-feature {
-    margin: -10px 22px 36px;
-    max-width: none;
+    margin: 0 0 48px 0;
+    padding-top: 32px;
+    gap: 32px;
+  }
+  .practice-feature-links {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
   .practice-grid { grid-template-columns: 1fr; border-top: 1px solid var(--color-fg); }
   .practice-card {
@@ -2136,7 +2143,6 @@ select:focus-visible {
     gap: 6px 18px;
     align-items: start;
   }
-  .practice-card .num { display: none; }
   .practice-card .icon { margin: 6px 0 0; width: 28px; height: 28px; grid-row: 1 / 3; }
   .practice-card h3 { font-size: 20px; margin: 0; }
   .practice-card p { max-width: none; }
@@ -2211,7 +2217,7 @@ select:focus-visible {
 
   .pi-list { padding: 28px 22px 0; }
   .pi-row {
-    grid-template-columns: auto auto 1fr;
+    grid-template-columns: auto 1fr;
     gap: 14px 18px;
     padding: 24px 0;
     align-items: flex-start;

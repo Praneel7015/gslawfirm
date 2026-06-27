@@ -198,9 +198,8 @@ export default async function PracticeDetailPage({
           <div className="pd-handle">
             <h2>{t("handleHeading")}</h2>
             <ul>
-              {area.handle.map((h, i) => (
+              {area.handle.map((h) => (
                 <li key={h}>
-                  <span className="li-num">{String(i + 1).padStart(2, "0")}</span>
                   <span>{h}</span>
                 </li>
               ))}
