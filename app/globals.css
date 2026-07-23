@@ -387,6 +387,23 @@ select:focus-visible {
   line-height: 1.6; font-size: 11px;
   color: var(--soft-on-dark);
 }
+.foot-credit-line,
+.tin-credit {
+  display: inline-flex;
+  align-items: center;
+}
+.foot-credit-line { gap: 8px; }
+.tin-credit {
+  gap: 5px;
+  color: inherit;
+  text-decoration: none;
+}
+.tin-credit:hover { color: #fff; }
+.tin-credit svg {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+}
 
 /* ── WhatsApp FAB ────────────────────────────────────────── */
 .wa {
