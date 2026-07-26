@@ -30,13 +30,10 @@ export async function Approach() {
         ))}
       </div>
       <div className="approach-continuity-link">
-        <span>Continuity of counsel</span>
-        <p>
-          Read how the firm keeps paper reading, hearing preparation and client
-          communication close to one advocate.
-        </p>
+        <span>{t("continuityExplainer.label")}</span>
+        <p>{t("continuityExplainer.body")}</p>
         <Link href="/continuity-of-counsel">
-          Read the explainer <span aria-hidden="true">→</span>
+          {t("continuityExplainer.link")} <span aria-hidden="true">→</span>
         </Link>
       </div>
     </section>
