@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 
 import { leadSchema, type LeadInput } from "@/lib/lead-schema";
 import { cleanSitePath, isContactPath } from "@/lib/lead-source";
+import { captureSuccessfulEnquiry } from "@/lib/contact-analytics";
 import {
   TurnstileWidget,
   isTurnstileConfigured,
@@ -115,6 +116,7 @@ export function ContactForm() {
       });
 
       if (r.ok) {
+        captureSuccessfulEnquiry(originPath);
         setSubmitted(data);
         return;
       }

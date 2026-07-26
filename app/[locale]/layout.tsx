@@ -14,6 +14,7 @@ import { DisclaimerModal } from "@/components/legal/DisclaimerModal";
 import { WhatsAppFab } from "@/components/legal/WhatsAppFab";
 import { MobileStickyBar } from "@/components/legal/MobileStickyBar";
 import { CloudflareAnalytics } from "@/components/analytics/CloudflareAnalytics";
+import { ContactAnalytics } from "@/components/analytics/ContactAnalytics";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 function isLocale(value: string): value is Locale {
@@ -98,6 +99,7 @@ export default async function LocaleLayout({
           <MobileStickyBar />
           <DisclaimerModal />
         </NextIntlClientProvider>
+        <ContactAnalytics />
         <CloudflareAnalytics />
         <GoogleAnalytics />
       </body>

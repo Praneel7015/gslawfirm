@@ -132,16 +132,16 @@
   "privacy": {
     "eyebrow": "Privacy · GS Law Firm",
     "heading": "Privacy notice.",
-    "updated": "Last updated · 28 May 2026",
+    "updated": "Last updated · 26 July 2026",
     "lede": "This notice describes what we collect when you visit this site or send us a message, why we collect it, and what we do with it.",
     "sections": {
       "collect": {
         "heading": "What we collect",
-        "body": "When you submit the contact form, we collect the name, phone number, email address and message you provide. Server logs may record your IP address, browser user agent and the time of the request. We do not use third-party advertising cookies. The site uses a privacy-respecting analytics signal to count visits; no personal profile is built."
+        "body": "When you submit the contact form, we collect the name, phone number, email address and message you provide. Server logs may record your IP address, browser user agent and the time of the request. We do not use third-party advertising cookies. Privacy-respecting analytics count visits and record only the contact channel, site language and source page when you choose Call, WhatsApp or Email, or when the form is accepted. No personal profile is built."
       },
       "use": {
         "heading": "How we use it",
-        "body": "Enquiry data is used solely to respond to your enquiry and, where you become a client, to discharge our professional obligations. We do not sell, rent or share enquiry data with any third party for marketing. Aggregated, anonymous traffic figures may be referenced internally to improve the site."
+        "body": "Enquiry data is used solely to respond to your enquiry and, where you become a client, to discharge our professional obligations. We do not sell, rent or share enquiry data with any third party for marketing. Aggregated, anonymous visit and contact-choice counts may be referenced internally to improve the site."
       },
       "retention": {
         "heading": "How long we keep it",
