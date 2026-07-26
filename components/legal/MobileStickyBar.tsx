@@ -7,6 +7,11 @@ import { firm } from "@/content/firm";
  */
 export async function MobileStickyBar() {
   const t = await getTranslations("mbar");
+  const tWhatsApp = await getTranslations("wa");
+  const whatsappHref =
+    `https://wa.me/${firm.whatsapp}?text=` +
+    encodeURIComponent(tWhatsApp("prefilled"));
+
   return (
     <nav className="mbar" aria-label={t("nav")}>
       <a href={`tel:${firm.phoneE164}`} aria-label={t("callAria")}>
@@ -19,7 +24,7 @@ export async function MobileStickyBar() {
         </span>
       </a>
       <a
-        href={`https://wa.me/${firm.whatsapp}`}
+        href={whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("chatAria")}
