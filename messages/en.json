@@ -241,8 +241,15 @@
     "prefilled": "Hello, I'd like to enquire about a legal matter."
   },
   "mbar": {
+    "nav": "Quick contact",
     "call": "Call",
-    "chat": "Chat",
-    "email": "Email"
+    "callNext": "Opens phone",
+    "callAria": "Call; opens your phone",
+    "chat": "WhatsApp",
+    "chatNext": "Opens chat",
+    "chatAria": "WhatsApp; opens a chat",
+    "email": "Email",
+    "emailNext": "Opens email",
+    "emailAria": "Email; opens a new email"
   }
 }

@@ -448,17 +448,34 @@ select:focus-visible {
   text-decoration: none; color: #fff;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  padding: 14px 0 18px;
-  gap: 5px;
+  padding: 10px 4px 12px;
+  gap: 4px;
   min-height: 44px;
   border-right: .5px solid rgba(255,255,255,.1);
 }
 .mbar a:last-child { border-right: 0; }
 .mbar svg { width: 18px; height: 18px; }
-.mbar span {
+.mbar-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+.mbar-label {
   font-family: var(--font-mono);
-  font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase;
-  color: rgba(255,255,255,.7);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.82);
+  white-space: nowrap;
+}
+.mbar-next {
+  font-size: 9px;
+  line-height: 1.15;
+  letter-spacing: .02em;
+  color: rgba(255,255,255,.55);
+  white-space: nowrap;
 }
 .mbar a:active { background: rgba(255,255,255,.06); }
 
