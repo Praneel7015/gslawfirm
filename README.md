@@ -43,6 +43,8 @@ pnpm build
 | `RESEND_FROM` | `GS Law Firm <noreply@sunitha.sindhole.com>` |
 | `LEAD_NOTIFY_TO` | `sunithags@gmail.com` |
 | `NEXT_PUBLIC_CF_ANALYTICS_TOKEN` | Cloudflare Web Analytics |
+| `NEXT_PUBLIC_POSTHOG_KEY` | Tin-managed PostHog public ingestion key |
+| `NEXT_PUBLIC_POSTHOG_HOST` | Tin-managed PostHog ingestion host |
 | `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console HTML tag value |
 
 ### Optional
