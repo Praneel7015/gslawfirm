@@ -4,6 +4,40 @@ import { routing } from "@/i18n/routing";
 import { practiceAreas } from "@/content/practice-areas";
 import { SITE_URL } from "@/lib/site";
 
+// Update only the route whose visible content or search metadata changed.
+// These dates come from the corresponding production release history.
+const ROUTE_LAST_MODIFIED: Record<string, string> = {
+  "": "2026-07-26",
+  bail: "2026-06-20",
+  "bail-hearing-procedure-hyderabad": "2026-06-20",
+  "criminal-defense": "2026-06-20",
+  "cyber-crime-complaints": "2026-06-20",
+  "property-disputes": "2026-06-20",
+  "property-dispute-courts-telangana": "2026-06-20",
+  "consumer-forum-complaints": "2026-06-20",
+  "legal-notices": "2026-06-20",
+  "commercial-contracts": "2026-06-20",
+  "succession-probate": "2026-06-20",
+  "high-court-matters": "2026-06-20",
+  "cheque-dishonour": "2026-06-20",
+  "cheque-bounce-case-procedure-hyderabad": "2026-06-20",
+  "tenancy-eviction": "2026-06-20",
+  "specific-performance": "2026-06-20",
+  "injunction-interim-relief": "2026-06-20",
+  "continuity-of-counsel": "2026-06-20",
+  "kondapur-legal-services": "2026-06-20",
+  about: "2026-05-29",
+  practice: "2026-07-26",
+  "practice/criminal": "2026-07-26",
+  "practice/civil": "2026-07-26",
+  "practice/corporate": "2026-07-26",
+  "practice/will-succession": "2026-07-26",
+  "practice/high-court": "2026-07-26",
+  contact: "2026-07-26",
+  privacy: "2026-07-26",
+  disclaimer: "2026-06-19",
+};
+
 /**
  * Sitemap for /sitemap.xml.
  *
@@ -18,10 +52,12 @@ import { SITE_URL } from "@/lib/site";
  * Total entries: 29 routes × 3 locales = 87.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   // Static paths, strings without a slash prefix; the home is "".
-  const staticPaths: Array<{ path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }> = [
+  const staticPaths: Array<{
+    path: string;
+    priority: number;
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  }> = [
     { path: "", priority: 1.0, changeFrequency: "monthly" },
     { path: "bail", priority: 0.85, changeFrequency: "monthly" },
     {
@@ -74,16 +110,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const { path, priority, changeFrequency } of allPaths) {
+    const lastModified = ROUTE_LAST_MODIFIED[path];
+    if (!lastModified) {
+      throw new Error(
+        `Missing stable lastModified date for sitemap path: ${path}`,
+      );
+    }
+
     for (const locale of routing.locales) {
       const url = buildUrl(locale, path);
       entries.push({
         url,
-        lastModified: now,
+        lastModified: new Date(`${lastModified}T00:00:00.000Z`),
         changeFrequency,
         priority,
         alternates: {
           languages: Object.fromEntries(
-            routing.locales.map((l) => [l, buildUrl(l, path)]),
+            [
+              ...routing.locales.map((l) => [l, buildUrl(l, path)]),
+              ["x-default", buildUrl(routing.defaultLocale, path)],
+            ],
           ),
         },
       });
