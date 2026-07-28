@@ -13,9 +13,10 @@
     "qa:lead-source": "tsx scripts/qa-lead-source.ts",
     "qa:contact-analytics": "tsx scripts/qa-contact-analytics.ts",
     "qa:discovery-signals": "tsx scripts/qa-discovery-signals.ts",
+    "qa:metadata-titles": "tsx scripts/qa-metadata-titles.ts",
     "qa:routes": "tsx scripts/qa-routes.ts",
     "qa:lighthouse": "node scripts/qa-lighthouse.mjs",
-    "qa": "pnpm typecheck && pnpm lint && pnpm lint:bci && pnpm qa:lead-source && pnpm qa:contact-analytics && pnpm qa:discovery-signals && pnpm build && pnpm qa:routes",
+    "qa": "pnpm typecheck && pnpm lint && pnpm lint:bci && pnpm qa:lead-source && pnpm qa:contact-analytics && pnpm qa:discovery-signals && pnpm qa:metadata-titles && pnpm build && pnpm qa:routes",
     "prepare": "husky",
     "typecheck": "tsc --noEmit"
   },

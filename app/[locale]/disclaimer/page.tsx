@@ -6,15 +6,17 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `BCI Disclaimer Explained | ${firm.name}`,
-  description:
-    "Plain-English explanation of the Bar Council of India disclaimer, website information limits, and confidential enquiry boundary at GS Law Firm.",
-  path: "/disclaimer",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("disclaimer", locale);
+}
 
 const PARAS = ["p1", "p2", "p3", "p4", "p5"] as const;
 const EXPLAINER_SECTIONS = [
