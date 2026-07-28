@@ -10,6 +10,7 @@
     "lint:bci": "tsx scripts/check-bci-language.ts",
     "check:env": "tsx scripts/check-env.ts",
     "qa:lead-heartbeat": "tsx scripts/qa-lead-heartbeat.ts",
+    "qa:h1": "tsx scripts/qa-h1.ts",
     "qa:lead-source": "tsx scripts/qa-lead-source.ts",
     "qa:contact-analytics": "tsx scripts/qa-contact-analytics.ts",
     "qa:discovery-signals": "tsx scripts/qa-discovery-signals.ts",

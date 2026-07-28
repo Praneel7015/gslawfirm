@@ -8,7 +8,10 @@ import { specificPerformanceFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -131,7 +134,9 @@ export default async function SpecificPerformancePage({
           <span aria-hidden="true">/</span>
           <span className="current">Specific Performance</span>
         </nav>
-        <h1 id="specific-title">Specific performance matters in Hyderabad.</h1>
+        <h1 id="specific-title">
+          {localizedPageHeading("specificPerformance", locale)}
+        </h1>
         <p className="lede">
           Sale agreements, property and business-contract obligations, notices,
           interim relief, evidence, execution and appeal context, read before

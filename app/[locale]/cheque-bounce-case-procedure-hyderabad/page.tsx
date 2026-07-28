@@ -8,7 +8,10 @@ import { firm } from "@/content/firm";
 import { chequeBounceProcedureFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -124,7 +127,7 @@ export default async function ChequeBounceCaseProcedurePage({
           <span className="current">Cheque Bounce Procedure</span>
         </nav>
         <h1 id="cheque-procedure-title">
-          Cheque bounce case procedure in Hyderabad.
+          {localizedPageHeading("chequeBounceProcedure", locale)}
         </h1>
         <p className="lede">
           A plain guide to notice, payment-window context, complaint filing,

@@ -8,7 +8,10 @@ import { commercialContractsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -129,7 +132,9 @@ export default async function CommercialContractsPage({
           <span aria-hidden="true">/</span>
           <span className="current">Commercial Contracts</span>
         </nav>
-        <h1 id="commercial-title">Commercial contracts in Hyderabad.</h1>
+        <h1 id="commercial-title">
+          {localizedPageHeading("commercialContracts", locale)}
+        </h1>
         <p className="lede">
           Vendor agreements, service terms, employment and contractor documents,
           NDAs, IP assignments and commercial-dispute steps, read before the

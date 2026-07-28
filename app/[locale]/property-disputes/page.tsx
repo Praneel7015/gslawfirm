@@ -8,7 +8,10 @@ import { propertyDisputesFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -126,7 +129,9 @@ export default async function PropertyDisputesPage({
           <span aria-hidden="true">/</span>
           <span className="current">Property Disputes</span>
         </nav>
-        <h1 id="property-title">Property disputes in Hyderabad.</h1>
+        <h1 id="property-title">
+          {localizedPageHeading("propertyDisputes", locale)}
+        </h1>
         <p className="lede">
           Title papers, partition, tenancy, injunctions and civil-court steps,
           read carefully before the next notice, filing or hearing.

@@ -8,7 +8,10 @@ import { injunctionInterimReliefFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -135,7 +138,7 @@ export default async function InjunctionInterimReliefPage({
           <span className="current">Injunction and Interim Relief</span>
         </nav>
         <h1 id="injunction-title">
-          Injunction and interim relief matters in Hyderabad.
+          {localizedPageHeading("injunctionInterimRelief", locale)}
         </h1>
         <p className="lede">
           Possession, title, tenancy or contract-restraint questions, reviewed

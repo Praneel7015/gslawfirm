@@ -8,7 +8,10 @@ import { successionProbateFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -129,7 +132,9 @@ export default async function SuccessionProbatePage({
           <span aria-hidden="true">/</span>
           <span className="current">Succession and Probate</span>
         </nav>
-        <h1 id="succession-title">Succession and probate in Hyderabad.</h1>
+        <h1 id="succession-title">
+          {localizedPageHeading("successionProbate", locale)}
+        </h1>
         <p className="lede">
           Wills, probate, letters of administration, succession papers,
           inheritance disputes and family settlement context, read carefully
