@@ -167,12 +167,12 @@ const localizedMetadata = {
       hi: {
         title: `अधिवक्ता ऐथा सुनीता के बारे में | ${firm.name} हैदराबाद`,
         description:
-          "A small practice, kept small on purpose. Founded 2023 in Kondapur, Hyderabad, by Adv. Aitha Sunitha, also known as Sunitha Sindhole.",
+          "अधिवक्ता ऐथा सुनीता और कोंडापुर, हैदराबाद में 2023 में स्थापित GS Law Firm की छोटी, एकल-अधिवक्ता प्रैक्टिस के बारे में जानकारी.",
       },
       te: {
         title: `అడ్వ. ఐతా సునీత గురించి | ${firm.name} హైదరాబాద్`,
         description:
-          "A small practice, kept small on purpose. Founded 2023 in Kondapur, Hyderabad, by Adv. Aitha Sunitha, also known as Sunitha Sindhole.",
+          "అడ్వ. ఐతా సునీత మరియు కొండాపూర్, హైదరాబాద్‌లో 2023లో స్థాపించిన GS Law Firm చిన్న, ఏకైక న్యాయవాది ప్రాక్టీస్ గురించి సమాచారం.",
       },
     },
   },
@@ -227,12 +227,12 @@ const localizedMetadata = {
       hi: {
         title: `काउंसल की निरंतरता | ${firm.name} हैदराबाद`,
         description:
-          "GS Law Firm में कागज पढ़ने, सुनवाई तैयारी, क्लाइंट संवाद और कोर्ट-स्टेज स्मृति पर काउंसल-निरंतरता की जानकारी.",
+          "हैदराबाद के GS Law Firm में कागज पढ़ने, सुनवाई की तैयारी, क्लाइंट संवाद और कोर्ट-स्टेज स्मृति पर काउंसल-निरंतरता की जानकारी.",
       },
       te: {
         title: `కౌన్సెల్ నిరంతరత | ${firm.name} హైదరాబాద్`,
         description:
-          "GS Law Firmలో పత్రాల చదువు, విచారణ సిద్ధత, క్లయింట్ సంభాషణ మరియు కోర్ట్-దశ జ్ఞాపకంపై కౌన్సెల్ నిరంతరత సమాచారం.",
+          "హైదరాబాద్‌లోని GS Law Firmలో పత్రాల చదువు, విచారణ సిద్ధత, క్లయింట్ సంభాషణ మరియు కోర్ట్-దశ జ్ఞాపకంపై కౌన్సెల్ నిరంతరత సమాచారం.",
       },
     },
   },
@@ -322,7 +322,7 @@ const localizedMetadata = {
       en: {
         title: `Succession and Probate in Hyderabad | ${firm.name}`,
         description:
-          "Succession and probate information for wills, letters of administration, succession papers, family settlement context and inheritance disputes in Hyderabad, from GS Law Firm in Kondapur.",
+          "Succession and probate information for wills, letters of administration, succession papers, family settlements and inheritance disputes in Hyderabad.",
       },
       hi: {
         title: `हैदराबाद में उत्तराधिकार और प्रोबेट | ${firm.name}`,
@@ -372,7 +372,7 @@ const localizedMetadata = {
       te: {
         title: `హైదరాబాద్‌లో చెక్ డిసానర్ | ${firm.name}`,
         description:
-          "N.I. Act Section 138 నోటీసులు, ఫిర్యాదులు, సమన్లు, సాక్ష్యం, రాజీ మరియు అప్పీల్ సందర్భంపై చెక్ డిసానర్ సమాచారం.",
+          "హైదరాబాద్‌లో N.I. Act Section 138 నోటీసులు, ఫిర్యాదులు, సమన్లు, సాక్ష్యం, రాజీ మరియు అప్పీల్ సందర్భంపై చెక్ డిసానర్ సమాచారం.",
       },
     },
   },
@@ -562,17 +562,17 @@ const localizedMetadata = {
       en: {
         title: `Privacy Notice | ${firm.name} Hyderabad`,
         description:
-          "Privacy notice for visitors to the GS Law Firm website. What we collect, why, and how to ask for it back.",
+          "Privacy notice for the GS Law Firm website in Hyderabad: enquiry data collected, why it is used, how long it is kept and how to request access.",
       },
       hi: {
         title: `गोपनीयता सूचना | ${firm.name} हैदराबाद`,
         description:
-          "Privacy notice for visitors to the GS Law Firm website. What we collect, why, and how to ask for it back.",
+          "हैदराबाद में GS Law Firm की वेबसाइट के लिए गोपनीयता सूचना: पूछताछ का कौन-सा डेटा लिया जाता है, उसका उपयोग, रखने की अवधि और उस तक पहुंच.",
       },
       te: {
         title: `గోప్యతా నోటీసు | ${firm.name} హైదరాబాద్`,
         description:
-          "Privacy notice for visitors to the GS Law Firm website. What we collect, why, and how to ask for it back.",
+          "హైదరాబాద్‌లో GS Law Firm వెబ్‌సైట్ గోప్యతా సమాచారం: విచారణలో సేకరించే డేటా, దాని వినియోగం, నిల్వ కాలం మరియు దాన్ని చూడమని కోరే విధానం.",
       },
     },
   },
@@ -582,17 +582,17 @@ const localizedMetadata = {
       en: {
         title: `BCI Disclaimer Explained | ${firm.name} Hyderabad`,
         description:
-          "Plain-English explanation of the Bar Council of India disclaimer, website information limits, and confidential enquiry boundary at GS Law Firm.",
+          "Bar Council of India disclaimer explained for GS Law Firm in Hyderabad: what the website can explain, its limits and the confidential enquiry boundary.",
       },
       hi: {
         title: `BCI अस्वीकरण की जानकारी | ${firm.name} हैदराबाद`,
         description:
-          "Plain-English explanation of the Bar Council of India disclaimer, website information limits, and confidential enquiry boundary at GS Law Firm.",
+          "हैदराबाद में GS Law Firm के लिए Bar Council of India अस्वीकरण की जानकारी: वेबसाइट क्या समझा सकती है, उसकी सीमाएं और गोपनीय पूछताछ की सीमा.",
       },
       te: {
         title: `BCI నిరాకరణ వివరణ | ${firm.name} హైదరాబాద్`,
         description:
-          "Plain-English explanation of the Bar Council of India disclaimer, website information limits, and confidential enquiry boundary at GS Law Firm.",
+          "హైదరాబాద్‌లో GS Law Firm కోసం Bar Council of India నిరాకరణ వివరణ: వెబ్‌సైట్ వివరించగల సమాచారం, దాని పరిమితులు మరియు గోప్య విచారణ హద్దు.",
       },
     },
   },
