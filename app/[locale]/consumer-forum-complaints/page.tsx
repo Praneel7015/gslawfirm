@@ -8,7 +8,10 @@ import { consumerForumComplaintsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -131,7 +134,9 @@ export default async function ConsumerForumComplaintsPage({
           <span aria-hidden="true">/</span>
           <span className="current">Consumer Forum Complaints</span>
         </nav>
-        <h1 id="consumer-title">Consumer forum complaints in Hyderabad.</h1>
+        <h1 id="consumer-title">
+          {localizedPageHeading("consumerForumComplaints", locale)}
+        </h1>
         <p className="lede">
           Defective goods, service deficiency, refund issues, builder-service
           records, notices, evidence, orders and appeal context, read before the

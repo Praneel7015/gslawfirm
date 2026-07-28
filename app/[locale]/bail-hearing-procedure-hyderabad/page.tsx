@@ -8,7 +8,10 @@ import { firm } from "@/content/firm";
 import { bailHearingProcedureFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -123,7 +126,9 @@ export default async function BailHearingProcedurePage({
           <span aria-hidden="true">/</span>
           <span className="current">Bail Hearing Procedure</span>
         </nav>
-        <h1 id="bail-hearing-title">Bail hearing procedure in Hyderabad.</h1>
+        <h1 id="bail-hearing-title">
+          {localizedPageHeading("bailHearingProcedure", locale)}
+        </h1>
         <p className="lede">
           A plain guide to the papers, listing stage, surety context and court
           conditions that often shape a first bail-hearing conversation.

@@ -8,7 +8,10 @@ import { tenancyEvictionFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -129,7 +132,9 @@ export default async function TenancyEvictionPage({
           <span aria-hidden="true">/</span>
           <span className="current">Tenancy and Eviction</span>
         </nav>
-        <h1 id="tenancy-title">Tenancy and eviction matters in Hyderabad.</h1>
+        <h1 id="tenancy-title">
+          {localizedPageHeading("tenancyEviction", locale)}
+        </h1>
         <p className="lede">
           Lease papers, notices, rent or possession disputes, injunctions,
           evidence, execution, revision and appeal steps, reviewed before a

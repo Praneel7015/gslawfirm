@@ -17,7 +17,10 @@ import {
   graphSchema,
   serviceSchema,
 } from "@/lib/jsonld";
-import { localizedPracticeMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPracticeHeading,
+  localizedPracticeMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 const focusedGuides: Partial<
@@ -176,7 +179,7 @@ export default async function PracticeDetailPage({
           <span aria-hidden="true">/</span>
           <span className="current">{area.name}</span>
         </nav>
-        <h1 id="pd-title">{area.name}.</h1>
+        <h1 id="pd-title">{localizedPracticeHeading(area.slug, locale)}</h1>
         <p className="lede">{area.oneLine}</p>
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
