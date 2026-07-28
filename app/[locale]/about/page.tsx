@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
-import { firm } from "@/content/firm";
 import { Founder } from "@/components/sections/Founder";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, graphSchema, personSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `About Adv. Aitha Sunitha | ${firm.name}`,
-  description:
-    "A small practice, kept small on purpose. Founded 2023 in Kondapur, Hyderabad, by Adv. Aitha Sunitha, also known as Sunitha Sindhole.",
-  path: "/about",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("about", locale);
+}
 
 export default async function AboutPage({
   params,

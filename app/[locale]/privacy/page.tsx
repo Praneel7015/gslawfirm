@@ -4,15 +4,17 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { firm } from "@/content/firm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
-import { pageMetadata } from "@/lib/seo";
+import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  title: `Privacy · ${firm.name}`,
-  description:
-    "Privacy notice for visitors to the GS Law Firm website. What we collect, why, and how to ask for it back.",
-  path: "/privacy",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localizedPageMetadata("privacy", locale);
+}
 
 const SECTION_KEYS = ["collect", "use", "retention", "rights", "contact"] as const;
 

@@ -40,17 +40,17 @@ const localizedMetadata = {
     path: "/practice",
     copy: {
       en: {
-        title: `Practice Areas | ${firm.name} Hyderabad`,
+        title: `Legal Practice Areas in Hyderabad | ${firm.name}`,
         description:
           "Criminal, civil, property, commercial, succession and High Court practice areas at GS Law Firm in Kondapur, Hyderabad.",
       },
       hi: {
-        title: `प्रैक्टिस क्षेत्र | ${firm.name} हैदराबाद`,
+        title: `हैदराबाद में कानूनी प्रैक्टिस क्षेत्र | ${firm.name}`,
         description:
           "GS Law Firm, कोंडापुर हैदराबाद में आपराधिक, दीवानी, संपत्ति, वाणिज्यिक, उत्तराधिकार और हाई कोर्ट मामलों की जानकारी.",
       },
       te: {
-        title: `ప్రాక్టీస్ రంగాలు | ${firm.name} హైదరాబాద్`,
+        title: `హైదరాబాద్‌లో న్యాయ ప్రాక్టీస్ రంగాలు | ${firm.name}`,
         description:
           "GS Law Firm, కొండాపూర్ హైదరాబాద్‌లో క్రిమినల్, సివిల్, ఆస్తి, వాణిజ్య, వారసత్వ మరియు హైకోర్టు విషయాల సమాచారం.",
       },
@@ -100,7 +100,7 @@ const localizedMetadata = {
     path: "/practice/corporate",
     copy: {
       en: {
-        title: `Corporate and Commercial in Hyderabad | ${firm.name}`,
+        title: `Corporate and Commercial Matters in Hyderabad | ${firm.name}`,
         description:
           "Corporate and commercial information for contracts, compliance, shareholder matters, vendor documents and small-business disputes in Hyderabad.",
       },
@@ -140,19 +140,39 @@ const localizedMetadata = {
     path: "/practice/high-court",
     copy: {
       en: {
-        title: `High Court Matters in Hyderabad | ${firm.name}`,
+        title: `Telangana High Court Practice | ${firm.name} Hyderabad`,
         description:
           "Telangana High Court information for writ petitions, criminal and civil revisions, quashing petitions, appeals and High Court bail.",
       },
       hi: {
-        title: `तेलंगाना हाई कोर्ट मामले | ${firm.name} हैदराबाद`,
+        title: `तेलंगाना हाई कोर्ट प्रैक्टिस | ${firm.name} हैदराबाद`,
         description:
           "writ petitions, criminal और civil revisions, quashing petitions, appeals और High Court bail पर तेलंगाना हाई कोर्ट जानकारी.",
       },
       te: {
-        title: `తెలంగాణ హైకోర్టు విషయాలు | ${firm.name} హైదరాబాద్`,
+        title: `తెలంగాణ హైకోర్టు ప్రాక్టీస్ | ${firm.name} హైదరాబాద్`,
         description:
           "writ petitions, criminal మరియు civil revisions, quashing petitions, appeals మరియు High Court bailపై తెలంగాణ హైకోర్టు సమాచారం.",
+      },
+    },
+  },
+  about: {
+    path: "/about",
+    copy: {
+      en: {
+        title: `About Adv. Aitha Sunitha | ${firm.name} Hyderabad`,
+        description:
+          "A small practice, kept small on purpose. Founded 2023 in Kondapur, Hyderabad, by Adv. Aitha Sunitha, also known as Sunitha Sindhole.",
+      },
+      hi: {
+        title: `अधिवक्ता ऐथा सुनीता के बारे में | ${firm.name} हैदराबाद`,
+        description:
+          "A small practice, kept small on purpose. Founded 2023 in Kondapur, Hyderabad, by Adv. Aitha Sunitha, also known as Sunitha Sindhole.",
+      },
+      te: {
+        title: `అడ్వ. ఐతా సునీత గురించి | ${firm.name} హైదరాబాద్`,
+        description:
+          "A small practice, kept small on purpose. Founded 2023 in Kondapur, Hyderabad, by Adv. Aitha Sunitha, also known as Sunitha Sindhole.",
       },
     },
   },
@@ -320,7 +340,7 @@ const localizedMetadata = {
     path: "/high-court-matters",
     copy: {
       en: {
-        title: `High Court Matters in Hyderabad | ${firm.name}`,
+        title: `Telangana High Court Matters | ${firm.name} Hyderabad`,
         description:
           "High Court matter information for writ petitions, revisions, quashing petitions, second appeals and bail applications in Telangana.",
       },
@@ -533,6 +553,46 @@ const localizedMetadata = {
         title: `హైదరాబాద్‌లో చెక్ బౌన్స్ కేసు ప్రక్రియ | ${firm.name}`,
         description:
           "హైదరాబాద్‌లో చెక్ బౌన్స్ కేసు ప్రక్రియ: లీగల్ నోటీసు, చెల్లింపు గడువు, ఫిర్యాదు దాఖలు, సమన్లు, సాక్ష్యం మరియు విచారణలు.",
+      },
+    },
+  },
+  privacy: {
+    path: "/privacy",
+    copy: {
+      en: {
+        title: `Privacy Notice | ${firm.name} Hyderabad`,
+        description:
+          "Privacy notice for visitors to the GS Law Firm website. What we collect, why, and how to ask for it back.",
+      },
+      hi: {
+        title: `गोपनीयता सूचना | ${firm.name} हैदराबाद`,
+        description:
+          "Privacy notice for visitors to the GS Law Firm website. What we collect, why, and how to ask for it back.",
+      },
+      te: {
+        title: `గోప్యతా నోటీసు | ${firm.name} హైదరాబాద్`,
+        description:
+          "Privacy notice for visitors to the GS Law Firm website. What we collect, why, and how to ask for it back.",
+      },
+    },
+  },
+  disclaimer: {
+    path: "/disclaimer",
+    copy: {
+      en: {
+        title: `BCI Disclaimer Explained | ${firm.name} Hyderabad`,
+        description:
+          "Plain-English explanation of the Bar Council of India disclaimer, website information limits, and confidential enquiry boundary at GS Law Firm.",
+      },
+      hi: {
+        title: `BCI अस्वीकरण की जानकारी | ${firm.name} हैदराबाद`,
+        description:
+          "Plain-English explanation of the Bar Council of India disclaimer, website information limits, and confidential enquiry boundary at GS Law Firm.",
+      },
+      te: {
+        title: `BCI నిరాకరణ వివరణ | ${firm.name} హైదరాబాద్`,
+        description:
+          "Plain-English explanation of the Bar Council of India disclaimer, website information limits, and confidential enquiry boundary at GS Law Firm.",
       },
     },
   },
