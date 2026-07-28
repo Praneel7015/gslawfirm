@@ -246,6 +246,10 @@ export default async function CommercialContractsPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/succession-probate">Succession and Probate</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/practice/corporate">
                   Corporate & Commercial
                 </Link>

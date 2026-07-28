@@ -211,6 +211,10 @@ export default async function BailPage({
             <h3>Related pages</h3>
             <ul>
               <li>
+                <Link href="/criminal-defense">Criminal Defense</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/bail-hearing-procedure-hyderabad">
                   Bail Hearing Procedure
                 </Link>

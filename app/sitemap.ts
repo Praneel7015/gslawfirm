@@ -8,7 +8,7 @@ import { SITE_URL } from "@/lib/site";
 // These dates come from the corresponding production release history.
 const ROUTE_LAST_MODIFIED: Record<string, string> = {
   "": "2026-07-26",
-  bail: "2026-06-20",
+  bail: "2026-07-28",
   "bail-hearing-procedure-hyderabad": "2026-06-20",
   "criminal-defense": "2026-06-20",
   "cyber-crime-complaints": "2026-06-20",
@@ -16,7 +16,7 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
   "property-dispute-courts-telangana": "2026-06-20",
   "consumer-forum-complaints": "2026-06-20",
   "legal-notices": "2026-06-20",
-  "commercial-contracts": "2026-06-20",
+  "commercial-contracts": "2026-07-28",
   "succession-probate": "2026-07-28",
   "high-court-matters": "2026-07-28",
   "cheque-dishonour": "2026-07-28",

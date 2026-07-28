@@ -239,6 +239,10 @@ export default async function SuccessionProbatePage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
+                <Link href="/commercial-contracts">Commercial Contracts</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/practice/civil">Civil & Property Disputes</Link>
                 <span aria-hidden="true">→</span>
               </li>
