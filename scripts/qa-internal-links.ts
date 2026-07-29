@@ -51,6 +51,7 @@ assert.match(
 const reciprocalPairs = [
   ["/bail", "/criminal-defense"],
   ["/commercial-contracts", "/succession-probate"],
+  ["/legal-notices", "/legal-notice-reply-format"],
 ] as const;
 
 for (const [left, right] of reciprocalPairs) {
@@ -58,9 +59,7 @@ for (const [left, right] of reciprocalPairs) {
     [left, right],
     [right, left],
   ] as const) {
-    const source = read(
-      `app/[locale]/${from.replace(/^\//, "")}/page.tsx`,
-    );
+    const source = read(`app/[locale]/${from.replace(/^\//, "")}/page.tsx`);
     assert.ok(
       source.includes(`href="${to}"`),
       `${from} must link to related service ${to}`,

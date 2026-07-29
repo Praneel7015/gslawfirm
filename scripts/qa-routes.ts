@@ -20,6 +20,7 @@ const ROUTES = [
   "/property-dispute-courts-telangana",
   "/consumer-forum-complaints",
   "/legal-notices",
+  "/legal-notice-reply-format",
   "/commercial-contracts",
   "/succession-probate",
   "/high-court-matters",

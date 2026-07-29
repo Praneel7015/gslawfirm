@@ -23,18 +23,15 @@ export async function generateMetadata({
 const noticeStages = [
   {
     title: "Notice, deadline and reply context",
-    body:
-      "The first reading usually starts with the notice received or proposed, date of receipt, delivery proof, deadline mentioned, sender details, reply history, and the papers the notice relies on.",
+    body: "The first reading usually starts with the notice received or proposed, date of receipt, delivery proof, deadline mentioned, sender details, reply history, and the papers the notice relies on.",
   },
   {
     title: "Documents, facts and limitation",
-    body:
-      "Property papers, lease papers, agreements, invoices, payment records, messages, photographs, earlier complaints and prior replies help place the notice in a chronology. Limitation and forum questions depend on the facts and documents.",
+    body: "Property papers, lease papers, agreements, invoices, payment records, messages, photographs, earlier complaints and prior replies help place the notice in a chronology. Limitation and forum questions depend on the facts and documents.",
   },
   {
     title: "Suit, injunction or settlement stage",
-    body:
-      "After a notice or reply, the next step may involve settlement discussion, pleadings, interim relief, suit papers, written statement, evidence, execution, appeal or revision context. The file decides the direction.",
+    body: "After a notice or reply, the next step may involve settlement discussion, pleadings, interim relief, suit papers, written statement, evidence, execution, appeal or revision context. The file decides the direction.",
   },
 ] as const;
 
@@ -218,6 +215,12 @@ export default async function LegalNoticesPage({
             <h3>Related practice areas</h3>
             <ul>
               <li>
+                <Link href="/legal-notice-reply-format">
+                  Legal Notice Reply Format Guide
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/property-disputes">Property Disputes</Link>
                 <span aria-hidden="true">→</span>
               </li>
@@ -250,7 +253,9 @@ export default async function LegalNoticesPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
+                <SourceAwareContactLink>
+                  Contact the firm
+                </SourceAwareContactLink>
                 <span aria-hidden="true">→</span>
               </li>
             </ul>

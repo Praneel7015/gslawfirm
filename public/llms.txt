@@ -36,6 +36,7 @@ The firm is based in Kondapur and serves clients from nearby Hyderabad localitie
 - Property dispute courts: https://sunitha.sindhole.com/property-dispute-courts-telangana
 - Consumer forum complaints: https://sunitha.sindhole.com/consumer-forum-complaints
 - Legal notices and replies: https://sunitha.sindhole.com/legal-notices
+- Legal notice reply format guide: https://sunitha.sindhole.com/legal-notice-reply-format
 - Commercial contracts: https://sunitha.sindhole.com/commercial-contracts
 - Succession and probate: https://sunitha.sindhole.com/succession-probate
 - High Court matters: https://sunitha.sindhole.com/high-court-matters
@@ -65,6 +66,7 @@ The firm is based in Kondapur and serves clients from nearby Hyderabad localitie
 - Property dispute courts: Hyderabad and Telangana civil-court context, title and possession papers, injunction overlap, tenancy or eviction context, specific-performance overlap, orders, execution, appeal and High Court context.
 - Consumer forum complaints: defective goods, service deficiency, refund issues, builder-service records, notices, complaint papers, evidence, orders, execution and appeal context.
 - Legal notices and replies: notice review, reply context, documents, deadlines, limitation, property, tenancy, contract, specific-performance, injunction and civil-suit context.
+- Legal notice reply format: reply structure, paragraph-wise response, chronology, supporting documents, deadline context and the limits of generic Word templates.
 - Commercial contracts: vendor and service agreements, employment and contractor contracts, founder and shareholder documents, NDAs, IP assignments, notices and commercial-dispute next steps.
 - Succession and probate: wills, probate applications, letters of administration, succession certificates, family settlement context and inheritance disputes.
 - High Court matters: writ petitions, criminal revisions, civil revisions, second appeals, quashing petitions and High Court bail applications.
