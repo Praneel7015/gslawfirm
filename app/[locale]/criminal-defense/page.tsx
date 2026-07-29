@@ -8,7 +8,10 @@ import { criminalDefenseFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -129,7 +132,9 @@ export default async function CriminalDefensePage({
           <span aria-hidden="true">/</span>
           <span className="current">Criminal Defense</span>
         </nav>
-        <h1 id="defense-title">Criminal defense in Hyderabad.</h1>
+        <h1 id="defense-title">
+          {localizedPageHeading("criminalDefense", locale)}
+        </h1>
         <p className="lede">
           FIRs, complaints, bail stages, trial dates and High Court steps,
           handled by one advocate who reads the file before advising on the next

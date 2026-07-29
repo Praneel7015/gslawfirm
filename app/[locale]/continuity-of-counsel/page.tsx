@@ -7,7 +7,10 @@ import { firm } from "@/content/firm";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -119,7 +122,7 @@ export default async function ContinuityOfCounselPage({
           <span className="current">Continuity of Counsel</span>
         </nav>
         <h1 id="continuity-title">
-          Continuity of counsel at a small Hyderabad practice.
+          {localizedPageHeading("continuityOfCounsel", locale)}
         </h1>
         <p className="lede">
           Why it matters when the advocate who reads the papers also discusses

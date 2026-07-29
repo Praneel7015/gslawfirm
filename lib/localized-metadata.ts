@@ -647,11 +647,39 @@ export function localizedPageMetadata(
   });
 }
 
+export function localizedPageHeading(
+  key: LocalizedPageKey,
+  locale: string,
+): string {
+  const resolvedLocale = safeLocale(locale);
+  const title = localizedMetadata[key].copy[resolvedLocale].title;
+  const heading = title.split("|")[0]?.trim() ?? title.trim();
+
+  const hasLocalReference = {
+    en: /Hyderabad|Kondapur|Telangana/i,
+    hi: /हैदराबाद|कोंडापुर|तेलंगाना/i,
+    te: /హైదరాబాద్|కొండాపూర్|తెలంగాణ/i,
+  }[resolvedLocale].test(heading);
+
+  if (hasLocalReference) return `${heading}.`;
+
+  if (resolvedLocale === "hi") return `हैदराबाद में ${heading}।`;
+  if (resolvedLocale === "te") return `హైదరాబాద్‌లో ${heading}.`;
+  return `${heading} in Hyderabad.`;
+}
+
 export function localizedPracticeMetadata(
   slug: PracticeSlug,
   locale: string,
 ): Metadata {
   return localizedPageMetadata(practiceDetailMetadataKeys[slug], locale);
+}
+
+export function localizedPracticeHeading(
+  slug: PracticeSlug,
+  locale: string,
+): string {
+  return localizedPageHeading(practiceDetailMetadataKeys[slug], locale);
 }
 
 export function localizedMetadataAuditRows() {

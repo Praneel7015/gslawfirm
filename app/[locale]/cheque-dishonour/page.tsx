@@ -8,7 +8,10 @@ import { chequeDishonourFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -126,7 +129,9 @@ export default async function ChequeDishonourPage({
           <span aria-hidden="true">/</span>
           <span className="current">Cheque Dishonour</span>
         </nav>
-        <h1 id="cheque-title">Cheque dishonour matters in Hyderabad.</h1>
+        <h1 id="cheque-title">
+          {localizedPageHeading("chequeDishonour", locale)}
+        </h1>
         <p className="lede">
           N.I. Act Section 138 notices, complaints, summons, evidence,
           settlement discussions and appeal or revision steps, read with the

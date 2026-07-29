@@ -8,7 +8,10 @@ import { legalNoticesFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -122,7 +125,9 @@ export default async function LegalNoticesPage({
           <span aria-hidden="true">/</span>
           <span className="current">Legal Notices</span>
         </nav>
-        <h1 id="legal-title">Legal notices and replies in Hyderabad.</h1>
+        <h1 id="legal-title">
+          {localizedPageHeading("legalNotices", locale)}
+        </h1>
         <p className="lede">
           Notice review, reply preparation, documents, limitation and civil-suit
           context, read before the next reply, filing or hearing is discussed.

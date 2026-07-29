@@ -8,7 +8,10 @@ import { cyberCrimeComplaintsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -128,7 +131,9 @@ export default async function CyberCrimeComplaintsPage({
           <span aria-hidden="true">/</span>
           <span className="current">Cyber Crime Complaints</span>
         </nav>
-        <h1 id="cyber-title">Cyber-crime complaints in Hyderabad.</h1>
+        <h1 id="cyber-title">
+          {localizedPageHeading("cyberCrimeComplaints", locale)}
+        </h1>
         <p className="lede">
           Online fraud, account misuse, harassment messages, complaint or FIR
           papers, screenshots, transaction records and notice context, read

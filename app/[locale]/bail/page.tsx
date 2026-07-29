@@ -8,7 +8,10 @@ import { bailFaqs } from "@/content/service-faqs";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -122,7 +125,7 @@ export default async function BailPage({
           <span aria-hidden="true">/</span>
           <span className="current">Bail</span>
         </nav>
-        <h1 id="bail-title">Bail applications in Hyderabad.</h1>
+        <h1 id="bail-title">{localizedPageHeading("bail", locale)}</h1>
         <p className="lede">
           Regular bail, anticipatory bail, remand papers and court conditions,
           handled with a clear reading of the file before the next step is taken.

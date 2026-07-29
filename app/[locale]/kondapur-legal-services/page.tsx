@@ -7,7 +7,10 @@ import { firm } from "@/content/firm";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
-import { localizedPageMetadata } from "@/lib/localized-metadata";
+import {
+  localizedPageHeading,
+  localizedPageMetadata,
+} from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
@@ -131,7 +134,9 @@ export default async function KondapurLegalServicesPage({
           <span aria-hidden="true">/</span>
           <span className="current">Kondapur Legal Services</span>
         </nav>
-        <h1 id="kondapur-title">Kondapur legal services from GS Law Firm.</h1>
+        <h1 id="kondapur-title">
+          {localizedPageHeading("kondapurLegalServices", locale)}
+        </h1>
         <p className="lede">
           Office, nearby localities, practice areas, and the first confidential
           enquiry step for people looking for direct legal counsel in and around
