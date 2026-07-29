@@ -7,7 +7,10 @@ import { useTranslations } from "next-intl";
 
 import { leadSchema, type LeadInput } from "@/lib/lead-schema";
 import { cleanSitePath, isContactPath } from "@/lib/lead-source";
-import { captureSuccessfulEnquiry } from "@/lib/contact-analytics";
+import {
+  captureEnquiryFailure,
+  captureSuccessfulEnquiry,
+} from "@/lib/contact-analytics";
 import {
   TurnstileWidget,
   isTurnstileConfigured,
@@ -94,14 +97,21 @@ export function ContactForm() {
     if (!turnstileRequired || turnstileToken || turnstileLoadError) return;
     const timeout = window.setTimeout(() => {
       setTurnstileLoadError(true);
+      captureEnquiryFailure("challenge", originPath);
     }, 12000);
     return () => window.clearTimeout(timeout);
-  }, [turnstileLoadError, turnstileRequired, turnstileToken]);
+  }, [
+    originPath,
+    turnstileLoadError,
+    turnstileRequired,
+    turnstileToken,
+  ]);
 
   const onSubmit = async (data: LeadInput) => {
     setSubmitError(null);
     if (turnstileRequired && !turnstileToken) {
       setSubmitError("challenge");
+      captureEnquiryFailure("challenge", originPath);
       return;
     }
     try {
@@ -122,17 +132,21 @@ export function ContactForm() {
       }
       if (r.status === 429) {
         setSubmitError("rate-limit");
+        captureEnquiryFailure("rate_limit", originPath);
         return;
       }
       if (r.status === 400) {
         setSubmitError("challenge");
+        captureEnquiryFailure("challenge", originPath);
         setTurnstileToken(null);
         setTurnstileKey((k) => k + 1);
         return;
       }
       setSubmitError("generic");
+      captureEnquiryFailure("generic", originPath);
     } catch {
       setSubmitError("generic");
+      captureEnquiryFailure("generic", originPath);
     }
   };
 
@@ -164,7 +178,12 @@ export function ContactForm() {
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          <form
+            onSubmit={handleSubmit(onSubmit, () => {
+              captureEnquiryFailure("validation", originPath);
+            })}
+            noValidate
+          >
             {/* Honeypot, invisible to humans, dropped by the API. */}
             <div className="honeypot" aria-hidden="true">
               <label>
@@ -254,6 +273,7 @@ export function ContactForm() {
                   onError={() => {
                     setTurnstileLoadError(true);
                     setTurnstileToken(null);
+                    captureEnquiryFailure("challenge", originPath);
                   }}
                 />
                 {turnstileRequired && !turnstileToken && !turnstileLoadError && (

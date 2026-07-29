@@ -2,7 +2,9 @@ import assert from "node:assert/strict";
 
 import {
   CONTACT_EVENT_NAMES,
+  ENQUIRY_FAILURE_EVENT_NAME,
   buildContactEventPayload,
+  buildEnquiryFailureEventPayload,
   contactCaptureEndpoint,
   consentSafeSourcePage,
   contactChannelFromHref,
@@ -40,6 +42,7 @@ assert.deepEqual(CONTACT_EVENT_NAMES, {
   email: "click_email",
   form: "submit_enquiry_success",
 });
+assert.equal(ENQUIRY_FAILURE_EVENT_NAME, "submit_enquiry_failure");
 
 assert.equal(
   contactCaptureEndpoint("https://us.i.posthog.com"),
@@ -61,6 +64,26 @@ assert.deepEqual(
       channel: "call",
       locale: "en",
       source_page: "/contact",
+      $geoip_disable: true,
+      $process_person_profile: false,
+    },
+  },
+);
+
+assert.deepEqual(
+  buildEnquiryFailureEventPayload("public-key", {
+    failure_reason: "validation",
+    locale: "te",
+    source_page: "/te/contact",
+  }),
+  {
+    api_key: "public-key",
+    event: "submit_enquiry_failure",
+    properties: {
+      distinct_id: "anonymous-contact-choice",
+      failure_reason: "validation",
+      locale: "te",
+      source_page: "/te/contact",
       $geoip_disable: true,
       $process_person_profile: false,
     },

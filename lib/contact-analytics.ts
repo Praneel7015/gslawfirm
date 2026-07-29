@@ -7,19 +7,43 @@ export const CONTACT_EVENT_NAMES = {
   form: "submit_enquiry_success",
 } as const;
 
+export const ENQUIRY_FAILURE_EVENT_NAME = "submit_enquiry_failure";
+
 export type ContactChannel = keyof typeof CONTACT_EVENT_NAMES;
 export type ContactLocale = "en" | "hi" | "te";
+export type EnquiryFailureReason =
+  | "validation"
+  | "challenge"
+  | "rate_limit"
+  | "generic";
 
-type ContactEventProperties = {
-  channel: ContactChannel;
+type ConsentSafeEventProperties = {
   locale: ContactLocale;
   source_page: string;
+};
+
+type ContactEventProperties = ConsentSafeEventProperties & {
+  channel: ContactChannel;
+};
+
+type EnquiryFailureEventProperties = ConsentSafeEventProperties & {
+  failure_reason: EnquiryFailureReason;
 };
 
 type ContactEventPayload = {
   api_key: string;
   event: (typeof CONTACT_EVENT_NAMES)[ContactChannel];
   properties: ContactEventProperties & {
+    distinct_id: "anonymous-contact-choice";
+    $geoip_disable: true;
+    $process_person_profile: false;
+  };
+};
+
+type EnquiryFailureEventPayload = {
+  api_key: string;
+  event: typeof ENQUIRY_FAILURE_EVENT_NAME;
+  properties: EnquiryFailureEventProperties & {
     distinct_id: "anonymous-contact-choice";
     $geoip_disable: true;
     $process_person_profile: false;
@@ -109,18 +133,31 @@ export function buildContactEventPayload(
   };
 }
 
-function sendContactEvent(
-  channel: ContactChannel,
-  properties: ContactEventProperties,
+export function buildEnquiryFailureEventPayload(
+  apiKey: string,
+  properties: EnquiryFailureEventProperties,
+): EnquiryFailureEventPayload {
+  return {
+    api_key: apiKey,
+    event: ENQUIRY_FAILURE_EVENT_NAME,
+    properties: {
+      distinct_id: "anonymous-contact-choice",
+      ...properties,
+      $geoip_disable: true,
+      $process_person_profile: false,
+    },
+  };
+}
+
+function sendEvent(
+  payload: ContactEventPayload | EnquiryFailureEventPayload,
 ) {
   const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
   const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
   const endpoint = host ? contactCaptureEndpoint(host) : undefined;
   if (!key || !endpoint) return false;
 
-  const body = JSON.stringify(
-    buildContactEventPayload(key, channel, properties),
-  );
+  const body = JSON.stringify(payload);
 
   if (typeof navigator.sendBeacon === "function") {
     return navigator.sendBeacon(
@@ -159,7 +196,11 @@ function captureOnce(
     return false;
   }
 
-  if (!sendContactEvent(channel, properties)) return false;
+  const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+  if (!apiKey) return false;
+  if (!sendEvent(buildContactEventPayload(apiKey, channel, properties))) {
+    return false;
+  }
 
   lastCapture = { key, timestamp: now };
   return true;
@@ -173,4 +214,35 @@ export function captureContactChoice(
 
 export function captureSuccessfulEnquiry(sourcePage?: string) {
   return captureOnce("form", sourcePage);
+}
+
+export function captureEnquiryFailure(
+  failureReason: EnquiryFailureReason,
+  sourcePage?: string,
+  now = Date.now(),
+) {
+  if (typeof window === "undefined") return false;
+
+  const properties: EnquiryFailureEventProperties = {
+    failure_reason: failureReason,
+    locale: localeFromPathname(window.location.pathname),
+    source_page: consentSafeSourcePage(
+      window.location.pathname,
+      sourcePage,
+    ),
+  };
+  const key = `${ENQUIRY_FAILURE_EVENT_NAME}:${properties.failure_reason}:${properties.locale}:${properties.source_page}`;
+
+  if (isDuplicateContactCapture(lastCapture, key, now)) {
+    return false;
+  }
+
+  const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+  if (!apiKey) return false;
+  if (!sendEvent(buildEnquiryFailureEventPayload(apiKey, properties))) {
+    return false;
+  }
+
+  lastCapture = { key, timestamp: now };
+  return true;
 }
