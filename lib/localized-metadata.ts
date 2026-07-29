@@ -496,6 +496,26 @@ const localizedMetadata = {
       },
     },
   },
+  legalNoticeReplyFormat: {
+    path: "/legal-notice-reply-format",
+    copy: {
+      en: {
+        title: `Legal Notice Reply Format Guide | ${firm.name} Hyderabad`,
+        description:
+          "Legal notice reply format guide for Hyderabad: structure, documents, chronology, deadlines and why a generic Word template may be risky.",
+      },
+      hi: {
+        title: `कानूनी नोटिस जवाब का प्रारूप | ${firm.name} हैदराबाद`,
+        description:
+          "हैदराबाद के लिए कानूनी नोटिस जवाब प्रारूप: संरचना, दस्तावेज, समयक्रम, समय-सीमा और सामान्य Word template की सीमाएं.",
+      },
+      te: {
+        title: `లీగల్ నోటీసు జవాబు ఫార్మాట్ | ${firm.name} హైదరాబాద్`,
+        description:
+          "హైదరాబాద్ కోసం లీగల్ నోటీసు జవాబు ఫార్మాట్: నిర్మాణం, పత్రాలు, కాలక్రమం, గడువులు మరియు సాధారణ Word template పరిమితులు.",
+      },
+    },
+  },
   bailHearingProcedure: {
     path: "/bail-hearing-procedure-hyderabad",
     copy: {

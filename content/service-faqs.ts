@@ -69,7 +69,8 @@ export const cyberCrimeComplaintsFaqs: readonly ServiceFaq[] = [
       "No. This page is about legal next-step context around complaint papers, FIRs, notices, evidence records and court stages. Technical account recovery or takedown work is outside this page.",
   },
   {
-    question: "Can this page say whether police action or recovery will happen?",
+    question:
+      "Can this page say whether police action or recovery will happen?",
     answer:
       "No. Police action, recovery, platform response or court relief depends on the facts, records, complaint stage, forum and investigation. The papers have to be read before any next step can be discussed.",
   },
@@ -147,6 +148,30 @@ export const legalNoticesFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const legalNoticeReplyFormatFaqs: readonly ServiceFaq[] = [
+  {
+    question:
+      "Can I download a legal notice reply format in Word from this page?",
+    answer:
+      "No. This page explains a common structure and preparation checklist, but it does not provide a filing-ready Word template. The wording depends on the complete notice, documents, facts, deadline and the record that may be used later.",
+  },
+  {
+    question: "How soon should a legal notice be answered?",
+    answer:
+      "Read the response date in the notice promptly, but do not treat it as the only time question. Receipt, contract terms, limitation, a statutory step, a pending case and earlier communications may affect the response plan.",
+  },
+  {
+    question: "Should every allegation be denied?",
+    answer:
+      "No. A reply may admit a supported fact, deny an incorrect allegation, explain incomplete context, ask for a record, or state that a claim is not supported. The documents should guide the position.",
+  },
+  {
+    question: "What should I share for a first reply discussion?",
+    answer:
+      "Share the complete notice and annexures, delivery proof, a dated chronology, the main agreement or transaction papers, payment records, messages, prior complaints or replies, and any pending court or authority papers.",
+  },
+] as const;
+
 export const specificPerformanceFaqs: readonly ServiceFaq[] = [
   {
     question: "What papers help for a specific-performance discussion?",
@@ -159,7 +184,8 @@ export const specificPerformanceFaqs: readonly ServiceFaq[] = [
       "No. The next step depends on the contract, facts, limitation, conduct of the parties, available remedies, forum and court stage. The papers have to be read first.",
   },
   {
-    question: "Can interim relief be discussed with a specific-performance matter?",
+    question:
+      "Can interim relief be discussed with a specific-performance matter?",
     answer:
       "It can be discussed when the agreement, possession or delivery context, urgency, documents and current court stage are clear. Whether any interim step is suitable depends on the file.",
   },
@@ -167,7 +193,8 @@ export const specificPerformanceFaqs: readonly ServiceFaq[] = [
 
 export const injunctionInterimReliefFaqs: readonly ServiceFaq[] = [
   {
-    question: "What papers help for an injunction or interim-relief discussion?",
+    question:
+      "What papers help for an injunction or interim-relief discussion?",
     answer:
       "Property or contract papers, notices, replies, photographs, messages, possession details, prior orders, pleadings, affidavits, and next-date details are useful if available.",
   },
@@ -267,7 +294,8 @@ export const chequeBounceProcedureFaqs: readonly ServiceFaq[] = [
       "The cheque, bank return memo, demand notice, postal or delivery proof, transaction papers, invoices, messages, replies, complaint copy, summons and next-date details are useful if available.",
   },
   {
-    question: "Can this guide calculate notice period, limitation or court fees?",
+    question:
+      "Can this guide calculate notice period, limitation or court fees?",
     answer:
       "No. Dates, limitation and court-fee questions depend on the papers, forum, filing stage and current record. The documents have to be read before a specific next step can be discussed.",
   },

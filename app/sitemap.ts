@@ -16,6 +16,7 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
   "property-dispute-courts-telangana": "2026-06-20",
   "consumer-forum-complaints": "2026-06-20",
   "legal-notices": "2026-06-20",
+  "legal-notice-reply-format": "2026-07-29",
   "commercial-contracts": "2026-07-28",
   "succession-probate": "2026-07-28",
   "high-court-matters": "2026-07-28",
@@ -49,7 +50,7 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
  * Other locales live at `/<locale>/<path>` (e.g. `/te/about`). This
  * mirrors `localePrefix: "as-needed"` in i18n/routing.ts.
  *
- * Total entries: 29 routes × 3 locales = 87.
+ * Total entries: 30 routes × 3 locales = 90.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   // Static paths, strings without a slash prefix; the home is "".
@@ -66,7 +67,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
     },
     { path: "criminal-defense", priority: 0.85, changeFrequency: "monthly" },
-    { path: "cyber-crime-complaints", priority: 0.85, changeFrequency: "monthly" },
+    {
+      path: "cyber-crime-complaints",
+      priority: 0.85,
+      changeFrequency: "monthly",
+    },
     { path: "property-disputes", priority: 0.85, changeFrequency: "monthly" },
     {
       path: "property-dispute-courts-telangana",
@@ -79,7 +84,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
     },
     { path: "legal-notices", priority: 0.85, changeFrequency: "monthly" },
-    { path: "commercial-contracts", priority: 0.85, changeFrequency: "monthly" },
+    {
+      path: "legal-notice-reply-format",
+      priority: 0.82,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "commercial-contracts",
+      priority: 0.85,
+      changeFrequency: "monthly",
+    },
     { path: "succession-probate", priority: 0.85, changeFrequency: "monthly" },
     { path: "high-court-matters", priority: 0.85, changeFrequency: "monthly" },
     { path: "cheque-dishonour", priority: 0.85, changeFrequency: "monthly" },
@@ -89,10 +103,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
     },
     { path: "tenancy-eviction", priority: 0.85, changeFrequency: "monthly" },
-    { path: "specific-performance", priority: 0.85, changeFrequency: "monthly" },
-    { path: "injunction-interim-relief", priority: 0.85, changeFrequency: "monthly" },
-    { path: "continuity-of-counsel", priority: 0.82, changeFrequency: "monthly" },
-    { path: "kondapur-legal-services", priority: 0.82, changeFrequency: "monthly" },
+    {
+      path: "specific-performance",
+      priority: 0.85,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "injunction-interim-relief",
+      priority: 0.85,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "continuity-of-counsel",
+      priority: 0.82,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "kondapur-legal-services",
+      priority: 0.82,
+      changeFrequency: "monthly",
+    },
     { path: "about", priority: 0.8, changeFrequency: "yearly" },
     { path: "practice", priority: 0.9, changeFrequency: "monthly" },
     { path: "contact", priority: 0.9, changeFrequency: "yearly" },
@@ -125,12 +155,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency,
         priority,
         alternates: {
-          languages: Object.fromEntries(
-            [
-              ...routing.locales.map((l) => [l, buildUrl(l, path)]),
-              ["x-default", buildUrl(routing.defaultLocale, path)],
-            ],
-          ),
+          languages: Object.fromEntries([
+            ...routing.locales.map((l) => [l, buildUrl(l, path)]),
+            ["x-default", buildUrl(routing.defaultLocale, path)],
+          ]),
         },
       });
     }
