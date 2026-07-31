@@ -639,11 +639,13 @@ export function localizedPageMetadata(
   locale: string,
 ): Metadata {
   const entry = localizedMetadata[key];
-  const copy = entry.copy[safeLocale(locale)];
+  const resolvedLocale = safeLocale(locale);
+  const copy = entry.copy[resolvedLocale];
   return pageMetadata({
     title: copy.title,
     description: copy.description,
     path: entry.path,
+    locale: resolvedLocale,
   });
 }
 
