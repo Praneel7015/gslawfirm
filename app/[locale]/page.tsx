@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { IntroStrip } from "@/components/sections/IntroStrip";
 import { Practice } from "@/components/sections/Practice";
+import { HomeFaqs } from "@/components/sections/HomeFaqs";
 import { Approach } from "@/components/sections/Approach";
 import { Founder } from "@/components/sections/Founder";
 import { Location } from "@/components/sections/Location";
@@ -47,6 +48,7 @@ export default async function HomePage({
       <Hero />
       <IntroStrip />
       <Practice />
+      <HomeFaqs />
       <Approach />
       <Founder />
       <Location />
