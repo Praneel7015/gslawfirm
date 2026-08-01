@@ -26,6 +26,29 @@
     "lede": "All areas, one advocate. Each matter receives the same attention from first hearing to final order: no handing off, no rotating juniors, no surprises on counsel.",
     "learnMore": "Learn more"
   },
+  "homeFaqs": {
+    "eyebrow": "Search questions",
+    "heading": "Questions behind the first search.",
+    "lede": "These answers cover the search themes already bringing this homepage into view. They explain the firm's scope, not the facts of any individual matter.",
+    "items": {
+      "contract": {
+        "question": "What can a contract lawyer review for a Hyderabad business?",
+        "answer": "A contract review can examine the parties, obligations, payment terms, termination, liability, dispute clauses and signature requirements. The useful scope depends on the draft, the transaction and any earlier correspondence."
+      },
+      "business": {
+        "question": "When should a small business speak with a business lawyer?",
+        "answer": "Common starting points include vendor or service agreements, founder and shareholder papers, employment or contractor terms, unpaid invoices, notices and commercial disputes. The documents and current stage determine what can be discussed."
+      },
+      "criminal": {
+        "question": "How does GS Law Firm approach criminal-defense or drink-driving enquiries?",
+        "answer": "An initial review may begin with the FIR or complaint, notice or challan, bail or remand papers, testing or medical material, and the next police or court date. The available step depends on the record and procedural stage."
+      },
+      "nearby": {
+        "question": "Is GS Law Firm near Kondapur and Gachibowli for in-person consultation?",
+        "answer": "The office is in Sri Ramnagar, Kondapur, and serves Gachibowli and nearby Hyderabad localities. Appointments are preferred; a first conversation can also begin by phone or video after a brief enquiry."
+      }
+    }
+  },
   "approach": {
     "eyebrow": "Approach",
     "heading": "Three things we hold to.",

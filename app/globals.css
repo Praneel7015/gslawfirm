@@ -834,6 +834,78 @@ select:focus-visible {
   transition: transform var(--practice-duration) var(--practice-ease);
 }
 
+/* ── HOMEPAGE SEARCH QUESTIONS ───────────────────────────── */
+.home-faqs {
+  padding: 140px 80px;
+  background: var(--color-bg);
+  border-top: .5px solid var(--color-hair);
+  display: grid;
+  grid-template-columns: minmax(260px, .8fr) minmax(0, 1.5fr);
+  gap: 100px;
+}
+.home-faqs-head {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+.home-faqs-head .eyebrow {
+  display: block;
+  margin-bottom: 18px;
+}
+.home-faqs-head h2 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 48px;
+  line-height: .95;
+  letter-spacing: -.04em;
+  margin: 0 0 24px;
+  max-width: 440px;
+  text-wrap: balance;
+}
+.home-faqs-head p {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 420px;
+  text-wrap: pretty;
+}
+.home-faqs-list {
+  border-top: 1px solid var(--color-fg);
+}
+.home-faqs-item {
+  padding: 32px 0 34px;
+  border-bottom: .5px solid var(--color-hair);
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 20px;
+}
+.home-faqs-number {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  color: var(--color-accent);
+  padding-top: 5px;
+}
+.home-faqs-item h3 {
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: -.02em;
+  margin: 0 0 14px;
+  max-width: 680px;
+  text-wrap: balance;
+}
+.home-faqs-item p {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.62;
+  margin: 0;
+  max-width: 660px;
+  text-wrap: pretty;
+}
+
 /* ── APPROACH ─────────────────────────────────────────────── */
 .approach {
   background: var(--color-surface);
@@ -2128,7 +2200,7 @@ select:focus-visible {
   .site-header, .site-header.solid { padding: 18px 32px; }
   .hero-inner { padding: 140px 32px 90px; }
   .hero-foot { left: 32px; right: 32px; }
-  .intro, .practice, .approach, .founder, .contact { padding-left: 32px; padding-right: 32px; }
+  .intro, .practice, .home-faqs, .approach, .founder, .contact { padding-left: 32px; padding-right: 32px; }
   .section-head { padding: 0 32px; }
   .page-hero { padding: 140px 32px 90px; }
   .practice-grid { grid-template-columns: repeat(3, 1fr); }
@@ -2146,6 +2218,14 @@ select:focus-visible {
   }
   .practice-feature-intro p {
     max-width: none;
+  }
+
+  .home-faqs {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .home-faqs-head {
+    position: static;
   }
 
   .foot { padding: 80px 32px 40px; }
@@ -2237,6 +2317,18 @@ select:focus-visible {
   .practice-card h3 { font-size: 20px; margin: 0; }
   .practice-card p { max-width: none; }
   .practice-card .learn { display: none; }
+
+  /* homepage search questions */
+  .home-faqs { padding: 80px 22px; gap: 40px; }
+  .home-faqs-head h2 { font-size: 34px; }
+  .home-faqs-head p { max-width: none; }
+  .home-faqs-item {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 12px;
+    padding: 26px 0 28px;
+  }
+  .home-faqs-item h3 { font-size: 22px; }
+  .home-faqs-item p { font-size: 14.5px; }
 
   /* approach */
   .approach { padding: 80px 22px; }
