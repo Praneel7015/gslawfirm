@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { IntroStrip } from "@/components/sections/IntroStrip";
 import { Practice } from "@/components/sections/Practice";
-import { HomeFaqs } from "@/components/sections/HomeFaqs";
+import { getHomeFaqs, HomeFaqs } from "@/components/sections/HomeFaqs";
 import { Approach } from "@/components/sections/Approach";
 import { Founder } from "@/components/sections/Founder";
 import { Location } from "@/components/sections/Location";
@@ -13,6 +13,7 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   graphSchema,
+  faqPageSchema,
   legalServiceSchema,
   personSchema,
   websiteSchema,
@@ -35,11 +36,13 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const homeFaqs = await getHomeFaqs();
 
   const ld = graphSchema([
     legalServiceSchema(),
     personSchema(),
     websiteSchema(),
+    faqPageSchema(homeFaqs),
   ]);
 
   return (
@@ -48,7 +51,7 @@ export default async function HomePage({
       <Hero />
       <IntroStrip />
       <Practice />
-      <HomeFaqs />
+      <HomeFaqs items={homeFaqs} />
       <Approach />
       <Founder />
       <Location />

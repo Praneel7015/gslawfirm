@@ -1,8 +1,22 @@
 import { getTranslations } from "next-intl/server";
 
+import type { ServiceFaq } from "@/content/service-faqs";
+
 const faqKeys = ["contract", "business", "criminal", "nearby"] as const;
 
-export async function HomeFaqs() {
+export type HomeFaq = ServiceFaq & { key: (typeof faqKeys)[number] };
+
+export async function getHomeFaqs(): Promise<readonly HomeFaq[]> {
+  const t = await getTranslations("homeFaqs");
+
+  return faqKeys.map((key) => ({
+    key,
+    question: t(`items.${key}.question`),
+    answer: t(`items.${key}.answer`),
+  }));
+}
+
+export async function HomeFaqs({ items }: { items: readonly HomeFaq[] }) {
   const t = await getTranslations("homeFaqs");
 
   return (
@@ -13,14 +27,14 @@ export async function HomeFaqs() {
         <p>{t("lede")}</p>
       </div>
       <div className="home-faqs-list">
-        {faqKeys.map((key, index) => (
-          <article className="home-faqs-item" key={key}>
+        {items.map((item, index) => (
+          <article className="home-faqs-item" key={item.key}>
             <span className="home-faqs-number" aria-hidden="true">
               {String(index + 1).padStart(2, "0")}
             </span>
             <div>
-              <h3>{t(`items.${key}.question`)}</h3>
-              <p>{t(`items.${key}.answer`)}</p>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
             </div>
           </article>
         ))}

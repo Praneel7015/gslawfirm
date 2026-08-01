@@ -18,6 +18,7 @@
     "qa:metadata-descriptions": "tsx scripts/qa-metadata-descriptions.ts",
     "qa:metadata-titles": "tsx scripts/qa-metadata-titles.ts",
     "qa:internal-links": "tsx scripts/qa-internal-links.ts",
+    "qa:homepage-faq-schema": "tsx scripts/qa-homepage-faq-schema.ts",
     "qa:routes": "tsx scripts/qa-routes.ts",
     "qa:lighthouse": "node scripts/qa-lighthouse.mjs",
     "qa": "pnpm typecheck && pnpm lint && pnpm lint:bci && pnpm qa:lead-source && pnpm qa:contact-analytics && pnpm qa:discovery-signals && pnpm qa:canonicals && pnpm qa:metadata-titles && pnpm qa:metadata-descriptions && pnpm qa:internal-links && pnpm build && pnpm qa:routes",
