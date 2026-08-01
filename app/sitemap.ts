@@ -7,7 +7,7 @@ import { SITE_URL } from "@/lib/site";
 // Update only the route whose visible content or search metadata changed.
 // These dates come from the corresponding production release history.
 const ROUTE_LAST_MODIFIED: Record<string, string> = {
-  "": "2026-07-26",
+  "": "2026-08-01",
   bail: "2026-07-28",
   "bail-hearing-procedure-hyderabad": "2026-06-20",
   "criminal-defense": "2026-06-20",

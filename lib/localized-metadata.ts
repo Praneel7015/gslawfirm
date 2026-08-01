@@ -22,7 +22,7 @@ const localizedMetadata = {
       en: {
         title: "Contract & Business Advocate in Kondapur | GS Law Firm",
         description:
-          "Contract, business and related civil matters from Adv. Aitha Sunitha's practice in Kondapur, Hyderabad, with information and a confidential consultation path.",
+          "Contract, business, criminal, drink-driving and civil matters from Adv. Aitha Sunitha's practice in Kondapur, Hyderabad, with a confidential enquiry path.",
       },
       hi: {
         title: "GS Law Firm | एडवो. ऐथा सुनीता, कोंडापुर हैदराबाद",
