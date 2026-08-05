@@ -9,6 +9,7 @@ import { leadSchema, type LeadInput } from "@/lib/lead-schema";
 import { cleanSitePath, isContactPath } from "@/lib/lead-source";
 import {
   captureEnquiryFailure,
+  captureSecurityCheckTimeout,
   captureSuccessfulEnquiry,
 } from "@/lib/contact-analytics";
 import {
@@ -97,7 +98,7 @@ export function ContactForm() {
     if (!turnstileRequired || turnstileToken || turnstileLoadError) return;
     const timeout = window.setTimeout(() => {
       setTurnstileLoadError(true);
-      captureEnquiryFailure("challenge", originPath);
+      captureSecurityCheckTimeout(originPath);
     }, 12000);
     return () => window.clearTimeout(timeout);
   }, [
