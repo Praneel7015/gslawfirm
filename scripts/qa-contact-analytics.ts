@@ -1,10 +1,14 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 import {
   CONTACT_EVENT_NAMES,
   ENQUIRY_FAILURE_EVENT_NAME,
+  SECURITY_CHECK_TIMEOUT_EVENT_NAME,
   buildContactEventPayload,
   buildEnquiryFailureEventPayload,
+  buildSecurityCheckTimeoutEventPayload,
   contactCaptureEndpoint,
   consentSafeSourcePage,
   contactChannelFromHref,
@@ -43,6 +47,7 @@ assert.deepEqual(CONTACT_EVENT_NAMES, {
   form: "submit_enquiry_success",
 });
 assert.equal(ENQUIRY_FAILURE_EVENT_NAME, "submit_enquiry_failure");
+assert.equal(SECURITY_CHECK_TIMEOUT_EVENT_NAME, "security_check_timeout");
 
 assert.equal(
   contactCaptureEndpoint("https://us.i.posthog.com"),
@@ -89,5 +94,49 @@ assert.deepEqual(
     },
   },
 );
+
+assert.deepEqual(
+  buildSecurityCheckTimeoutEventPayload("public-key", {
+    locale: "hi",
+    source_page: "/hi/contact",
+  }),
+  {
+    api_key: "public-key",
+    event: "security_check_timeout",
+    properties: {
+      distinct_id: "anonymous-contact-choice",
+      locale: "hi",
+      source_page: "/hi/contact",
+      $geoip_disable: true,
+      $process_person_profile: false,
+    },
+  },
+);
+
+const contactForm = readFileSync(
+  join(process.cwd(), "components/sections/ContactForm.tsx"),
+  "utf8",
+);
+const passiveTimeout = contactForm.match(
+  /window\.setTimeout\(\(\) => \{([\s\S]*?)\}, 12000\)/,
+);
+assert.ok(passiveTimeout, "contact form keeps the 12-second security timeout");
+const passiveTimeoutBody = passiveTimeout[1];
+assert.ok(passiveTimeoutBody);
+assert.match(passiveTimeoutBody, /captureSecurityCheckTimeout\(originPath\)/);
+assert.doesNotMatch(passiveTimeoutBody, /captureEnquiryFailure/);
+
+assert.match(
+  contactForm,
+  /if \(turnstileRequired && !turnstileToken\) \{[\s\S]*?captureEnquiryFailure\("challenge", originPath\)/,
+  "submit-time security rejection remains an enquiry failure",
+);
+assert.match(
+  contactForm,
+  /onSubmit=\{handleSubmit\(onSubmit, \(\) => \{\s*captureEnquiryFailure\("validation", originPath\)/,
+  "validation failures remain enquiry failures",
+);
+assert.match(contactForm, /captureEnquiryFailure\("rate_limit", originPath\)/);
+assert.match(contactForm, /captureEnquiryFailure\("generic", originPath\)/);
 
 console.log("Contact analytics QA OK");

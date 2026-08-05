@@ -8,6 +8,7 @@ export const CONTACT_EVENT_NAMES = {
 } as const;
 
 export const ENQUIRY_FAILURE_EVENT_NAME = "submit_enquiry_failure";
+export const SECURITY_CHECK_TIMEOUT_EVENT_NAME = "security_check_timeout";
 
 export type ContactChannel = keyof typeof CONTACT_EVENT_NAMES;
 export type ContactLocale = "en" | "hi" | "te";
@@ -44,6 +45,16 @@ type EnquiryFailureEventPayload = {
   api_key: string;
   event: typeof ENQUIRY_FAILURE_EVENT_NAME;
   properties: EnquiryFailureEventProperties & {
+    distinct_id: "anonymous-contact-choice";
+    $geoip_disable: true;
+    $process_person_profile: false;
+  };
+};
+
+type SecurityCheckTimeoutEventPayload = {
+  api_key: string;
+  event: typeof SECURITY_CHECK_TIMEOUT_EVENT_NAME;
+  properties: ConsentSafeEventProperties & {
     distinct_id: "anonymous-contact-choice";
     $geoip_disable: true;
     $process_person_profile: false;
@@ -149,8 +160,27 @@ export function buildEnquiryFailureEventPayload(
   };
 }
 
+export function buildSecurityCheckTimeoutEventPayload(
+  apiKey: string,
+  properties: ConsentSafeEventProperties,
+): SecurityCheckTimeoutEventPayload {
+  return {
+    api_key: apiKey,
+    event: SECURITY_CHECK_TIMEOUT_EVENT_NAME,
+    properties: {
+      distinct_id: "anonymous-contact-choice",
+      ...properties,
+      $geoip_disable: true,
+      $process_person_profile: false,
+    },
+  };
+}
+
 function sendEvent(
-  payload: ContactEventPayload | EnquiryFailureEventPayload,
+  payload:
+    | ContactEventPayload
+    | EnquiryFailureEventPayload
+    | SecurityCheckTimeoutEventPayload,
 ) {
   const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
   const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
@@ -240,6 +270,35 @@ export function captureEnquiryFailure(
   const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
   if (!apiKey) return false;
   if (!sendEvent(buildEnquiryFailureEventPayload(apiKey, properties))) {
+    return false;
+  }
+
+  lastCapture = { key, timestamp: now };
+  return true;
+}
+
+export function captureSecurityCheckTimeout(
+  sourcePage?: string,
+  now = Date.now(),
+) {
+  if (typeof window === "undefined") return false;
+
+  const properties: ConsentSafeEventProperties = {
+    locale: localeFromPathname(window.location.pathname),
+    source_page: consentSafeSourcePage(
+      window.location.pathname,
+      sourcePage,
+    ),
+  };
+  const key = `${SECURITY_CHECK_TIMEOUT_EVENT_NAME}:${properties.locale}:${properties.source_page}`;
+
+  if (isDuplicateContactCapture(lastCapture, key, now)) {
+    return false;
+  }
+
+  const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+  if (!apiKey) return false;
+  if (!sendEvent(buildSecurityCheckTimeoutEventPayload(apiKey, properties))) {
     return false;
   }
 
