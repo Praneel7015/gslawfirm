@@ -26,18 +26,15 @@ export async function generateMetadata({
 const cyberStages = [
   {
     title: "Screenshots, transactions and account records",
-    body:
-      "The first reading usually starts with screenshots, links, profile details, phone numbers, email headers, UPI or bank transaction records, platform responses, complaint numbers and any messages already exchanged.",
+    body: "The first reading usually starts with screenshots, links, profile details, phone numbers, email headers, UPI or bank transaction records, platform responses, complaint numbers and any messages already exchanged.",
   },
   {
     title: "Portal, police and notice context",
-    body:
-      "If a complaint has already been made online, at a police station, through a bank, or with a platform, the next discussion should place that record beside any acknowledgement, notice, FIR or response received.",
+    body: "If a complaint has already been made online, at a police station, through a bank, or with a platform, the next discussion should place that record beside any acknowledgement, notice, FIR or response received.",
   },
   {
     title: "FIR, court and later-stage questions",
-    body:
-      "Some cyber matters move into FIR, summons, bail, quashing, evidence, settlement, restitution or appeal context. The correct discussion depends on whether the person is reporting a misuse or responding to papers.",
+    body: "Some cyber matters move into FIR, summons, bail, quashing, evidence, settlement, restitution or appeal context. The correct discussion depends on whether the person is reporting a misuse or responding to papers.",
   },
 ] as const;
 
@@ -162,7 +159,10 @@ export default async function CyberCrimeComplaintsPage({
             discusses the police, FIR, notice, court-stage or response question.
           </p>
 
-          <div className="cyber-steps" aria-label="Cyber-crime complaint stages">
+          <div
+            className="cyber-steps"
+            aria-label="Cyber-crime complaint stages"
+          >
             {cyberStages.map((stage, index) => (
               <article className="cyber-step" key={stage.title}>
                 <span className="li-num">
@@ -227,6 +227,12 @@ export default async function CyberCrimeComplaintsPage({
             <h3>Related practice areas</h3>
             <ul>
               <li>
+                <Link href="/cyber-crime-complaint-format">
+                  Cyber Crime Complaint Format
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
                 <Link href="/criminal-defense">Criminal Defense</Link>
                 <span aria-hidden="true">→</span>
               </li>
@@ -247,7 +253,9 @@ export default async function CyberCrimeComplaintsPage({
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
+                <SourceAwareContactLink>
+                  Contact the firm
+                </SourceAwareContactLink>
                 <span aria-hidden="true">→</span>
               </li>
             </ul>

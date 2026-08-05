@@ -76,6 +76,29 @@ export const cyberCrimeComplaintsFaqs: readonly ServiceFaq[] = [
   },
 ] as const;
 
+export const cyberCrimeComplaintFormatFaqs: readonly ServiceFaq[] = [
+  {
+    question: "Where can a cyber-crime complaint be reported in India?",
+    answer:
+      "The National Cyber Crime Reporting Portal accepts cyber-crime complaints online at cybercrime.gov.in. For immediate cyber financial fraud reporting, the official portal directs people to call 1930. Contact local police or 112 in an emergency.",
+  },
+  {
+    question: "What details should a cyber crime complaint contain?",
+    answer:
+      "Include a dated chronology, the relevant phone numbers, email addresses, usernames, profile links, URLs, UPI or account identifiers, transaction IDs, amounts, screenshots, original files, and earlier complaint or acknowledgement numbers.",
+  },
+  {
+    question: "Should passwords, PINs or one-time codes be included?",
+    answer:
+      "No. Do not put passwords, PINs or one-time codes into a complaint template or send them by message. Use only verified bank, platform, portal and police channels for account-security steps.",
+  },
+  {
+    question: "Is this page a filing-ready complaint template?",
+    answer:
+      "No. It provides a general structure and evidence checklist. The correct wording and legal next step depend on the event, records, loss, parties, complaint stage, police papers and any later court process.",
+  },
+] as const;
+
 export const propertyDisputesFaqs: readonly ServiceFaq[] = [
   {
     question: "What property papers are useful for the first discussion?",
