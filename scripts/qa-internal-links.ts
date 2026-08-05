@@ -52,6 +52,7 @@ const reciprocalPairs = [
   ["/bail", "/criminal-defense"],
   ["/commercial-contracts", "/succession-probate"],
   ["/legal-notices", "/legal-notice-reply-format"],
+  ["/cyber-crime-complaints", "/cyber-crime-complaint-format"],
 ] as const;
 
 for (const [left, right] of reciprocalPairs) {

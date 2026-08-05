@@ -476,6 +476,26 @@ const localizedMetadata = {
       },
     },
   },
+  cyberCrimeComplaintFormat: {
+    path: "/cyber-crime-complaint-format",
+    copy: {
+      en: {
+        title: `Cyber Crime Complaint Format Guide | ${firm.name} Hyderabad`,
+        description:
+          "Cyber crime complaint format for Hyderabad: chronology, identifiers, transaction details, evidence checklist and official reporting routes in India.",
+      },
+      hi: {
+        title: `साइबर क्राइम शिकायत का प्रारूप | ${firm.name} हैदराबाद`,
+        description:
+          "हैदराबाद के लिए साइबर क्राइम शिकायत प्रारूप: समयक्रम, identifiers, transaction details, evidence checklist और भारत के official reporting routes.",
+      },
+      te: {
+        title: `సైబర్ క్రైమ్ ఫిర్యాదు ఫార్మాట్ | ${firm.name} హైదరాబాద్`,
+        description:
+          "హైదరాబాద్ కోసం సైబర్ క్రైమ్ ఫిర్యాదు ఫార్మాట్: కాలక్రమం, identifiers, transaction details, evidence checklist మరియు official reporting routes.",
+      },
+    },
+  },
   legalNotices: {
     path: "/legal-notices",
     copy: {

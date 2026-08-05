@@ -1,5 +1,5 @@
 export const focusedGuidanceIntro =
-  "For FIRs, cyber-crime complaints, bail stages, cheque dishonour, cheque-bounce procedure, consumer complaints, legal notices, property and tenancy disputes, agreement enforcement, injunctions, commercial documents, succession papers and High Court steps in Hyderabad, read the focused guidance before sending an enquiry.";
+  "For FIRs, cyber-crime complaints and complaint format, bail stages, cheque dishonour, cheque-bounce procedure, consumer complaints, legal notices, property and tenancy disputes, agreement enforcement, injunctions, commercial documents, succession papers and High Court steps in Hyderabad, read the focused guidance before sending an enquiry.";
 
 export const practiceIndexIntro =
   "Looking for criminal-defense, cyber-crime complaint, bail, bail-hearing procedure, cheque-dishonour, cheque-bounce procedure, consumer-forum complaint, legal-notice or reply-format, property-dispute, property court-stage, tenancy and eviction, agreement-enforcement, injunction or interim-relief, commercial-contract, succession and probate, High Court, continuity of counsel, or Kondapur location context in Hyderabad? Start with the focused pages, then send a brief note if the matter needs a conversation.";
@@ -31,6 +31,10 @@ export const focusedGuidanceLinks = [
 ] as const;
 
 export const practiceIndexExtraLinks = [
+  {
+    href: "/cyber-crime-complaint-format",
+    label: "Cyber-crime complaint format guide",
+  },
   {
     href: "/legal-notice-reply-format",
     label: "Legal-notice reply format guide",

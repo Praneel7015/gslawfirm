@@ -3,8 +3,8 @@ import { legalServiceSchema } from "../lib/jsonld";
 
 const entries = sitemap();
 
-if (entries.length !== 90) {
-  throw new Error(`Expected 90 sitemap entries, found ${entries.length}.`);
+if (entries.length !== 93) {
+  throw new Error(`Expected 93 sitemap entries, found ${entries.length}.`);
 }
 
 for (const entry of entries) {
@@ -45,5 +45,5 @@ for (const claim of unsupportedPaymentClaims) {
 }
 
 console.log(
-  "Discovery signals passed: 90 stable sitemap entries, complete locale alternates, and no unsupported LegalService payment claims.",
+  "Discovery signals passed: 93 stable sitemap entries, complete locale alternates, and no unsupported LegalService payment claims.",
 );

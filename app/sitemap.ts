@@ -12,6 +12,7 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
   "bail-hearing-procedure-hyderabad": "2026-06-20",
   "criminal-defense": "2026-06-20",
   "cyber-crime-complaints": "2026-06-20",
+  "cyber-crime-complaint-format": "2026-08-05",
   "property-disputes": "2026-06-20",
   "property-dispute-courts-telangana": "2026-06-20",
   "consumer-forum-complaints": "2026-06-20",
@@ -50,7 +51,7 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
  * Other locales live at `/<locale>/<path>` (e.g. `/te/about`). This
  * mirrors `localePrefix: "as-needed"` in i18n/routing.ts.
  *
- * Total entries: 30 routes × 3 locales = 90.
+ * Total entries: 31 routes × 3 locales = 93.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   // Static paths, strings without a slash prefix; the home is "".
@@ -70,6 +71,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       path: "cyber-crime-complaints",
       priority: 0.85,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "cyber-crime-complaint-format",
+      priority: 0.82,
       changeFrequency: "monthly",
     },
     { path: "property-disputes", priority: 0.85, changeFrequency: "monthly" },
