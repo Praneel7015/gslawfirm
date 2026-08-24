@@ -20,6 +20,7 @@ declare global {
         el: HTMLElement,
         opts: {
           sitekey: string;
+          action?: string;
           callback?: (token: string) => void;
           "error-callback"?: () => void;
           "expired-callback"?: () => void;
@@ -66,22 +67,27 @@ export function TurnstileWidget({
   onToken,
   onError,
   onReady,
+  action,
 }: {
   onToken: (token: string | null) => void;
   onError?: () => void;
   /** Fires once when the widget has mounted (token may still be pending). */
   onReady?: () => void;
+  /** Matches the `data-action` validated server-side in siteverify. */
+  action?: string;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const widgetIdRef = useRef<string | null>(null);
   const onTokenRef = useRef(onToken);
   const onErrorRef = useRef(onError);
   const onReadyRef = useRef(onReady);
+  const actionRef = useRef(action);
 
   useEffect(() => {
     onTokenRef.current = onToken;
     onErrorRef.current = onError;
     onReadyRef.current = onReady;
+    actionRef.current = action;
   });
 
   useEffect(() => {
@@ -96,6 +102,7 @@ export function TurnstileWidget({
           if (cancelled || !host || !window.turnstile) return;
           widgetIdRef.current = window.turnstile.render(host, {
             sitekey: SITE_KEY!,
+            action: actionRef.current,
             theme: "light",
             size: "flexible",
             callback: (token) => onTokenRef.current(token),

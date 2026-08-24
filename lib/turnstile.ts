@@ -5,12 +5,26 @@
  * configured (no secret key). Returns `{ ok: false, reason }` only
  * when Turnstile IS configured and the token check fails.
  *
- * This shape means Turnstile is purely additive, if the client
- * hasn't set up the keys yet, the form keeps working. Once the keys
- * are in env, every submission must verify.
+ * Canonical contract per developers.cloudflare.com/turnstile/spin:
+ *   - token length guard (1–2048 chars)
+ *   - 10-second AbortSignal timeout
+ *   - result.action must equal expectedAction
+ *   - result.hostname must be in the TURNSTILE_HOSTNAMES allowlist
  *
  * See https://developers.cloudflare.com/turnstile/get-started/server-side-validation/
  */
+
+const EXPECTED_ACTION = "contact";
+
+function buildHostnameSet(): Set<string> {
+  return new Set(
+    (process.env.TURNSTILE_HOSTNAMES ?? "")
+      .split(",")
+      .map((h) => h.trim())
+      .filter(Boolean),
+  );
+}
+
 export async function verifyTurnstile(
   token: string | null | undefined,
   clientIp: string,
@@ -23,9 +37,27 @@ export async function verifyTurnstile(
     return { ok: true };
   }
 
-  if (!token) {
+  if (
+    typeof token !== "string" ||
+    token.length === 0 ||
+    token.length > 2048
+  ) {
     return { ok: false, reason: "missing-token" };
   }
+
+  const expectedHostnames = buildHostnameSet();
+  if (expectedHostnames.size === 0) {
+    console.warn(
+      "[turnstile] TURNSTILE_HOSTNAMES is unset — hostname validation skipped",
+    );
+  }
+
+  let result: {
+    success: boolean;
+    action?: string;
+    hostname?: string;
+    "error-codes"?: string[];
+  };
 
   try {
     const body = new URLSearchParams({
@@ -39,19 +71,33 @@ export async function verifyTurnstile(
         method: "POST",
         body,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        signal: AbortSignal.timeout(10_000),
       },
     );
-    const data = (await r.json()) as {
-      success: boolean;
-      "error-codes"?: string[];
-    };
-    if (data.success) return { ok: true };
-    return {
-      ok: false,
-      reason: (data["error-codes"] ?? ["unknown"]).join(","),
-    };
+    if (!r.ok) throw new Error(`siteverify ${r.status}`);
+    result = (await r.json()) as typeof result;
   } catch (err) {
     console.error("[turnstile] verify error", err);
     return { ok: false, reason: "verify-error" };
   }
+
+  if (!result.success) {
+    return {
+      ok: false,
+      reason: (result["error-codes"] ?? ["unknown"]).join(","),
+    };
+  }
+
+  if (result.action !== EXPECTED_ACTION) {
+    return { ok: false, reason: `action-mismatch:${result.action}` };
+  }
+
+  if (
+    expectedHostnames.size > 0 &&
+    !expectedHostnames.has(result.hostname ?? "")
+  ) {
+    return { ok: false, reason: `hostname-mismatch:${result.hostname}` };
+  }
+
+  return { ok: true };
 }

@@ -270,6 +270,7 @@ export function ContactForm() {
               <div className="turnstile-row">
                 <TurnstileWidget
                   key={turnstileKey}
+                  action="contact"
                   onToken={handleToken}
                   onError={() => {
                     setTurnstileLoadError(true);
