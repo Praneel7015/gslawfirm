@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { cyberCrimeComplaintFormatFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
-import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
+import { breadcrumbSchema, faqPageSchema, graphSchema, howToSchema } from "@/lib/jsonld";
 import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
@@ -55,6 +55,33 @@ const evidenceChecklist = [
   "Original emails with headers, messages, call logs and downloaded files",
   "Portal, police, bank, platform or telecom acknowledgements already received",
   "FIR, notice, summons or court papers if the matter has moved further",
+] as const;
+
+const cyberCrimeHowToSteps = [
+  {
+    name: "Secure the affected account and contact the bank or platform",
+    text: "Use verified bank, platform and telecom channels to secure affected access. For immediate cyber financial fraud, call 1930. Do not wait for a polished complaint when money is still moving.",
+  },
+  {
+    name: "Record complainant and contact details",
+    text: "Give your name, address, phone number and email. If a business account or another affected person is involved, identify that connection without sharing passwords or PINs.",
+  },
+  {
+    name: "Write a dated sequence of events",
+    text: "Set out when contact began, what was represented, which account or number was used, what action followed, when money or access was lost, and when the bank, platform, portal or police were contacted.",
+  },
+  {
+    name: "List identifiers and transaction details",
+    text: "List relevant phone numbers, email addresses, usernames, profile links, UPI IDs, account details, transaction IDs, dates and amounts.",
+  },
+  {
+    name: "Number and preserve the evidence",
+    text: "Number screenshots, messages, email headers, bank records, platform notices, call logs, URLs and complaint acknowledgements. Keep original files separately.",
+  },
+  {
+    name: "Record action taken and submit the complaint",
+    text: "Record calls to 1930, portal acknowledgements, bank complaint numbers, platform reports and police visits. Submit through cybercrime.gov.in, local police or the appropriate portal.",
+  },
 ] as const;
 
 function complaintFormatWebPageSchema(locale: string) {
@@ -123,6 +150,12 @@ export default async function CyberCrimeComplaintFormatPage({
       },
       { name: "Cyber Crime Complaint Format", url: localizedGuideUrl },
     ]),
+    howToSchema({
+      name: "Cyber crime complaint format for Hyderabad",
+      description:
+        "Steps to prepare a cyber crime complaint in India: secure accounts, record details, write a chronology, list identifiers, preserve evidence and submit through official channels.",
+      steps: cyberCrimeHowToSteps,
+    }),
     faqPageSchema(cyberCrimeComplaintFormatFaqs),
   ]);
 

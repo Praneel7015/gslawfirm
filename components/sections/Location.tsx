@@ -7,31 +7,16 @@ export async function Location() {
   return (
     <section className="location" aria-labelledby="loc-title">
       <div className="map" aria-hidden="true">
-        <div className="map-grid" />
-        <div className="map-roads">
-          <svg viewBox="0 0 600 540" preserveAspectRatio="none">
-            <path d="M0,140 Q200,180 400,120 T600,160" stroke="rgba(255,255,255,.18)" strokeWidth="1.2" fill="none" />
-            <path d="M0,320 Q150,280 300,340 T600,300" stroke="rgba(255,255,255,.14)" strokeWidth="1" fill="none" />
-            <path d="M0,460 Q200,420 400,500 T600,440" stroke="rgba(255,255,255,.10)" strokeWidth=".8" fill="none" />
-            <path d="M120,0 Q160,200 100,420 T140,540" stroke="rgba(255,255,255,.10)" strokeWidth=".8" fill="none" />
-            <path d="M320,0 Q280,180 360,360 T300,540" stroke="rgba(255,255,255,.14)" strokeWidth="1" fill="none" />
-            <path d="M500,0 Q460,250 520,420 T480,540" stroke="rgba(255,255,255,.10)" strokeWidth=".8" fill="none" />
-          </svg>
-        </div>
-        <a
-          className="map-pin"
-          href={firm.mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-hidden="true"
-          tabIndex={-1}
-        >
-          <div className="ring" />
-          <div className="ring r2" />
-          <div className="dot" />
-          <div className="label">{t("pinLabel")}</div>
-        </a>
-        <div className="map-attr">17.464°N · 78.366°E · Kondapur</div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4103.320794214401!2d78.34680497548479!3d17.460733183439118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb930055175135%3A0x52aad47080e96964!2sGS%20Law%20Firm!5e1!3m2!1sen!2sin!4v1789882915076!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style={{ border: 0, position: "absolute", inset: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="GS Law Firm office location on Google Maps"
+        />
       </div>
       <div className="address">
         <span className="eyebrow">{t("eyebrow")}</span>

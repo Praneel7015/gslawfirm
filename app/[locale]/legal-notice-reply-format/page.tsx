@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { legalNoticeReplyFormatFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
-import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
+import { breadcrumbSchema, faqPageSchema, graphSchema, howToSchema } from "@/lib/jsonld";
 import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
@@ -95,7 +95,30 @@ const matterContexts = [
   },
 ] as const;
 
-function replyFormatWebPageSchema(locale: string) {
+const legalNoticeReplyHowToSteps = [
+  {
+    name: "Read the complete notice and delivery record",
+    text: "Start with the sender, date, delivery method, deadline, legal or contractual clauses cited, factual allegations, amount or relief claimed, and documents mentioned.",
+  },
+  {
+    name: "Build a dated chronology",
+    text: "List the agreement, transaction, possession, payment, communication, complaint and notice events in date order to separate facts from assumptions.",
+  },
+  {
+    name: "Match each allegation to a document",
+    text: "Place agreements, invoices, receipts, bank records, messages, photographs, property papers, earlier complaints and prior replies beside each allegation they address.",
+  },
+  {
+    name: "Identify the real deadline and response plan",
+    text: "Consider the notice date, receipt, contract terms, limitation, pending court dates, statutory steps and earlier communications that affect the response timeline.",
+  },
+  {
+    name: "Draft the reply using a structured format",
+    text: "Prepare heading and reference, authority and opening position, paragraph-wise response to allegations, chronology, legal context, and a closing position consistent with the documents.",
+  },
+] as const;
+
+function replyFormatWebPageSchema(locale: string): Record<string, unknown> {
   const path =
     locale === "en"
       ? "/legal-notice-reply-format"
@@ -159,6 +182,12 @@ export default async function LegalNoticeReplyFormatPage({
       { name: "Legal Notices", url: `${SITE_URL}/legal-notices` },
       { name: "Legal Notice Reply Format", url: localizedGuideUrl },
     ]),
+    howToSchema({
+      name: "Legal notice reply format for Hyderabad",
+      description:
+        "Steps to prepare a legal notice reply: read the notice, build a chronology, match allegations to documents, identify the deadline and draft a structured response.",
+      steps: legalNoticeReplyHowToSteps,
+    }),
     faqPageSchema(legalNoticeReplyFormatFaqs),
   ]);
 

@@ -74,11 +74,8 @@ export async function Footer() {
         <div className="foot-credit-line">
           <span>© {year} · {firm.name}</span>
           <span aria-hidden="true">·</span>
-          <a className="tin-credit" href="https://tin.computer">
-            <svg aria-hidden="true" viewBox="0 0 32 32">
-              <rect width="32" height="32" fill="#66DC9D" />
-            </svg>
-            <span>Growth by Tin</span>
+          <a className="dev-credit" href="https://praneel.sindhole.com">
+            <span>Made by Praneel S</span>
           </a>
         </div>
       </div>

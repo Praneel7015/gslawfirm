@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { bailHearingProcedureFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
-import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
+import { breadcrumbSchema, faqPageSchema, graphSchema, howToSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
   localizedPageMetadata,
@@ -38,6 +38,25 @@ const hearingStages = [
     title: "After the order or next date",
     body:
       "If the court passes an order, the next step may involve surety, bond papers, identity or address records, police-station attendance, travel limits, or other conditions. If the matter is adjourned, the next-date preparation should be clear.",
+  },
+] as const;
+
+const howToSteps = [
+  {
+    name: "Collect the FIR, complaint and remand papers",
+    text: "Gather the FIR or complaint copy, remand papers if any, sections invoked, prior orders, court name, next date, and papers available from the family or accused.",
+  },
+  {
+    name: "Understand the current court stage",
+    text: "Determine whether the bail matter is listed for filing, notice, objections, arguments, an order, or another date depending on the forum and papers.",
+  },
+  {
+    name: "Prepare surety and bond papers",
+    text: "Arrange identity documents, address proof, solvency records, photographs and any other paperwork that may be required for surety or bond conditions.",
+  },
+  {
+    name: "Follow up after the order or next date",
+    text: "If an order is passed, comply with surety, bond, police-station attendance, travel and other conditions. If the matter is adjourned, prepare for the next-date step.",
   },
 ] as const;
 
@@ -107,6 +126,12 @@ export default async function BailHearingProcedurePage({
       { name: "Bail", url: `${SITE_URL}/bail` },
       { name: "Bail Hearing Procedure", url: localizedGuideUrl },
     ]),
+    howToSchema({
+      name: "Bail hearing procedure in Hyderabad",
+      description:
+        "Steps to prepare for a bail hearing in Hyderabad: collecting papers, understanding the court stage, preparing surety and following up after the order.",
+      steps: howToSteps,
+    }),
     faqPageSchema(bailHearingProcedureFaqs),
   ]);
 

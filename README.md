@@ -43,8 +43,8 @@ pnpm build
 | `RESEND_FROM` | `GS Law Firm <noreply@sunitha.sindhole.com>` |
 | `LEAD_NOTIFY_TO` | `sunithags@gmail.com` |
 | `NEXT_PUBLIC_CF_ANALYTICS_TOKEN` | Cloudflare Web Analytics |
-| `NEXT_PUBLIC_POSTHOG_KEY` | Tin-managed PostHog public ingestion key |
-| `NEXT_PUBLIC_POSTHOG_HOST` | Tin-managed PostHog ingestion host |
+| `NEXT_PUBLIC_POSTHOG_KEY` | PostHog public ingestion key |
+| `NEXT_PUBLIC_POSTHOG_HOST` | PostHog ingestion host |
 | `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console HTML tag value |
 
 ### Optional
@@ -114,6 +114,7 @@ pnpm qa              # typecheck + lint + bci + build + route smoke (35 URLs)
 pnpm qa:routes       # HTTP 200 check only
 pnpm qa:lead-heartbeat # no-submit live contact path + lead API validation probe
 pnpm qa:lighthouse   # mobile Lighthouse on / and /practice/criminal
+pnpm qa:ai-visibility # llms.txt, JSON-LD graph, sameAs, areasServed
 pnpm check:env       # local .env sanity check
 ```
 
@@ -128,6 +129,35 @@ await native legal review before those locales go fully live.
 
 **CI:** GitHub Actions runs typecheck, ESLint, BCI lint, and build on
 every push to `main`. Local pre-commit hook runs `pnpm lint:bci`.
+
+---
+
+## SEO architecture
+
+```
+lib/seo.ts                pageMetadata(), alternatesFor() — per-page OG + canonical
+lib/localized-metadata.ts Titles + descriptions for every route × locale
+lib/jsonld.ts             LegalService, Person, WebSite, Service, FAQ, Breadcrumb, HowTo, ProfilePage
+app/robots.ts             robots.txt — allow all, disallow /api/
+app/sitemap.ts            93 entries with hreflang, stable lastModified dates
+public/llms.txt           AI-discoverable site summary for LLM crawlers
+public/llms-full.txt      Extended AI-discoverable per-page guide
+scripts/qa-*              Automated checks: canonicals, titles, descriptions, links, FAQs, AI visibility
+```
+
+| Signal | Target | QA Script |
+|--------|--------|-----------|
+| Sitemap entries | 93 (31 routes × 3 locales) | `qa:discovery-signals` |
+| Unique page titles | 93, branded + locally qualified | `qa:metadata-titles` |
+| Unique descriptions | 93, 80–170 chars, locally qualified | `qa:metadata-descriptions` |
+| Canonicals | Self-referencing per locale | `qa:canonicals` |
+| Internal links | Reciprocal between related services | `qa:internal-links` |
+| FAQ schema | Homepage + all service pages | `qa:homepage-faq-schema` |
+| HowTo schema | 4 procedure/format guide pages | Rich Results Test |
+| ProfilePage schema | About page (E-E-A-T) | Rich Results Test |
+| AI visibility | llms.txt + llms-full.txt + JSON-LD | `qa:ai-visibility` |
+| Security headers | nosniff, DENY, referrer-policy, permissions-policy | Response headers |
+| Lighthouse (mobile) | Perf ≥ 95, A11y 100, BP 100, SEO 100 | `qa:lighthouse` |
 
 ---
 

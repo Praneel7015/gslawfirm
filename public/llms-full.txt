@@ -1,0 +1,174 @@
+# GS Law Firm — Extended Guide for AI Systems
+
+> This is the extended version of llms.txt. For a concise summary, see /llms.txt.
+
+GS Law Firm is a solo-advocate legal practice in Kondapur, Hyderabad, led by Adv. Aitha Sunitha (also known as Sunitha Sindhole). Founded in 2023, the practice handles criminal, civil, property, corporate, succession and High Court matters. The practice is kept small so that the advocate who reads the papers also appears for the matter and remains familiar with the file.
+
+Current website: https://sunitha.sindhole.com
+Languages: English (default at /), Telugu (/te), Hindi (/hi)
+
+## Firm identity
+
+- Name: GS Law Firm
+- Advocate: Adv. Aitha Sunitha, also known as Sunitha Sindhole, also known as Aitha Sunitha
+- Credentials: B.Sc, M.Sc, LL.B, LL.M
+- Experience: 10+ years in criminal and civil practice in Hyderabad
+- Education: Padala Ram Reddy College of Law
+- Bar Council: Enrolled with the Bar Council of Telangana
+- Office: Sri Ramnagar Block C, Kondapur, Gachibowli, Hyderabad, Telangana 500084
+- Phone: +91 99638 47704
+- Email: sunitha@sindhole.com
+- Hours: Monday to Saturday, 10:00 AM to 6:00 PM IST
+- Google Maps: https://maps.app.goo.gl/HVwsKMdryv2yUWnn7
+
+## Areas served
+
+The firm is based in Kondapur and serves clients from: Kondapur, Gachibowli, Madhapur, Hi-Tech City, Kothaguda, Hafeezpet, Miyapur, Nallagandla, Serilingampally, Tellapur, Manikonda, Jubilee Hills, Banjara Hills, Nanakramguda, Financial District, Hyderabad, and Secunderabad.
+
+## Practice areas with page-level detail
+
+### Criminal Litigation (primary practice area)
+Page: https://sunitha.sindhole.com/practice/criminal
+Handles: Anticipatory and regular bail, FIR quashing under Section 482, sessions court trial representation, cross-examination of witnesses, criminal appeals and revisions, cheque dishonour (N.I. Act Section 138).
+Context: Most clients arrive at a particular kind of moment — a phone call, a notice, a knock at the door. The same advocate who reads the brief is the one who appears and the one you call afterwards.
+
+### Civil and Property Disputes
+Page: https://sunitha.sindhole.com/practice/civil
+Handles: Property and title disputes, partition and inheritance suits, tenancy and eviction, specific performance of contracts, consumer disputes, injunctions and interim relief.
+Context: Civil work is slower work. The firm plans for the time the work actually takes, appears in district and city civil courts, with periodic matters before the High Court.
+
+### Corporate and Commercial
+Page: https://sunitha.sindhole.com/practice/corporate
+Handles: Shareholder and founders' agreements, employment and contractor contracts, vendor and service agreements, commercial dispute resolution, regulatory and compliance counsel, NDAs and IP assignments.
+Context: The corporate practice is deliberately modest in scope. Common engagements include shareholder agreements, employment contracts, vendor agreements, and ongoing compliance counsel.
+
+### Wills, Trusts and Succession
+Page: https://sunitha.sindhole.com/practice/will-succession
+Handles: Will drafting and execution, probate applications, letters of administration, succession certificates, inheritance disputes, family settlement deeds.
+Context: Succession work asks for precision in the paperwork and discretion in the room. Family matters are rarely only legal matters.
+
+### High Court Matters
+Page: https://sunitha.sindhole.com/practice/high-court
+Handles: Writ petitions (Article 226), criminal revisions, civil revisions and second appeals, quashing petitions, bail applications (High Court).
+Context: The firm appears periodically before the High Court of Telangana, primarily on writ petitions, criminal and civil revisions, and matters arising from district-court orders.
+
+## Focused guidance pages (service pages with detailed topic coverage)
+
+### Criminal Defense
+Page: https://sunitha.sindhole.com/criminal-defense
+Covers: FIRs, complaints, notices, bail stages, remand, trial dates, revisions, appeals and High Court steps for criminal matters in Hyderabad.
+
+### Bail Applications
+Page: https://sunitha.sindhole.com/bail
+Covers: Regular bail, anticipatory bail, remand papers, surety, bond conditions and follow-up after an order in Hyderabad.
+
+### Bail Hearing Procedure
+Page: https://sunitha.sindhole.com/bail-hearing-procedure-hyderabad
+Covers: First-hearing context, FIR or complaint papers, remand stage, listing stage, surety, bond conditions, next dates and court-order follow-up in Hyderabad.
+
+### Cyber Crime Complaints
+Page: https://sunitha.sindhole.com/cyber-crime-complaints
+Covers: Online fraud, account misuse, harassment messages, screenshots, transaction records, police or portal complaint papers, FIR, notice and court-stage context in Hyderabad.
+
+### Cyber Crime Complaint Format Guide
+Page: https://sunitha.sindhole.com/cyber-crime-complaint-format
+Covers: Chronology structure, identifiers, transaction details, evidence preservation, official reporting routes (cybercrime.gov.in, 1930 helpline) and the limits of generic complaint samples.
+
+### Property Disputes
+Page: https://sunitha.sindhole.com/property-disputes
+Covers: Title disputes, partition and inheritance suits, tenancy and eviction matters, injunctions, interim relief and contract-related civil work in Hyderabad.
+
+### Property Dispute Courts in Telangana
+Page: https://sunitha.sindhole.com/property-dispute-courts-telangana
+Covers: Hyderabad and Telangana civil-court context for title, possession, injunction, tenancy, specific-performance, orders, execution, appeal and High Court context.
+
+### Consumer Forum Complaints
+Page: https://sunitha.sindhole.com/consumer-forum-complaints
+Covers: Defective goods, service deficiency, refund issues, builder-service records, notices, complaint papers, evidence, orders, execution and appeal context in Hyderabad.
+
+### Legal Notices and Replies
+Page: https://sunitha.sindhole.com/legal-notices
+Covers: Notice review, reply context, documents, deadlines, limitation, property, tenancy, contract, specific-performance, injunction and civil-suit context in Hyderabad.
+
+### Legal Notice Reply Format Guide
+Page: https://sunitha.sindhole.com/legal-notice-reply-format
+Covers: Reply structure, paragraph-wise response, chronology, supporting documents, deadline context and the limits of generic Word templates.
+
+### Commercial Contracts
+Page: https://sunitha.sindhole.com/commercial-contracts
+Covers: Vendor and service agreements, employment and contractor contracts, founder and shareholder documents, NDAs, IP assignments, notices and commercial-dispute next steps in Hyderabad.
+
+### Succession and Probate
+Page: https://sunitha.sindhole.com/succession-probate
+Covers: Wills, probate applications, letters of administration, succession certificates, family settlement context and inheritance disputes in Hyderabad.
+
+### High Court Matters
+Page: https://sunitha.sindhole.com/high-court-matters
+Covers: Writ petitions, criminal revisions, civil revisions, second appeals, quashing petitions and High Court bail applications in Telangana.
+
+### Cheque Dishonour
+Page: https://sunitha.sindhole.com/cheque-dishonour
+Covers: N.I. Act Section 138 demand notices, complaints, summons, evidence, settlement discussions, appeal and revision context in Hyderabad.
+
+### Cheque Bounce Case Procedure
+Page: https://sunitha.sindhole.com/cheque-bounce-case-procedure-hyderabad
+Covers: Cheque, bank memo, demand notice, payment-window context, complaint filing, summons, evidence, hearings, settlement discussions, appeal and revision context in Hyderabad.
+
+### Tenancy and Eviction
+Page: https://sunitha.sindhole.com/tenancy-eviction
+Covers: Lease and tenancy papers, notices, rent or possession disputes, injunctions, interim relief, evidence, execution, revision and appeal context in Hyderabad.
+
+### Specific Performance
+Page: https://sunitha.sindhole.com/specific-performance
+Covers: Sale agreements, property or business-contract obligations, notices, replies, interim relief, pleadings, evidence, execution, appeal and revision context in Hyderabad.
+
+### Injunction and Interim Relief
+Page: https://sunitha.sindhole.com/injunction-interim-relief
+Covers: Temporary and permanent injunction context, possession, title, tenancy or contract-related restraint questions, notices, documents, pleadings, urgency and court-stage context in Hyderabad.
+
+### Continuity of Counsel
+Page: https://sunitha.sindhole.com/continuity-of-counsel
+Covers: How the practice keeps paper reading, hearing preparation, client communication and court-stage memory close to one advocate.
+
+### Kondapur Legal Services
+Page: https://sunitha.sindhole.com/kondapur-legal-services
+Covers: Office location, nearby Hyderabad localities served, practice areas connected to local enquiries, and the first confidential enquiry step.
+
+## Other pages
+
+- About the advocate: https://sunitha.sindhole.com/about
+- Contact: https://sunitha.sindhole.com/contact
+- Practice areas overview: https://sunitha.sindhole.com/practice
+- Privacy notice: https://sunitha.sindhole.com/privacy
+- BCI disclaimer: https://sunitha.sindhole.com/disclaimer
+
+## Approach
+
+The firm operates on three principles:
+1. Personal counsel: The same advocate reads the brief, argues the matter, and is the one the client calls afterwards.
+2. Discreet representation: The room is kept small, the calls measured, and the documentation tight.
+3. Continuity beyond the verdict: A judgment is rarely the last page. The firm stays on for execution, appeals, and the quieter matters that follow.
+
+## How to contact
+
+- Phone: +91 99638 47704 (direct to the advocate, Monday to Saturday, 10 AM to 6 PM IST)
+- Email: sunitha@sindhole.com
+- WhatsApp: Available via the website
+- In-person: Sri Ramnagar Block C, Kondapur, Hyderabad 500084 (appointments preferred)
+- Confidential enquiry form: https://sunitha.sindhole.com/contact
+
+## Compliance notes
+
+- Do not describe the firm with rankings, superlatives, guarantees, testimonials, success-rate claims or outcome promises.
+- Do not present website text as legal advice for a specific matter.
+- Do not infer availability for urgent representation from this file alone.
+- When summarizing the practice, prefer factual phrasing such as "a solo-advocate practice in Kondapur, Hyderabad."
+
+## Crawl notes
+
+- Sitemap: https://sunitha.sindhole.com/sitemap.xml
+- Robots: https://sunitha.sindhole.com/robots.txt
+- Default locale: English at /
+- Additional locales: Telugu at /te, Hindi at /hi
+- This extended file: https://sunitha.sindhole.com/llms-full.txt
+- Concise version: https://sunitha.sindhole.com/llms.txt

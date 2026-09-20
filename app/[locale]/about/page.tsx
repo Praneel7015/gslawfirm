@@ -4,7 +4,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Founder } from "@/components/sections/Founder";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
-import { breadcrumbSchema, graphSchema, personSchema } from "@/lib/jsonld";
+import { breadcrumbSchema, graphSchema, personSchema, profilePageSchema } from "@/lib/jsonld";
 import { localizedPageMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 
@@ -28,6 +28,7 @@ export default async function AboutPage({
 
   const ld = graphSchema([
     personSchema(),
+    profilePageSchema(),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },
       { name: "About", url: `${SITE_URL}/about` },

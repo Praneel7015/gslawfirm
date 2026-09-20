@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { chequeBounceProcedureFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
-import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
+import { breadcrumbSchema, faqPageSchema, graphSchema, howToSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
   localizedPageMetadata,
@@ -48,6 +48,25 @@ const covered = [
   "Evidence and hearing-stage documents",
   "Settlement and compounding context",
   "Appeal, revision and related court-stage steps",
+] as const;
+
+const howToSteps = [
+  {
+    name: "Collect the cheque, bank memo and transaction records",
+    text: "Gather the cheque, bank return memo, transaction papers, invoices, payment records and correspondence that connect the cheque to the underlying obligation.",
+  },
+  {
+    name: "Review the demand notice and payment-window dates",
+    text: "Check the notice date, delivery or acknowledgement record, reply if any, and whether the payment window has passed. The dates determine the next procedural step.",
+  },
+  {
+    name: "Prepare complaint or summons-stage papers",
+    text: "If a complaint is to be filed or summons has been received, organise the papers already before the court, verify the next date and identify the current stage of the matter.",
+  },
+  {
+    name: "Prepare for evidence, settlement or later steps",
+    text: "Organise documents for evidence, cross-examination, settlement discussions, compounding, appeal or revision based on the current court stage and positions taken.",
+  },
 ] as const;
 
 function chequeBounceProcedureWebPageSchema(locale: string) {
@@ -107,6 +126,12 @@ export default async function ChequeBounceCaseProcedurePage({
       { name: "Cheque Dishonour", url: `${SITE_URL}/cheque-dishonour` },
       { name: "Cheque Bounce Procedure", url: localizedGuideUrl },
     ]),
+    howToSchema({
+      name: "Cheque bounce case procedure in Hyderabad",
+      description:
+        "Steps in a cheque-bounce case: collecting the cheque and bank memo, reviewing the demand notice, preparing for complaint or summons, and handling evidence and later court stages.",
+      steps: howToSteps,
+    }),
     faqPageSchema(chequeBounceProcedureFaqs),
   ]);
 

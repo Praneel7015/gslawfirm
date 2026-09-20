@@ -388,22 +388,17 @@ select:focus-visible {
   color: var(--soft-on-dark);
 }
 .foot-credit-line,
-.tin-credit {
+.dev-credit {
   display: inline-flex;
   align-items: center;
 }
 .foot-credit-line { gap: 8px; }
-.tin-credit {
+.dev-credit {
   gap: 5px;
   color: inherit;
   text-decoration: none;
 }
-.tin-credit:hover { color: #fff; }
-.tin-credit svg {
-  width: 1em;
-  height: 1em;
-  flex: 0 0 auto;
-}
+.dev-credit:hover { color: #fff; }
 
 /* ── WhatsApp FAB ────────────────────────────────────────── */
 .wa {

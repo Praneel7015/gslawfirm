@@ -27,6 +27,8 @@ export const firm = {
   hoursShort: "Mon–Sat · 10:00–18:00 IST",
   mapsUrl: "https://maps.app.goo.gl/HVwsKMdryv2yUWnn7",
   linkedin: "https://www.linkedin.com/in/sunitha-sindhole-074939212/",
+  /** Google Business Profile URL. Find it via Google Maps → Share. */
+  googleBusinessProfile: "https://maps.app.goo.gl/E8yPrRanE79xfSmr9",
   tagline: "For your peace of mind. Forever.",
   /**
    * Neighbourhoods we'll list under `areaServed` in LocalBusiness /

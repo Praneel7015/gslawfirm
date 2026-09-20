@@ -86,7 +86,7 @@ export function personSchema(): JsonLd {
     knowsLanguage: founder.languages,
     worksFor: { "@id": ORG_ID },
     url: `${SITE_URL}/about`,
-    sameAs: [firm.linkedin],
+    sameAs: [firm.linkedin, firm.googleBusinessProfile].filter(Boolean),
   };
 }
 
@@ -133,7 +133,7 @@ export function legalServiceSchema(): JsonLd {
       "High Court Matters",
       "Writ Petitions",
     ],
-    sameAs: [firm.linkedin],
+    sameAs: [firm.linkedin, firm.googleBusinessProfile].filter(Boolean),
   };
 }
 
@@ -226,6 +226,41 @@ export function faqPageSchema(items: readonly ServiceFaq[]): JsonLd {
         text: item.answer,
       },
     })),
+  };
+}
+
+// ── HowTo (procedure and format guide pages) ───────────────────────
+export function howToSchema({
+  name,
+  description,
+  steps,
+}: {
+  name: string;
+  description: string;
+  steps: ReadonlyArray<{ name: string; text: string }>;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    step: steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
+// ── ProfilePage (about page, E-E-A-T signal) ───────────────────────
+export function profilePageSchema(): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    mainEntity: { "@id": PERSON_ID },
+    dateCreated: "2026-06-20",
+    dateModified: "2026-07-28",
   };
 }
 
