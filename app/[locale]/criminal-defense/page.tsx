@@ -7,6 +7,7 @@ import { firm } from "@/content/firm";
 import { criminalDefenseFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
@@ -223,55 +224,21 @@ export default async function CriminalDefensePage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related practice areas</h3>
-            <ul>
-              <li>
-                <Link href="/cyber-crime-complaints">
-                  Cyber Crime Complaints
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/cheque-dishonour">Cheque Dishonour</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/cheque-bounce-case-procedure-hyderabad">
-                  Cheque Bounce Procedure
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/bail">Bail Applications</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/bail-hearing-procedure-hyderabad">
-                  Bail Hearing Procedure
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/criminal">Criminal Litigation</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/high-court">High Court Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/continuity-of-counsel">
-                  Continuity of Counsel
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/criminal-defense"
+            heading="Related practice areas"
+            links={[
+              { href: "/cyber-crime-complaints", label: "Cyber Crime Complaints" },
+              { href: "/cheque-dishonour", label: "Cheque Dishonour" },
+              { href: "/cheque-bounce-case-procedure-hyderabad", label: "Cheque Bounce Procedure" },
+              { href: "/bail", label: "Bail Applications" },
+              { href: "/bail-hearing-procedure-hyderabad", label: "Bail Hearing Procedure" },
+              { href: "/practice/criminal", label: "Criminal Litigation" },
+              { href: "/practice/high-court", label: "High Court Matters" },
+              { href: "/continuity-of-counsel", label: "Continuity of Counsel" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

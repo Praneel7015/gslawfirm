@@ -26,6 +26,11 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("contactPage");
+  const tWa = await getTranslations("wa");
+
+  const checklist = t.raw("firstMessage.items") as string[];
+  const waHref = `https://wa.me/${firm.whatsapp}?text=${encodeURIComponent(tWa("prefilled"))}`;
+  const mailHref = `mailto:${firm.publicEmail}?subject=${encodeURIComponent(t("firstMessage.emailSubject"))}&body=${encodeURIComponent(t("firstMessage.emailBody"))}`;
 
   const ld = graphSchema([
     placeSchema(),
@@ -42,6 +47,45 @@ export default async function ContactPage({
         <span className="eyebrow">{t("eyebrow")}</span>
         <h1 id="cp-title">{t("heading")}</h1>
         <p className="lede">{t("lede")}</p>
+      </section>
+
+      <section
+        className="cp-first-msg"
+        aria-labelledby="cp-first-msg-title"
+      >
+        <div className="cp-first-msg-intro">
+          <span className="eyebrow">{t("firstMessage.eyebrow")}</span>
+          <h2 id="cp-first-msg-title">{t("firstMessage.heading")}</h2>
+          <p>{t("firstMessage.lede")}</p>
+        </div>
+        <ol className="cp-first-msg-list">
+          {checklist.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ol>
+        <div className="cp-first-msg-templates">
+          <div className="cp-first-msg-card">
+            <h3>{t("firstMessage.whatsappLabel")}</h3>
+            <p className="cp-first-msg-sample">{t("firstMessage.whatsappSample")}</p>
+            <a
+              className="cp-first-msg-cta"
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("firstMessage.whatsappCta")}{" "}
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div className="cp-first-msg-card">
+            <h3>{t("firstMessage.emailLabel")}</h3>
+            <p className="cp-first-msg-sample">{t("firstMessage.emailSample")}</p>
+            <a className="cp-first-msg-cta" href={mailHref}>
+              {t("firstMessage.emailCta")} <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        <p className="cp-first-msg-note">{t("firstMessage.privacyNote")}</p>
       </section>
 
       <section className="cp-grid" aria-label="Three ways to reach us">

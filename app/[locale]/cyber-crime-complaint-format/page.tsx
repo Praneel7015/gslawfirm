@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { cyberCrimeComplaintFormatFaqs } from "@/content/service-faqs";
@@ -351,31 +352,16 @@ export default async function CyberCrimeComplaintFormatPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related pages</h3>
-            <ul>
-              <li>
-                <Link href="/cyber-crime-complaints">
-                  Cyber Crime Complaints
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/criminal-defense">Criminal Defense</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/bail">Bail Applications</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>
-                  Contact the firm
-                </SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/cyber-crime-complaint-format"
+            heading="Related pages"
+            links={[
+              { href: "/cyber-crime-complaints", label: "Cyber Crime Complaints" },
+              { href: "/criminal-defense", label: "Criminal Defense" },
+              { href: "/bail", label: "Bail Applications" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

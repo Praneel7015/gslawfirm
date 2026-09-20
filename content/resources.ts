@@ -48,6 +48,9 @@ export const resourceArticles: ResourceArticle[] = [
       "/legal-notices",
       "/legal-notice-reply-format",
       "/commercial-contracts",
+      "/practice/corporate",
+      "/legal-statistics-hyderabad",
+      "/resources",
     ],
   },
   {
@@ -70,6 +73,9 @@ export const resourceArticles: ResourceArticle[] = [
       "/bail",
       "/bail-hearing-procedure-hyderabad",
       "/criminal-defense",
+      "/practice/criminal",
+      "/legal-statistics-hyderabad#criminal-matters",
+      "/resources",
     ],
   },
   {
@@ -92,6 +98,9 @@ export const resourceArticles: ResourceArticle[] = [
       "/property-disputes",
       "/property-dispute-courts-telangana",
       "/succession-probate",
+      "/practice/civil",
+      "/legal-statistics-hyderabad#property-disputes",
+      "/resources",
     ],
   },
 ];

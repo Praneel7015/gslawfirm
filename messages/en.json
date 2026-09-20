@@ -103,7 +103,7 @@
       "email": "Email",
       "emailPh": "you@example.com",
       "message": "Brief message",
-      "messagePh": "A few sentences about the matter, nothing confidential at this stage."
+      "messagePh": "Name, locality, matter type, current stage, and any known deadline. Nothing confidential yet."
     },
     "submit": "Send enquiry",
     "disclaim": "Submitting this form does not create an attorney–client relationship. Nothing herein constitutes legal advice.",
@@ -138,16 +138,37 @@
     "eyebrow": "Contact · GS Law Firm",
     "heading": "Contact GS Law Firm in Kondapur, Hyderabad.",
     "lede": "We answer the phone between 10 and 18 IST, Monday through Saturday. Outside those hours, the form and WhatsApp are read first thing the next working day.",
+    "firstMessage": {
+      "eyebrow": "Before you write · 01",
+      "heading": "What to include in your first message.",
+      "lede": "A short, factual note helps us decide whether we can take the matter and what to ask next. Keep the first message free of confidential detail.",
+      "items": [
+        "Your name and a reachable phone number",
+        "City or locality (for example Kondapur, Gachibowli, Hyderabad)",
+        "Type of matter in one line: bail, notice, property, cheque, cyber crime, contract, succession",
+        "Current stage: FIR filed, notice received, next hearing date, or still deciding",
+        "Any hard deadline you already know (limitation, court date, reply period)"
+      ],
+      "whatsappLabel": "WhatsApp opener",
+      "whatsappSample": "Hello. I am [Name] in [Locality]. The matter is [type]. Stage: [FIR / notice / hearing date / undecided]. Please advise a convenient time to speak.",
+      "whatsappCta": "Open WhatsApp with this starter",
+      "emailLabel": "Email opener",
+      "emailSample": "Subject: Enquiry · [matter type] · [locality]. Body: name, phone, one-line matter type, current stage, and any known deadline. No confidential documents in the first mail.",
+      "emailSubject": "Enquiry · legal matter · Hyderabad",
+      "emailBody": "Hello,\n\nMy name is [Name]. I am writing from [Locality / Hyderabad].\n\nMatter type: [bail / notice / property / cheque / cyber crime / contract / succession]\nCurrent stage: [FIR filed / notice received / next hearing date / still deciding]\nKnown deadline (if any): [date or none]\nPhone: [number]\n\nI have not attached confidential documents. Please let me know a convenient time to speak.\n\nThank you.",
+      "emailCta": "Open email with this starter",
+      "privacyNote": "Do not send Aadhaar copies, full bank statements, privileged correspondence, or settlement drafts in the first message. We will open a secure channel if the firm can assist."
+    },
     "phone": {
-      "label": "By Phone · 01",
+      "label": "By Phone · 02",
       "note": "Direct to the advocate, not a desk. If we don’t pick up, we are in court. Leave a message and we will return your call by close of business."
     },
     "email": {
-      "label": "By Email · 02",
+      "label": "By Email · 03",
       "note": "For longer enquiries or sharing documents. Please do not send anything confidential or privileged in the first message. We will reply with a secure channel."
     },
     "inPerson": {
-      "label": "In Person · 03",
+      "label": "In Person · 04",
       "big": "Sri Ramnagar Block C",
       "note": "Kondapur, Hyderabad 500 084 · Telangana, India. Appointments preferred. Most consults can be done by phone or video first."
     }
@@ -261,7 +282,7 @@
   },
   "wa": {
     "label": "Chat on WhatsApp",
-    "prefilled": "Hello, I'd like to enquire about a legal matter."
+    "prefilled": "Hello. I am [Name] in [Locality]. The matter is [type: bail / notice / property / cheque / cyber crime / contract / succession]. Stage: [FIR / notice / hearing date / undecided]. Please advise a convenient time to speak."
   },
   "mbar": {
     "nav": "Quick contact",

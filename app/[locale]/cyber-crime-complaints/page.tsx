@@ -7,6 +7,7 @@ import { firm } from "@/content/firm";
 import { cyberCrimeComplaintsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
@@ -223,43 +224,19 @@ export default async function CyberCrimeComplaintsPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related practice areas</h3>
-            <ul>
-              <li>
-                <Link href="/cyber-crime-complaint-format">
-                  Cyber Crime Complaint Format
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/criminal-defense">Criminal Defense</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/bail">Bail Applications</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/cheque-dishonour">Cheque Dishonour</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/criminal">Criminal Litigation</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/high-court">High Court Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>
-                  Contact the firm
-                </SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/cyber-crime-complaints"
+            heading="Related practice areas"
+            links={[
+              { href: "/cyber-crime-complaint-format", label: "Cyber Crime Complaint Format" },
+              { href: "/criminal-defense", label: "Criminal Defense" },
+              { href: "/bail", label: "Bail Applications" },
+              { href: "/cheque-dishonour", label: "Cheque Dishonour" },
+              { href: "/practice/criminal", label: "Criminal Litigation" },
+              { href: "/practice/high-court", label: "High Court Matters" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

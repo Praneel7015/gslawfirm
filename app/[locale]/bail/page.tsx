@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { firm } from "@/content/firm";
 import { bailFaqs } from "@/content/service-faqs";
 import { PracticeIcon } from "@/components/brand/practice-icons";
@@ -210,33 +211,17 @@ export default async function BailPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related pages</h3>
-            <ul>
-              <li>
-                <Link href="/criminal-defense">Criminal Defense</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/bail-hearing-procedure-hyderabad">
-                  Bail Hearing Procedure
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/criminal">Criminal Litigation</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/high-court">High Court Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/bail"
+            heading="Related pages"
+            links={[
+              { href: "/criminal-defense", label: "Criminal Defense" },
+              { href: "/bail-hearing-procedure-hyderabad", label: "Bail Hearing Procedure" },
+              { href: "/practice/criminal", label: "Criminal Litigation" },
+              { href: "/practice/high-court", label: "High Court Matters" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

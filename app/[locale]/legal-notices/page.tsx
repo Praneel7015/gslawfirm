@@ -7,6 +7,7 @@ import { firm } from "@/content/firm";
 import { legalNoticesFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
@@ -216,55 +217,21 @@ export default async function LegalNoticesPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related practice areas</h3>
-            <ul>
-              <li>
-                <Link href="/legal-notice-reply-format">
-                  Legal Notice Reply Format Guide
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/property-disputes">Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/tenancy-eviction">Tenancy and Eviction</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/specific-performance">Specific Performance</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/injunction-interim-relief">
-                  Injunction and Interim Relief
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/commercial-contracts">Commercial Contracts</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/cheque-bounce-case-procedure-hyderabad">
-                  Cheque Bounce Procedure
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/civil">Civil & Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>
-                  Contact the firm
-                </SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/legal-notices"
+            heading="Related practice areas"
+            links={[
+              { href: "/legal-notice-reply-format", label: "Legal Notice Reply Format Guide" },
+              { href: "/property-disputes", label: "Property Disputes" },
+              { href: "/tenancy-eviction", label: "Tenancy and Eviction" },
+              { href: "/specific-performance", label: "Specific Performance" },
+              { href: "/injunction-interim-relief", label: "Injunction and Interim Relief" },
+              { href: "/commercial-contracts", label: "Commercial Contracts" },
+              { href: "/cheque-bounce-case-procedure-hyderabad", label: "Cheque Bounce Procedure" },
+              { href: "/practice/civil", label: "Civil & Property Disputes" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

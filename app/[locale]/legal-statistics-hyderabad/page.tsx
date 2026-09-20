@@ -444,6 +444,36 @@ export default async function LegalStatisticsHyderabadPage({
                 <Link href="/resources">Resources &amp; guides</Link>
                 <span aria-hidden="true">→</span>
               </li>
+              <li>
+                <Link href="/resources/understanding-bail-in-hyderabad-courts">
+                  Understanding bail in Hyderabad courts
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
+                <Link href="/resources/property-title-verification-hyderabad">
+                  Property title verification
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
+                <Link href="/resources/what-to-do-after-receiving-legal-notice-hyderabad">
+                  After receiving a legal notice
+                </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
+                <Link href="/practice/criminal">Criminal litigation</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
+                <Link href="/practice/civil">Civil and property disputes</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
+                <Link href="/practice">All practice areas</Link>
+                <span aria-hidden="true">→</span>
+              </li>
             </ul>
           </div>
         </aside>

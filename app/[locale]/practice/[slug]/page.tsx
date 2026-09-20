@@ -22,6 +22,10 @@ import {
   localizedPracticeMetadata,
 } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
+import {
+  practiceHubLinks,
+  practiceResourceLinks,
+} from "@/content/internal-links";
 
 const focusedGuides: Partial<
   Record<PracticeSlug, Array<{ href: string; label: string }>>
@@ -156,7 +160,18 @@ export default async function PracticeDetailPage({
 
   const t = await getTranslations("practiceDetail");
   const adjacent = practiceAreas.filter((a) => a.slug !== area.slug);
-  const guides = focusedGuides[area.slug] ?? [];
+  const guides = [
+    ...(focusedGuides[area.slug] ?? []),
+    ...(practiceResourceLinks[area.slug] ?? []),
+    ...practiceHubLinks,
+  ];
+  // Dedupe by href while preserving order
+  const seen = new Set<string>();
+  const uniqueGuides = guides.filter((g) => {
+    if (seen.has(g.href)) return false;
+    seen.add(g.href);
+    return true;
+  });
 
   const ld = graphSchema([
     serviceSchema(area, locale),
@@ -224,11 +239,11 @@ export default async function PracticeDetailPage({
             </SourceAwareContactLink>
           </div>
 
-          {guides.length > 0 ? (
+          {uniqueGuides.length > 0 ? (
             <div className="pd-adj">
               <h3>Focused guidance</h3>
               <ul>
-                {guides.map((guide) => (
+                {uniqueGuides.map((guide) => (
                   <li key={guide.href}>
                     <Link href={guide.href as never}>{guide.label}</Link>
                     <span aria-hidden="true">→</span>

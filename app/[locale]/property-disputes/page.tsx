@@ -7,6 +7,7 @@ import { firm } from "@/content/firm";
 import { propertyDisputesFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
@@ -220,59 +221,22 @@ export default async function PropertyDisputesPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related practice areas</h3>
-            <ul>
-              <li>
-                <Link href="/property-dispute-courts-telangana">
-                  Property Dispute Court Guide
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/tenancy-eviction">Tenancy and Eviction</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/specific-performance">Specific Performance</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/legal-notices">Legal Notices</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/injunction-interim-relief">
-                  Injunction and Interim Relief
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/civil">Civil & Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/will-succession">
-                  Wills, Trusts & Succession
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/high-court">High Court Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/continuity-of-counsel">
-                  Continuity of Counsel
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/property-disputes"
+            heading="Related practice areas"
+            links={[
+              { href: "/property-dispute-courts-telangana", label: "Property Dispute Court Guide" },
+              { href: "/tenancy-eviction", label: "Tenancy and Eviction" },
+              { href: "/specific-performance", label: "Specific Performance" },
+              { href: "/legal-notices", label: "Legal Notices" },
+              { href: "/injunction-interim-relief", label: "Injunction and Interim Relief" },
+              { href: "/practice/civil", label: "Civil & Property Disputes" },
+              { href: "/practice/will-succession", label: "Wills, Trusts & Succession" },
+              { href: "/practice/high-court", label: "High Court Matters" },
+              { href: "/continuity-of-counsel", label: "Continuity of Counsel" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

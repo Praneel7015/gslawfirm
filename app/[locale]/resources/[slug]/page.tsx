@@ -10,6 +10,7 @@ import { routing } from "@/i18n/routing";
 import { breadcrumbSchema, graphSchema, howToSchema } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/site";
 import { resourceArticles, getResourceArticle } from "@/content/resources";
+import { labelForHref } from "@/content/internal-links";
 
 // ── Article content ────────────────────────────────────────────────────────
 
@@ -407,12 +408,7 @@ export default async function ResourceArticlePage({
               <ul>
                 {article.relatedSlugs.map((href) => (
                   <li key={href}>
-                    <Link href={href as never}>
-                      {href
-                        .replace(/^\//, "")
-                        .replace(/-/g, " ")
-                        .replace(/^\w/, (c) => c.toUpperCase())}
-                    </Link>
+                    <Link href={href as never}>{labelForHref(href)}</Link>
                     <span aria-hidden="true">→</span>
                   </li>
                 ))}

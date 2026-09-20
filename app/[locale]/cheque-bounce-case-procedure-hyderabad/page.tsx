@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { chequeBounceProcedureFaqs } from "@/content/service-faqs";
@@ -245,41 +246,19 @@ export default async function ChequeBounceCaseProcedurePage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related pages</h3>
-            <ul>
-              <li>
-                <Link href="/cheque-dishonour">Cheque Dishonour</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/legal-notices">Legal Notices</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/commercial-contracts">Commercial Contracts</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/criminal-defense">Criminal Defense</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/criminal">Criminal Litigation</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/corporate">
-                  Corporate & Commercial
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/cheque-bounce-case-procedure-hyderabad"
+            heading="Related pages"
+            links={[
+              { href: "/cheque-dishonour", label: "Cheque Dishonour" },
+              { href: "/legal-notices", label: "Legal Notices" },
+              { href: "/commercial-contracts", label: "Commercial Contracts" },
+              { href: "/criminal-defense", label: "Criminal Defense" },
+              { href: "/practice/criminal", label: "Criminal Litigation" },
+              { href: "/practice/corporate", label: "Corporate & Commercial" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

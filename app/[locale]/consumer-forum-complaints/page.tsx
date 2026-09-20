@@ -7,6 +7,7 @@ import { firm } from "@/content/firm";
 import { consumerForumComplaintsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
@@ -228,37 +229,18 @@ export default async function ConsumerForumComplaintsPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related practice areas</h3>
-            <ul>
-              <li>
-                <Link href="/commercial-contracts">Commercial Contracts</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/property-disputes">Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/specific-performance">Specific Performance</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/civil">Civil & Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/corporate">
-                  Corporate & Commercial
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/consumer-forum-complaints"
+            heading="Related practice areas"
+            links={[
+              { href: "/commercial-contracts", label: "Commercial Contracts" },
+              { href: "/property-disputes", label: "Property Disputes" },
+              { href: "/specific-performance", label: "Specific Performance" },
+              { href: "/practice/civil", label: "Civil & Property Disputes" },
+              { href: "/practice/corporate", label: "Corporate & Commercial" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

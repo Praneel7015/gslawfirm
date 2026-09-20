@@ -7,6 +7,7 @@ import { firm } from "@/content/firm";
 import { commercialContractsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
@@ -229,51 +230,21 @@ export default async function CommercialContractsPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related practice areas</h3>
-            <ul>
-              <li>
-                <Link href="/cheque-bounce-case-procedure-hyderabad">
-                  Cheque Bounce Procedure
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/cheque-dishonour">Cheque Dishonour</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/specific-performance">Specific Performance</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/legal-notices">Legal Notices</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/succession-probate">Succession and Probate</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/corporate">
-                  Corporate & Commercial
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/civil">Civil & Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/high-court">High Court Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/commercial-contracts"
+            heading="Related practice areas"
+            links={[
+              { href: "/cheque-bounce-case-procedure-hyderabad", label: "Cheque Bounce Procedure" },
+              { href: "/cheque-dishonour", label: "Cheque Dishonour" },
+              { href: "/specific-performance", label: "Specific Performance" },
+              { href: "/legal-notices", label: "Legal Notices" },
+              { href: "/succession-probate", label: "Succession and Probate" },
+              { href: "/practice/corporate", label: "Corporate & Commercial" },
+              { href: "/practice/civil", label: "Civil & Property Disputes" },
+              { href: "/practice/high-court", label: "High Court Matters" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

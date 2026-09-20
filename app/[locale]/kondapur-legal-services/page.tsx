@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
@@ -229,53 +230,22 @@ export default async function KondapurLegalServicesPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related pages</h3>
-            <ul>
-              <li>
-                <Link href="/practice">Practice Areas</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/criminal-defense">Criminal Defense</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/bail">Bail Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/property-disputes">Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/tenancy-eviction">Tenancy and Eviction</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/cheque-dishonour">Cheque Dishonour</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/commercial-contracts">Commercial Contracts</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/succession-probate">
-                  Succession and Probate
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/high-court-matters">High Court Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/kondapur-legal-services"
+            heading="Related pages"
+            links={[
+              { href: "/practice", label: "Practice Areas" },
+              { href: "/criminal-defense", label: "Criminal Defense" },
+              { href: "/bail", label: "Bail Matters" },
+              { href: "/property-disputes", label: "Property Disputes" },
+              { href: "/tenancy-eviction", label: "Tenancy and Eviction" },
+              { href: "/cheque-dishonour", label: "Cheque Dishonour" },
+              { href: "/commercial-contracts", label: "Commercial Contracts" },
+              { href: "/succession-probate", label: "Succession and Probate" },
+              { href: "/high-court-matters", label: "High Court Matters" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

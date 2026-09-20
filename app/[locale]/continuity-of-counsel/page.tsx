@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
@@ -212,31 +213,17 @@ export default async function ContinuityOfCounselPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related pages</h3>
-            <ul>
-              <li>
-                <Link href="/about">About Adv. Aitha Sunitha</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/criminal-defense">Criminal Defense</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/property-disputes">Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/high-court-matters">High Court Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/continuity-of-counsel"
+            heading="Related pages"
+            links={[
+              { href: "/about", label: "About Adv. Aitha Sunitha" },
+              { href: "/criminal-defense", label: "Criminal Defense" },
+              { href: "/property-disputes", label: "Property Disputes" },
+              { href: "/high-court-matters", label: "High Court Matters" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

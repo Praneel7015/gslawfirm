@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
+import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
 import {
   localizedPageHeading,
@@ -120,9 +121,9 @@ export default async function ResourcesIndexPage({
               Guides give general context. For your specific situation: documents, deadlines and opposing parties: a direct conversation
               is the right starting point.
             </p>
-            <Link href="/contact" className="pd-cta-link">
+            <SourceAwareContactLink className="pd-cta-link">
               Contact the firm <span aria-hidden="true">→</span>
-            </Link>
+            </SourceAwareContactLink>
           </div>
 
           <div className="pd-adj">
@@ -162,6 +163,18 @@ export default async function ResourcesIndexPage({
                 <Link href="/legal-statistics-hyderabad">
                   Legal statistics for Hyderabad
                 </Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
+                <Link href="/practice/criminal">Criminal litigation</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
+                <Link href="/practice/civil">Civil and property disputes</Link>
+                <span aria-hidden="true">→</span>
+              </li>
+              <li>
+                <Link href="/practice">All practice areas</Link>
                 <span aria-hidden="true">→</span>
               </li>
             </ul>

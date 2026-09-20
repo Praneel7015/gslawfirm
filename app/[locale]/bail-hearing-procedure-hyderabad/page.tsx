@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { bailHearingProcedureFaqs } from "@/content/service-faqs";
@@ -244,31 +245,17 @@ export default async function BailHearingProcedurePage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related pages</h3>
-            <ul>
-              <li>
-                <Link href="/bail">Bail Applications</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/criminal-defense">Criminal Defense</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/criminal">Criminal Litigation</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/high-court-matters">High Court Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/bail-hearing-procedure-hyderabad"
+            heading="Related pages"
+            links={[
+              { href: "/bail", label: "Bail Applications" },
+              { href: "/criminal-defense", label: "Criminal Defense" },
+              { href: "/practice/criminal", label: "Criminal Litigation" },
+              { href: "/high-court-matters", label: "High Court Matters" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

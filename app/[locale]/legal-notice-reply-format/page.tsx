@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { legalNoticeReplyFormatFaqs } from "@/content/service-faqs";
@@ -378,39 +379,18 @@ export default async function LegalNoticeReplyFormatPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related pages</h3>
-            <ul>
-              <li>
-                <Link href="/legal-notices">Legal Notices and Replies</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/property-disputes">Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/tenancy-eviction">Tenancy and Eviction</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/commercial-contracts">Commercial Contracts</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/consumer-forum-complaints">
-                  Consumer Forum Complaints
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>
-                  Contact the firm
-                </SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/legal-notice-reply-format"
+            heading="Related pages"
+            links={[
+              { href: "/legal-notices", label: "Legal Notices and Replies" },
+              { href: "/property-disputes", label: "Property Disputes" },
+              { href: "/tenancy-eviction", label: "Tenancy and Eviction" },
+              { href: "/commercial-contracts", label: "Commercial Contracts" },
+              { href: "/consumer-forum-complaints", label: "Consumer Forum Complaints" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>

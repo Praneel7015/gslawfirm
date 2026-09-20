@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { firm } from "@/content/firm";
 import { propertyDisputeCourtsFaqs } from "@/content/service-faqs";
@@ -220,45 +221,20 @@ export default async function PropertyDisputeCourtsPage({
             </SourceAwareContactLink>
           </div>
 
-          <div className="pd-adj">
-            <h3>Related pages</h3>
-            <ul>
-              <li>
-                <Link href="/property-disputes">Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/tenancy-eviction">Tenancy and Eviction</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/injunction-interim-relief">
-                  Injunction and Interim Relief
-                </Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/specific-performance">Specific Performance</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/legal-notices">Legal Notices</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/practice/civil">Civil & Property Disputes</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <Link href="/high-court-matters">High Court Matters</Link>
-                <span aria-hidden="true">→</span>
-              </li>
-              <li>
-                <SourceAwareContactLink>Contact the firm</SourceAwareContactLink>
-                <span aria-hidden="true">→</span>
-              </li>
-            </ul>
-          </div>
+          <RelatedPagesNav
+            pagePath="/property-dispute-courts-telangana"
+            heading="Related pages"
+            links={[
+              { href: "/property-disputes", label: "Property Disputes" },
+              { href: "/tenancy-eviction", label: "Tenancy and Eviction" },
+              { href: "/injunction-interim-relief", label: "Injunction and Interim Relief" },
+              { href: "/specific-performance", label: "Specific Performance" },
+              { href: "/legal-notices", label: "Legal Notices" },
+              { href: "/practice/civil", label: "Civil & Property Disputes" },
+              { href: "/high-court-matters", label: "High Court Matters" },
+              { href: "/contact", label: "Contact the firm", contact: true },
+            ]}
+          />
         </aside>
       </section>
     </main>
