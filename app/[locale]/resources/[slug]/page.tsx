@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
+import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
@@ -18,7 +19,10 @@ interface ArticleSection {
   items?: readonly string[];
 }
 
+type PracticeIconSlug = "criminal" | "civil" | "corporate" | "will-succession" | "high-court";
+
 interface ArticleData {
+  icon: PracticeIconSlug;
   intro: string;
   sections: readonly ArticleSection[];
   howToSteps?: readonly { name: string; text: string }[];
@@ -27,6 +31,7 @@ interface ArticleData {
 
 const ARTICLE_CONTENT: Record<string, ArticleData> = {
   "what-to-do-after-receiving-legal-notice-hyderabad": {
+    icon: "civil",
     intro:
       "Receiving a legal notice can be unsettling. The envelope, the formal language, the name of a law firm — all of it is designed to feel serious. And it is. But the worst thing you can do is ignore it. The second worst is to reply impulsively without reading carefully.",
     sections: [
@@ -98,6 +103,7 @@ const ARTICLE_CONTENT: Record<string, ArticleData> = {
   },
 
   "understanding-bail-in-hyderabad-courts": {
+    icon: "criminal",
     intro:
       "Bail is one of the most time-sensitive matters in criminal law. Whether you are helping a family member who has been arrested, facing an anticipated arrest, or trying to understand what your advocate is advising — understanding the three main types of bail in India helps you ask the right questions and make faster decisions.",
     sections: [
@@ -169,6 +175,7 @@ const ARTICLE_CONTENT: Record<string, ArticleData> = {
   },
 
   "property-title-verification-hyderabad": {
+    icon: "civil",
     intro:
       "Purchasing property in Hyderabad is one of the most significant financial decisions most people make. Yet property title verification is often treated as a formality rather than a substantive exercise. Title defects — gaps in the ownership chain, undisclosed encumbrances, forged documents — surface years after a purchase and can result in litigation that is far more expensive than the verification would have been.",
     sections: [
@@ -339,7 +346,12 @@ export default async function ResourceArticlePage({
         <div className="pd-content">
 
           {/* ── Intro ── */}
-          <p className="lede pd-lede">{content.intro}</p>
+          <p className="lede pd-lede">
+            <span className="pd-lede-icon" aria-hidden="true">
+              <PracticeIcon slug={content.icon} size={36} />
+            </span>
+            <span>{content.intro}</span>
+          </p>
 
           {/* ── Note ── */}
           <p>
@@ -356,19 +368,28 @@ export default async function ResourceArticlePage({
             </em>
           </p>
 
-          {/* ── Sections — using the same pattern as legal-step cards ── */}
-          <div className="legal-steps">
-            {content.sections.map((section, index) => (
-              <article className="legal-step" key={section.heading}>
-                <span className="li-num">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h2>{section.heading}</h2>
-                <p>{section.body}</p>
-                {section.items && (
-                  <ul className="pd-handle" style={{ marginTop: "16px" }}>
+          {/* ── Sections ──
+               Each section renders as a legal-step card (number + h2 + body).
+               Sections that also have a checklist get a pd-handle block
+               rendered *outside* the legal-steps container so the list
+               never breaks the two-column card grid. ── */}
+          {content.sections.map((section, index) => (
+            <div key={section.heading}>
+              <div className="legal-steps">
+                <article className="legal-step">
+                  <span className="li-num">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h2>{section.heading}</h2>
+                  <p>{section.body}</p>
+                </article>
+              </div>
+              {section.items && (
+                <div className="pd-handle">
+                  <h2>Key documents and points</h2>
+                  <ul>
                     {section.items.map((item, i) => (
-                      <li key={item} style={{ display: "flex", gap: "12px" }}>
+                      <li key={item}>
                         <span className="li-num">
                           {String(i + 1).padStart(2, "0")}
                         </span>
@@ -376,10 +397,10 @@ export default async function ResourceArticlePage({
                       </li>
                     ))}
                   </ul>
-                )}
-              </article>
-            ))}
-          </div>
+                </div>
+              )}
+            </div>
+          ))}
 
           {/* ── Closing note ── */}
           <section className="service-faq" aria-labelledby="closing-heading">

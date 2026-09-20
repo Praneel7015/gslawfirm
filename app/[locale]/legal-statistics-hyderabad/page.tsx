@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
+import { PracticeIcon } from "@/components/brand/practice-icons";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
@@ -285,9 +286,15 @@ export default async function LegalStatisticsHyderabadPage({
         <div className="pd-content">
 
           <p className="lede pd-lede">
-            Aggregate statistics give factual context. They cannot predict the
-            outcome, cost or timeline of any individual matter — for a specific
-            question, a brief enquiry to the firm is the right starting point.
+            <span className="pd-lede-icon" aria-hidden="true">
+              <PracticeIcon slug="criminal" size={36} />
+            </span>
+            <span>
+              Aggregate statistics give factual context. They cannot predict the
+              outcome, cost or timeline of any individual matter — for a
+              specific question, a brief enquiry to the firm is the right
+              starting point.
+            </span>
           </p>
 
           {/* ── Category sections ── */}
@@ -301,13 +308,12 @@ export default async function LegalStatisticsHyderabadPage({
               <h2 id={`${cat.slug}-heading`}>{cat.heading}</h2>
               <p>{cat.description}</p>
 
-              <div className="service-faq-list">
+              {/* Each stat uses legal-step: figure as li-num, label as h3, source+note as p */}
+              <div className="legal-steps">
                 {cat.stats.map((stat) => (
-                  <article className="service-faq-item" key={stat.label}>
-                    <h3>
-                      <span className="stat-figure-inline">{stat.figure}</span>
-                      {" — "}{stat.label}
-                    </h3>
+                  <article className="legal-step" key={stat.label}>
+                    <span className="li-num">{stat.figure}</span>
+                    <h3>{stat.label}</h3>
                     <p>
                       <em>Source: {stat.source}</em>
                     </p>

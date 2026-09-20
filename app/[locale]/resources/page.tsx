@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
+import { PracticeIcon } from "@/components/brand/practice-icons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, graphSchema } from "@/lib/jsonld";
@@ -67,9 +68,14 @@ export default async function ResourcesIndexPage({
         <div className="pd-content">
 
           <p className="lede pd-lede">
-            These guides explain general legal processes in Hyderabad and
-            Telangana. They are not legal advice for any specific matter, and
-            reading them does not create an advocate–client relationship.
+            <span className="pd-lede-icon" aria-hidden="true">
+              <PracticeIcon slug="civil" size={36} />
+            </span>
+            <span>
+              These guides explain general legal processes in Hyderabad and
+              Telangana. They are not legal advice for any specific matter, and
+              reading them does not create an advocate–client relationship.
+            </span>
           </p>
 
           {/* ── Article list using existing legal-steps pattern ── */}
@@ -85,16 +91,6 @@ export default async function ResourcesIndexPage({
                   </Link>
                 </h2>
                 <p>{article.description}</p>
-                <p className="pd-footnote" style={{ marginTop: "8px" }}>
-                  <time dateTime={article.publishedAt}>
-                    {new Date(article.publishedAt).toLocaleDateString("en-IN", {
-                      year: "numeric",
-                      month: "long",
-                    })}
-                  </time>
-                  {" · "}
-                  {article.tags.slice(0, 2).join(", ")}
-                </p>
               </article>
             ))}
           </div>
