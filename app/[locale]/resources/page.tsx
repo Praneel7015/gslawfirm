@@ -45,7 +45,7 @@ export default async function ResourcesIndexPage({
       <JsonLd data={ld} />
 
       {/* ── HERO ── */}
-      <section className="pd-hero resources-hero" aria-labelledby="resources-title">
+      <section className="pd-hero" aria-labelledby="resources-title">
         <nav className="crumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true">/</span>
@@ -59,47 +59,49 @@ export default async function ResourcesIndexPage({
           practical steps for people dealing with court matters, notices,
           property, contracts and criminal questions in Hyderabad, Telangana.
         </p>
-        <p className="stats-caveat">
-          <strong>Note:</strong> Guides on this site are general information,
-          not legal advice for any specific matter. Reading a guide does not
-          create an advocate–client relationship.
-        </p>
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
 
-      {/* ── ARTICLE LIST ── */}
-      <section className="pd-body resources-body">
+      {/* ── BODY ── */}
+      <section className="pd-body">
         <div className="pd-content">
-          <ul className="resources-list" role="list">
-            {resourceArticles.map((article) => (
-              <li key={article.slug} className="resource-card" role="listitem">
-                <article>
-                  <h2 className="resource-card-title">
-                    <Link href={`/resources/${article.slug}` as never}>
-                      {article.title}
-                    </Link>
-                  </h2>
-                  <p className="resource-card-desc">{article.description}</p>
-                  <footer className="resource-card-meta">
-                    <time dateTime={article.publishedAt}>
-                      {new Date(article.publishedAt).toLocaleDateString(
-                        "en-IN",
-                        { year: "numeric", month: "long", day: "numeric" }
-                      )}
-                    </time>
-                    <span aria-hidden="true"> · </span>
-                    <span>
-                      {article.tags.slice(0, 3).join(", ")}
-                    </span>
-                  </footer>
-                </article>
-              </li>
+
+          <p className="lede pd-lede">
+            These guides explain general legal processes in Hyderabad and
+            Telangana. They are not legal advice for any specific matter, and
+            reading them does not create an advocate–client relationship.
+          </p>
+
+          {/* ── Article list using existing legal-steps pattern ── */}
+          <div className="legal-steps" aria-label="Legal guides">
+            {resourceArticles.map((article, index) => (
+              <article className="legal-step" key={article.slug}>
+                <span className="li-num">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h2>
+                  <Link href={`/resources/${article.slug}` as never}>
+                    {article.title}
+                  </Link>
+                </h2>
+                <p>{article.description}</p>
+                <p className="pd-footnote" style={{ marginTop: "8px" }}>
+                  <time dateTime={article.publishedAt}>
+                    {new Date(article.publishedAt).toLocaleDateString("en-IN", {
+                      year: "numeric",
+                      month: "long",
+                    })}
+                  </time>
+                  {" · "}
+                  {article.tags.slice(0, 2).join(", ")}
+                </p>
+              </article>
             ))}
-          </ul>
+          </div>
 
           <p className="pd-footnote">
             All guides are written for general public understanding. The law
-            and procedures referenced reflect Telangana/Hyderabad context as
+            and procedures referenced reflect Telangana / Hyderabad context as
             of the dates shown. Send a brief enquiry if you have a specific
             matter.
           </p>

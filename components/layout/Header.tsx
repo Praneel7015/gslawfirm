@@ -43,6 +43,9 @@ export function Header() {
           <Link href="/practice" className={isActive("/practice") ? "active" : ""}>
             {t("practice")}
           </Link>
+          <Link href="/resources" className={isActive("/resources") ? "active" : ""}>
+            Resources
+          </Link>
           <SourceAwareContactLink className={isActive("/contact") ? "active" : ""}>
             {t("contact")}
           </SourceAwareContactLink>

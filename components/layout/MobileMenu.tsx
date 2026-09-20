@@ -27,9 +27,10 @@ export function MobileMenu({
     };
   }, [open]);
 
-  const items: Array<[string, "/about" | "/practice" | "/contact"]> = [
+  const items: Array<[string, "/about" | "/practice" | "/resources" | "/contact"]> = [
     [t("about"), "/about"],
     [t("practice"), "/practice"],
+    ["Resources", "/resources"],
     [t("contact"), "/contact"],
   ];
 
