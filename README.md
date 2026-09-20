@@ -115,6 +115,7 @@ pnpm qa:routes       # HTTP 200 check only
 pnpm qa:lead-heartbeat # no-submit live contact path + lead API validation probe
 pnpm qa:lighthouse   # mobile Lighthouse on / and /practice/criminal
 pnpm qa:ai-visibility # llms.txt, JSON-LD graph, sameAs, areasServed
+pnpm qa:step-layout   # *-step cards must be li-num + h2 + p only
 pnpm check:env       # local .env sanity check
 ```
 
