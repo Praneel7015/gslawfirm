@@ -1,4 +1,4 @@
-# GS Law Firm — Extended Guide for AI Systems
+# GS Law Firm: Extended Guide for AI Systems
 
 > This is the extended version of llms.txt. For a concise summary, see /llms.txt.
 
@@ -30,7 +30,7 @@ The firm is based in Kondapur and serves clients from: Kondapur, Gachibowli, Mad
 ### Criminal Litigation (primary practice area)
 Page: https://sunitha.sindhole.com/practice/criminal
 Handles: Anticipatory and regular bail, FIR quashing under Section 482, sessions court trial representation, cross-examination of witnesses, criminal appeals and revisions, cheque dishonour (N.I. Act Section 138).
-Context: Most clients arrive at a particular kind of moment — a phone call, a notice, a knock at the door. The same advocate who reads the brief is the one who appears and the one you call afterwards.
+Context: Most clients arrive at a particular kind of moment: a phone call, a notice, a knock at the door. The same advocate who reads the brief is the one who appears and the one you call afterwards.
 
 ### Civil and Property Disputes
 Page: https://sunitha.sindhole.com/practice/civil
@@ -138,21 +138,21 @@ Covers: Office location, nearby Hyderabad localities served, practice areas conn
 Page: https://sunitha.sindhole.com/legal-statistics-hyderabad
 Covers: Court volume data, case-pendency figures and procedural-timeline context drawn from NCRB Crime in India 2022, NJDG, Department of Consumer Affairs Annual Report 2022-23 and MHA I4C. Sections cover cyber crime (Telangana ranks #4 nationally, 15,297 registered cases in 2022), cheque dishonour (~35 lakh pending Section 138 NI Act cases across India), property disputes (NJDG civil pendency, TSRERA), consumer forum complaints (revised thresholds under Consumer Protection Act 2019), and criminal matters (BNSS 2023 changes). Includes an FAQ and full source citations. Page carries FAQPage JSON-LD.
 
-## Resources — plain-language legal guides
+## Resources: plain-language legal guides
 
 ### Resources Index
 Page: https://sunitha.sindhole.com/resources
 Lists all plain-language legal guides published by GS Law Firm for people dealing with legal matters in Hyderabad, Telangana.
 
-### Guide — What to Do After Receiving a Legal Notice in Hyderabad
+### Guide: What to Do After Receiving a Legal Notice in Hyderabad
 Page: https://sunitha.sindhole.com/resources/what-to-do-after-receiving-legal-notice-hyderabad
 Covers: Six-step practical checklist for reading a legal notice, identifying its legal basis (Section 138 NI Act, Consumer Protection Act, TPA, etc.), calculating the response deadline, gathering documents and sending a measured reply by registered post. Includes a HowTo schema. Tags: legal notice Hyderabad, reply to legal notice, legal notice response.
 
-### Guide — Understanding Bail in Hyderabad Courts
+### Guide: Understanding Bail in Hyderabad Courts
 Page: https://sunitha.sindhole.com/resources/understanding-bail-in-hyderabad-courts
-Covers: Plain-language explainer on regular bail (Section 437/439 CrPC / Section 479/483 BNSS 2023), anticipatory bail (Section 438 CrPC / BNSS), and interim bail — which court, what documents, what factors courts consider (flight risk, evidence tampering, antecedents, stage of case), and what changes under BNSS 2023 that came into force on 1 July 2024. Includes a HowTo schema.
+Covers: Plain-language explainer on regular bail (Section 437/439 CrPC / Section 479/483 BNSS 2023), anticipatory bail (Section 438 CrPC / BNSS), and interim bail: which court, what documents, what factors courts consider (flight risk, evidence tampering, antecedents, stage of case), and what changes under BNSS 2023 that came into force on 1 July 2024. Includes a HowTo schema.
 
-### Guide — Property Title Verification in Hyderabad
+### Guide: Property Title Verification in Hyderabad
 Page: https://sunitha.sindhole.com/resources/property-title-verification-hyderabad
 Covers: What property title verification involves in Hyderabad, documents reviewed (sale deeds for 30 years, Encumbrance Certificate, Dharani portal, building approvals, GHMC/HMDA records), what an EC reveals and its limits, how to use Dharani portal and its known limitations in Telangana, red flags an advocate looks for (title chain breaks, duplicate survey numbers, joint ownership, RERA violations), and typical verification timelines. Includes a HowTo schema.
 
@@ -166,8 +166,7 @@ Covers: What property title verification involves in Hyderabad, documents review
 
 ## Approach
 
-The firm operates on three principles:
-1. Personal counsel: The same advocate reads the brief, argues the matter, and is the one the client calls afterwards.
+The firm operates on three principles: 1. Personal counsel: The same advocate reads the brief, argues the matter, and is the one the client calls afterwards.
 2. Discreet representation: The room is kept small, the calls measured, and the documentation tight.
 3. Continuity beyond the verdict: A judgment is rarely the last page. The firm stays on for execution, appeals, and the quieter matters that follow.
 

@@ -2,8 +2,7 @@
  * QA: step-card layout contract.
  *
  * Every *-step article must follow the content contract that matches
- * the reference page (legal-notice-reply-format):
- *   1. First child: .li-num
+ * the reference page (legal-notice-reply-format): *   1. First child: .li-num
  *   2. Next: exactly one h2 (not h3)
  *   3. Remaining children may be <p> only (no nested grids/lists)
  *
@@ -52,12 +51,12 @@ for (const file of walk(ROOT)) {
     }
     if (H3.test(body)) {
       failures.push(
-        `${rel}: *-step article uses <h3> — must use <h2> for step titles`,
+        `${rel}: *-step article uses <h3>: must use <h2> for step titles`,
       );
     }
     if (BAD_NEST.test(body)) {
       failures.push(
-        `${rel}: *-step article nests a list/handle/grid — keep only li-num + h2 + p`,
+        `${rel}: *-step article nests a list/handle/grid: keep only li-num + h2 + p`,
       );
     }
   }

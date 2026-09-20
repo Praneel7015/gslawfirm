@@ -1915,6 +1915,21 @@ select:focus-visible {
   color: var(--color-accent);
   margin: 0 0 24px;
 }
+.service-faq > h2.stats-cat-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-weight: var(--headline-weight);
+  font-size: 22px;
+  color: var(--color-fg);
+}
+.service-faq > h2.stats-cat-heading .pd-lede-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
 .service-faq-list {
   display: grid;
   gap: 1px;

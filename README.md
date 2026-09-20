@@ -30,8 +30,7 @@ pnpm build
 
 1. Import repo at [vercel.com/new](https://vercel.com/new), **Root Directory**: `gslawfirm`
 2. Set environment variables (Production + Preview), then **Deploy**
-3. Add domain `sunitha.sindhole.com` in Vercel → point Cloudflare DNS:
-   - **CNAME** `sunitha` → `cname.vercel-dns.com`, **grey cloud** (DNS only)
+3. Add domain `sunitha.sindhole.com` in Vercel → point Cloudflare DNS: - **CNAME** `sunitha` → `cname.vercel-dns.com`, **grey cloud** (DNS only)
 4. After changing any `NEXT_PUBLIC_*` variable, **redeploy** (baked at build time)
 
 ### Required env vars (production)
@@ -136,10 +135,10 @@ every push to `main`. Local pre-commit hook runs `pnpm lint:bci`.
 ## SEO architecture
 
 ```
-lib/seo.ts                pageMetadata(), alternatesFor() — per-page OG + canonical
+lib/seo.ts                pageMetadata(), alternatesFor(): per-page OG + canonical
 lib/localized-metadata.ts Titles + descriptions for every route × locale
 lib/jsonld.ts             LegalService, Person, WebSite, Service, FAQ, Breadcrumb, HowTo, ProfilePage
-app/robots.ts             robots.txt — allow all, disallow /api/
+app/robots.ts             robots.txt: allow all, disallow /api/
 app/sitemap.ts            93 entries with hreflang, stable lastModified dates
 public/llms.txt           AI-discoverable site summary for LLM crawlers
 public/llms-full.txt      Extended AI-discoverable per-page guide

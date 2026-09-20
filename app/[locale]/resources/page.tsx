@@ -32,7 +32,7 @@ export default async function ResourcesIndexPage({
   const pageUrl =
     locale === "en"
       ? `${SITE_URL}/resources`
-      : `${SITE_URL}/${locale}/resources`;
+     : `${SITE_URL}/${locale}/resources`;
 
   const ld = graphSchema([
     breadcrumbSchema([
@@ -108,8 +108,7 @@ export default async function ResourcesIndexPage({
           <div className="pd-cta">
             <h3>Have a specific matter?</h3>
             <p>
-              Guides give general context. For your specific situation —
-              documents, deadlines and opposing parties — a direct conversation
+              Guides give general context. For your specific situation: documents, deadlines and opposing parties: a direct conversation
               is the right starting point.
             </p>
             <Link href="/contact" className="pd-cta-link">

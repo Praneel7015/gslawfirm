@@ -5,8 +5,7 @@
  * configured (no secret key). Returns `{ ok: false, reason }` only
  * when Turnstile IS configured and the token check fails.
  *
- * Canonical contract per developers.cloudflare.com/turnstile/spin:
- *   - token length guard (1–2048 chars)
+ * Canonical contract per developers.cloudflare.com/turnstile/spin: *   - token length guard (1–2048 chars)
  *   - 10-second AbortSignal timeout
  *   - result.action must equal expectedAction
  *   - result.hostname must be in the TURNSTILE_HOSTNAMES allowlist
@@ -48,7 +47,7 @@ export async function verifyTurnstile(
   const expectedHostnames = buildHostnameSet();
   if (expectedHostnames.size === 0) {
     console.warn(
-      "[turnstile] TURNSTILE_HOSTNAMES is unset — hostname validation skipped",
+      "[turnstile] TURNSTILE_HOSTNAMES is unset: hostname validation skipped",
     );
   }
 

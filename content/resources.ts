@@ -6,13 +6,17 @@
  * app/[locale]/resources/[slug]/page.tsx to publish a new article.
  */
 
+import type { PracticeSlug } from "@/content/practice-areas";
+
 export interface ResourceArticle {
   /** URL-safe slug (used in the route and sitemap) */
   slug: string;
   /** Article title */
   title: string;
-  /** One-sentence description — used in meta description and listing card */
+  /** One-sentence description: used in meta description and listing card */
   description: string;
+  /** Practice-area icon to show on the resources index and article hero */
+  icon: PracticeSlug;
   /** SEO keywords helping surface the article for the right queries */
   tags: string[];
   /** ISO 8601 date this article was first published */
@@ -27,9 +31,10 @@ export const resourceArticles: ResourceArticle[] = [
   {
     slug: "what-to-do-after-receiving-legal-notice-hyderabad",
     title:
-      "What to Do After Receiving a Legal Notice in Hyderabad — A Practical Checklist",
+      "What to Do After Receiving a Legal Notice in Hyderabad: A Practical Checklist",
     description:
       "Step-by-step guidance on reading, verifying and responding to a legal notice in Hyderabad: timelines, what not to ignore and when to call an advocate.",
+    icon: "corporate",
     tags: [
       "legal notice",
       "legal notice Hyderabad",
@@ -48,9 +53,10 @@ export const resourceArticles: ResourceArticle[] = [
   {
     slug: "understanding-bail-in-hyderabad-courts",
     title:
-      "Understanding Bail in Hyderabad Courts — Regular Bail, Anticipatory Bail and Interim Bail Explained",
+      "Understanding Bail in Hyderabad Courts: Regular Bail, Anticipatory Bail and Interim Bail Explained",
     description:
       "A plain-language explainer on the three types of bail applications in Hyderabad: which court, what documents, what timelines and how the decision is made.",
+    icon: "criminal",
     tags: [
       "bail Hyderabad",
       "anticipatory bail Hyderabad",
@@ -69,9 +75,10 @@ export const resourceArticles: ResourceArticle[] = [
   {
     slug: "property-title-verification-hyderabad",
     title:
-      "Property Title Verification in Hyderabad — Why It Matters and What Documents Are Checked",
+      "Property Title Verification in Hyderabad: Why It Matters and What Documents Are Checked",
     description:
       "How property title verification works in Hyderabad: documents reviewed, encumbrance certificates, revenue records, and red flags an advocate looks for before a purchase or dispute.",
+    icon: "civil",
     tags: [
       "property title verification Hyderabad",
       "encumbrance certificate Telangana",
