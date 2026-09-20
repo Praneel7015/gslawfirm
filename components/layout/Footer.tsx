@@ -41,6 +41,12 @@ export async function Footer() {
               <SourceAwareContactLink>{t("links.contact")}</SourceAwareContactLink>
             </li>
             <li>
+              <Link href="/resources">Resources &amp; Guides</Link>
+            </li>
+            <li>
+              <Link href="/legal-statistics-hyderabad">Legal Statistics</Link>
+            </li>
+            <li>
               <Link href="/disclaimer">{t("links.disclaimer")}</Link>
             </li>
             <li>

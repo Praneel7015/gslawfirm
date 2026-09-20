@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { routing } from "@/i18n/routing";
 import { practiceAreas } from "@/content/practice-areas";
+import { resourceArticles } from "@/content/resources";
 import { SITE_URL } from "@/lib/site";
 
 // Update only the route whose visible content or search metadata changed.
@@ -28,6 +29,11 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
   "injunction-interim-relief": "2026-06-20",
   "continuity-of-counsel": "2026-07-28",
   "kondapur-legal-services": "2026-06-20",
+  "legal-statistics-hyderabad": "2026-09-20",
+  resources: "2026-09-20",
+  "resources/what-to-do-after-receiving-legal-notice-hyderabad": "2026-09-20",
+  "resources/understanding-bail-in-hyderabad-courts": "2026-09-20",
+  "resources/property-title-verification-hyderabad": "2026-09-20",
   about: "2026-07-28",
   practice: "2026-07-28",
   "practice/criminal": "2026-07-26",
@@ -51,7 +57,7 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
  * Other locales live at `/<locale>/<path>` (e.g. `/te/about`). This
  * mirrors `localePrefix: "as-needed"` in i18n/routing.ts.
  *
- * Total entries: 31 routes × 3 locales = 93.
+ * Total entries: 36 routes × 3 locales = 108 (includes statistics + resources index + 3 resource articles).
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   // Static paths, strings without a slash prefix; the home is "".
@@ -129,6 +135,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.82,
       changeFrequency: "monthly",
     },
+    {
+      path: "legal-statistics-hyderabad",
+      priority: 0.85,
+      changeFrequency: "monthly",
+    },
+    { path: "resources", priority: 0.85, changeFrequency: "monthly" },
     { path: "about", priority: 0.8, changeFrequency: "yearly" },
     { path: "practice", priority: 0.9, changeFrequency: "monthly" },
     { path: "contact", priority: 0.9, changeFrequency: "yearly" },
@@ -142,7 +154,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  const allPaths = [...staticPaths, ...practicePaths];
+  const resourcePaths = resourceArticles.map((a) => ({
+    path: `resources/${a.slug}`,
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+  }));
+
+  const allPaths = [...staticPaths, ...practicePaths, ...resourcePaths];
   const entries: MetadataRoute.Sitemap = [];
 
   for (const { path, priority, changeFrequency } of allPaths) {

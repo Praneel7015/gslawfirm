@@ -216,6 +216,46 @@ const localizedMetadata = {
       },
     },
   },
+  legalStatisticsHyderabad: {
+    path: "/legal-statistics-hyderabad",
+    copy: {
+      en: {
+        title: `Legal Statistics for Hyderabad and Telangana | ${firm.name}`,
+        description:
+          "Court statistics, case-pendency data and legal-process context for Hyderabad and Telangana: cyber crime, property, consumer, cheque-bounce and criminal figures.",
+      },
+      hi: {
+        title: `हैदराबाद और तेलंगाना के लिए कानूनी आँकड़े | ${firm.name}`,
+        description:
+          "हैदराबाद और तेलंगाना के लिए न्यायालय आँकड़े, मामला-लंबितता और कानूनी प्रक्रिया संदर्भ: साइबर क्राइम, संपत्ति, उपभोक्ता, चेक बाउंस और आपराधिक मामले।",
+      },
+      te: {
+        title: `హైదరాబాద్ మరియు తెలంగాణ న్యాయ గణాంకాలు | ${firm.name}`,
+        description:
+          "హైదరాబాద్ మరియు తెలంగాణ కోసం కోర్టు గణాంకాలు, కేసు పెండింగ్ సమాచారం మరియు న్యాయ ప్రక్రియ సందర్భం: సైబర్ క్రైమ్, ఆస్తి, వినియోగదారు, చెక్ బౌన్స్ మరియు క్రిమినల్ వివరాలు.",
+      },
+    },
+  },
+  resourcesIndex: {
+    path: "/resources",
+    copy: {
+      en: {
+        title: `Legal Resources and Guides for Hyderabad | ${firm.name}`,
+        description:
+          "Plain-language legal guides and resources for people dealing with court matters, notices, property, contracts and criminal questions in Hyderabad, Telangana.",
+      },
+      hi: {
+        title: `हैदराबाद के लिए कानूनी संसाधन और गाइड | ${firm.name}`,
+        description:
+          "हैदराबाद, तेलंगाना में अदालत मामलों, नोटिस, संपत्ति, अनुबंध और आपराधिक प्रश्नों से जूझने वाले लोगों के लिए सरल-भाषा कानूनी गाइड और संसाधन.",
+      },
+      te: {
+        title: `హైదరాబాద్ కోసం న్యాయ వనరులు మరియు గైడ్‌లు | ${firm.name}`,
+        description:
+          "హైదరాబాద్, తెలంగాణలో కోర్టు విషయాలు, నోటీసులు, ఆస్తి, ఒప్పందాలు మరియు క్రిమినల్ ప్రశ్నలతో వ్యవహరించే వారికి సాదా-భాషా న్యాయ గైడ్‌లు మరియు వనరులు.",
+      },
+    },
+  },
   continuityOfCounsel: {
     path: "/continuity-of-counsel",
     copy: {
