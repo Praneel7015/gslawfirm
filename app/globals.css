@@ -1844,6 +1844,94 @@ select:focus-visible {
 .location-step h2 a:hover {
   color: var(--color-accent);
 }
+.bail-step h2 a:active,
+.defense-step h2 a:active,
+.cyber-step h2 a:active,
+.property-step h2 a:active,
+.consumer-step h2 a:active,
+.legal-step h2 a:active,
+.commercial-step h2 a:active,
+.succession-step h2 a:active,
+.high-court-step h2 a:active,
+.cheque-step h2 a:active,
+.tenancy-step h2 a:active,
+.specific-step h2 a:active,
+.injunction-step h2 a:active,
+.continuity-step h2 a:active,
+.location-step h2 a:active,
+.bail-step h2 a:focus-visible,
+.defense-step h2 a:focus-visible,
+.cyber-step h2 a:focus-visible,
+.property-step h2 a:focus-visible,
+.consumer-step h2 a:focus-visible,
+.legal-step h2 a:focus-visible,
+.commercial-step h2 a:focus-visible,
+.succession-step h2 a:focus-visible,
+.high-court-step h2 a:focus-visible,
+.cheque-step h2 a:focus-visible,
+.tenancy-step h2 a:focus-visible,
+.specific-step h2 a:focus-visible,
+.injunction-step h2 a:focus-visible,
+.continuity-step h2 a:focus-visible,
+.location-step h2 a:focus-visible {
+  color: var(--color-accent);
+}
+
+/* Resources index: clear link affordance (esp. mobile / no-hover) */
+.resources-card-link {
+  display: inline;
+  -webkit-tap-highlight-color: rgba(107, 15, 26, 0.12);
+}
+.resources-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-accent);
+  transition:
+    gap var(--practice-duration) var(--practice-ease),
+    color var(--practice-duration) var(--practice-ease);
+  -webkit-tap-highlight-color: rgba(107, 15, 26, 0.12);
+  min-height: 44px;
+  padding: 8px 0;
+}
+.resources-card-cta:hover,
+.resources-card-cta:focus-visible {
+  gap: 14px;
+}
+.resources-card-cta:active {
+  opacity: 0.75;
+}
+@media (hover: none) {
+  .resources-card-link,
+  .legal-step h2 a {
+    color: var(--color-accent);
+  }
+  .pd-adj a {
+    color: var(--color-accent);
+  }
+  .resources-card {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .resources-card-cta {
+    min-height: 48px;
+  }
+  .pd-adj li {
+    min-height: 48px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .pd-adj a {
+    font-size: 16px;
+    padding: 4px 0;
+  }
+}
 .bail-step p,
 .defense-step p,
 .cyber-step p,

@@ -78,19 +78,28 @@ export default async function ResourcesIndexPage({
             </span>
           </p>
 
-          {/* ── Article list using existing legal-steps pattern ── */}
-          <div className="legal-steps" aria-label="Legal guides">
+          {/* ── Article list: each card is clearly tappable on mobile ── */}
+          <div className="legal-steps resources-list" aria-label="Legal guides">
             {resourceArticles.map((article, index) => (
-              <article className="legal-step" key={article.slug}>
+              <article className="legal-step resources-card" key={article.slug}>
                 <span className="li-num">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h2>
-                  <Link href={`/resources/${article.slug}` as never}>
+                  <Link
+                    href={`/resources/${article.slug}` as never}
+                    className="resources-card-link"
+                  >
                     {article.title}
                   </Link>
                 </h2>
                 <p>{article.description}</p>
+                <Link
+                  href={`/resources/${article.slug}` as never}
+                  className="resources-card-cta"
+                >
+                  Read guide <span aria-hidden="true">→</span>
+                </Link>
               </article>
             ))}
           </div>
