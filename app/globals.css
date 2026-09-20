@@ -1741,6 +1741,8 @@ select:focus-visible {
   padding: 28px 0;
   border-bottom: .5px solid var(--color-hair);
 }
+/* Number column: always left, spans every content row so extra
+   children never fall into the 52px gutter (broken stacked text). */
 .bail-step .li-num,
 .defense-step .li-num,
 .cyber-step .li-num,
@@ -1759,8 +1761,28 @@ select:focus-visible {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--soft);
-  grid-row: 1 / 3;
+  grid-column: 1;
+  grid-row: 1 / -1;
   padding-top: 6px;
+}
+/* All non-number children stay in the content column. */
+.bail-step > :not(.li-num),
+.defense-step > :not(.li-num),
+.cyber-step > :not(.li-num),
+.property-step > :not(.li-num),
+.consumer-step > :not(.li-num),
+.legal-step > :not(.li-num),
+.commercial-step > :not(.li-num),
+.succession-step > :not(.li-num),
+.high-court-step > :not(.li-num),
+.cheque-step > :not(.li-num),
+.tenancy-step > :not(.li-num),
+.specific-step > :not(.li-num),
+.injunction-step > :not(.li-num),
+.continuity-step > :not(.li-num),
+.location-step > :not(.li-num) {
+  grid-column: 2;
+  min-width: 0;
 }
 .bail-step h2,
 .defense-step h2,
@@ -1783,6 +1805,7 @@ select:focus-visible {
   line-height: .95;
   letter-spacing: 0;
   margin: 0 0 12px;
+  text-wrap: pretty;
 }
 .bail-step p,
 .defense-step p,
@@ -1803,6 +1826,23 @@ select:focus-visible {
   color: var(--color-muted);
   font-size: 15px;
   line-height: 1.6;
+}
+.bail-step p + p,
+.defense-step p + p,
+.cyber-step p + p,
+.property-step p + p,
+.consumer-step p + p,
+.legal-step p + p,
+.commercial-step p + p,
+.succession-step p + p,
+.high-court-step p + p,
+.cheque-step p + p,
+.tenancy-step p + p,
+.specific-step p + p,
+.injunction-step p + p,
+.continuity-step p + p,
+.location-step p + p {
+  margin-top: 10px;
 }
 .location-localities {
   margin-top: 56px;
@@ -2451,7 +2491,25 @@ select:focus-visible {
   .continuity-step .li-num,
   .location-step .li-num {
     grid-row: auto;
+    grid-column: auto;
     padding-top: 0;
+  }
+  .bail-step > :not(.li-num),
+  .defense-step > :not(.li-num),
+  .cyber-step > :not(.li-num),
+  .property-step > :not(.li-num),
+  .consumer-step > :not(.li-num),
+  .legal-step > :not(.li-num),
+  .commercial-step > :not(.li-num),
+  .succession-step > :not(.li-num),
+  .high-court-step > :not(.li-num),
+  .cheque-step > :not(.li-num),
+  .tenancy-step > :not(.li-num),
+  .specific-step > :not(.li-num),
+  .injunction-step > :not(.li-num),
+  .continuity-step > :not(.li-num),
+  .location-step > :not(.li-num) {
+    grid-column: auto;
   }
   .bail-step h2,
   .defense-step h2,

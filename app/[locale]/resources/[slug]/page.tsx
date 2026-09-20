@@ -368,39 +368,22 @@ export default async function ResourceArticlePage({
             </em>
           </p>
 
-          {/* ── Sections ──
-               Each section renders as a legal-step card (number + h2 + body).
-               Sections that also have a checklist get a pd-handle block
-               rendered *outside* the legal-steps container so the list
-               never breaks the two-column card grid. ── */}
-          {content.sections.map((section, index) => (
-            <div key={section.heading}>
-              <div className="legal-steps">
-                <article className="legal-step">
-                  <span className="li-num">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h2>{section.heading}</h2>
-                  <p>{section.body}</p>
-                </article>
-              </div>
-              {section.items && (
-                <div className="pd-handle">
-                  <h2>Key documents and points</h2>
-                  <ul>
-                    {section.items.map((item, i) => (
-                      <li key={item}>
-                        <span className="li-num">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          ))}
+          {/* ── Sections: single legal-steps wrapper, sequential order.
+               Extra <p> children are safe — CSS keeps them in column 2. ── */}
+          <div className="legal-steps">
+            {content.sections.map((section, index) => (
+              <article className="legal-step" key={section.heading}>
+                <span className="li-num">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h2>{section.heading}</h2>
+                <p>{section.body}</p>
+                {section.items?.map((item) => (
+                  <p key={item}>— {item}</p>
+                ))}
+              </article>
+            ))}
+          </div>
 
           {/* ── Closing note ── */}
           <section className="service-faq" aria-labelledby="closing-heading">

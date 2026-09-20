@@ -308,16 +308,19 @@ export default async function LegalStatisticsHyderabadPage({
               <h2 id={`${cat.slug}-heading`}>{cat.heading}</h2>
               <p>{cat.description}</p>
 
-              {/* Each stat uses legal-step: figure as li-num, label as h3, source+note as p */}
-              <div className="legal-steps">
+              {/* Each stat uses service-faq-item — multi-paragraph content
+                  (figure label + source + note) does not fit the legal-step
+                  contract of li-num + h2 + one p. */}
+              <div className="service-faq-list">
                 {cat.stats.map((stat) => (
-                  <article className="legal-step" key={stat.label}>
-                    <span className="li-num">{stat.figure}</span>
-                    <h3>{stat.label}</h3>
+                  <article className="service-faq-item" key={stat.label}>
+                    <h3>
+                      {stat.figure} — {stat.label}
+                    </h3>
                     <p>
                       <em>Source: {stat.source}</em>
+                      {stat.note ? ` ${stat.note}` : ""}
                     </p>
-                    {stat.note && <p>{stat.note}</p>}
                   </article>
                 ))}
               </div>

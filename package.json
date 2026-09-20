@@ -21,8 +21,9 @@
     "qa:homepage-faq-schema": "tsx scripts/qa-homepage-faq-schema.ts",
     "qa:routes": "tsx scripts/qa-routes.ts",
     "qa:ai-visibility": "tsx scripts/qa-ai-visibility.ts",
+    "qa:step-layout": "tsx scripts/qa-step-layout.ts",
     "qa:lighthouse": "node scripts/qa-lighthouse.mjs",
-    "qa": "pnpm typecheck && pnpm lint && pnpm lint:bci && pnpm qa:lead-source && pnpm qa:contact-analytics && pnpm qa:discovery-signals && pnpm qa:canonicals && pnpm qa:metadata-titles && pnpm qa:metadata-descriptions && pnpm qa:internal-links && pnpm build && pnpm qa:routes",
+    "qa": "pnpm typecheck && pnpm lint && pnpm lint:bci && pnpm qa:lead-source && pnpm qa:contact-analytics && pnpm qa:discovery-signals && pnpm qa:canonicals && pnpm qa:metadata-titles && pnpm qa:metadata-descriptions && pnpm qa:internal-links && pnpm qa:step-layout && pnpm build && pnpm qa:routes",
     "prepare": "husky",
     "typecheck": "tsc --noEmit"
   },
