@@ -4,6 +4,7 @@ import { routing, type Locale } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/seo";
 import { firm } from "@/content/firm";
 import type { PracticeSlug } from "@/content/practice-areas";
+import { resourceMetadataAuditRows } from "@/lib/resource-metadata";
 
 type MetadataCopy = {
   title: string;
@@ -20,9 +21,9 @@ const localizedMetadata = {
     path: "/",
     copy: {
       en: {
-        title: "Contract & Business Advocate in Kondapur | GS Law Firm",
+        title: "Business & Contract Advocate in Kondapur | GS Law Firm",
         description:
-          "Contract, business, criminal, drink-driving and civil matters from Adv. Aitha Sunitha's practice in Kondapur, Hyderabad, with a confidential enquiry path.",
+          "Business contracts, commercial disputes and civil matters with Adv. Aitha Sunitha in Kondapur, Hyderabad. Find practice information and contact the firm.",
       },
       hi: {
         title: "GS Law Firm | एडवो. ऐथा सुनीता, कोंडापुर हैदराबाद",
@@ -100,9 +101,9 @@ const localizedMetadata = {
     path: "/practice/corporate",
     copy: {
       en: {
-        title: `Corporate and Commercial Matters in Hyderabad | ${firm.name}`,
+        title: `Corporate and Commercial Law in Hyderabad | ${firm.name}`,
         description:
-          "Corporate and commercial information for contracts, compliance, shareholder matters, vendor documents and small-business disputes in Hyderabad.",
+          "Corporate and commercial legal guidance for Hyderabad founders and small businesses: shareholder questions, compliance, agreements and dispute next steps.",
       },
       hi: {
         title: `हैदराबाद में कॉर्पोरेट और वाणिज्यिक मामले | ${firm.name}`,
@@ -340,9 +341,9 @@ const localizedMetadata = {
     path: "/commercial-contracts",
     copy: {
       en: {
-        title: `Commercial Contracts in Hyderabad | ${firm.name}`,
+        title: `Commercial Contracts & Review in Hyderabad | ${firm.name}`,
         description:
-          "Commercial-contract information for vendor, service, employment, contractor, founder, shareholder, NDA and dispute steps in Hyderabad.",
+          "Commercial contract drafting and review in Kondapur, Hyderabad: vendor, service, employment and founder agreements. Learn which documents to prepare.",
       },
       hi: {
         title: `हैदराबाद में वाणिज्यिक अनुबंध | ${firm.name}`,
@@ -745,7 +746,7 @@ export function localizedPracticeHeading(
 }
 
 export function localizedMetadataAuditRows() {
-  return Object.entries(localizedMetadata).flatMap(([key, entry]) =>
+  const pages = Object.entries(localizedMetadata).flatMap(([key, entry]) =>
     routing.locales.map((locale) => ({
       key,
       locale,
@@ -754,6 +755,8 @@ export function localizedMetadataAuditRows() {
       description: entry.copy[locale].description,
       descriptionLength: entry.copy[locale].description.length,
       path: entry.path,
+      metadata: localizedPageMetadata(key as LocalizedPageKey, locale),
     })),
   );
+  return [...pages, ...resourceMetadataAuditRows()];
 }

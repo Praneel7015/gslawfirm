@@ -11,6 +11,7 @@ import { breadcrumbSchema, graphSchema, howToSchema } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/site";
 import { resourceArticles, getResourceArticle } from "@/content/resources";
 import { labelForHref } from "@/content/internal-links";
+import { resourcePageMetadata } from "@/lib/resource-metadata";
 
 // ── Article content ────────────────────────────────────────────────────────
 
@@ -257,21 +258,11 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const article = getResourceArticle(slug);
   if (!article) return {};
-  return {
-    title: article.title,
-    description: article.description,
-    keywords: article.tags,
-    openGraph: {
-      title: article.title,
-      description: article.description,
-      type: "article",
-      publishedTime: article.publishedAt,
-      modifiedTime: article.updatedAt,
-    },
-  };
+  if (!(routing.locales as readonly string[]).includes(locale)) return {};
+  return resourcePageMetadata(article, locale as (typeof routing.locales)[number]);
 }
 
 // ── Page ─────────────────────────────────────────────────────────────────

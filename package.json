@@ -10,6 +10,9 @@
     "lint:bci": "tsx scripts/check-bci-language.ts",
     "check:env": "tsx scripts/check-env.ts",
     "qa:lead-heartbeat": "tsx scripts/qa-lead-heartbeat.ts",
+    "qa:email-configuration": "tsx scripts/qa-email-configuration.ts",
+    "qa:resource-metadata": "tsx scripts/qa-resource-metadata.ts",
+    "qa:crawl-signals": "tsx scripts/qa-crawl-signals.ts",
     "qa:h1": "tsx scripts/qa-h1.ts",
     "qa:lead-source": "tsx scripts/qa-lead-source.ts",
     "qa:contact-analytics": "tsx scripts/qa-contact-analytics.ts",
@@ -23,7 +26,7 @@
     "qa:ai-visibility": "tsx scripts/qa-ai-visibility.ts",
     "qa:step-layout": "tsx scripts/qa-step-layout.ts",
     "qa:lighthouse": "node scripts/qa-lighthouse.mjs",
-    "qa": "pnpm typecheck && pnpm lint && pnpm lint:bci && pnpm qa:lead-source && pnpm qa:contact-analytics && pnpm qa:discovery-signals && pnpm qa:canonicals && pnpm qa:metadata-titles && pnpm qa:metadata-descriptions && pnpm qa:internal-links && pnpm qa:step-layout && pnpm build && pnpm qa:routes",
+    "qa": "pnpm typecheck && pnpm lint && pnpm lint:bci && pnpm qa:lead-source && pnpm qa:email-configuration && pnpm qa:contact-analytics && pnpm qa:discovery-signals && pnpm qa:canonicals && pnpm qa:metadata-titles && pnpm qa:metadata-descriptions && pnpm qa:internal-links && pnpm qa:step-layout && pnpm build && pnpm qa:routes",
     "prepare": "husky",
     "typecheck": "tsc --noEmit"
   },

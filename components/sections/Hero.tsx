@@ -1,4 +1,6 @@
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
+import { firm } from "@/content/firm";
 
 export async function Hero() {
   const t = await getTranslations("hero");
@@ -19,9 +21,13 @@ export async function Hero() {
           </span>
         </h1>
         <p className="hero-body">{t("body")}</p>
-        <a className="hero-cta" href="#contact">
-          {t("cta")} <span className="arrow" aria-hidden="true">→</span>
-        </a>
+        <nav className="hero-actions" aria-label={t("actions")}>
+          <a className="hero-cta" href="#contact">
+            {t("cta")} <span className="arrow" aria-hidden="true">→</span>
+          </a>
+          <a className="hero-cta" href={`tel:${firm.phoneE164}`}>{t("call")}</a>
+          <Link className="hero-cta" href="/commercial-contracts">{t("contractGuide")}</Link>
+        </nav>
       </div>
       <div className="hero-foot">
         <span>{t("footRole")}</span>

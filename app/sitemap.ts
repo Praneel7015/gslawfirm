@@ -8,7 +8,7 @@ import { SITE_URL } from "@/lib/site";
 // Update only the route whose visible content or search metadata changed.
 // These dates come from the corresponding production release history.
 const ROUTE_LAST_MODIFIED: Record<string, string> = {
-  "": "2026-08-01",
+  "": "2026-10-21",
   bail: "2026-07-28",
   "bail-hearing-procedure-hyderabad": "2026-06-20",
   "criminal-defense": "2026-06-20",
@@ -19,7 +19,7 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
   "consumer-forum-complaints": "2026-06-20",
   "legal-notices": "2026-06-20",
   "legal-notice-reply-format": "2026-07-29",
-  "commercial-contracts": "2026-07-28",
+  "commercial-contracts": "2026-10-21",
   "succession-probate": "2026-07-28",
   "high-court-matters": "2026-07-28",
   "cheque-dishonour": "2026-07-28",
@@ -38,7 +38,7 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
   practice: "2026-07-28",
   "practice/criminal": "2026-07-26",
   "practice/civil": "2026-07-26",
-  "practice/corporate": "2026-07-28",
+  "practice/corporate": "2026-10-21",
   "practice/will-succession": "2026-07-26",
   "practice/high-court": "2026-07-28",
   contact: "2026-07-26",

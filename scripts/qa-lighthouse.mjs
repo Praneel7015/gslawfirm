@@ -3,8 +3,8 @@
  * Usage: pnpm qa:lighthouse [baseUrl]
  * Requires: npx lighthouse (downloaded on first run).
  */
-import { execSync } from "node:child_process";
-import { mkdirSync, readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { mkdirSync, readFileSync, rmSync } from "node:fs";
 import { resolve } from "node:path";
 
 const BASE =
@@ -14,6 +14,8 @@ const BASE =
 
 const PAGES = [
   { name: "home", path: "/" },
+  { name: "corporate", path: "/practice/corporate" },
+  { name: "contracts", path: "/commercial-contracts" },
   { name: "criminal", path: "/practice/criminal" },
 ];
 
@@ -33,13 +35,18 @@ for (const page of PAGES) {
   const url = `${BASE}${page.path}`;
   const out = resolve(outDir, `lighthouse-${page.name}.json`);
   console.log(`\nAuditing ${url} …`);
-  execSync(
-    `npx --yes lighthouse "${url}" --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile --screenEmulation.mobile=true --chrome-flags="--headless --no-sandbox" --output=json --output-path="${out}" --quiet`,
+  rmSync(out, { force: true });
+  execFileSync(
+    "npx",
+    ["--yes", "--package=lighthouse@12.8.2", "lighthouse", url,
+      "--only-categories=performance,accessibility,best-practices,seo",
+      "--form-factor=mobile", "--screenEmulation.mobile=true",
+      "--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage",
+      "--output=json", `--output-path=${out}`, "--quiet"],
     { stdio: "inherit" },
   );
-  const report = JSON.parse(readFileSync(out, "utf8")) as {
-    categories: Record<string, { score: number | null }>;
-  };
+  const report = JSON.parse(readFileSync(out, "utf8"));
+  if (report.runtimeError) throw new Error(report.runtimeError.message);
   const scores = Object.fromEntries(
     Object.entries(TARGETS).map(([k, min]) => {
       const score = Math.round((report.categories[k]?.score ?? 0) * 100);

@@ -2835,3 +2835,42 @@ select:focus-visible {
   .modal p { font-size: 13.5px; }
   .modal-foot { flex-direction: column-reverse; }
 }
+
+
+/* Contact options near introductions remain usable before the mobile sidebar. */
+.hero-actions,
+.page-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+.hero-actions .hero-cta {
+  min-height: 44px;
+  padding-block: 10px;
+}
+.page-contact-actions { margin-top: 24px; }
+.page-contact-actions a,
+.office-directions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid currentColor;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.page-contact-actions a:first-child {
+  color: var(--color-bg);
+  background: var(--color-fg);
+}
+.office-directions { margin-top: 20px; gap: 12px; }
+.consultation-checklist {
+  padding-left: 20px;
+  margin-block: 18px;
+  line-height: 1.65;
+}
+.consultation-checklist li + li { margin-top: 12px; }
+.consultation-checklist a { text-underline-offset: 3px; }

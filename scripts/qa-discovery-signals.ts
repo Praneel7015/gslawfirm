@@ -1,10 +1,19 @@
 import sitemap from "../app/sitemap";
 import { legalServiceSchema } from "../lib/jsonld";
+import { localizedMetadataAuditRows } from "../lib/localized-metadata";
+import { routing } from "../i18n/routing";
+import { SITE_URL } from "../lib/site";
 
 const entries = sitemap();
 
-if (entries.length !== 93) {
-  throw new Error(`Expected 93 sitemap entries, found ${entries.length}.`);
+const expectedUrls = new Set(localizedMetadataAuditRows().map((row) => {
+  const prefix = row.locale === routing.defaultLocale ? "" : `/${row.locale}`;
+  return `${SITE_URL}${prefix}${row.path === "/" ? "" : row.path}`;
+}));
+const actualUrls = new Set(entries.map((entry) => entry.url));
+if (entries.length !== actualUrls.size || actualUrls.size !== expectedUrls.size ||
+    [...expectedUrls].some((url) => !actualUrls.has(url))) {
+  throw new Error("Sitemap URLs must be unique and match all public page metadata URLs.");
 }
 
 for (const entry of entries) {
@@ -45,5 +54,5 @@ for (const claim of unsupportedPaymentClaims) {
 }
 
 console.log(
-  "Discovery signals passed: 93 stable sitemap entries, complete locale alternates, and no unsupported LegalService payment claims.",
+  `Discovery signals passed: ${entries.length} stable sitemap entries, complete locale alternates, and no unsupported LegalService payment claims.`,
 );

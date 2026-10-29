@@ -4,6 +4,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { ContactActions } from "@/components/legal/ContactActions";
 import { routing } from "@/i18n/routing";
 import {
   practiceAreas,
@@ -196,6 +197,7 @@ export default async function PracticeDetailPage({
         </nav>
         <h1 id="pd-title">{localizedPracticeHeading(area.slug, locale)}</h1>
         <p className="lede">{area.oneLine}</p>
+        {area.slug === "corporate" ? <ContactActions /> : null}
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
 
@@ -212,6 +214,37 @@ export default async function PracticeDetailPage({
           {area.paragraphs.slice(1).map((p, i) => (
             <p key={i}>{p}</p>
           ))}
+
+          {area.slug === "corporate" ? (
+            <section className="service-faq" aria-labelledby="business-starting-point">
+              <h2 id="business-starting-point">Choose the starting point for your business matter</h2>
+              <p>
+                This overview helps founders and small-business owners identify
+                the type of legal question. The next step depends on the parties,
+                existing documents and any immediate deadline.
+              </p>
+              <ul className="consultation-checklist">
+                <li>
+                  <Link href="/commercial-contracts">Drafting or reviewing an agreement</Link>
+                  {": prepare the current draft, proposed terms and signing date."}
+                </li>
+                <li>
+                  Founder or shareholder questions: gather the ownership details,
+                  existing agreements and the decision or disagreement involved.
+                </li>
+                <li>
+                  <Link href="/legal-notices">A notice or payment dispute</Link>
+                  {": keep the contract, invoices, correspondence and reply deadline together."}
+                </li>
+              </ul>
+              <p>
+                In your first enquiry, describe the business relationship and
+                the decision you need to make. The advocate can confirm whether
+                the matter fits the practice and discuss the scope and fees
+                before work begins.
+              </p>
+            </section>
+          ) : null}
 
           <div className="pd-handle">
             <h2>{t("handleHeading")}</h2>

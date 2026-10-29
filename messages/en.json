@@ -8,13 +8,16 @@
   },
   "hero": {
     "eyebrow": "GS Law Firm · Kondapur, Hyderabad",
-    "line1": "Contracts and business representation in Hyderabad.",
-    "line2": "Commercial disputes.",
+    "line1": "Contracts and business matters.",
+    "line2": "In Kondapur, Hyderabad.",
     "emphasis": "One advocate stays involved.",
     "body": "Based in Kondapur, GS Law Firm handles contract review, commercial disputes and related civil matters for businesses in Hyderabad. Adv. Aitha Sunitha remains directly involved throughout.",
     "cta": "Send a confidential enquiry",
     "scroll": "Scroll ↓",
-    "footRole": "Adv. Aitha Sunitha (Sunitha Sindhole) · Direct consultation"
+    "footRole": "Adv. Aitha Sunitha (Sunitha Sindhole) · Direct consultation",
+    "actions": "Enquiry and contract guidance",
+    "call": "Call the firm",
+    "contractGuide": "Contract review: what to prepare"
   },
   "intro": {
     "tag": "Introduction",
@@ -89,7 +92,8 @@
     "phone": "Phone",
     "email": "Email",
     "hours": "Hours",
-    "pinLabel": "GS Law Firm · Sri Ramnagar"
+    "pinLabel": "GS Law Firm · Sri Ramnagar",
+    "directions": "Get office directions"
   },
   "contact": {
     "eyebrow": "Enquire",
@@ -295,5 +299,10 @@
     "email": "Email",
     "emailNext": "Opens email",
     "emailAria": "Email; opens a new email"
+  },
+  "contactActions": {
+    "label": "Contact the firm about this matter",
+    "enquire": "Discuss your matter",
+    "call": "Call the firm"
   }
 }

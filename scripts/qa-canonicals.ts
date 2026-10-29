@@ -1,18 +1,11 @@
 import { routing, type Locale } from "../i18n/routing";
-import {
-  localizedMetadataAuditRows,
-  localizedPageMetadata,
-  type LocalizedPageKey,
-} from "../lib/localized-metadata";
+import { localizedMetadataAuditRows } from "../lib/localized-metadata";
 import { SITE_URL } from "../lib/site";
 
 const rows = localizedMetadataAuditRows();
 
 for (const row of rows) {
-  const metadata = localizedPageMetadata(
-    row.key as LocalizedPageKey,
-    row.locale,
-  );
+  const metadata = row.metadata;
   const canonical = metadata.alternates?.canonical;
 
   if (!canonical) {
