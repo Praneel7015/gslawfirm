@@ -28,5 +28,8 @@ export const helveticaNeue = localFont({
   variable: "--font-helvetica",
   display: "swap",
   fallback: ["Helvetica", "Arial", "system-ui", "sans-serif"],
-  preload: true,
+  // The current CSS tokens use their own Helvetica/Arial stack, not this variable.
+  // Avoid downloading three unused font weights on every first visit.
+  // Reassess preloading if the design tokens start consuming --font-helvetica.
+  preload: false,
 });

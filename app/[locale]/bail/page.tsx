@@ -1,3 +1,4 @@
+import { TranslatedGuide } from "@/components/sections/TranslatedGuide";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -101,6 +102,7 @@ export default async function BailPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (locale === "hi" || locale === "te") return <TranslatedGuide id="bail" locale={locale} />;
 
   const localizedBailUrl =
     locale === "en" ? `${SITE_URL}/bail` : `${SITE_URL}/${locale}/bail`;

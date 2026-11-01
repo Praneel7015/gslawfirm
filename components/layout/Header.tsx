@@ -28,6 +28,13 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [isHome]);
 
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1101px)");
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
+
   const solid = !isHome || scrolled;
 
   const isActive = (href: string) => pathname === href;
@@ -36,7 +43,7 @@ export function Header() {
     <>
       <header className={"site-header" + (solid ? " solid" : "")}>
         <Lockup />
-        <nav className="nav" aria-label="Primary">
+        <nav className="nav" aria-label={t("primary")}>
           <Link href="/about" className={isActive("/about") ? "active" : ""}>
             {t("about")}
           </Link>
@@ -44,7 +51,7 @@ export function Header() {
             {t("practice")}
           </Link>
           <Link href="/resources" className={isActive("/resources") ? "active" : ""}>
-            Resources
+            {t("resources")}
           </Link>
           <SourceAwareContactLink className={isActive("/contact") ? "active" : ""}>
             {t("contact")}
@@ -56,7 +63,7 @@ export function Header() {
         </nav>
         <button
           className={"ham" + (menuOpen ? " open" : "")}
-          aria-label="Menu"
+          aria-label={t("menu")}
           aria-controls="mobile-menu"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}

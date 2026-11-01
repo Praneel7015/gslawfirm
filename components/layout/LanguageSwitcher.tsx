@@ -1,59 +1,38 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { useTransition } from "react";
-import { useRouter, usePathname, routing, type Locale } from "@/i18n/routing";
+import { useEffect, useState } from "react";
+import { usePathname, routing, type Locale } from "@/i18n/routing";
 
-const LABELS: Record<Locale, string> = {
-  en: "EN",
-  te: "తె",
-  hi: "हिं",
-};
+const LABELS: Record<Locale, string> = { en: "EN", te: "తెలుగు", hi: "हिंदी" };
 
-/**
- * Tiny inline EN · తె · हिं switcher.
- * Preserves the current route across locales via next-intl's typed router.
- */
-export function LanguageSwitcher({
-  className,
-  onLocaleChange,
-}: {
+export function LanguageSwitcher({ className, onLocaleChange }: {
   className?: string;
   onLocaleChange?: () => void;
 } = {}) {
-  const router = useRouter();
   const pathname = usePathname();
   const current = useLocale() as Locale;
-  const [pending, startTransition] = useTransition();
-
-  const onPick = (next: Locale) => {
-    if (next === current) return;
-    startTransition(() => {
-      router.replace(pathname, { locale: next });
-      onLocaleChange?.();
-    });
-  };
-
+  const [suffix, setSuffix] = useState("");
+  useEffect(() => {
+    const update = () => setSuffix(window.location.search + window.location.hash);
+    update();
+    window.addEventListener("hashchange", update);
+    window.addEventListener("popstate", update);
+    return () => {
+      window.removeEventListener("hashchange", update);
+      window.removeEventListener("popstate", update);
+    };
+  }, [pathname]);
   return (
-    <div
-      className={["lang", className].filter(Boolean).join(" ")}
-      role="group"
-      aria-label="Language"
-    >
-      {routing.locales.map((l, i) => (
-        <span key={l} className="lang-row">
-          {i > 0 && <span className="sep" aria-hidden="true">·</span>}
-          <button
-            type="button"
-            className={"lang-btn" + (l === current ? " is-active" : "")}
-            aria-current={l === current ? "true" : undefined}
-            aria-label={`Switch to ${l.toUpperCase()}`}
-            disabled={pending}
-            onClick={() => onPick(l)}
-          >
-            {LABELS[l]}
-          </button>
-        </span>
+    <div className={["lang", className].filter(Boolean).join(" ")} role="group" aria-label={{ en: "Language", hi: "भाषा", te: "భాష" }[current]}>
+      {routing.locales.map((locale) => (
+        <a key={locale} href={`${locale === "en" ? "" : `/${locale}`}${pathname === "/" ? (locale === "en" ? "/" : "") : pathname}${suffix}`}
+          hrefLang={locale} lang={locale}
+          className={"lang-btn" + (locale === current ? " is-active" : "")}
+          aria-current={locale === current ? "page" : undefined}
+          onClick={onLocaleChange}>
+          {LABELS[locale]}
+        </a>
       ))}
     </div>
   );

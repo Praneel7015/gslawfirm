@@ -1,3 +1,4 @@
+import { TranslatedGuide } from "@/components/sections/TranslatedGuide";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -113,6 +114,7 @@ export default async function ChequeBounceCaseProcedurePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (locale === "hi" || locale === "te") return <TranslatedGuide id="cheque-bounce-case-procedure-hyderabad" locale={locale} />;
 
   const localizedGuideUrl =
     locale === "en"

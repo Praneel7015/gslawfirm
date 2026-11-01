@@ -12,7 +12,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { DisclaimerModal } from "@/components/legal/DisclaimerModal";
 import { WhatsAppFab } from "@/components/legal/WhatsAppFab";
-import { MobileStickyBar } from "@/components/legal/MobileStickyBar";
 import { CloudflareAnalytics } from "@/components/analytics/CloudflareAnalytics";
 import { ContactAnalytics } from "@/components/analytics/ContactAnalytics";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
@@ -65,6 +64,7 @@ export const viewport: Viewport = {
   themeColor: "#0a0a0a",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export function generateStaticParams() {
@@ -89,14 +89,13 @@ export default async function LocaleLayout({
     <html lang={locale} className={helveticaNeue.variable}>
       <body>
         <a className="skip" href="#main">
-          Skip to content
+          {messages.nav && (messages.nav as Record<string, string>).skip}
         </a>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
           {children}
           <Footer />
           <WhatsAppFab />
-          <MobileStickyBar />
           <DisclaimerModal />
         </NextIntlClientProvider>
         <ContactAnalytics />

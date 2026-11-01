@@ -1,15 +1,17 @@
+import { guideUi } from "@/content/localized-guides";
+import { localizedUrl } from "@/lib/localized-content";
+import type { Locale } from "@/i18n/routing";
+import { localizedPracticeAreas } from "@/content/localized-practice";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
-import { practiceAreas } from "@/content/practice-areas";
 import { practiceIndexExtraLinks, practiceIndexIntro } from "@/content/focused-guidance";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { FocusedGuidance } from "@/components/sections/FocusedGuidance";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { localizedPageMetadata } from "@/lib/localized-metadata";
-import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
   params,
@@ -27,11 +29,13 @@ export default async function PracticeIndexPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const areas = localizedPracticeAreas(locale);
+  const ui = guideUi[locale as Locale];
   const t = await getTranslations("practiceIndex");
 
   const ld = breadcrumbSchema([
-    { name: "Home", url: SITE_URL },
-    { name: "Practice", url: `${SITE_URL}/practice` },
+    { name: ui.home, url: localizedUrl("/", locale) },
+    { name: ui.practice, url: localizedUrl("/practice", locale) },
   ]);
 
   return (
@@ -44,8 +48,8 @@ export default async function PracticeIndexPage({
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
 
-      <section className="pi-list" aria-label="Practice areas">
-        {practiceAreas.map((a) => (
+      <section className="pi-list" aria-label={ui.practice}>
+        {areas.map((a) => (
           <Link key={a.slug} href={`/practice/${a.slug}` as never} className="pi-row">
             <span className="pi-icon" aria-hidden="true">
               <PracticeIcon slug={a.slug} size={32} />
@@ -61,7 +65,7 @@ export default async function PracticeIndexPage({
         ))}
       </section>
 
-      <section className="pi-focused" aria-label="Focused guidance">
+      <section className="pi-focused" aria-label={ui.related}>
         <FocusedGuidance
           extraLinks={practiceIndexExtraLinks}
           intro={practiceIndexIntro}

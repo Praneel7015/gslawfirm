@@ -242,19 +242,19 @@ select:focus-visible {
 
 /* Hamburger (mobile only) */
 .ham {
-  width: 28px; height: 28px; position: relative;
+  width: 44px; height: 44px; position: relative;
   background: transparent; border: 0; padding: 0; cursor: pointer;
   display: none;
 }
 .ham span {
-  position: absolute; left: 4px; right: 4px; height: 1px;
+  position: absolute; left: 10px; right: 10px; top: 22px; height: 1px;
   background: currentColor;
-  transition: transform .25s ease, top .25s ease, opacity .2s ease;
+  transition: transform 240ms cubic-bezier(.22, 1, .36, 1);
 }
-.ham span:nth-child(1) { top: 10px; }
-.ham span:nth-child(2) { top: 18px; }
-.ham.open span:nth-child(1) { top: 14px; transform: rotate(45deg); }
-.ham.open span:nth-child(2) { top: 14px; transform: rotate(-45deg); }
+.ham span:nth-child(1) { transform: translateY(-4px); }
+.ham span:nth-child(2) { transform: translateY(4px); }
+.ham.open span:nth-child(1) { transform: rotate(45deg); }
+.ham.open span:nth-child(2) { transform: rotate(-45deg); }
 
 /* ── Mobile menu overlay ─────────────────────────────────── */
 .mobile-menu {
@@ -415,67 +415,15 @@ select:focus-visible {
   border: 0;
   transition: transform .2s ease;
 }
-.wa:hover { transform: scale(1.06); }
-.wa svg { width: 28px; height: 28px; color: #fff; }
-.wa::after {
-  content: '';
-  position: absolute; inset: -4px;
-  border-radius: 50%;
-  border: 1px solid rgba(37,211,102,.4);
-  animation: ping 2.4s ease-out infinite;
-  pointer-events: none;
+@media (hover: hover) and (pointer: fine) {
+  .wa:hover { transform: scale(1.06); }
 }
+.wa:active { transform: scale(.96); }
+.wa svg { width: 28px; height: 28px; color: #fff; }
 @keyframes ping {
   0%   { transform: scale(.4); opacity: 1; }
   100% { transform: scale(2.2); opacity: 0; }
 }
-
-/* ── Mobile sticky contact bar (Call · Chat · Email) ────── */
-.mbar {
-  position: fixed; left: 0; right: 0; bottom: 0;
-  background: #0a0a0a; color: #fff;
-  display: none;
-  grid-template-columns: 1fr 1fr 1fr;
-  z-index: 25;
-  border-top: .5px solid rgba(255,255,255,.1);
-}
-.mbar a {
-  text-decoration: none; color: #fff;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  min-width: 0;
-  padding: 10px 4px 12px;
-  gap: 4px;
-  min-height: 44px;
-  border-right: .5px solid rgba(255,255,255,.1);
-}
-.mbar a:last-child { border-right: 0; }
-.mbar svg { width: 18px; height: 18px; }
-.mbar-copy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  width: 100%;
-  min-width: 0;
-}
-.mbar-label {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.82);
-  white-space: nowrap;
-}
-.mbar-next {
-  font-size: 9px;
-  line-height: 1.15;
-  letter-spacing: .02em;
-  color: rgba(255,255,255,.55);
-  text-align: center;
-  white-space: normal;
-}
-.mbar a:active { background: rgba(255,255,255,.06); }
 
 /* ── BCI disclaimer modal ────────────────────────────────── */
 .modal-scrim {
@@ -2822,11 +2770,8 @@ select:focus-visible {
   .foot-top { grid-template-columns: 1fr; gap: 40px; padding-bottom: 48px; }
   .foot-bot { flex-direction: column; align-items: flex-start; gap: 18px; }
 
-  /* mobile bar */
-  .mbar { display: grid; }
-
-  /* WhatsApp lifts above the mobile bar */
-  .wa { right: 20px; bottom: 88px; width: 48px; height: 48px; }
+  /* Floating contact control */
+  .wa { right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); width: 48px; height: 48px; }
   .wa svg { width: 24px; height: 24px; }
 
   /* modal */
@@ -2834,4 +2779,145 @@ select:focus-visible {
   .modal h2 { font-size: 28px; }
   .modal p { font-size: 13.5px; }
   .modal-foot { flex-direction: column-reverse; }
+}
+
+/* Shared reading rhythm. Native dialogs keep background links out of tab order. */
+dialog.modal-scrim {
+  border: 0; margin: 0; width: 100%; max-width: none;
+  height: 100dvh; max-height: none; color: var(--color-fg);
+}
+dialog::backdrop { background: rgba(0,0,0,.78); }
+dialog.mobile-menu {
+  border: 0; margin: 0; width: 100%; max-width: none;
+  height: 100dvh; max-height: none; overflow-y: auto;
+  opacity: 0;
+  transform: translateY(-12px);
+  /* Keep the dialog in the top layer until the exit fade finishes. */
+  transition:
+    opacity 240ms ease,
+    transform 280ms cubic-bezier(.22, 1, .36, 1),
+    display 280ms allow-discrete,
+    overlay 280ms allow-discrete;
+}
+dialog.mobile-menu[open] { opacity: 1; transform: translateY(0); }
+dialog.mobile-menu:not([open]) { display: none; opacity: 0; }
+/* showModal() changes display from none; give that first frame a start state. */
+@starting-style {
+  dialog.mobile-menu[open] { opacity: 0; transform: translateY(-12px); }
+}
+dialog.mobile-menu::backdrop {
+  background: rgba(0,0,0,0);
+  transition: background 240ms ease, display 280ms allow-discrete, overlay 280ms allow-discrete;
+}
+dialog.mobile-menu[open]::backdrop { background: rgba(0,0,0,.78); }
+@starting-style {
+  dialog.mobile-menu[open]::backdrop { background: rgba(0,0,0,0); }
+}
+.menu-close { display: block; align-self: flex-end; flex-shrink: 0; color: inherit; }
+.mobile-menu > * { flex-shrink: 0; }
+.lang { gap: 4px; }
+.lang a.lang-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 8px; font-size: 14px; text-decoration: none; }
+.crumb { display: flex; flex-wrap: wrap; gap: 8px 12px; line-height: 1.65; }
+.crumb .current { min-width: 0; overflow-wrap: anywhere; }
+.pd-side, .pd-content, .cp-cell, .foot-col { min-width: 0; }
+a, .cp-cell .big { overflow-wrap: anywhere; }
+:lang(hi) { font-family: "Noto Sans Devanagari", "Nirmala UI", Mangal, sans-serif; }
+:lang(te) { font-family: "Noto Sans Telugu", "Nirmala UI", Gautami, sans-serif; }
+:lang(hi), :lang(te) { letter-spacing: normal; }
+:lang(hi) :is(h1,h2,h3), :lang(te) :is(h1,h2,h3) { line-height: 1.35; letter-spacing: normal; }
+
+@media (max-width: 768px) {
+  :root { --page-gutter: 22px; --section-space: 56px; --content-gap: 28px; }
+  html { scroll-padding-top: 100px; scroll-padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+  body { font-size: 16px; line-height: 1.65; letter-spacing: normal; }
+  main > section { padding-inline: var(--page-gutter); padding-block: var(--section-space); }
+  main > section:first-child:not(.hero) { padding-top: 124px; }
+  main :is(p, li, input, textarea, select) { font-size: 16px !important; line-height: 1.65 !important; letter-spacing: normal !important; }
+  main :is(h1,h2,h3) { letter-spacing: normal; overflow-wrap: break-word; text-wrap: pretty; }
+  main h1:not(.lockup-name), main .hero-title { font-size: clamp(32px, 8.5vw, 40px); line-height: 1.2; margin-block: 20px 24px; }
+  main h2:not(.lockup-name) { font-size: clamp(26px, 7vw, 30px); line-height: 1.25; margin-block: 0 20px; }
+  main h3:not(.lockup-name) { font-size: clamp(20px, 5.6vw, 24px); line-height: 1.25; margin-block: 0 16px; }
+  main p { margin-block: 0 20px; }
+  main p:last-child { margin-bottom: 0; }
+  main :is(.eyebrow, .li-num, label, .learn, .pd-footnote, .form-disclaim, .field-err, .crumb) { font-size: 14px; line-height: 1.6; }
+  .hero { min-height: 0; height: auto; padding: 0; flex-direction: column; align-items: stretch; }
+  .hero-inner { padding: 144px var(--page-gutter) 64px; }
+  .hero-title .line { display: inline; }
+  .hero-title .line::after { content: ' '; }
+  .hero-foot { position: static; margin: 0; padding: 0 22px 32px; gap: 20px; font-size: 14px; letter-spacing: normal; color: var(--soft-on-dark); }
+  .hero-eyebrow { align-items: flex-start; font-size: 14px; }
+  .hero-bg-mark { opacity: .05; }
+  main .hero-body { font-size: 16px; line-height: 1.65; max-width: 100%; }
+  .hero-actions { flex-wrap: wrap; gap: 16px; }
+  .section-head, .pd-body { gap: 32px; }
+  .practice-card, .resource-card, .pd-cta, .cp-cell { padding: 28px 22px; }
+  main [class$="-step"] { gap: 16px; padding-block: 28px; }
+  main [class$="-step"] h2 { margin-bottom: 0; }
+  .service-faq-item { padding-block: 28px; }
+  .pd-handle li { padding-block: 16px; gap: 16px; }
+  .pd-content > :is(.service-faq, .pd-handle, [class$="-steps"]) { margin-block: 32px; }
+  .field { margin-bottom: 24px; }
+  .field label { display: block; margin-bottom: 8px; }
+  .field :is(input,textarea,select) { min-height: 48px; padding-block: 14px; }
+  :is(.ham,.btn-consult,.btn-submit,.hero-cta,.pd-cta-link) { min-height: 44px; min-width: 44px; }
+  .mobile-menu { padding: 18px 22px calc(24px + env(safe-area-inset-bottom)); }
+  .mobile-menu a { font-size: 28px; line-height: 1.35; letter-spacing: normal; }
+  .mobile-menu .lang { flex-wrap: wrap; }
+  .menu-foot { font-size: 14px; letter-spacing: normal; overflow-wrap: anywhere; }
+  .foot { padding: 56px 22px calc(88px + env(safe-area-inset-bottom)); }
+  .foot :is(p,li,a) { font-size: 16px; line-height: 1.65; letter-spacing: normal; }
+  .foot :is(h3,.foot-disc,.foot-bot,.lockup-tag) { font-size: 14px; line-height: 1.65; letter-spacing: normal; }
+  .foot-col a { display: inline-flex; align-items: center; min-height: 44px; }
+  .foot-credit-line { flex-wrap: wrap; }
+  .modal-scrim { padding: 20px; }
+  .modal { padding: 32px 24px; max-height: calc(100dvh - 40px); }
+  .modal p { font-size: 16px; line-height: 1.65; letter-spacing: normal; }
+  .modal .eyebrow, .modal-btn { font-size: 14px; }
+  .modal h2 { line-height: 1.25; margin-bottom: 24px; }
+}
+.hero-service-links { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 24px; }
+.hero-service-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 16px; line-height: 1.65; }
+.page-contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 24px; }
+.page-contact-actions a, .office-directions {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 10px 16px; border: 1px solid currentColor;
+  font-size: 14px; line-height: 1.5; text-decoration: none;
+}
+.page-contact-actions a:first-child { color: var(--color-bg); background: var(--color-fg); }
+.office-directions { margin-top: 20px; gap: 12px; }
+.consultation-checklist { padding-left: 20px; margin-block: 18px; line-height: 1.65; }
+.consultation-checklist li + li { margin-top: 12px; }
+.consultation-checklist a { text-underline-offset: 3px; }
+@media (max-width: 768px) {
+  .legal-step ul { margin: 0; padding-left: 24px; }
+  .legal-step li + li { margin-top: 12px; }
+  main :is(.eyebrow, .hero-eyebrow, .intro-tag, .learn, .li-num, .k, .creds, .mono-meta, .mono-tag, .practice-feature-intro > span, .founder-meta, .form-disclaim, .field-err, .hero-foot) { font-size: 14px; line-height: 1.65; }
+  main :is(.field-err, .pd-footnote) { font-size: 14px !important; }
+  :lang(hi) main :is(h1,h2,h3), :lang(te) main :is(h1,h2,h3) { line-height: 1.35; letter-spacing: normal; }
+  .crumb a, .pd-adj a, .practice-feature-link { min-height: 44px; display: inline-flex; align-items: center; }
+}
+html:lang(hi) { --font-body: "Noto Sans Devanagari", "Nirmala UI", Mangal, sans-serif; --font-display: var(--font-body); --font-mono: var(--font-body); }
+html:lang(te) { --font-body: "Noto Sans Telugu", "Nirmala UI", Gautami, sans-serif; --font-display: var(--font-body); --font-mono: var(--font-body); }
+dialog.modal-scrim:not([open]) { display: none; }
+@media (max-width: 768px) {
+  .site-header, .site-header.solid { padding-top: calc(18px + env(safe-area-inset-top)); }
+  .site-header .lockup { min-width: 0; max-width: calc(100% - 60px); }
+  .lockup-text { min-width: 0; }
+  .lockup-tag { font-size: 14px; line-height: 1.35; letter-spacing: normal; white-space: normal; }
+  main > section:first-child:not(.hero) { padding-top: calc(124px + env(safe-area-inset-top)); }
+  .hero-inner { padding-top: calc(144px + env(safe-area-inset-top)); }
+  .mobile-menu { padding-top: calc(18px + env(safe-area-inset-top)); }
+  main :is(.v, .addr-block, .founder-meta dd, .pd-cta-link, .resources-card-cta, .practice-feature-link) { font-size: 16px; line-height: 1.65; letter-spacing: normal; }
+}
+.statistics-context > section { margin-block: 32px; }
+
+/* Give translated navigation room at tablet widths. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .nav { display: none; }
+  .ham { display: block; width: 44px; height: 44px; }
+}
+
+/* Keep the floating action out of the way while entering an enquiry. */
+@media (max-width: 1100px) {
+  body:has(.contact input:focus, .contact textarea:focus) .wa { visibility: hidden; }
 }

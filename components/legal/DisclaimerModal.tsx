@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { useModalFocus } from "@/lib/use-modal-focus";
 import { Mark } from "@/components/brand/Mark";
 
 const STORAGE_KEY = "gs-bci-ack-v1";
@@ -17,6 +18,8 @@ export function DisclaimerModal() {
   const t = useTranslations("disclaimer");
   const [open, setOpen] = useState(false);
   const lastFocus = useRef<Element | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  useModalFocus(dialogRef, open);
   const agreeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -32,15 +35,6 @@ export function DisclaimerModal() {
       setOpen(true);
     }
   }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    document.body.style.overflow = "hidden";
-    agreeRef.current?.focus();
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
 
   const onAgree = () => {
     try {
@@ -59,7 +53,9 @@ export function DisclaimerModal() {
   if (!open) return null;
 
   return (
-    <div
+    <dialog
+      ref={dialogRef}
+      onCancel={(event) => event.preventDefault()}
       className="modal-scrim open"
       role="dialog"
       aria-modal="true"
@@ -81,6 +77,7 @@ export function DisclaimerModal() {
           <button
             type="button"
             ref={agreeRef}
+            data-initial-focus
             className="modal-btn primary"
             onClick={onAgree}
           >
@@ -88,6 +85,6 @@ export function DisclaimerModal() {
           </button>
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }

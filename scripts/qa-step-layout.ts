@@ -14,7 +14,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
-const ROOT = join(process.cwd(), "app");
+const ROOTS = ["app", "components"].map(dir => join(process.cwd(), dir));
 const STEP_ARTICLE =
   /<article\s+className="[^"]*-step"[^>]*>([\s\S]*?)<\/article>/g;
 const LI_NUM = /<span\s+className="li-num"/;
@@ -30,12 +30,12 @@ function walk(dir: string): string[] {
   for (const name of readdirSync(dir)) {
     const full = join(dir, name);
     if (statSync(full).isDirectory()) out.push(...walk(full));
-    else if (name === "page.tsx") out.push(full);
+    else if (name.endsWith(".tsx")) out.push(full);
   }
   return out;
 }
 
-for (const file of walk(ROOT)) {
+for (const file of ROOTS.flatMap(walk)) {
   const src = readFileSync(file, "utf8");
   const rel = file.replace(process.cwd() + "\\", "").replace(/\\/g, "/");
   let match: RegExpExecArray | null;

@@ -5,7 +5,7 @@
  * Default base: NEXT_PUBLIC_SITE_URL or https://sunitha.sindhole.com
  */
 
-export {};
+import { readFile } from "node:fs/promises";
 
 const H1_BASE =
   process.argv[2]?.replace(/\/$/, "") ??
@@ -22,14 +22,14 @@ const H1_LOCALES: ReadonlyArray<{ locale: Locale; prefix: string }> = [
 
 const ROUTE_INTENT: Record<string, Record<Locale, RegExp>> = {
   "": {
-    en: /contracts|business representation|commercial disputes/i,
-    hi: /अनुबंध|व्यावसायिक प्रतिनिधित्व|वाणिज्यिक विवाद/i,
-    te: /ఒప్పందాలు|వ్యాపార ప్రాతినిధ్యం|వాణిజ్య వివాదాలు/i,
+    en: /criminal|bail/i,
+    hi: /आपराधिक|ज़मानत/i,
+    te: /క్రిమినల్|బెయిల్/i,
   },
-  "/bail": { en: /bail/i, hi: /बेल/i, te: /బెయిల్/i },
+  "/bail": { en: /bail/i, hi: /बेल|ज़मानत/i, te: /బెయిల్/i },
   "/bail-hearing-procedure-hyderabad": {
     en: /bail hearing/i,
-    hi: /बेल सुनवाई/i,
+    hi: /बेल|ज़मानत सुनवाई/i,
     te: /బెయిల్ విచారణ/i,
   },
   "/criminal-defense": {
@@ -39,8 +39,8 @@ const ROUTE_INTENT: Record<string, Record<Locale, RegExp>> = {
   },
   "/cyber-crime-complaints": {
     en: /cyber.?crime complaints/i,
-    hi: /cyber crime complaints/i,
-    te: /cyber crime complaints/i,
+    hi: /साइबर अपराध की शिकायतें/i,
+    te: /సైబర్ నేర ఫిర్యాదులు/i,
   },
   "/property-disputes": {
     en: /property disputes/i,
@@ -54,13 +54,13 @@ const ROUTE_INTENT: Record<string, Record<Locale, RegExp>> = {
   },
   "/consumer-forum-complaints": {
     en: /consumer forum complaints/i,
-    hi: /consumer forum complaints/i,
-    te: /consumer forum complaints/i,
+    hi: /उपभोक्ता शिकायतें/i,
+    te: /వినియోగదారుల ఫిర్యాదులు/i,
   },
   "/legal-notices": {
     en: /legal notices and replies/i,
     hi: /कानूनी नोटिस और जवाब/i,
-    te: /legal notices.*replies/i,
+    te: /న్యాయ నోటీసులు.*సమాధానాలు/i,
   },
   "/commercial-contracts": {
     en: /commercial contracts/i,
@@ -94,13 +94,13 @@ const ROUTE_INTENT: Record<string, Record<Locale, RegExp>> = {
   },
   "/specific-performance": {
     en: /specific performance/i,
-    hi: /specific performance/i,
-    te: /specific performance/i,
+    hi: /समझौते का विशिष्ट पालन/i,
+    te: /ఒప్పంద నిర్దిష్ట అమలు/i,
   },
   "/injunction-interim-relief": {
     en: /injunction and interim relief/i,
-    hi: /injunction और interim relief/i,
-    te: /injunction మరియు interim relief/i,
+    hi: /निषेधाज्ञा.*अंतरिम राहत/i,
+    te: /ఇంజంక్షన్.*మధ్యంతర రక్షణ/i,
   },
   "/continuity-of-counsel": {
     en: /continuity of counsel/i,
@@ -133,7 +133,7 @@ const ROUTE_INTENT: Record<string, Record<Locale, RegExp>> = {
     te: /సివిల్ మరియు ఆస్తి వివాదాలు/i,
   },
   "/practice/corporate": {
-    en: /corporate and commercial matters/i,
+    en: /corporate and commercial (?:law|matters)/i,
     hi: /कॉर्पोरेट और वाणिज्यिक मामले/i,
     te: /కార్పొరేట్ మరియు వాణిజ్య విషయాలు/i,
   },
@@ -152,6 +152,13 @@ const ROUTE_INTENT: Record<string, Record<Locale, RegExp>> = {
     hi: /GS Law Firm से संपर्क करें/i,
     te: /GS Law Firmను సంప్రదించండి/i,
   },
+  "/cyber-crime-complaint-format": { en: /cyber.?crime complaint format/i, hi: /साइबर क्राइम शिकायत का प्रारूप/i, te: /సైబర్ క్రైమ్ ఫిర్యాదు ఫార్మాట్/i },
+  "/legal-notice-reply-format": { en: /legal notice reply format/i, hi: /कानूनी नोटिस जवाब का प्रारूप/i, te: /లీగల్ నోటీసు జవాబు ఫార్మాట్/i },
+  "/legal-statistics-hyderabad": { en: /statistics/i, hi: /आँकड़े/i, te: /గణాంకాలు/i },
+  "/resources": { en: /resources/i, hi: /संसाधन/i, te: /వనరులు/i },
+  "/resources/what-to-do-after-receiving-legal-notice-hyderabad": { en: /legal notice/i, hi: /कानूनी नोटिस/i, te: /నోటీసు/i },
+  "/resources/understanding-bail-in-hyderabad-courts": { en: /bail/i, hi: /ज़मानत|बेल/i, te: /బెయిల్/i },
+  "/resources/property-title-verification-hyderabad": { en: /property title/i, hi: /संपत्ति टाइटल/i, te: /ఆస్తి టైటిల్/i },
   "/privacy": {
     en: /privacy notice/i,
     hi: /गोपनीयता सूचना/i,
@@ -193,14 +200,15 @@ async function runH1Audit() {
   for (const { locale, prefix } of H1_LOCALES) {
     for (const [route, intents] of Object.entries(ROUTE_INTENT)) {
       const url = `${H1_BASE}${prefix}${route || "/"}`;
-      const response = await fetch(url, { redirect: "follow" });
+      const staticMode = process.argv.includes("--static");
+      const response = staticMode ? undefined : await fetch(url, { redirect: "follow" });
 
-      if (!response.ok) {
+      if (response && !response.ok) {
         failures.push(`${url}: returned ${response.status}`);
         continue;
       }
 
-      const html = await response.text();
+      const html = staticMode ? await readFile(`.next/server/app/${locale}${route}.html`, "utf8") : await response!.text();
       const headings = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)].map(
         (match) => textContent(match[1]!),
       );

@@ -52,3 +52,7 @@ next-env.d.ts
 # IDE
 .idea/
 .vscode/
+
+# Browser captures and project-local tool caches
+/output/playwright/
+/.playwright-cli/

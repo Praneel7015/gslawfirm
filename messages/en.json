@@ -4,21 +4,28 @@
     "practice": "Practice",
     "approach": "Approach",
     "contact": "Contact",
-    "consult": "Consult"
+    "consult": "Consult",
+    "resources": "Resources",
+    "menu": "Menu",
+    "close": "Close",
+    "primary": "Primary navigation",
+    "skip": "Skip to content"
   },
   "hero": {
     "eyebrow": "GS Law Firm · Kondapur, Hyderabad",
-    "line1": "Contracts and business representation in Hyderabad.",
-    "line2": "Commercial disputes.",
-    "emphasis": "One advocate stays involved.",
-    "body": "Based in Kondapur, GS Law Firm handles contract review, commercial disputes and related civil matters for businesses in Hyderabad. Adv. Aitha Sunitha remains directly involved throughout.",
+    "line1": "Criminal litigation",
+    "line2": "and bail in Hyderabad.",
+    "emphasis": "Direct counsel.",
+    "body": "FIR review, regular and anticipatory bail, and criminal court representation from Kondapur, Hyderabad. Speak directly with Adv. Aitha Sunitha.",
     "cta": "Send a confidential enquiry",
     "scroll": "Scroll ↓",
-    "footRole": "Adv. Aitha Sunitha (Sunitha Sindhole) · Direct consultation"
+    "footRole": "Adv. Aitha Sunitha (Sunitha Sindhole) · Direct consultation",
+    "bail": "Bail applications",
+    "criminal": "Criminal litigation"
   },
   "intro": {
     "tag": "Introduction",
-    "body": "Founded in 2023 in Kondapur, Hyderabad, the firm undertakes criminal and civil matters as a solo-advocate practice, quietly, attentively, and with the same hand on every brief."
+    "body": "Based in Kondapur, Hyderabad, GS Law Firm handles criminal litigation and bail applications with the same advocate from file review to court appearance. Civil, property, commercial and succession matters remain part of the practice."
   },
   "practice": {
     "eyebrow": "Practice",
@@ -29,7 +36,7 @@
   "homeFaqs": {
     "eyebrow": "Search questions",
     "heading": "Questions behind the first search.",
-    "lede": "These answers cover the search themes already bringing this homepage into view. They explain the firm's scope, not the facts of any individual matter.",
+    "lede": "Practical questions about criminal cases, bail and arranging a first consultation. These are general answers; the documents and facts determine the available step.",
     "items": {
       "contract": {
         "question": "What can a contract lawyer review for a Hyderabad business?",
@@ -46,6 +53,10 @@
       "nearby": {
         "question": "Is GS Law Firm near Kondapur and Gachibowli for in-person consultation?",
         "answer": "The office is in Sri Ramnagar, Kondapur, and serves Gachibowli and nearby Hyderabad localities. Appointments are preferred; a first conversation can also begin by phone or video after a brief enquiry."
+      },
+      "bail": {
+        "question": "What should I bring for a bail enquiry in Hyderabad?",
+        "answer": "Bring the FIR or complaint, arrest and remand papers, previous bail orders and the next court date. Say whether an arrest has happened or is anticipated. The appropriate application depends on the allegations and stage."
       }
     }
   },
@@ -75,13 +86,20 @@
   },
   "founder": {
     "eyebrow": "Counsel",
-    "portraitTag": "Portrait · TBD",
+    "portraitTag": "Advocate · Hyderabad",
     "meta": {
       "barCouncil": "Bar Council",
       "education": "Education",
       "languages": "Languages",
       "profile": "Profile"
-    }
+    },
+    "sole": "Sole advocate",
+    "enrolment": "Enrolled with the Bar Council of Telangana",
+    "languages": "English · Telugu · Hindi",
+    "bio": [
+      "Over ten years of criminal and civil practice in Hyderabad, with periodic appearances before the High Court of Telangana. Graduate of Padala Ram Reddy College of Law.",
+      "Founded GS Law Firm in 2023 to keep the same advocate involved in reading the file, court preparation and client communication."
+    ]
   },
   "location": {
     "eyebrow": "Visit",
@@ -89,7 +107,13 @@
     "phone": "Phone",
     "email": "Email",
     "hours": "Hours",
-    "pinLabel": "GS Law Firm · Sri Ramnagar"
+    "pinLabel": "GS Law Firm · Sri Ramnagar",
+    "served": "Serving Kondapur, Gachibowli and nearby Hyderabad localities.",
+    "locationLink": "Read about Kondapur legal services",
+    "areas": "Nearby areas served",
+    "mapTitle": "GS Law Firm office location on Google Maps",
+    "officeHours": "Mon–Sat · 10:00–18:00 IST",
+    "directions": "Get office directions"
   },
   "contact": {
     "eyebrow": "Enquire",
@@ -115,6 +139,13 @@
       "generic": "Something went wrong. Please call +91 99638 47704 or write to sunitha@sindhole.com.",
       "rateLimit": "You’ve sent several enquiries recently. Please try again in an hour.",
       "challenge": "We couldn’t verify this submission. Please refresh the page and try again, or call +91 99638 47704."
+    },
+    "security": "Completing security check…",
+    "validation": {
+      "name": "Enter your name (2–80 characters).",
+      "phone": "Enter a valid Indian mobile number.",
+      "email": "Enter a valid email address.",
+      "message": "Enter a message of 10–2000 characters."
     }
   },
   "about": {
@@ -265,12 +296,16 @@
     },
     "links": {
       "about": "About",
-      "approach": "Approach",
+      "approach": "Continuity of counsel",
       "contact": "Contact",
       "disclaimer": "Disclaimer",
-      "linkedin": "LinkedIn ↗"
+      "linkedin": "LinkedIn ↗",
+      "resources": "Resources",
+      "statistics": "Legal statistics"
     },
-    "disclaim": "As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. The contents of this site are for informational purposes only and do not constitute legal advice or create any attorney–client relationship."
+    "disclaim": "As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. The contents of this site are for informational purposes only and do not constitute legal advice or create any attorney–client relationship.",
+    "officeHours": "Mon–Sat · 10:00–18:00 IST",
+    "credit": "Made by Praneel S"
   },
   "disclaimer": {
     "noticeEyebrow": "Bar Council of India · Notice",
@@ -284,16 +319,9 @@
     "label": "Chat on WhatsApp",
     "prefilled": "Hello. I am [Name] in [Locality]. The matter is [type: bail / notice / property / cheque / cyber crime / contract / succession]. Stage: [FIR / notice / hearing date / undecided]. Please advise a convenient time to speak."
   },
-  "mbar": {
-    "nav": "Quick contact",
-    "call": "Call",
-    "callNext": "Opens phone",
-    "callAria": "Call; opens your phone",
-    "chat": "WhatsApp",
-    "chatNext": "Opens chat",
-    "chatAria": "WhatsApp; opens a chat",
-    "email": "Email",
-    "emailNext": "Opens email",
-    "emailAria": "Email; opens a new email"
+  "contactActions": {
+    "label": "Contact the firm about this matter",
+    "enquire": "Discuss your matter",
+    "call": "Call the firm"
   }
 }

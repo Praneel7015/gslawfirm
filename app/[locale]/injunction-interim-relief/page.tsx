@@ -1,3 +1,4 @@
+import { TranslatedGuide } from "@/components/sections/TranslatedGuide";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -105,6 +106,7 @@ export default async function InjunctionInterimReliefPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (locale === "hi" || locale === "te") return <TranslatedGuide id="injunction-interim-relief" locale={locale} />;
 
   const localizedInjunctionUrl =
     locale === "en"

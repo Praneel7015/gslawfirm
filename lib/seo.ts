@@ -65,7 +65,8 @@ export function pageMetadata({
         ? `/${locale}/${clean}`
         : `/${locale}`;
   const url = `${SITE_URL}${localizedPath}`;
-  const og = image ? [{ url: image, width: 1200, height: 630 }] : undefined;
+  const socialImage = image ?? "/opengraph-image";
+  const og = [{ url: socialImage, width: 1200, height: 630, alt: "GS Law Firm · Kondapur, Hyderabad" }];
   return {
     metadataBase: new URL(SITE_URL),
     title: { absolute: title },
@@ -82,7 +83,7 @@ export function pageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: image ? [image] : undefined,
+      images: [socialImage],
     },
   };
 }

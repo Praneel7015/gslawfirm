@@ -1,12 +1,16 @@
+import { guideUi } from "@/content/localized-guides";
+import { labelForPath, localizedUrl } from "@/lib/localized-content";
+import type { Locale } from "@/i18n/routing";
+import { localizedPracticeAreas } from "@/content/localized-practice";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { ContactActions } from "@/components/legal/ContactActions";
 import { routing } from "@/i18n/routing";
 import {
-  practiceAreas,
   getPracticeArea,
   type PracticeSlug,
 } from "@/content/practice-areas";
@@ -21,7 +25,6 @@ import {
   localizedPracticeHeading,
   localizedPracticeMetadata,
 } from "@/lib/localized-metadata";
-import { SITE_URL } from "@/lib/site";
 import {
   practiceHubLinks,
   practiceResourceLinks,
@@ -132,7 +135,7 @@ const focusedGuides: Partial<
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
-    practiceAreas.map((a) => ({ locale, slug: a.slug })),
+    localizedPracticeAreas(locale).map((a) => ({ locale, slug: a.slug })),
   );
 }
 
@@ -154,12 +157,14 @@ export default async function PracticeDetailPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
+  const areas = localizedPracticeAreas(locale);
+  const ui = guideUi[locale as Locale];
 
-  const area = getPracticeArea(slug);
+  const area = areas.find(area => area.slug === slug);
   if (!area) notFound();
 
   const t = await getTranslations("practiceDetail");
-  const adjacent = practiceAreas.filter((a) => a.slug !== area.slug);
+  const adjacent = areas.filter((a) => a.slug !== area.slug);
   const guides = [
     ...(focusedGuides[area.slug] ?? []),
     ...(practiceResourceLinks[area.slug] ?? []),
@@ -176,9 +181,9 @@ export default async function PracticeDetailPage({
   const ld = graphSchema([
     serviceSchema(area, locale),
     breadcrumbSchema([
-      { name: "Home", url: SITE_URL },
-      { name: "Practice", url: `${SITE_URL}/practice` },
-      { name: area.name, url: `${SITE_URL}/practice/${area.slug}` },
+      { name: ui.home, url: localizedUrl("/", locale) },
+      { name: ui.practice, url: localizedUrl("/practice", locale) },
+      { name: area.name, url: localizedUrl(`/practice/${area.slug}`, locale) },
     ]),
   ]);
 
@@ -187,7 +192,7 @@ export default async function PracticeDetailPage({
       <JsonLd data={ld} />
       {/* ── HERO ────────────────────────────────────────────────── */}
       <section className="pd-hero" aria-labelledby="pd-title">
-        <nav className="crumb" aria-label="Breadcrumb">
+        <nav className="crumb" aria-label={ui.breadcrumb}>
           <Link href="/">{t("crumbHome")}</Link>
           <span aria-hidden="true">/</span>
           <Link href="/practice">{t("crumbPractice")}</Link>
@@ -196,6 +201,7 @@ export default async function PracticeDetailPage({
         </nav>
         <h1 id="pd-title">{localizedPracticeHeading(area.slug, locale)}</h1>
         <p className="lede">{area.oneLine}</p>
+        {area.slug === "corporate" ? <ContactActions /> : null}
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
 
@@ -213,6 +219,37 @@ export default async function PracticeDetailPage({
             <p key={i}>{p}</p>
           ))}
 
+          {area.slug === "corporate" && locale === "en" ? (
+            <section className="service-faq" aria-labelledby="business-starting-point">
+              <h2 id="business-starting-point">Choose the starting point for your business matter</h2>
+              <p>
+                This overview helps founders and small-business owners identify
+                the type of legal question. The next step depends on the parties,
+                existing documents and any immediate deadline.
+              </p>
+              <ul className="consultation-checklist">
+                <li>
+                  <Link href="/commercial-contracts">Drafting or reviewing an agreement</Link>
+                  {": prepare the current draft, proposed terms and signing date."}
+                </li>
+                <li>
+                  Founder or shareholder questions: gather the ownership details,
+                  existing agreements and the decision or disagreement involved.
+                </li>
+                <li>
+                  <Link href="/legal-notices">A notice or payment dispute</Link>
+                  {": keep the contract, invoices, correspondence and reply deadline together."}
+                </li>
+              </ul>
+              <p>
+                In your first enquiry, describe the business relationship and
+                the decision you need to make. The advocate can confirm whether
+                the matter fits the practice and discuss the scope and fees
+                before work begins.
+              </p>
+            </section>
+          ) : null}
+
           <div className="pd-handle">
             <h2>{t("handleHeading")}</h2>
             <ul>
@@ -227,7 +264,7 @@ export default async function PracticeDetailPage({
           <p className="pd-footnote">{t("footer")}</p>
         </div>
 
-        <aside className="pd-side" aria-label="Related actions">
+        <aside className="pd-side" aria-label={ui.actions}>
           <div className="pd-cta">
             <h3>
               {t("cta.headingPrefix")} {area.shortName.toLowerCase()}{" "}
@@ -241,11 +278,11 @@ export default async function PracticeDetailPage({
 
           {uniqueGuides.length > 0 ? (
             <div className="pd-adj">
-              <h3>Focused guidance</h3>
+              <h3>{ui.related}</h3>
               <ul>
                 {uniqueGuides.map((guide) => (
                   <li key={guide.href}>
-                    <Link href={guide.href as never}>{guide.label}</Link>
+                    <Link href={guide.href as never}>{locale === "en" ? guide.label : labelForPath(guide.href, locale)}</Link>
                     <span aria-hidden="true">→</span>
                   </li>
                 ))}

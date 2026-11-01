@@ -1,3 +1,6 @@
+import { labelForPath, localizedUrl } from "@/lib/localized-content";
+import { guideUi } from "@/content/localized-guides";
+import type { Locale } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
@@ -5,7 +8,6 @@ import { firm } from "@/content/firm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { localizedPageMetadata } from "@/lib/localized-metadata";
-import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
   params,
@@ -25,11 +27,12 @@ export default async function PrivacyPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const ui = guideUi[locale as Locale];
   const t = await getTranslations("privacy");
 
   const ld = breadcrumbSchema([
-    { name: "Home", url: SITE_URL },
-    { name: "Privacy", url: `${SITE_URL}/privacy` },
+    { name: ui.home, url: localizedUrl("/", locale) },
+    { name: labelForPath("/privacy", locale), url: localizedUrl("/privacy", locale) },
   ]);
 
   return (

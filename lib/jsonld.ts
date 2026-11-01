@@ -276,3 +276,23 @@ export function graphSchema(nodes: JsonLd[]): JsonLd {
     }),
   };
 }
+
+/** Attribute articles to the publishing organisation; no unverified personal byline. */
+export function articleSchema(article: import("@/content/resources").ResourceArticle, locale: string) {
+  const path = `/resources/${article.slug}`;
+  const url = `${SITE_URL}${locale === "en" ? "" : `/${locale}`}${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: article.title,
+    description: article.description,
+    inLanguage: locale,
+    datePublished: `${article.publishedAt}T00:00:00+05:30`,
+    dateModified: `${article.updatedAt}T00:00:00+05:30`,
+    mainEntityOfPage: url,
+    url,
+    image: `${SITE_URL}/opengraph-image`,
+    publisher: { "@type": "Organization", name: firm.name, url: SITE_URL },
+  };
+}

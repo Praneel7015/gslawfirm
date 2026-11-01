@@ -1,3 +1,6 @@
+import { labelForPath, localizedUrl } from "@/lib/localized-content";
+import { guideUi } from "@/content/localized-guides";
+import type { Locale } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
@@ -7,7 +10,6 @@ import { Location } from "@/components/sections/Location";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graphSchema, placeSchema } from "@/lib/jsonld";
 import { localizedPageMetadata } from "@/lib/localized-metadata";
-import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
   params,
@@ -25,6 +27,7 @@ export default async function ContactPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const ui = guideUi[locale as Locale];
   const t = await getTranslations("contactPage");
   const tWa = await getTranslations("wa");
 
@@ -35,8 +38,8 @@ export default async function ContactPage({
   const ld = graphSchema([
     placeSchema(),
     breadcrumbSchema([
-      { name: "Home", url: SITE_URL },
-      { name: "Contact", url: `${SITE_URL}/contact` },
+      { name: ui.home, url: localizedUrl("/", locale) },
+      { name: labelForPath("/contact", locale), url: localizedUrl("/contact", locale) },
     ]),
   ]);
 
@@ -88,7 +91,7 @@ export default async function ContactPage({
         <p className="cp-first-msg-note">{t("firstMessage.privacyNote")}</p>
       </section>
 
-      <section className="cp-grid" aria-label="Three ways to reach us">
+      <section className="cp-grid" aria-label={t("heading")}>
         <div className="cp-cell">
           <h2>{t("phone.label")}</h2>
           <a href={`tel:${firm.phoneE164}`}>

@@ -15,7 +15,7 @@ export async function Location() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="strict-origin-when-cross-origin"
-          title="GS Law Firm office location on Google Maps"
+          title={t("mapTitle")}
         />
       </div>
       <div className="address">
@@ -42,12 +42,14 @@ export async function Location() {
         </div>
         <div className="address-row">
           <span className="k">{t("hours")}</span>
-          <span className="v">{firm.hoursShort}</span>
+          <span className="v">{t("officeHours")}</span>
         </div>
-        <div className="served-block" aria-label="Nearby areas served">
+        <a className="office-directions" href={firm.mapsUrl} target="_blank" rel="noopener noreferrer">
+          {t("directions")} <span aria-hidden="true">↗</span>
+        </a>
+        <div className="served-block" aria-label={t("areas")}>
           <p className="served-copy">
-            Serving Kondapur, Gachibowli, Madhapur, Miyapur, Nallagandla,
-            Serilingampally, Hafeezpet, Tellapur, and nearby Hyderabad localities.
+            {t("served")}
           </p>
           <ul className="served-list">
             {firm.areasServed.map((area) => (
@@ -55,7 +57,7 @@ export async function Location() {
             ))}
           </ul>
           <Link href="/kondapur-legal-services" className="served-link">
-            Read about Kondapur legal services <span aria-hidden="true">→</span>
+            {t("locationLink")} <span aria-hidden="true">→</span>
           </Link>
         </div>
       </div>

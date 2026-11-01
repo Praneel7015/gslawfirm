@@ -1,3 +1,6 @@
+import { labelForPath, localizedUrl } from "@/lib/localized-content";
+import { guideUi } from "@/content/localized-guides";
+import type { Locale } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
@@ -6,7 +9,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
 import { breadcrumbSchema, graphSchema, personSchema, profilePageSchema } from "@/lib/jsonld";
 import { localizedPageMetadata } from "@/lib/localized-metadata";
-import { SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
   params,
@@ -24,14 +26,16 @@ export default async function AboutPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const ui = guideUi[locale as Locale];
+  const ta = await getTranslations("approach");
   const t = await getTranslations("about");
 
   const ld = graphSchema([
     personSchema(),
     profilePageSchema(),
     breadcrumbSchema([
-      { name: "Home", url: SITE_URL },
-      { name: "About", url: `${SITE_URL}/about` },
+      { name: ui.home, url: localizedUrl("/", locale) },
+      { name: labelForPath("/about", locale), url: localizedUrl("/about", locale) },
     ]),
   ]);
 
@@ -45,7 +49,7 @@ export default async function AboutPage({
       </section>
 
       {/* ── SYMBOL (razorbill metaphor) ────────────────────────── */}
-      <section className="about-symbol" aria-label="On the mark">
+      <section className="about-symbol" aria-label={t("symbol.eyebrow")}>
         <div className="mark-big" aria-hidden="true" />
         <div className="text">
           <span className="eyebrow">{t("symbol.eyebrow")}</span>
@@ -56,7 +60,7 @@ export default async function AboutPage({
       </section>
 
       {/* ── STORY (founding, 4 paragraphs with drop cap) ───────── */}
-      <section className="about-story" aria-label="Founding story">
+      <section className="about-story" aria-label={t("story.label")}>
         <div className="col-label">{t("story.label")}</div>
         <div className="about-story-content">
           <p>{t("story.p1")}</p>
@@ -64,14 +68,12 @@ export default async function AboutPage({
           <p>{t("story.p3")}</p>
           <p>{t("story.p4")}</p>
           <div className="about-story-link">
-            <span>Continuity of counsel</span>
+            <span>{ta("continuityExplainer.label")}</span>
             <p>
-              The continuity explainer describes how one advocate reading the
-              papers and staying familiar with the file helps keep the next
-              court-stage discussion clear.
+              {ta("continuityExplainer.body")}
             </p>
             <Link href="/continuity-of-counsel">
-              Read the explainer <span aria-hidden="true">→</span>
+              {ta("continuityExplainer.link")} <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

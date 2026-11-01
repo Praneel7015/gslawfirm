@@ -6,7 +6,7 @@ export const founder = {
   credentials: "B.Sc · M.Sc · LL.B · LL.M",
   experienceYears: 10,
   education: "Padala Ram Reddy College of Law",
-  barCouncil: "Enrolled with the Bar Council of Telangana, Reg. No. [PLACEHOLDER]",
+  barCouncil: "Enrolled with the Bar Council of Telangana",
   languages: ["English", "Telugu", "Hindi"] as const,
   // Two restrained paragraphs, see content/copy/founder-bio.ts for long-form locale variants.
   bioParagraphs: [

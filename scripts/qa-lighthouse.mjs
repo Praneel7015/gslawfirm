@@ -3,7 +3,7 @@
  * Usage: pnpm qa:lighthouse [baseUrl]
  * Requires: npx lighthouse (downloaded on first run).
  */
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -33,13 +33,14 @@ for (const page of PAGES) {
   const url = `${BASE}${page.path}`;
   const out = resolve(outDir, `lighthouse-${page.name}.json`);
   console.log(`\nAuditing ${url} …`);
-  execSync(
-    `npx --yes lighthouse "${url}" --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile --screenEmulation.mobile=true --chrome-flags="--headless --no-sandbox" --output=json --output-path="${out}" --quiet`,
-    { stdio: "inherit" },
-  );
-  const report = JSON.parse(readFileSync(out, "utf8")) as {
-    categories: Record<string, { score: number | null }>;
-  };
+  const response = await fetch(url, { signal: AbortSignal.timeout(10000) });
+  if (!response.ok) throw new Error(`Lighthouse target is unavailable: ${url} (${response.status})`);
+  execFileSync("npx", ["--yes", "lighthouse", url,
+    "--only-categories=performance,accessibility,best-practices,seo",
+    "--form-factor=mobile", "--screenEmulation.mobile=true",
+    "--chrome-flags=--headless --no-sandbox", "--output=json",
+    `--output-path=${out}`, "--quiet"], { stdio: "inherit", env: { ...process.env, NPM_CONFIG_CACHE: resolve(outDir, "npm-cache") } });
+  const report = JSON.parse(readFileSync(out, "utf8"));
   const scores = Object.fromEntries(
     Object.entries(TARGETS).map(([k, min]) => {
       const score = Math.round((report.categories[k]?.score ?? 0) * 100);

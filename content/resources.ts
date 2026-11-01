@@ -43,7 +43,7 @@ export const resourceArticles: ResourceArticle[] = [
       "advocate Hyderabad",
     ],
     publishedAt: "2026-09-20",
-    updatedAt: "2026-09-20",
+    updatedAt: "2026-11-01",
     relatedSlugs: [
       "/legal-notices",
       "/legal-notice-reply-format",
@@ -68,7 +68,7 @@ export const resourceArticles: ResourceArticle[] = [
       "criminal advocate Hyderabad",
     ],
     publishedAt: "2026-09-20",
-    updatedAt: "2026-09-20",
+    updatedAt: "2026-11-01",
     relatedSlugs: [
       "/bail",
       "/bail-hearing-procedure-hyderabad",
@@ -93,7 +93,7 @@ export const resourceArticles: ResourceArticle[] = [
       "buy property Hyderabad legal check",
     ],
     publishedAt: "2026-09-20",
-    updatedAt: "2026-09-20",
+    updatedAt: "2026-11-01",
     relatedSlugs: [
       "/property-disputes",
       "/property-dispute-courts-telangana",

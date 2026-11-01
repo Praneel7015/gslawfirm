@@ -36,7 +36,7 @@ export const practiceAreas: readonly PracticeArea[] = [
     ],
     handle: [
       "Anticipatory & regular bail",
-      "FIR quashing under § 482",
+      "FIR quashing: CrPC § 482 / BNSS § 528",
       "Sessions court trial representation",
       "Cross-examination of witnesses",
       "Criminal appeals & revisions",
@@ -52,7 +52,7 @@ export const practiceAreas: readonly PracticeArea[] = [
     oneLine:
       "Property, tenancy, contract and consumer disputes. Start here to identify the likely civil-court stage and relevant papers.",
     paragraphs: [
-      "Civil work is slower work. A property dispute can take years; a tenancy matter, months; a consumer complaint, weeks. We plan for the time the work actually takes, not the time anyone wishes it would take.",
+      "Civil proceedings depend on the relief, documents, evidence and court schedule. We prepare for the stages the matter needs without promising a fixed disposal date.",
       "The firm appears in district and city civil courts, with periodic matters before the High Court where appellate or writ relief is sought. We draft carefully, file deliberately, and avoid arguments we are not asked to make.",
     ],
     handle: [

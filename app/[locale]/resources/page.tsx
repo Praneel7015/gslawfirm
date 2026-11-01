@@ -1,3 +1,6 @@
+import { localizedArticles, articleUi } from "@/content/localized-resources";
+import { labelForPath, localizedUrl } from "@/lib/localized-content";
+import type { Locale } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -11,7 +14,6 @@ import {
   localizedPageMetadata,
 } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
-import { resourceArticles } from "@/content/resources";
 
 export async function generateMetadata({
   params,
@@ -29,6 +31,8 @@ export default async function ResourcesIndexPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const ui = articleUi[locale as Locale];
+  const articles = localizedArticles(locale);
 
   const pageUrl =
     locale === "en"
@@ -37,8 +41,8 @@ export default async function ResourcesIndexPage({
 
   const ld = graphSchema([
     breadcrumbSchema([
-      { name: "Home", url: SITE_URL },
-      { name: "Resources", url: pageUrl },
+      { name: ui.home, url: localizedUrl("/", locale) },
+      { name: ui.resources, url: pageUrl },
     ]),
   ]);
 
@@ -48,18 +52,16 @@ export default async function ResourcesIndexPage({
 
       {/* ── HERO ── */}
       <section className="pd-hero" aria-labelledby="resources-title">
-        <nav className="crumb" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
+        <nav className="crumb" aria-label={ui.breadcrumb}>
+          <Link href="/">{ui.home}</Link>
           <span aria-hidden="true">/</span>
-          <span className="current">Resources</span>
+          <span className="current">{ui.resources}</span>
         </nav>
         <h1 id="resources-title">
           {localizedPageHeading("resourcesIndex", locale)}
         </h1>
         <p className="lede">
-          Plain-language guides on legal processes, document formats and
-          practical steps for people dealing with court matters, notices,
-          property, contracts and criminal questions in Hyderabad, Telangana.
+          {ui.intro}
         </p>
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
@@ -73,15 +75,13 @@ export default async function ResourcesIndexPage({
               <PracticeIcon slug="civil" size={36} />
             </span>
             <span>
-              These guides explain general legal processes in Hyderabad and
-              Telangana. They are not legal advice for any specific matter, and
-              reading them does not create an advocate–client relationship.
+              {ui.note}
             </span>
           </p>
 
           {/* ── Article list: each card is clearly tappable on mobile ── */}
-          <div className="legal-steps resources-list" aria-label="Legal guides">
-            {resourceArticles.map((article, index) => (
+          <div className="legal-steps resources-list" aria-label={ui.resources}>
+            {articles.map((article, index) => (
               <article className="legal-step resources-card" key={article.slug}>
                 <span className="li-num">
                   {String(index + 1).padStart(2, "0")}
@@ -99,82 +99,66 @@ export default async function ResourcesIndexPage({
                   href={`/resources/${article.slug}` as never}
                   className="resources-card-cta"
                 >
-                  Read guide <span aria-hidden="true">→</span>
+                  {ui.read} <span aria-hidden="true">→</span>
                 </Link>
               </article>
             ))}
           </div>
 
           <p className="pd-footnote">
-            All guides are written for general public understanding. The law
-            and procedures referenced reflect Telangana / Hyderabad context as
-            of the dates shown. Send a brief enquiry if you have a specific
-            matter.
+            {ui.note}
           </p>
         </div>
 
         {/* ── SIDEBAR ── */}
-        <aside className="pd-side" aria-label="Related actions">
+        <aside className="pd-side" aria-label={ui.actions}>
           <div className="pd-cta">
-            <h3>Have a specific matter?</h3>
+            <h3>{ui.enquiryHeading}</h3>
             <p>
-              Guides give general context. For your specific situation: documents, deadlines and opposing parties: a direct conversation
-              is the right starting point.
+              {ui.enquiryBody}
             </p>
             <SourceAwareContactLink className="pd-cta-link">
-              Contact the firm <span aria-hidden="true">→</span>
+              {ui.enquiry} <span aria-hidden="true">→</span>
             </SourceAwareContactLink>
           </div>
 
           <div className="pd-adj">
-            <h3>Focused guidance pages</h3>
+            <h3>{ui.related}</h3>
             <ul>
               <li>
-                <Link href="/legal-notice-reply-format">
-                  Legal notice reply format
-                </Link>
+                <Link href="/legal-notice-reply-format">{labelForPath("/legal-notice-reply-format", locale)}</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/cyber-crime-complaint-format">
-                  Cyber crime complaint format
-                </Link>
+                <Link href="/cyber-crime-complaint-format">{labelForPath("/cyber-crime-complaint-format", locale)}</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/cheque-bounce-case-procedure-hyderabad">
-                  Cheque bounce procedure
-                </Link>
+                <Link href="/cheque-bounce-case-procedure-hyderabad">{labelForPath("/cheque-bounce-case-procedure-hyderabad", locale)}</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/bail-hearing-procedure-hyderabad">
-                  Bail hearing procedure
-                </Link>
+                <Link href="/bail-hearing-procedure-hyderabad">{labelForPath("/bail-hearing-procedure-hyderabad", locale)}</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/property-dispute-courts-telangana">
-                  Property dispute courts
-                </Link>
+                <Link href="/property-dispute-courts-telangana">{labelForPath("/property-dispute-courts-telangana", locale)}</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/legal-statistics-hyderabad">
-                  Legal statistics for Hyderabad
-                </Link>
+                <Link href="/legal-statistics-hyderabad">{labelForPath("/legal-statistics-hyderabad", locale)}</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/practice/criminal">Criminal litigation</Link>
+                <Link href="/practice/criminal">{labelForPath("/practice/criminal", locale)}</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/practice/civil">Civil and property disputes</Link>
+                <Link href="/practice/civil">{labelForPath("/practice/civil", locale)}</Link>
                 <span aria-hidden="true">→</span>
               </li>
               <li>
-                <Link href="/practice">All practice areas</Link>
+                <Link href="/practice">{labelForPath("/practice", locale)}</Link>
                 <span aria-hidden="true">→</span>
               </li>
             </ul>
