@@ -35,6 +35,12 @@ for (const row of rows) {
   }
   titleOwners.set(row.title, rowKey);
 
+  if (row.titleLength < 25 || row.titleLength > 70) {
+    throw new Error(
+      `Title length for ${rowKey} is ${row.titleLength}; expected 25-70 characters.`,
+    );
+  }
+
   if (!row.title.includes("GS Law Firm")) {
     throw new Error(`Missing firm name in title for ${rowKey}: ${row.title}`);
   }

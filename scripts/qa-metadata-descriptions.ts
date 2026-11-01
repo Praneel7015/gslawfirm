@@ -46,9 +46,9 @@ for (const row of rows) {
     );
   }
 
-  if (row.descriptionLength < 80 || row.descriptionLength > 170) {
+  if (row.descriptionLength < 80 || row.descriptionLength > 165) {
     throw new Error(
-      `Description length for ${rowKey} is ${row.descriptionLength}; expected 80-170 characters.`,
+      `Description length for ${rowKey} is ${row.descriptionLength}; expected 80-165 characters.`,
     );
   }
 }

@@ -8,6 +8,7 @@ import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { routing } from "@/i18n/routing";
 import { breadcrumbSchema, graphSchema, howToSchema } from "@/lib/jsonld";
+import { localizedResourceMetadata } from "@/lib/localized-metadata";
 import { SITE_URL } from "@/lib/site";
 import { resourceArticles, getResourceArticle } from "@/content/resources";
 import { labelForHref } from "@/content/internal-links";
@@ -257,16 +258,15 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const article = getResourceArticle(slug);
   if (!article) return {};
+  const metadata = localizedResourceMetadata(slug, locale);
   return {
-    title: article.title,
-    description: article.description,
+    ...metadata,
     keywords: article.tags,
     openGraph: {
-      title: article.title,
-      description: article.description,
+      ...metadata.openGraph,
       type: "article",
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt,

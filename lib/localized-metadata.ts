@@ -232,7 +232,7 @@ const localizedMetadata = {
       te: {
         title: `హైదరాబాద్ మరియు తెలంగాణ న్యాయ గణాంకాలు | ${firm.name}`,
         description:
-          "హైదరాబాద్ మరియు తెలంగాణ కోసం కోర్టు గణాంకాలు, కేసు పెండింగ్ సమాచారం మరియు న్యాయ ప్రక్రియ సందర్భం: సైబర్ క్రైమ్, ఆస్తి, వినియోగదారు, చెక్ బౌన్స్ మరియు క్రిమినల్ వివరాలు.",
+          "హైదరాబాద్ మరియు తెలంగాణ కోర్టు గణాంకాలు, కేసు పెండింగ్ సమాచారం మరియు న్యాయ ప్రక్రియ సందర్భం: సైబర్ క్రైమ్, ఆస్తి, వినియోగదారు, చెక్ బౌన్స్ మరియు క్రిమినల్ వివరాలు.",
       },
     },
   },
@@ -253,6 +253,66 @@ const localizedMetadata = {
         title: `హైదరాబాద్ కోసం న్యాయ వనరులు మరియు గైడ్‌లు | ${firm.name}`,
         description:
           "హైదరాబాద్, తెలంగాణలో కోర్టు విషయాలు, నోటీసులు, ఆస్తి, ఒప్పందాలు మరియు క్రిమినల్ ప్రశ్నలతో వ్యవహరించే వారికి సాదా-భాషా న్యాయ గైడ్‌లు మరియు వనరులు.",
+      },
+    },
+  },
+  resourceLegalNotice: {
+    path: "/resources/what-to-do-after-receiving-legal-notice-hyderabad",
+    copy: {
+      en: {
+        title: `Legal Notice Response Guide in Hyderabad | ${firm.name}`,
+        description:
+          "A checklist for responding to a legal notice in Hyderabad: verify the sender, review deadlines, gather documents and prepare a reply with an advocate.",
+      },
+      hi: {
+        title: `हैदराबाद में कानूनी नोटिस का जवाब | ${firm.name}`,
+        description:
+          "हैदराबाद में कानूनी नोटिस मिलने पर भेजने वाले की पहचान, समय सीमा और दस्तावेज जांचने तथा अधिवक्ता के साथ जवाब तैयार करने की जानकारी.",
+      },
+      te: {
+        title: `హైదరాబాద్‌లో లీగల్ నోటీసుకు జవాబు | ${firm.name}`,
+        description:
+          "హైదరాబాద్‌లో లీగల్ నోటీసు అందినప్పుడు పంపినవారి వివరాలు, గడువు, పత్రాలు పరిశీలించడం మరియు న్యాయవాదితో జవాబు సిద్ధం చేయడంపై సమాచారం.",
+      },
+    },
+  },
+  resourceBail: {
+    path: "/resources/understanding-bail-in-hyderabad-courts",
+    copy: {
+      en: {
+        title: `Bail Types and Court Guide in Hyderabad | ${firm.name}`,
+        description:
+          "Understand regular, anticipatory and interim bail in Hyderabad courts, including the application stages, documents, court jurisdiction and hearing process.",
+      },
+      hi: {
+        title: `हैदराबाद अदालतों में बेल के प्रकार | ${firm.name}`,
+        description:
+          "हैदराबाद की अदालतों में नियमित, अग्रिम और अंतरिम बेल के प्रकार, आवेदन के चरण, जरूरी दस्तावेज, अदालत के अधिकार क्षेत्र और सुनवाई की जानकारी.",
+      },
+      te: {
+        title: `హైదరాబాద్ కోర్టుల్లో బెయిల్ రకాలు | ${firm.name}`,
+        description:
+          "హైదరాబాద్ కోర్టుల్లో రెగ్యులర్, ముందస్తు మరియు మధ్యంతర బెయిల్ రకాలు, దరఖాస్తు దశలు, అవసరమైన పత్రాలు, కోర్టు పరిధి మరియు విచారణపై సమాచారం.",
+      },
+    },
+  },
+  resourcePropertyTitle: {
+    path: "/resources/property-title-verification-hyderabad",
+    copy: {
+      en: {
+        title: `Property Title Verification in Hyderabad | ${firm.name}`,
+        description:
+          "A guide to property title verification in Hyderabad: sale deeds, encumbrance certificates, revenue records, approvals and ownership issues before purchase.",
+      },
+      hi: {
+        title: `हैदराबाद में संपत्ति टाइटल की जांच | ${firm.name}`,
+        description:
+          "हैदराबाद में संपत्ति खरीदने से पहले बिक्री विलेख, भार प्रमाणपत्र, राजस्व रिकॉर्ड, मंजूरी और स्वामित्व संबंधी समस्याओं की जांच की जानकारी.",
+      },
+      te: {
+        title: `హైదరాబాద్‌లో ఆస్తి టైటిల్ పరిశీలన | ${firm.name}`,
+        description:
+          "హైదరాబాద్‌లో ఆస్తి కొనుగోలుకు ముందు అమ్మకపు పత్రాలు, ఎన్‌కంబరెన్స్ సర్టిఫికెట్, రెవెన్యూ రికార్డులు, అనుమతులు మరియు యాజమాన్య సమస్యల పరిశీలనపై సమాచారం.",
       },
     },
   },
@@ -687,6 +747,20 @@ const practiceDetailMetadataKeys = {
   "will-succession": "practiceWillSuccession",
   "high-court": "practiceHighCourt",
 } satisfies Record<PracticeSlug, LocalizedPageKey>;
+
+const resourceMetadataKeys: Record<string, LocalizedPageKey | undefined> = {
+  "what-to-do-after-receiving-legal-notice-hyderabad": "resourceLegalNotice",
+  "understanding-bail-in-hyderabad-courts": "resourceBail",
+  "property-title-verification-hyderabad": "resourcePropertyTitle",
+};
+
+export function localizedResourceMetadata(slug: string, locale: string): Metadata {
+  const key = Object.hasOwn(resourceMetadataKeys, slug)
+    ? resourceMetadataKeys[slug]
+    : undefined;
+  if (!key) throw new Error(`Missing localized metadata for resource: ${slug}`);
+  return localizedPageMetadata(key, locale);
+}
 
 function safeLocale(locale: string): Locale {
   return (routing.locales as readonly string[]).includes(locale)

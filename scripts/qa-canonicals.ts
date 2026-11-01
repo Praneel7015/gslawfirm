@@ -1,7 +1,9 @@
+import { resourceArticles } from "../content/resources";
 import { routing, type Locale } from "../i18n/routing";
 import {
   localizedMetadataAuditRows,
   localizedPageMetadata,
+  localizedResourceMetadata,
   type LocalizedPageKey,
 } from "../lib/localized-metadata";
 import { SITE_URL } from "../lib/site";
@@ -27,6 +29,25 @@ for (const row of rows) {
     throw new Error(
       `Canonical mismatch for ${row.locale}:${row.path}. Expected ${expected}, found ${actual}.`,
     );
+  }
+}
+
+// Exercise the same slug lookup used by article generateMetadata, so an
+// unregistered article or incorrect mapping cannot pass via registry rows alone.
+for (const article of resourceArticles) {
+  for (const locale of routing.locales) {
+    const metadata = localizedResourceMetadata(article.slug, locale);
+    const expectedPath = localizedPath(locale, `/resources/${article.slug}`);
+    const canonical = metadata.alternates?.canonical;
+    if (
+      !canonical ||
+      new URL(String(canonical), SITE_URL).href !==
+        new URL(expectedPath, SITE_URL).href
+    ) {
+      throw new Error(
+        `Resource canonical mismatch for ${locale}:${article.slug}.`,
+      );
+    }
   }
 }
 
