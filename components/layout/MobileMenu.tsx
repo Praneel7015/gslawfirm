@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { firm } from "@/content/firm";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { useModalFocus } from "@/lib/use-modal-focus";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 /**
@@ -20,26 +21,26 @@ export function MobileMenu({
 }) {
   const t = useTranslations("nav");
 
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  useModalFocus(dialogRef, open);
 
   const items: Array<[string, "/about" | "/practice" | "/resources" | "/contact"]> = [
     [t("about"), "/about"],
     [t("practice"), "/practice"],
-    ["Resources", "/resources"],
+    [t("resources"), "/resources"],
     [t("contact"), "/contact"],
   ];
 
   return (
-    <div
+    <dialog
+      ref={dialogRef}
+      onCancel={(event) => { event.preventDefault(); onClose(); }}
+      aria-label={t("menu")}
       id="mobile-menu"
       className={"mobile-menu" + (open ? " open" : "")}
       aria-hidden={!open}
     >
+      <button className="menu-close" data-initial-focus onClick={onClose}>{t("close")} ×</button>
       {items.map(([label, href]) =>
         href === "/contact" ? (
           <SourceAwareContactLink key={href} onClick={onClose}>
@@ -59,6 +60,6 @@ export function MobileMenu({
         <br />
         Kondapur, Hyderabad
       </div>
-    </div>
+    </dialog>
   );
 }

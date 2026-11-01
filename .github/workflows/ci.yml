@@ -26,16 +26,7 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
-      - name: Typecheck
-        run: pnpm typecheck
-
-      - name: ESLint
-        run: pnpm lint
-
-      - name: BCI language lint
-        run: pnpm lint:bci
-
-      - name: Production build
-        run: pnpm build
+      - name: Check candidate build and all localized routes
+        run: pnpm qa
         env:
           NEXT_PUBLIC_SITE_URL: https://sunitha.sindhole.com

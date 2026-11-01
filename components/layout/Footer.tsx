@@ -1,11 +1,13 @@
-import { getTranslations } from "next-intl/server";
+import { localizedPracticeAreas } from "@/content/localized-practice";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
 import { Lockup } from "@/components/brand/Lockup";
 import { firm } from "@/content/firm";
-import { practiceAreas } from "@/content/practice-areas";
 
 export async function Footer() {
+  const locale = await getLocale();
+  const areas = localizedPracticeAreas(locale);
   const t = await getTranslations("footer");
   const year = new Date().getFullYear();
 
@@ -20,7 +22,7 @@ export async function Footer() {
         <div className="foot-col">
           <h3>{t("columns.practice")}</h3>
           <ul>
-            {practiceAreas.map((a) => (
+            {areas.map((a) => (
               <li key={a.slug}>
                 <Link href={`/practice/${a.slug}` as never}>{a.shortName}</Link>
               </li>
@@ -35,16 +37,16 @@ export async function Footer() {
               <Link href="/about">{t("links.about")}</Link>
             </li>
             <li>
-              <Link href="/about#approach">{t("links.approach")}</Link>
+              <Link href="/continuity-of-counsel">{t("links.approach")}</Link>
             </li>
             <li>
               <SourceAwareContactLink>{t("links.contact")}</SourceAwareContactLink>
             </li>
             <li>
-              <Link href="/resources">Resources &amp; Guides</Link>
+              <Link href="/resources">{t("links.resources")}</Link>
             </li>
             <li>
-              <Link href="/legal-statistics-hyderabad">Legal Statistics</Link>
+              <Link href="/legal-statistics-hyderabad">{t("links.statistics")}</Link>
             </li>
             <li>
               <Link href="/disclaimer">{t("links.disclaimer")}</Link>
@@ -70,7 +72,7 @@ export async function Footer() {
             <li>
               <a href={`mailto:${firm.publicEmail}`}>{firm.publicEmail}</a>
             </li>
-            <li>{firm.hoursShort}</li>
+            <li>{t("officeHours")}</li>
           </ul>
         </div>
       </div>
@@ -81,7 +83,7 @@ export async function Footer() {
           <span>© {year} · {firm.name}</span>
           <span aria-hidden="true">·</span>
           <a className="dev-credit" href="https://praneel.sindhole.com">
-            <span>Made by Praneel S</span>
+            <span>{t("credit")}</span>
           </a>
         </div>
       </div>

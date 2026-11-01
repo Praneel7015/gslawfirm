@@ -1,3 +1,4 @@
+import { TranslatedGuide } from "@/components/sections/TranslatedGuide";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -102,6 +103,7 @@ export default async function CyberCrimeComplaintsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (locale === "hi" || locale === "te") return <TranslatedGuide id="cyber-crime-complaints" locale={locale} />;
 
   const localizedCyberUrl =
     locale === "en"

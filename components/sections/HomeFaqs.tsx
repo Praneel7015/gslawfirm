@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { ServiceFaq } from "@/content/service-faqs";
 
-const faqKeys = ["contract", "business", "criminal", "nearby"] as const;
+const faqKeys = ["criminal", "bail", "nearby", "contract", "business"] as const;
 
 export type HomeFaq = ServiceFaq & { key: (typeof faqKeys)[number] };
 

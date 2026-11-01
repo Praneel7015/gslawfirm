@@ -1,3 +1,4 @@
+import { TranslatedGuide } from "@/components/sections/TranslatedGuide";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -43,148 +44,91 @@ interface StatCategory {
 
 const STAT_CATEGORIES: StatCategory[] = [
   {
-    heading: "Cyber crime: Telangana",
-    slug: "cyber-crime",
-    icon: "criminal",
-    description: "Telangana consistently ranks among the top five states for registered cyber crime cases. The bulk of complaints in Hyderabad are filed through cybercrime.gov.in and then routed to the Telangana Cyber Security Bureau (TCSB) or local police.",
-    stats: [
+    "heading": "Cyber crime: Telangana",
+    "slug": "cyber-crime",
+    "icon": "criminal",
+    "description": "Historical registered-case figures for 2022, as reproduced by the Ministry of Home Affairs on 7 February 2024. These are registrations, not all portal complaints or a forecast.",
+    "stats": [
       {
-        figure: "15,297",
-        label: "Cyber crimes registered in Telangana (2022)",
-        source: "NCRB: Crime in India 2022, Table 21B",
-        note: "Includes financial fraud, impersonation, hacking, online harassment and data theft. Hyderabad accounts for the majority of state registrations.",
+        "figure": "15,297",
+        "label": "Cyber crime cases registered in Telangana (2022)",
+        "source": "NCRB Crime in India 2022; MHA parliamentary reply, 7 February 2024",
+        "note": "Reporting year: 2022. The figure is not a current annual total."
       },
       {
-        figure: "#4",
-        label: "Telangana rank among states by cyber crime registrations (2022)",
-        source: "NCRB: Crime in India 2022, Statement 25",
-      },
-      {
-        figure: "~76 %",
-        label: "Share of cyber crime complaints relating to financial fraud (national average)",
-        source: "NCRB: Crime in India 2022, Chapter 19",
-        note: "Fraudulent OTP collection, investment scams, banking-credential phishing and KYC fraud are the dominant categories.",
-      },
-      {
-        figure: "1930",
-        label: "National helpline for cyber crime complaints: available 24×7",
-        source: "Ministry of Home Affairs: I4C",
-        note: "Complaints also registerable at cybercrime.gov.in",
-      },
-    ],
+        "figure": "1930",
+        "label": "Helpline for assistance reporting financial cyber fraud",
+        "source": "Ministry of Home Affairs: I4C",
+        "note": "Report promptly to your bank and through cybercrime.gov.in. Reporting does not assure recovery."
+      }
+    ]
   },
   {
-    heading: "Cheque dishonour: Section 138 NI Act",
-    slug: "cheque-dishonour",
-    icon: "corporate",
-    description: "Section 138 Negotiable Instruments Act cases are among the most numerically significant matters before Metropolitan Magistrates in Hyderabad. Pendency remains high across India.",
-    stats: [
+    "heading": "Cheque dishonour: Section 138 NI Act",
+    "slug": "cheque-dishonour",
+    "icon": "corporate",
+    "description": "Statutory deadlines are different from case-volume statistics. The notice and complaint windows must be calculated from the correct event.",
+    "stats": [
       {
-        figure: "~35 lakh",
-        label: "Estimated pending Section 138 NI Act cases across India (2023)",
-        source: "Supreme Court: In Re: Expeditious Trial of Cases (2021), reaffirmed 2023",
-        note: "Hyderabad and Rangareddy district courts carry a significant share of the Telangana total.",
+        "figure": "30 days",
+        "label": "Window to give a written demand notice after receiving bank information of dishonour",
+        "source": "Negotiable Instruments Act 1881, Section 138 proviso (b)"
       },
       {
-        figure: "30 days",
-        label: "Statutory notice period before a Section 138 complaint can be filed",
-        source: "Section 138 read with Section 142, Negotiable Instruments Act 1881",
-        note: "The payee must serve a written demand notice within 30 days of the dishonour memo. The drawer then has 15 days to make payment.",
+        "figure": "15 days",
+        "label": "Payment opportunity from receipt of the demand notice",
+        "source": "Negotiable Instruments Act 1881, Section 138 proviso (c)"
       },
       {
-        figure: "2 years",
-        label: "Prescribed maximum imprisonment on conviction (or fine or both)",
-        source: "Section 138, Negotiable Instruments Act 1881 (as amended 2018)",
-      },
-    ],
+        "figure": "One month",
+        "label": "General complaint window after the cause of action arises",
+        "source": "Negotiable Instruments Act 1881, Section 142",
+        "note": "One calendar month is not always 30 days. Statutory conditions, service and any delay require individual review."
+      }
+    ]
   },
   {
-    heading: "Property disputes: Telangana courts",
-    slug: "property-disputes",
-    icon: "civil",
-    description: "Property litigation constitutes a significant share of civil court pendency in Telangana. Matters typically traverse civil courts, the High Court, the revenue Tahsildar and, in some cases, TSRERA.",
-    stats: [
+    "heading": "Property disputes: Telangana courts",
+    "slug": "property-disputes",
+    "icon": "civil",
+    "description": "Property, title, possession and revenue-record questions can require different relief and forums. Court pendency cannot establish a timeline for an individual suit.",
+    "stats": [
       {
-        figure: "~4.5 crore",
-        label: "Pending civil cases in district courts across India (2023)",
-        source: "National Judicial Data Grid: public dashboard, Oct 2023",
-        note: "Property, tenancy and succession cases collectively form the largest civil pendency block in Telangana district courts.",
-      },
-      {
-        figure: "6 months – 2 years",
-        label: "Typical first listing to evidence stage in a civil property suit in Hyderabad",
-        source: "GS Law Firm practice observation; consistent with NJDG district-wise disposal data",
-        note: "Timelines vary by complexity of title chain, number of defendants, interim relief applications and prevailing court roster.",
-      },
-      {
-        figure: "TSRERA",
-        label: "Telangana Real Estate Regulatory Authority: separate forum for RERA complaints",
-        source: "TSRERA: tsrera.telangana.gov.in",
-        note: "Builder delays, possession defaults and title issues under RERA are adjudicated separately from civil courts.",
-      },
-    ],
+        "figure": "NJDG",
+        "label": "Consult dated court pendency and disposal data at the source",
+        "source": "National Judicial Data Grid",
+        "note": "No undated national civil-case total or local hearing-duration estimate is reproduced here."
+      }
+    ]
   },
   {
-    heading: "Consumer forum complaints: Telangana",
-    slug: "consumer-forum",
-    icon: "will-succession",
-    description: "Consumer disputes are handled by a three-tier system: District CDRC, State CDRC (TSCDRC) and NCDRC. Filing thresholds were substantially revised by the Consumer Protection Act 2019.",
-    stats: [
+    "heading": "Consumer forum complaints: Telangana",
+    "slug": "consumer-forum",
+    "icon": "will-succession",
+    "description": "Consumer disputes use district, state and national commissions. Eligibility, jurisdiction and limitation depend on the transaction and current rules.",
+    "stats": [
       {
-        figure: "₹50 lakh",
-        label: "District CDRC upper pecuniary limit (Consumer Protection Act 2019)",
-        source: "Section 34, Consumer Protection Act 2019",
-      },
-      {
-        figure: "₹50 lakh – ₹2 crore",
-        label: "State CDRC jurisdiction: claims between these amounts",
-        source: "Section 47, Consumer Protection Act 2019",
-      },
-      {
-        figure: "5,82,544",
-        label: "Cases pending before all consumer commissions in India (2022)",
-        source: "Department of Consumer Affairs: Annual Report 2022-23",
-        note: "Telangana's state commission and district commissions in Hyderabad and Rangareddy carry high pendency relative to disposal capacity.",
-      },
-      {
-        figure: "21 days",
-        label: "Deadline for initial admission hearing on a consumer complaint",
-        source: "Section 36(1), Consumer Protection Act 2019",
-        note: "Admission does not guarantee success. The opposite party must be heard before a final order.",
-      },
-    ],
+        "figure": "2022–23",
+        "label": "Historical reporting period previously referenced for consumer pendency",
+        "source": "Department of Consumer Affairs annual reporting",
+        "note": "The earlier total has not been independently verified and is withheld. Check the original dated report before comparison."
+      }
+    ]
   },
   {
-    heading: "Criminal matters: Telangana",
-    slug: "criminal-matters",
-    icon: "high-court",
-    description: "Hyderabad is served by the Hyderabad, Cyberabad and Rachakonda Commissionerates. Criminal cases travel through Magistrate courts before session-stage matters proceed to the Sessions Court.",
-    stats: [
+    "heading": "Criminal matters: Telangana",
+    "slug": "criminal-matters",
+    "icon": "high-court",
+    "description": "Case stage, alleged offence and territorial jurisdiction determine the relevant court. Aggregate registrations do not predict bail or trial outcomes.",
+    "stats": [
       {
-        figure: "2,83,748",
-        label: "Cognisable offences registered in Telangana (2022)",
-        source: "NCRB: Crime in India 2022, Table 1.3",
-      },
-      {
-        figure: "~60 %",
-        label: "Share of IPC crimes related to property and economic offences in Telangana",
-        source: "NCRB: Crime in India 2022, Chapter 1",
-        note: "Theft, cheating, criminal breach of trust and misappropriation combine to form the largest share.",
-      },
-      {
-        figure: "24 hours",
-        label: "Maximum police custody before production before a Magistrate (on arrest without warrant)",
-        source: "Section 57, CrPC 1973 / Section 35, BNSS 2023",
-        note: "The Magistrate may order further custody on application; bail applications may be filed at this stage.",
-      },
-      {
-        figure: "1 July 2024",
-        label: "Date Bharatiya Nagarik Suraksha Sanhita (BNSS) replaced the CrPC",
-        source: "Ministry of Home Affairs notification",
-        note: "FIR filing, time-bound investigation, trial timelines and bail grounds have all changed. If your matter began before this date, transitional provisions may apply.",
-      },
-    ],
-  },
+        "figure": "BNSS 2023",
+        "label": "Bail and criminal procedure provisions must be identified precisely",
+        "source": "India Code: Bharatiya Nagarik Suraksha Sanhita 2023",
+        "note": "Regular bail provisions include Sections 478, 480 and 483. Section 482 concerns anticipatory bail; Section 528 preserves High Court inherent powers. Transitional cases require review."
+      }
+    ]
+  }
 ];
 
 const FAQ_ITEMS = [
@@ -198,7 +142,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "What courts handle property disputes in Hyderabad?",
-    answer: "Depending on the relief sought and the parties, property matters may fall before: the Civil Court (Junior or Senior Civil Judge), the City Civil Court, or the High Court of Telangana for higher-value or writ matters. Revenue tribunals and TSRERA are parallel forums for specific categories.",
+    answer: "Depending on the relief sought and the parties, property matters may fall before: the Civil Court (Junior or Senior Civil Judge), the City Civil Court, or the High Court of Telangana where an available appellate or writ remedy applies. Revenue tribunals and TSRERA are parallel forums for specific categories.",
   },
   {
     question: "Are the statistics on this page applicable to my specific case?",
@@ -213,6 +157,7 @@ export default async function LegalStatisticsHyderabadPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (locale === "hi" || locale === "te") return <TranslatedGuide id="legal-statistics-hyderabad" locale={locale} />;
 
   const pageUrl =
     locale === "en"
@@ -322,8 +267,8 @@ export default async function LegalStatisticsHyderabadPage({
             <ul>
               {[
                 {
-                  name: "NCRB: Crime in India 2022",
-                  url: "https://ncrb.gov.in/en/crime-india",
+                  name: "MHA: Crime in India 2022 figures, parliamentary reply",
+                  url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2003505",
                   note: "Annual statistical report on registered crimes across India, published by the National Crime Records Bureau.",
                 },
                 {
@@ -332,8 +277,8 @@ export default async function LegalStatisticsHyderabadPage({
                   note: "Real-time pendency and disposal data for district courts and High Courts.",
                 },
                 {
-                  name: "Department of Consumer Affairs: Annual Report 2022-23",
-                  url: "https://consumeraffairs.nic.in",
+                  name: "India Code: Negotiable Instruments Act 1881",
+                  url: "https://www.indiacode.nic.in/bitstream/123456789/2189/1/a1881-26.pdf",
                   note: "",
                 },
                 {
@@ -364,8 +309,8 @@ export default async function LegalStatisticsHyderabadPage({
           </div>
 
           <p className="pd-footnote">
-            Statistics are updated when new official reports are published.
-            Last reviewed: September 2026. This page is general reference
+            Historical reporting years remain attached to the figures.
+            Source check: 1 November 2026. This page is general reference
             information, not legal advice. GS Law Firm makes no warranty as
             to the accuracy or completeness of third-party data reproduced
             here; always consult the original sources and a qualified advocate

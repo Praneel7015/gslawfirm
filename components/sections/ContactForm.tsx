@@ -207,7 +207,7 @@ export function ContactForm() {
                 />
                 {errors.name && (
                   <p id="f-name-err" className="field-err">
-                    {errors.name.message}
+                    {t("validation.name")}
                   </p>
                 )}
               </div>
@@ -224,7 +224,7 @@ export function ContactForm() {
                 />
                 {errors.phone && (
                   <p id="f-phone-err" className="field-err">
-                    {errors.phone.message}
+                    {t("validation.phone")}
                   </p>
                 )}
               </div>
@@ -243,7 +243,7 @@ export function ContactForm() {
               />
               {errors.email && (
                 <p id="f-email-err" className="field-err">
-                  {errors.email.message}
+                  {t("validation.email")}
                 </p>
               )}
             </div>
@@ -260,7 +260,7 @@ export function ContactForm() {
               />
               {errors.message && (
                 <p id="f-message-err" className="field-err">
-                  {errors.message.message}
+                  {t("validation.message")}
                 </p>
               )}
             </div>
@@ -280,7 +280,7 @@ export function ContactForm() {
                 />
                 {turnstileRequired && !turnstileToken && !turnstileLoadError && (
                   <p className="turnstile-hint" aria-live="polite">
-                    Completing security check…
+                    {t("security")}
                   </p>
                 )}
                 {turnstileLoadError && (

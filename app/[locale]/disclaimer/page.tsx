@@ -1,3 +1,6 @@
+import { labelForPath, localizedUrl } from "@/lib/localized-content";
+import { guideUi } from "@/content/localized-guides";
+import type { Locale } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
@@ -72,6 +75,7 @@ export default async function DisclaimerPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const ui = guideUi[locale as Locale];
   const t = await getTranslations("disclaimerPage");
 
   const localizedDisclaimerUrl =
@@ -80,8 +84,8 @@ export default async function DisclaimerPage({
   const ld = graphSchema([
     disclaimerWebPageSchema(locale),
     breadcrumbSchema([
-      { name: "Home", url: SITE_URL },
-      { name: "Disclaimer", url: localizedDisclaimerUrl },
+      { name: ui.home, url: localizedUrl("/", locale) },
+      { name: labelForPath("/disclaimer", locale), url: localizedDisclaimerUrl },
     ]),
   ]);
 

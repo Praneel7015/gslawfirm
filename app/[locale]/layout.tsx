@@ -65,6 +65,7 @@ export const viewport: Viewport = {
   themeColor: "#0a0a0a",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export function generateStaticParams() {
@@ -89,7 +90,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={helveticaNeue.variable}>
       <body>
         <a className="skip" href="#main">
-          Skip to content
+          {messages.nav && (messages.nav as Record<string, string>).skip}
         </a>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />

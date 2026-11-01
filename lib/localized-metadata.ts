@@ -20,19 +20,19 @@ const localizedMetadata = {
     path: "/",
     copy: {
       en: {
-        title: "Contract & Business Advocate in Kondapur | GS Law Firm",
+        title: "Criminal & Bail Advocate in Kondapur, Hyderabad | GS Law Firm",
         description:
-          "Contract, business, criminal, drink-driving and civil matters from Adv. Aitha Sunitha's practice in Kondapur, Hyderabad, with a confidential enquiry path.",
+          "Criminal litigation, regular and anticipatory bail in Kondapur, Hyderabad. Contact Adv. Aitha Sunitha for FIR review, court representation and enquiries.",
       },
       hi: {
-        title: "GS Law Firm | एडवो. ऐथा सुनीता, कोंडापुर हैदराबाद",
+        title: "आपराधिक और ज़मानत वकील | GS Law Firm कोंडापुर हैदराबाद",
         description:
-          "कोंडापुर, हैदराबाद में एकल-अधिवक्ता प्रैक्टिस: आपराधिक, दीवानी, संपत्ति, वाणिज्यिक और हाई कोर्ट मामलों की जानकारी.",
+          "कोंडापुर, हैदराबाद में आपराधिक मुकदमे, नियमित और अग्रिम ज़मानत। प्राथमिकी की समीक्षा और अदालत में पैरवी के लिए एडवोकेट ऐथा सुनीता से संपर्क करें।",
       },
       te: {
-        title: "GS Law Firm | అడ్వ. ఐతా సునీత, కొండాపూర్ హైదరాబాద్",
+        title: "కొండాపూర్‌లో క్రిమినల్, బెయిల్ | GS Law Firm హైదరాబాద్",
         description:
-          "కొండాపూర్, హైదరాబాద్‌లో ఏకైక న్యాయవాది ప్రాక్టీస్: క్రిమినల్, సివిల్, ఆస్తి, వాణిజ్య మరియు హైకోర్టు విషయాల సమాచారం.",
+          "కొండాపూర్, హైదరాబాద్‌లో క్రిమినల్ వ్యాజ్యాలు, రెగ్యులర్, ముందస్తు బెయిల్. ఎఫ్‌ఐఆర్ సమీక్ష, కోర్టు ప్రాతినిధ్యానికి అడ్వకేట్ ఐతా సునీతను సంప్రదించండి.",
       },
     },
   },
@@ -67,7 +67,7 @@ const localizedMetadata = {
       hi: {
         title: `हैदराबाद में आपराधिक मुकदमे | ${firm.name}`,
         description:
-          "बेल, अग्रिम बेल, FIR, ट्रायल, अपील और आपराधिक अदालत के चरणों पर GS Law Firm, कोंडापुर हैदराबाद की जानकारी.",
+          "ज़मानत, अग्रिम ज़मानत, FIR, ट्रायल, अपील और आपराधिक अदालत के चरणों पर GS Law Firm, कोंडापुर हैदराबाद की जानकारी.",
       },
       te: {
         title: `హైదరాబాద్‌లో క్రిమినల్ లిటిగేషన్ | ${firm.name}`,
@@ -285,9 +285,9 @@ const localizedMetadata = {
           "Understand regular, anticipatory and interim bail in Hyderabad courts, including the application stages, documents, court jurisdiction and hearing process.",
       },
       hi: {
-        title: `हैदराबाद अदालतों में बेल के प्रकार | ${firm.name}`,
+        title: `हैदराबाद अदालतों में ज़मानत के प्रकार | ${firm.name}`,
         description:
-          "हैदराबाद की अदालतों में नियमित, अग्रिम और अंतरिम बेल के प्रकार, आवेदन के चरण, जरूरी दस्तावेज, अदालत के अधिकार क्षेत्र और सुनवाई की जानकारी.",
+          "हैदराबाद की अदालतों में नियमित, अग्रिम और अंतरिम ज़मानत के प्रकार, आवेदन के चरण, जरूरी दस्तावेज, अदालत के अधिकार क्षेत्र और सुनवाई की जानकारी.",
       },
       te: {
         title: `హైదరాబాద్ కోర్టుల్లో బెయిల్ రకాలు | ${firm.name}`,
@@ -345,9 +345,9 @@ const localizedMetadata = {
           "Information on regular bail, anticipatory bail, remand, surety paperwork and criminal-court appearances in Hyderabad, from GS Law Firm in Kondapur.",
       },
       hi: {
-        title: `हैदराबाद में बेल आवेदन | ${firm.name}`,
+        title: `हैदराबाद में ज़मानत आवेदन | ${firm.name}`,
         description:
-          "हैदराबाद में नियमित बेल, अग्रिम बेल, रिमांड, जमानती कागज और आपराधिक अदालत उपस्थिति पर सामान्य जानकारी.",
+          "हैदराबाद में नियमित ज़मानत, अग्रिम ज़मानत, रिमांड, जमानती कागज और आपराधिक अदालत उपस्थिति पर सामान्य जानकारी.",
       },
       te: {
         title: `హైదరాబాద్‌లో బెయిల్ దరఖాస్తులు | ${firm.name}`,
@@ -367,7 +367,7 @@ const localizedMetadata = {
       hi: {
         title: `हैदराबाद में आपराधिक बचाव | ${firm.name}`,
         description:
-          "हैदराबाद में FIR, शिकायत, बेल चरण, रिमांड, ट्रायल तारीखों और हाई कोर्ट कदमों पर आपराधिक-बचाव जानकारी.",
+          "हैदराबाद में FIR, शिकायत, ज़मानत चरण, रिमांड, ट्रायल तारीखों और हाई कोर्ट कदमों पर आपराधिक-बचाव जानकारी.",
       },
       te: {
         title: `హైదరాబాద్‌లో క్రిమినల్ డిఫెన్స్ | ${firm.name}`,
@@ -505,12 +505,12 @@ const localizedMetadata = {
           "Specific-performance information for sale agreements, business-contract obligations, notices, pleadings, interim relief and execution in Hyderabad.",
       },
       hi: {
-        title: `हैदराबाद में specific performance | ${firm.name}`,
+        title: `हैदराबाद में समझौते का विशिष्ट पालन | ${firm.name}`,
         description:
           "हैदराबाद में sale agreement, संपत्ति या व्यापार contract, नोटिस, interim relief, evidence, execution और appeal संदर्भ पर जानकारी.",
       },
       te: {
-        title: `హైదరాబాద్‌లో specific performance | ${firm.name}`,
+        title: `హైదరాబాద్‌లో ఒప్పంద నిర్దిష్ట అమలు | ${firm.name}`,
         description:
           "హైదరాబాద్‌లో sale agreement, ఆస్తి లేదా business contract, నోటీసులు, interim relief, evidence, execution మరియు appeal సందర్భంపై సమాచారం.",
       },
@@ -525,12 +525,12 @@ const localizedMetadata = {
           "Injunction and interim-relief information for possession, title, tenancy, contract restraint, notices, pleadings and urgency in Hyderabad.",
       },
       hi: {
-        title: `हैदराबाद में injunction और interim relief | ${firm.name}`,
+        title: `हैदराबाद में निषेधाज्ञा और अंतरिम राहत | ${firm.name}`,
         description:
           "हैदराबाद में कब्जा, title, tenancy, contract restraint, documents, urgency और civil-court interim relief पर जानकारी.",
       },
       te: {
-        title: `హైదరాబాద్‌లో injunction మరియు interim relief | ${firm.name}`,
+        title: `హైదరాబాద్‌లో ఇంజంక్షన్, మధ్యంతర రక్షణ | ${firm.name}`,
         description:
           "హైదరాబాద్‌లో స్వాధీనం, title, tenancy, contract restraint, పత్రాలు, urgency మరియు civil-court interim relief పై సమాచారం.",
       },
@@ -545,12 +545,12 @@ const localizedMetadata = {
           "Consumer-forum complaint information for defective goods, service deficiency, refund issues, builder records, notices, evidence and orders in Hyderabad.",
       },
       hi: {
-        title: `हैदराबाद में consumer forum complaints | ${firm.name}`,
+        title: `हैदराबाद में उपभोक्ता शिकायतें | ${firm.name}`,
         description:
           "हैदराबाद में खराब goods, service deficiency, refund, builder records, notices, evidence और orders पर consumer-forum complaint जानकारी.",
       },
       te: {
-        title: `హైదరాబాద్‌లో consumer forum complaints | ${firm.name}`,
+        title: `హైదరాబాద్‌లో వినియోగదారుల ఫిర్యాదులు | ${firm.name}`,
         description:
           "హైదరాబాద్‌లో defective goods, service deficiency, refund, builder records, notices, evidence మరియు ordersపై consumer-forum complaint సమాచారం.",
       },
@@ -565,12 +565,12 @@ const localizedMetadata = {
           "Cyber-crime complaint information for online fraud, account misuse, harassment messages, transaction records, FIR and notice context in Hyderabad.",
       },
       hi: {
-        title: `हैदराबाद में cyber crime complaints | ${firm.name}`,
+        title: `हैदराबाद में साइबर अपराध की शिकायतें | ${firm.name}`,
         description:
           "हैदराबाद में online fraud, account misuse, harassment messages, complaint or FIR steps और digital evidence records पर cyber-crime जानकारी.",
       },
       te: {
-        title: `హైదరాబాద్‌లో cyber crime complaints | ${firm.name}`,
+        title: `హైదరాబాద్‌లో సైబర్ నేర ఫిర్యాదులు | ${firm.name}`,
         description:
           "హైదరాబాద్‌లో online fraud, account misuse, harassment messages, complaint or FIR steps మరియు digital evidence records పై cyber-crime సమాచారం.",
       },
@@ -610,7 +610,7 @@ const localizedMetadata = {
           "हैदराबाद में legal notices, replies, deadlines, documents, civil suit context और property, contract, tenancy overlap पर जानकारी.",
       },
       te: {
-        title: `హైదరాబాద్‌లో legal notices మరియు replies | ${firm.name}`,
+        title: `హైదరాబాద్‌లో న్యాయ నోటీసులు, సమాధానాలు | ${firm.name}`,
         description:
           "హైదరాబాద్‌లో legal notices, replies, deadlines, documents, civil suit context మరియు property, contract, tenancy overlap పై సమాచారం.",
       },
@@ -645,9 +645,9 @@ const localizedMetadata = {
           "General information on bail hearing procedure in Hyderabad: FIR or complaint papers, remand stage, surety context, court dates and order conditions.",
       },
       hi: {
-        title: `हैदराबाद में बेल सुनवाई प्रक्रिया | ${firm.name}`,
+        title: `हैदराबाद में ज़मानत सुनवाई प्रक्रिया | ${firm.name}`,
         description:
-          "हैदराबाद में बेल सुनवाई प्रक्रिया पर सामान्य जानकारी: FIR या शिकायत कागज, रिमांड चरण, जमानती संदर्भ, कोर्ट तारीखें और शर्तें.",
+          "हैदराबाद में ज़मानत सुनवाई प्रक्रिया पर सामान्य जानकारी: FIR या शिकायत कागज, रिमांड चरण, जमानती संदर्भ, कोर्ट तारीखें और शर्तें.",
       },
       te: {
         title: `హైదరాబాద్‌లో బెయిల్ విచారణ ప్రక్రియ | ${firm.name}`,
@@ -667,7 +667,7 @@ const localizedMetadata = {
       hi: {
         title: `तेलंगाना में संपत्ति विवाद अदालतें | ${firm.name}`,
         description:
-          "हैदराबाद और तेलंगाना में संपत्ति-विवाद अदालत जानकारी: दस्तावेज, कब्जा, injunction, किरायेदारी, specific performance और आगे के चरण.",
+          "हैदराबाद और तेलंगाना में संपत्ति-विवाद अदालत जानकारी: दस्तावेज, कब्जा, injunction, किरायेदारी, समझौते का विशिष्ट पालन और आगे के चरण.",
       },
       te: {
         title: `తెలంగాణలో ఆస్తి వివాద కోర్టులు | ${firm.name}`,

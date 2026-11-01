@@ -3,7 +3,7 @@
  * Usage: pnpm qa:homepage-faq-schema [baseUrl]
  */
 
-export {};
+import { readFile } from "node:fs/promises";
 
 const BASE =
   process.argv[2]?.replace(/\/$/, "") ?? "http://127.0.0.1:3000";
@@ -55,21 +55,22 @@ function findFaqPage(nodes: JsonLd[]): JsonLd | undefined {
 async function main() {
   for (const homepage of HOMEPAGES) {
     const url = `${BASE}${homepage.path}`;
-    const response = await fetch(url);
-    if (!response.ok) {
+    const staticMode = process.argv.includes("--static");
+    const response = staticMode ? undefined : await fetch(url);
+    if (response && !response.ok) {
       throw new Error(`${homepage.locale}: ${url} returned ${response.status}.`);
     }
 
-    const html = await response.text();
+    const html = staticMode ? await readFile(`.next/server/app/${homepage.locale}.html`, "utf8") : await response!.text();
     const schema = findFaqPage(parseJsonLd(html));
     if (!schema) {
       throw new Error(`${homepage.locale}: FAQPage schema is missing.`);
     }
 
     const entities = schema.mainEntity;
-    if (!Array.isArray(entities) || entities.length !== 4) {
+    if (!Array.isArray(entities) || entities.length !== 5) {
       throw new Error(
-        `${homepage.locale}: expected 4 FAQ entities, found ${Array.isArray(entities) ? entities.length : 0}.`,
+        `${homepage.locale}: expected 5 FAQ entities, found ${Array.isArray(entities) ? entities.length : 0}.`,
       );
     }
 
@@ -106,7 +107,7 @@ async function main() {
     }
 
     console.log(
-      `✓ ${homepage.locale}: 4 valid FAQ entities match the visible questions and answers.`,
+      `✓ ${homepage.locale}: 5 valid FAQ entities match the visible questions and answers.`,
     );
   }
 }

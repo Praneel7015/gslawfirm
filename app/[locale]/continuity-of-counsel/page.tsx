@@ -1,3 +1,4 @@
+import { TranslatedGuide } from "@/components/sections/TranslatedGuide";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -93,6 +94,7 @@ export default async function ContinuityOfCounselPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (locale === "hi" || locale === "te") return <TranslatedGuide id="continuity-of-counsel" locale={locale} />;
 
   const localizedContinuityUrl =
     locale === "en"

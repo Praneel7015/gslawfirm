@@ -1,10 +1,12 @@
-import { getTranslations } from "next-intl/server";
+import { localizedPracticeAreas } from "@/content/localized-practice";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import { practiceAreas } from "@/content/practice-areas";
 import { PracticeIcon } from "@/components/brand/practice-icons";
 import { FocusedGuidance } from "@/components/sections/FocusedGuidance";
 
 export async function Practice() {
+  const locale = await getLocale();
+  const areas = localizedPracticeAreas(locale);
   const t = await getTranslations("practice");
   const lines = t("heading").split("\n");
 
@@ -24,7 +26,7 @@ export async function Practice() {
         <p className="practice-lede">{t("lede")}</p>
       </div>
       <div className="practice-grid">
-        {practiceAreas.map((a) => (
+        {areas.map((a) => (
           <Link
             key={a.slug}
             href={`/practice/${a.slug}` as never}
