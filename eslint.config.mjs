@@ -10,6 +10,6 @@ const compat = new FlatCompat({ baseDirectory: __dirname });
 export default [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    ignores: ["node_modules/**", ".next/**", "project/**", "next-env.d.ts", "output/**"],
+    ignores: ["node_modules/**", ".next/**", "project/**", "next-env.d.ts", "output/**", ".qa/**", ".playwright-cli/**"],
   },
 ];

@@ -12,7 +12,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { DisclaimerModal } from "@/components/legal/DisclaimerModal";
 import { WhatsAppFab } from "@/components/legal/WhatsAppFab";
-import { MobileStickyBar } from "@/components/legal/MobileStickyBar";
 import { CloudflareAnalytics } from "@/components/analytics/CloudflareAnalytics";
 import { ContactAnalytics } from "@/components/analytics/ContactAnalytics";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
@@ -97,7 +96,6 @@ export default async function LocaleLayout({
           {children}
           <Footer />
           <WhatsAppFab />
-          <MobileStickyBar />
           <DisclaimerModal />
         </NextIntlClientProvider>
         <ContactAnalytics />

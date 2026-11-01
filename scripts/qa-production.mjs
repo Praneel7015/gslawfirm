@@ -16,8 +16,8 @@ for (const script of ["qa-rendered.ts", "qa-h1.ts", "qa-homepage-faq-schema.ts"]
   await run(["--import", "tsx", `scripts/${script}`, "--static"]);
 }
 const port = process.env.QA_PORT ?? "3100";
-const base = `http://127.0.0.1:${port}`;
-const server = spawn(process.execPath, [next, "start", "--hostname", "127.0.0.1", "--port", port], { stdio: "inherit" });
+const base = `http://localhost:${port}`;
+const server = spawn(process.execPath, [next, "start", "--hostname", "localhost", "--port", port], { stdio: "inherit" });
 let serverError;
 server.once("error", error => { serverError = error; });
 const stop = async () => {

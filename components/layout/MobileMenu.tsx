@@ -40,7 +40,9 @@ export function MobileMenu({
       className={"mobile-menu" + (open ? " open" : "")}
       aria-hidden={!open}
     >
-      <button className="menu-close" data-initial-focus onClick={onClose}>{t("close")} ×</button>
+      <button type="button" className="ham menu-close open" data-initial-focus aria-label={t("close")} onClick={onClose}>
+        <span aria-hidden="true" /><span aria-hidden="true" />
+      </button>
       {items.map(([label, href]) =>
         href === "/contact" ? (
           <SourceAwareContactLink key={href} onClick={onClose}>
