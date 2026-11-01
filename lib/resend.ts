@@ -5,9 +5,8 @@ import { SITE_URL } from "./site";
 
 /**
  * Resend client (lazy, server-only). Sends the lead notification email
- * to LEAD_NOTIFY_TO. If RESEND_API_KEY is missing we log a warning and
- * skip the send (the API route still returns success so the user gets
- * feedback), that mode is for dev only.
+ * to LEAD_NOTIFY_TO. Development can skip delivery without credentials.
+ * Production must report failure rather than acknowledge an undelivered enquiry.
  */
 
 const apiKey = process.env.RESEND_API_KEY;
@@ -31,9 +30,12 @@ export async function sendLeadEmail(
 ): Promise<SendLeadResult> {
   const c = getClient();
   if (!c) {
+    if (process.env.NODE_ENV === "production") {
+      console.error("[resend] Email delivery is not configured.");
+      return { ok: false, error: "email-not-configured" };
+    }
     console.warn(
-      "[resend] RESEND_API_KEY missing, skipping send. Lead was:",
-      JSON.stringify({ lead, meta }, null, 2),
+      "[resend] Development mode: email delivery skipped (no API key).",
     );
     return { ok: true, id: null };
   }

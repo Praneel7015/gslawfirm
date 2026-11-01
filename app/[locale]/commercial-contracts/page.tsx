@@ -8,6 +8,7 @@ import { firm } from "@/content/firm";
 import { commercialContractsFaqs } from "@/content/service-faqs";
 import { Link } from "@/i18n/routing";
 import { SourceAwareContactLink } from "@/components/legal/SourceAwareContactLink";
+import { ContactActions } from "@/components/legal/ContactActions";
 import { RelatedPagesNav } from "@/components/seo/RelatedPagesNav";
 import { breadcrumbSchema, faqPageSchema, graphSchema } from "@/lib/jsonld";
 import {
@@ -139,10 +140,11 @@ export default async function CommercialContractsPage({
           {localizedPageHeading("commercialContracts", locale)}
         </h1>
         <p className="lede">
-          Vendor agreements, service terms, employment and contractor documents,
-          NDAs, IP assignments and commercial-dispute steps, read before the
-          next signature, notice or filing.
+          Drafting and review of vendor, service, employment and founder
+          agreements in Kondapur, Hyderabad. Understand the terms before
+          signing, changing an agreement or responding to a breach.
         </p>
+        <ContactActions />
         <span className="pd-hero-mark" aria-hidden="true" />
       </section>
 
@@ -194,6 +196,25 @@ export default async function CommercialContractsPage({
               ))}
             </ul>
           </div>
+
+          <section
+            className="service-faq"
+            aria-labelledby="contract-preparation-title"
+          >
+            <h2 id="contract-preparation-title">What to prepare for a contract review</h2>
+            <ul className="consultation-checklist">
+              <li>The current draft and any signed version, schedules or amendments.</li>
+              <li>The parties, your role and what the agreement needs to achieve.</li>
+              <li>Payment terms, delivery dates and the proposed signing or reply deadline.</li>
+              <li>Relevant correspondence and any notice already received.</li>
+            </ul>
+            <p>
+              Start your enquiry with the document type and deadline. Confirm
+              the scope, fees and how to share documents with the advocate
+              before sending confidential papers. Review cannot guarantee a
+              particular commercial outcome or remove every risk.
+            </p>
+          </section>
 
           <section
             className="service-faq"

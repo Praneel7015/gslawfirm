@@ -174,9 +174,10 @@ This local pass starts at `65e798e`. Public paths, the domain, branding and
 contact analytics event names are retained. Criminal litigation and bail now
 lead the homepage. Shared mobile reading rules use 22px gutters, 56px section
 spacing, 16px reading text, 14px secondary text, relaxed headings and script
-font fallbacks. A ResizeObserver reserves the actual sticky-bar height for
-translated labels, safe areas and enlargement. Native dialogs coordinate focus,
-background inertness, restoration and scroll locking.
+font fallbacks. The fixed Call / WhatsApp / Email bar was removed; the floating
+WhatsApp action respects device safe areas and hides while an enquiry field is
+focused. Native dialogs coordinate focus, background inertness, restoration and
+scroll locking.
 
 `content/localized-guides.ts`, `localized-practice.ts`, `localized-resources.ts`
 and `messages/{en,hi,te}.json` provide typed content and complete locale records.
@@ -230,9 +231,12 @@ promise enhanced search display. See [Google Search documentation updates](https
   neither is newly asserted as verified. Existing address, links, embed, phone and
   email are preserved. Confirm the correct office pin and Business Profile with
   the owner before changing them.
-- Windsor.ai is unconnected. No Search Console/Business Profile baseline or
-  contact-action counts have been obtained. If connected later, record the prior
-  28 complete days of query/page impressions, clicks and local contact actions.
+- Windsor.ai is unconnected. The supplied Search Console export covers 20 July–19
+  October 2026 and records 556 impressions, 4 clicks and 0.72% CTR. This small
+  historical sample is not a current 28-day baseline and does not show Business
+  Profile or contact-action counts. If analytics access becomes available, record
+  the prior 28 complete days of query/page impressions, clicks and local contact
+  actions; avoid drawing ranking conclusions from the export's average position.
 
 ### Reproduce candidate checks
 

@@ -44,6 +44,9 @@ export async function Location() {
           <span className="k">{t("hours")}</span>
           <span className="v">{t("officeHours")}</span>
         </div>
+        <a className="office-directions" href={firm.mapsUrl} target="_blank" rel="noopener noreferrer">
+          {t("directions")} <span aria-hidden="true">↗</span>
+        </a>
         <div className="served-block" aria-label={t("areas")}>
           <p className="served-copy">
             {t("served")}

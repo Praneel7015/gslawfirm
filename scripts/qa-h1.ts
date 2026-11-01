@@ -133,7 +133,7 @@ const ROUTE_INTENT: Record<string, Record<Locale, RegExp>> = {
     te: /సివిల్ మరియు ఆస్తి వివాదాలు/i,
   },
   "/practice/corporate": {
-    en: /corporate and commercial matters/i,
+    en: /corporate and commercial (?:law|matters)/i,
     hi: /कॉर्पोरेट और वाणिज्यिक मामले/i,
     te: /కార్పొరేట్ మరియు వాణిజ్య విషయాలు/i,
   },

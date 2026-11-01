@@ -43,7 +43,15 @@ try {
   }
   if (!ready) throw new Error(`Candidate server not ready after 45 seconds: ${base}`);
   const env = { ...process.env, QA_BASE_URL: base };
-  for (const script of ["qa-routes.ts", "qa-h1.ts", "qa-homepage-faq-schema.ts", "qa-rendered.ts", "qa-lead-heartbeat.ts"]) {
+  for (const script of [
+    "qa-routes.ts",
+    "qa-h1.ts",
+    "qa-homepage-faq-schema.ts",
+    "qa-rendered.ts",
+    "qa-resource-metadata.ts",
+    "qa-crawl-signals.ts",
+    "qa-lead-heartbeat.ts",
+  ]) {
     await run(["--import", "tsx", `scripts/${script}`, base], env);
   }
   if (process.env.QA_BROWSER === "1") await run(["scripts/qa-browser.mjs", base], env);

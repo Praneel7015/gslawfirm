@@ -2877,6 +2877,17 @@ a, .cp-cell .big { overflow-wrap: anywhere; }
 }
 .hero-service-links { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 24px; }
 .hero-service-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 16px; line-height: 1.65; }
+.page-contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 24px; }
+.page-contact-actions a, .office-directions {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 10px 16px; border: 1px solid currentColor;
+  font-size: 14px; line-height: 1.5; text-decoration: none;
+}
+.page-contact-actions a:first-child { color: var(--color-bg); background: var(--color-fg); }
+.office-directions { margin-top: 20px; gap: 12px; }
+.consultation-checklist { padding-left: 20px; margin-block: 18px; line-height: 1.65; }
+.consultation-checklist li + li { margin-top: 12px; }
+.consultation-checklist a { text-underline-offset: 3px; }
 @media (max-width: 768px) {
   .legal-step ul { margin: 0; padding-left: 24px; }
   .legal-step li + li { margin-top: 12px; }

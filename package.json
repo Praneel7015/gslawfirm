@@ -23,13 +23,16 @@
     "qa:ai-visibility": "node --import tsx scripts/qa-ai-visibility.ts",
     "qa:step-layout": "node --import tsx scripts/qa-step-layout.ts",
     "qa:lighthouse": "node scripts/qa-lighthouse.mjs",
-    "qa": "npm run typecheck && npm run lint && npm run lint:bci && npm run qa:localization && npm run qa:lead-source && npm run qa:contact-analytics && npm run qa:discovery-signals && npm run qa:canonicals && npm run qa:metadata-titles && npm run qa:metadata-descriptions && npm run qa:internal-links && npm run qa:ai-visibility && npm run qa:step-layout && npm run qa:production",
+    "qa": "npm run typecheck && npm run lint && npm run lint:bci && npm run qa:localization && npm run qa:lead-source && npm run qa:contact-analytics && npm run qa:email-configuration && npm run qa:discovery-signals && npm run qa:canonicals && npm run qa:metadata-titles && npm run qa:metadata-descriptions && npm run qa:internal-links && npm run qa:ai-visibility && npm run qa:step-layout && npm run qa:production",
     "prepare": "husky",
     "typecheck": "tsc --noEmit",
     "qa:production": "node scripts/qa-production.mjs",
     "qa:localization": "node --import tsx scripts/qa-localization.ts",
     "qa:rendered": "node --import tsx scripts/qa-rendered.ts",
-    "qa:browser": "node scripts/qa-browser.mjs"
+    "qa:browser": "node scripts/qa-browser.mjs",
+    "qa:email-configuration": "node --import tsx scripts/qa-email-configuration.ts",
+    "qa:resource-metadata": "node --import tsx scripts/qa-resource-metadata.ts",
+    "qa:crawl-signals": "node --import tsx scripts/qa-crawl-signals.ts"
   },
   "dependencies": {
     "next": "^15.0.0",
