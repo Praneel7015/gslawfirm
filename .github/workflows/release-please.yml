@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
   pull-requests: write
 
 jobs:
@@ -19,5 +20,5 @@ jobs:
           release-type: node
           # PRs opened with the default GITHUB_TOKEN do not trigger CI. Add a
           # fine-grained PAT or GitHub App token as RELEASE_PLEASE_TOKEN
-          # (contents + pull requests: write) so release PRs get checks.
+          # (contents, issues and pull requests: write) so release PRs get checks.
           token: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}

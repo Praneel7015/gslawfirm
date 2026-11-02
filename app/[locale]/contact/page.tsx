@@ -117,6 +117,13 @@ export default async function ContactPage({
             {firm.address.city}, {firm.address.region}{" "}
             {firm.address.postalCode} · India
             <br />
+            {/* Canonical NAP stays in English; te/hi also get the locality in their script. */}
+            {locale !== "en" && (
+              <>
+                {t("inPerson.locality")}
+                <br />
+              </>
+            )}
             {t("inPerson.note")}
           </p>
         </div>
