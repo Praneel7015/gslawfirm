@@ -15,7 +15,8 @@ export const firm = {
     region: "Telangana",
     postalCode: "500084",
     country: "IN",
-    full: "Kondapur, Sri Ramnagar, Block C, Gachibowli, Hyderabad, Telangana 500084",
+    /** Canonical one-line NAP address (must match GBP / citations and public/llms.txt). */
+    full: "Sri Ramnagar Block C, Kondapur, Gachibowli, Hyderabad, Telangana 500084",
   },
   geo: { lat: 17.464, lng: 78.366 },
   phone: "+91 99638 47704",
@@ -55,6 +56,16 @@ export const firm = {
     "Hyderabad",
     "Secunderabad",
   ],
+} as const;
+
+/** Exact NAP block for citations and on-page consistency checks. */
+export const firmNap = {
+  name: firm.name,
+  street: `${firm.address.line1}, ${firm.address.line2}`,
+  locality: `${firm.address.city}, ${firm.address.region} ${firm.address.postalCode}`,
+  phone: firm.phone,
+  email: firm.publicEmail,
+  oneLine: `${firm.name}, ${firm.address.full}, ${firm.phone}`,
 } as const;
 
 export type Firm = typeof firm;

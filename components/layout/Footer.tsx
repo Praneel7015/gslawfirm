@@ -63,8 +63,10 @@ export async function Footer() {
           <h3>{t("columns.office")}</h3>
           <ul>
             <li>{firm.address.line1}</li>
+            <li>{firm.address.line2}</li>
             <li>
-              {firm.address.line2}, {firm.address.postalCode}
+              {firm.address.city}, {firm.address.region}{" "}
+              {firm.address.postalCode}
             </li>
             <li>
               <a href={`tel:${firm.phoneE164}`}>{firm.phone}</a>

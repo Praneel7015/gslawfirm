@@ -109,9 +109,16 @@ export default async function ContactPage({
         <div className="cp-cell">
           <h2>{t("inPerson.label")}</h2>
           <a href={firm.mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div className="big">{t("inPerson.big")}</div>
+            <div className="big">{firm.address.line1}</div>
           </a>
-          <p>{t("inPerson.note")}</p>
+          <p>
+            {firm.address.line2}
+            <br />
+            {firm.address.city}, {firm.address.region}{" "}
+            {firm.address.postalCode} · India
+            <br />
+            {t("inPerson.note")}
+          </p>
         </div>
       </section>
 
