@@ -3,12 +3,14 @@ language: en-US
 reviews:
   profile: chill
   high_level_summary: true
+  changed_files_summary: true
   poem: false
   review_status: true
   path_filters:
     - "!**/pnpm-lock.yaml"
     - "!.next/**"
     - "!out/**"
+    - "!CHANGELOG.md"
   path_instructions:
     - path: "app/api/**/*.ts"
       instructions: |
@@ -37,6 +39,13 @@ reviews:
       instructions: Structured data must match visible page content and firm details; no unverifiable claims, ratings or reviews.
     - path: "scripts/**"
       instructions: QA scripts run in CI via `pnpm qa`. They must exit non-zero on failure and not need secrets.
+    - path: ".github/**"
+      instructions: |
+        Actions must stay pinned to full commit SHAs with a version comment,
+        jobs should use least-privilege permissions, and checkout should set
+        persist-credentials: false.
+    - path: "lighthouserc.json"
+      instructions: Assertions are warn-level on purpose while baselines settle; flag budgets loosened without a reason.
   pre_merge_checks:
     docstrings:
       mode: "off"

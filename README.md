@@ -1,5 +1,10 @@
 # GS Law Firm, website
 
+[![CI](https://github.com/Praneel7015/gslawfirm/actions/workflows/ci.yml/badge.svg)](https://github.com/Praneel7015/gslawfirm/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/Praneel7015/gslawfirm/actions/workflows/codeql.yml/badge.svg)](https://github.com/Praneel7015/gslawfirm/actions/workflows/codeql.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Praneel7015/gslawfirm/badge)](https://scorecard.dev/viewer/?uri=github.com/Praneel7015/gslawfirm)
+[![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Praneel7015/gslawfirm?utm_source=oss&utm_medium=github&utm_campaign=Praneel7015/gslawfirm&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)](https://coderabbit.ai)
+
 Production site for **GS Law Firm**, a solo-advocate practice in
 Kondapur, Hyderabad. Next.js 15, Tailwind CSS v4, `next-intl`
 (`en`, `te`, `hi`), BCI-compliant copy, SSR for SEO.
