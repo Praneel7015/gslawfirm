@@ -42,7 +42,7 @@ const ROUTE_LAST_MODIFIED: Record<string, string> = {
   "practice/corporate": "2026-11-01",
   "practice/will-succession": "2026-11-01",
   "practice/high-court": "2026-11-01",
-  contact: "2026-11-01",
+  contact: "2026-11-03",
   privacy: "2026-11-01",
   disclaimer: "2026-11-01",
 };

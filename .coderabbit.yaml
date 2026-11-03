@@ -1,0 +1,70 @@
+language: en-US
+
+reviews:
+  profile: chill
+  high_level_summary: true
+  changed_files_summary: true
+  poem: false
+  review_status: true
+  path_filters:
+    - "!**/pnpm-lock.yaml"
+    - "!.next/**"
+    - "!out/**"
+    - "!CHANGELOG.md"
+  path_instructions:
+    - path: "app/api/**/*.ts"
+      instructions: |
+        Lead enquiry API (Resend email, Upstash rate limiting, Turnstile).
+        Flag: input not validated with the zod schema in lib/lead-schema.ts,
+        rate limiting or Turnstile verification that can be skipped, client
+        IP read from a spoofable header without lib/get-ip.ts, secrets or
+        personal data (names, phone numbers, case details) in logs or error
+        responses, and errors that leak internals in production.
+    - path: "{content,messages}/**"
+      instructions: |
+        Client-facing copy for an advocate's office in English, Hindi and
+        Telugu. Bar Council of India rules forbid solicitation and
+        superlatives ("best", "leading", "expert", guaranteed outcomes,
+        testimonials, fee comparisons). Flag any such wording, keys missing
+        from one of messages/en.json, hi.json or te.json, and address or
+        phone details that differ from content/firm.ts.
+    - path: "app/**/*.tsx"
+      instructions: |
+        Next.js 15 App Router with next-intl locales. Check every new page
+        exports localized metadata with a canonical URL and hreflang
+        alternates, has exactly one h1, keeps server components free of
+        client-only APIs, and stays accessible (labels, focus order,
+        contrast, tap targets on mobile).
+    - path: "lib/jsonld.ts"
+      instructions: Structured data must match visible page content and firm details; no unverifiable claims, ratings or reviews.
+    - path: "scripts/**"
+      instructions: QA scripts run in CI via `pnpm qa`. They must exit non-zero on failure and not need secrets.
+    - path: ".github/**"
+      instructions: |
+        Actions must stay pinned to full commit SHAs with a version comment,
+        jobs should use least-privilege permissions, and checkout should set
+        persist-credentials: false.
+    - path: "lighthouserc.json"
+      instructions: Assertions are warn-level on purpose while baselines settle; flag budgets loosened without a reason.
+  pre_merge_checks:
+    docstrings:
+      mode: "off"
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - "^main$"
+  tools:
+    eslint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    actionlint:
+      enabled: true
+    yamllint:
+      enabled: true
+    markdownlint:
+      enabled: true
+
+chat:
+  auto_reply: true

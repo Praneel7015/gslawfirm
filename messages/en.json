@@ -200,8 +200,8 @@
     },
     "inPerson": {
       "label": "In Person · 04",
-      "big": "Sri Ramnagar Block C",
-      "note": "Kondapur, Hyderabad 500 084 · Telangana, India. Appointments preferred. Most consults can be done by phone or video first."
+      "locality": "Kondapur, Hyderabad, Telangana, India",
+      "note": "Appointments preferred. Most consults can be done by phone or video first."
     }
   },
   "privacy": {
