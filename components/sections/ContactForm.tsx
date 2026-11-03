@@ -5,7 +5,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 
-import { leadSchema, type LeadInput } from "@/lib/lead-schema";
+import {
+  leadSchema,
+  type LeadFormValues,
+  type LeadInput,
+} from "@/lib/lead-schema";
 import { cleanSitePath, isContactPath } from "@/lib/lead-source";
 import {
   captureEnquiryFailure,
@@ -72,7 +76,7 @@ export function ContactForm() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<LeadInput>({
+  } = useForm<LeadFormValues, unknown, LeadInput>({
     resolver: zodResolver(leadSchema),
     defaultValues: {
       name: "",
