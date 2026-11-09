@@ -41,7 +41,7 @@
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-hook-form": "^7.91.0",
-    "@hookform/resolvers": "^6.0.2",
+    "@hookform/resolvers": "^7.0.3",
     "zod": "^4.6.7",
     "resend": "^4.0.0",
     "@upstash/ratelimit": "^2.2.0",
